@@ -22,7 +22,7 @@ public class TireTrailRendererBehavior : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {/* // Commenting out for MetroidVania file reasons
         if (playerMovement.TireSkid(out float lateralVelocity, out bool isBraking))
         {
             AudioManager.Instance.PlaySkid();
@@ -32,5 +32,6 @@ public class TireTrailRendererBehavior : MonoBehaviour
         {
             trailRenderer.emitting = false;
         }
+        */
     }
 }

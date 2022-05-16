@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement_Original : MonoBehaviour
 {
     public float accelerationFactor = 10.0f;
     public float maxSpeed = 5.0f;

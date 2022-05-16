@@ -26,19 +26,20 @@ public class PlayerInputController : MonoBehaviour
     public void Stop()
     {
         canStillMove = false;
-        playerMovement.StopVehicle();
+//        playerMovement.StopVehicle();
     }
 
     void Update()
     {
         if (canStillMove) // Can't move if you've been caught
         {
-            playerMovement.SetInput(
+           /* playerMovement.SetInput(
                 new Vector2(
                     Input.GetAxis("Horizontal"),
                     Input.GetAxis("Vertical")
                 )
             );
+           */
         }
     }
 }
