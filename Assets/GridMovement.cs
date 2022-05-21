@@ -8,7 +8,7 @@ public class GridMovement : MonoBehaviour
     private Transform movePoint;
     private Animator animator;
     private Vector2 lastMoveDirection;
-    private bool isHandlingMove = false;
+    private bool isMovingTarget = false;
 
     private void Awake()
     {
@@ -50,30 +50,30 @@ public class GridMovement : MonoBehaviour
             UpdateAnimation(movement);
         }
 
-        float distanceToMovePoint = Vector3.Distance(transform.position, movePoint.position);
+        float distanceToMovePoint = Vector3.Distance(
+            transform.position,
+            movePoint.position
+        );
         if (distanceToMovePoint == 0)
         {
-            isHandlingMove = false;
+            isMovingTarget = false;
         }
 
-        if (!isHandlingMove)
+        if (!isMovingTarget)
         {
-            if (Mathf.Abs(movement.x) >= 0.1f)
-            {
-                float move = movement.x > 0 ? 1f : -1f;
-                movePoint.position += new Vector3(move, 0.0f, 0.0f);
-                isHandlingMove = true;
-            }
-            if (Mathf.Abs(movement.y) >= 0.1f)
-            {
-                float move = movement.y > 0 ? 1f : -1f;
-                movePoint.position += new Vector3(0.0f, move, 0.0f);
-                isHandlingMove = true;
-            }
+            movePoint.position += new Vector3(
+                movement.x,
+                movement.y, 0.0f
+            );
+            isMovingTarget = true;
         }
         else
         {
-            transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(
+                transform.position,
+                movePoint.position,
+                moveSpeed * Time.deltaTime
+            );
         }
     }
 
