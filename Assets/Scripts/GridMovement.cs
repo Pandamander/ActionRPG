@@ -7,7 +7,6 @@ public class GridMovement : MonoBehaviour
     public float moveSpeed;
     private Transform movePoint;
     private Animator animator;
-    private Vector2 lastMoveDirection;
     private bool isMovingTarget = false;
 
     private void Awake()
