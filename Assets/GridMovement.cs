@@ -21,7 +21,6 @@ public class GridMovement : MonoBehaviour
 
     void Update()
     {
-
         float horizontal = 0;
         float vertical = 0;
         if (Input.GetKeyDown("up"))
@@ -50,9 +49,6 @@ public class GridMovement : MonoBehaviour
         {
             UpdateAnimation(movement);
         }
-
-
-        //transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
 
         float distanceToMovePoint = Vector3.Distance(transform.position, movePoint.position);
         if (distanceToMovePoint == 0)
