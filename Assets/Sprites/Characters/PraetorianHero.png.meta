@@ -1018,6 +1018,69 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: PraetorianHero_0
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 772
+        width: 30
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67ec4a1ae993546238bd5d018f5adcec
+      internalID: 1621429347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PraetorianHero_1
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 758
+        width: 29
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52a542b3fdaf6460c9852c56e6f5417b
+      internalID: -24735344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PraetorianHero_3
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 742
+        width: 29
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d320071234844598a61ce9b489c9217
+      internalID: 1018196867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1030,7 +1093,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       PraetorianHero_35: -893456415
-      PraetorianHero_15: 1631356366
+      PraetorianHero_57: -1561654734
       PraetorianHero_32: 1148602080
       PraetorianHero_28: -1942594151
       PraetorianHero_64: -390020215
@@ -1102,7 +1165,7 @@ TextureImporter:
       PraetorianHero_26: -1954488691
       PraetorianHero_17: -1330725921
       PraetorianHero_46: -61592283
-      PraetorianHero_57: -1561654734
+      PraetorianHero_15: 1631356366
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
