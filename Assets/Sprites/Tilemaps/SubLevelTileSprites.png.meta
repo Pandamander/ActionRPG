@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 62416d3be687b8746adf635d1caf8595
+guid: 4e9571c5f63e744cb832e6bdc04fc191
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,200 +116,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PraetorianHero_2
-      rect:
-        serializedVersion: 2
-        x: 65
-        y: 752
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e8beafdd1ec264233b1579fa5229ff28
-      internalID: 1131921885
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PraetorianHero_7
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 768
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 153c72de152aa4e6aa8a57305d6ff870
-      internalID: 1990820267
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PraetorianHero_10
-      rect:
-        serializedVersion: 2
-        x: 23
-        y: 752
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4b0efdf173d0c4c1ea5e150ba9b679a2
-      internalID: -821126881
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PraetorianHero_15
-      rect:
-        serializedVersion: 2
-        x: 97
-        y: 752
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 310c9ad0a40274621b0ba1fd6cc9a68e
-      internalID: 1631356366
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PraetorianHero_16
-      rect:
-        serializedVersion: 2
-        x: 127
-        y: 752
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0838b85eef03b4117afb99bd40c9db2f
-      internalID: -331018679
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PraetorianHero_17
-      rect:
-        serializedVersion: 2
-        x: 368
-        y: 752
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f20508009d76d4749b30e52709c0a816
-      internalID: -1330725921
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PraetorianHero_18
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 752
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b75a971265db74b34871f1ff46133e3e
-      internalID: -111683207
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PraetorianHero_19
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 679
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8763f8902f6284319a1530f6d9018de6
-      internalID: 24113618
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PraetorianHero_21
+      name: SubLevelTileSprites_0
       rect:
         serializedVersion: 2
         x: 176
-        y: 679
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ce2c8493cff054adda99842fb835645d
-      internalID: 1306876610
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PraetorianHero_23
-      rect:
-        serializedVersion: 2
-        x: 464
-        y: 704
+        y: 304
         width: 16
         height: 16
       alignment: 0
@@ -319,18 +130,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 214afd7821100450ab9c224072cfdcc1
-      internalID: 1195703197
+      spriteID: 8b3d21c96e6924928989ca14da52b8e6
+      internalID: -1707262581
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_24
+      name: SubLevelTileSprites_1
       rect:
         serializedVersion: 2
-        x: 480
-        y: 704
+        x: 192
+        y: 304
         width: 16
         height: 16
       alignment: 0
@@ -340,18 +151,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c49fef08b99c4424b577e487f76daeb
-      internalID: 762835232
+      spriteID: 906b11277d3f843529a93b54d5483e12
+      internalID: -1689593771
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_25
+      name: SubLevelTileSprites_2
       rect:
         serializedVersion: 2
-        x: 496
-        y: 704
+        x: 176
+        y: 288
         width: 16
         height: 16
       alignment: 0
@@ -361,18 +172,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27ea0df2b43e343848fe3139b32a93b9
-      internalID: 31981646
+      spriteID: 67aed13836c6d4c71b79c5ada272db0f
+      internalID: -474230526
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_26
+      name: SubLevelTileSprites_3
       rect:
         serializedVersion: 2
-        x: 512
-        y: 704
+        x: 192
+        y: 288
         width: 16
         height: 16
       alignment: 0
@@ -382,18 +193,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd6c62d01afc040f7bb46e7bb093dd1d
-      internalID: -1954488691
+      spriteID: 30a22764e8d364f8e94c9b596a3e2149
+      internalID: 409387177
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_27
+      name: SubLevelTileSprites_4
       rect:
         serializedVersion: 2
-        x: 528
-        y: 704
+        x: 16
+        y: 272
         width: 16
         height: 16
       alignment: 0
@@ -403,18 +214,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 384183b2f90bd4630b76d8aba0e2e47a
-      internalID: 337960130
+      spriteID: ab02c80319fd841e485315c8c079cd32
+      internalID: 1663028779
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_28
+      name: SubLevelTileSprites_5
       rect:
         serializedVersion: 2
-        x: 544
-        y: 704
+        x: 32
+        y: 272
         width: 16
         height: 16
       alignment: 0
@@ -424,18 +235,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 253c8f1fe1fe944c4949bba59ea309a7
-      internalID: -1942594151
+      spriteID: 7c4de175d23f043908ea04a8b09a6382
+      internalID: -137025363
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_37
+      name: SubLevelTileSprites_6
       rect:
         serializedVersion: 2
-        x: 496
-        y: 672
+        x: 64
+        y: 272
         width: 16
         height: 16
       alignment: 0
@@ -445,18 +256,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0974880ecd5748228eee551f38e5617
-      internalID: 1440432016
+      spriteID: b901def6e03604fd6b317a79e207eb96
+      internalID: -5677695
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_38
+      name: SubLevelTileSprites_7
       rect:
         serializedVersion: 2
-        x: 512
-        y: 672
+        x: 80
+        y: 272
         width: 16
         height: 16
       alignment: 0
@@ -466,18 +277,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9296a3dfac5594a23996bd24b361b8fc
-      internalID: -1520826117
+      spriteID: c878593bb7f824800b4712d03fe988cc
+      internalID: -1358402052
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_39
+      name: SubLevelTileSprites_8
       rect:
         serializedVersion: 2
-        x: 448
-        y: 624
+        x: 176
+        y: 272
         width: 16
         height: 16
       alignment: 0
@@ -487,18 +298,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 358c4517cfa1c43ddaaeac9b5ea4b7a2
-      internalID: -630871905
+      spriteID: f97eb3d9ed72541f8b2f508de25c4830
+      internalID: -719832525
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_40
+      name: SubLevelTileSprites_9
       rect:
         serializedVersion: 2
-        x: 464
-        y: 624
+        x: 192
+        y: 272
         width: 16
         height: 16
       alignment: 0
@@ -508,18 +319,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 488d6a93344b34e07b758444ccc0caa2
-      internalID: 483931968
+      spriteID: cda7e80e7f77a49e98d1b3e35840d7a7
+      internalID: 937962651
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_41
+      name: SubLevelTileSprites_10
       rect:
         serializedVersion: 2
-        x: 496
-        y: 624
+        x: 16
+        y: 256
         width: 16
         height: 16
       alignment: 0
@@ -529,18 +340,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c485d316f582414a95a9414471d4b17
-      internalID: -873763883
+      spriteID: acba3810b12a548269b4bc6115d691c3
+      internalID: -592882778
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_42
+      name: SubLevelTileSprites_11
       rect:
         serializedVersion: 2
-        x: 512
-        y: 624
+        x: 32
+        y: 256
         width: 16
         height: 16
       alignment: 0
@@ -550,18 +361,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b17ce00b1f27440eb38a1708f672679
-      internalID: -768863259
+      spriteID: 032ffe3e1bc16434aae0f211a829aedd
+      internalID: -797192783
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_43
+      name: SubLevelTileSprites_12
       rect:
         serializedVersion: 2
-        x: 448
-        y: 608
+        x: 128
+        y: 256
         width: 16
         height: 16
       alignment: 0
@@ -571,18 +382,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e7a614ae8ee9472a993c0b545ab0016
-      internalID: -1544996459
+      spriteID: c65d2236119374a409dc3906e55ede89
+      internalID: 1417971995
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_44
+      name: SubLevelTileSprites_13
       rect:
         serializedVersion: 2
-        x: 464
-        y: 608
+        x: 144
+        y: 256
         width: 16
         height: 16
       alignment: 0
@@ -592,18 +403,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9aae65e78ed54f3f8f7074e2c781b26
-      internalID: -1582037427
+      spriteID: 7ffa8bf9604b44860ba9ea857c065ecb
+      internalID: 913233282
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_45
+      name: SubLevelTileSprites_14
       rect:
         serializedVersion: 2
-        x: 560
-        y: 608
+        x: 176
+        y: 256
         width: 16
         height: 16
       alignment: 0
@@ -613,18 +424,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ee8a4142520e491ba24d6a1d0bf7239
-      internalID: 614627872
+      spriteID: d37a52d36772d4d9dba10478fbd7d440
+      internalID: -1598065351
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_46
+      name: SubLevelTileSprites_15
       rect:
         serializedVersion: 2
-        x: 576
-        y: 608
+        x: 192
+        y: 256
         width: 16
         height: 16
       alignment: 0
@@ -634,18 +445,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b28830e9e1d4c4f54af909c90a752af8
-      internalID: -61592283
+      spriteID: b3a6a28afed514b21a8477e28fde3cec
+      internalID: -356913851
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_47
+      name: SubLevelTileSprites_16
       rect:
         serializedVersion: 2
-        x: 432
-        y: 592
+        x: 0
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -655,18 +466,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae362a08a7ba1491bb49c9bed17551bc
-      internalID: 1340280506
+      spriteID: 063825bfa53fd4ea586710b7efdeaf3f
+      internalID: 623364341
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_48
+      name: SubLevelTileSprites_17
       rect:
         serializedVersion: 2
-        x: 448
-        y: 592
+        x: 16
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -676,18 +487,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7bb5beda9d15746dd9e47baf3623856c
-      internalID: -7004440
+      spriteID: bee5459064e584cdbbde82691e8a2cfe
+      internalID: -475198025
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_49
+      name: SubLevelTileSprites_18
       rect:
         serializedVersion: 2
-        x: 464
-        y: 592
+        x: 32
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -697,18 +508,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1fbbb7e878a3d43f1abf5bd5015a920d
-      internalID: 1942290855
+      spriteID: fad939b98eb8b4def92e2392244d76b6
+      internalID: 888852626
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_50
+      name: SubLevelTileSprites_19
       rect:
         serializedVersion: 2
-        x: 480
-        y: 592
+        x: 48
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -718,18 +529,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3fed5aeb4fe5a4df1b4dd9be6d6a2753
-      internalID: -1099468376
+      spriteID: ea1c1bc1ec9ce44eeb409f3d4379a856
+      internalID: -1872850694
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_51
+      name: SubLevelTileSprites_20
       rect:
         serializedVersion: 2
-        x: 496
-        y: 592
+        x: 64
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -739,18 +550,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6cc3f996be624443d9865b60b9b32117
-      internalID: 569530391
+      spriteID: 99645e79304ab4d109ca73ac05c92789
+      internalID: -309151274
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_52
+      name: SubLevelTileSprites_21
       rect:
         serializedVersion: 2
-        x: 560
-        y: 592
+        x: 112
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -760,18 +571,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dffc26457db834893b56ad06f22928df
-      internalID: -600432274
+      spriteID: 23c2e85604b6b4797b123645a1e65885
+      internalID: 2031324139
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_53
+      name: SubLevelTileSprites_22
       rect:
         serializedVersion: 2
-        x: 432
-        y: 576
+        x: 128
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -781,18 +592,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33d70b060bad44b6885f4dd41300d156
-      internalID: 1271175014
+      spriteID: 5ccbd81c9290544b285a491e30bf5fe6
+      internalID: 2108375937
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_54
+      name: SubLevelTileSprites_23
       rect:
         serializedVersion: 2
-        x: 448
-        y: 576
+        x: 144
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -802,18 +613,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4654ecd6f8c9047d5ac92e4a5e5c0952
-      internalID: -1497679273
+      spriteID: 4b426f9da626b456c8c17f90990d19a1
+      internalID: -1508267349
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_55
+      name: SubLevelTileSprites_24
       rect:
         serializedVersion: 2
-        x: 464
-        y: 576
+        x: 160
+        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -823,18 +634,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86e8a8f459f284996893953266d7d273
-      internalID: -705252907
+      spriteID: 1f389562086284b56892c49e99407389
+      internalID: -182431350
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_56
+      name: SubLevelTileSprites_25
       rect:
         serializedVersion: 2
-        x: 480
-        y: 576
+        x: 0
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -844,18 +655,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bbda2032db85d4b44a417c12e77ecad4
-      internalID: -1375208808
+      spriteID: 25e942334c2864cc1ae43651fa727e57
+      internalID: 304550500
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_57
+      name: SubLevelTileSprites_26
       rect:
         serializedVersion: 2
-        x: 496
-        y: 576
+        x: 16
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -865,18 +676,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4b2e8a161d0f481c9481c9011db4d8a
-      internalID: -1561654734
+      spriteID: 01badfc6a0a544e62bf0f48c12441812
+      internalID: -627038207
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_58
+      name: SubLevelTileSprites_27
       rect:
         serializedVersion: 2
-        x: 432
-        y: 560
+        x: 32
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -886,18 +697,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33e6c7899933a492baa5488a5c68d3f1
-      internalID: 2050348476
+      spriteID: c862cd053e93c4b559afd9ae63cb01b6
+      internalID: -389853288
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_59
+      name: SubLevelTileSprites_28
       rect:
         serializedVersion: 2
-        x: 448
-        y: 560
+        x: 48
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -907,18 +718,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f472820e327bb464985bc4e5f079a523
-      internalID: 827315738
+      spriteID: 1863ba8457eff4ec8bd339ea4eb93808
+      internalID: 1429668036
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_60
+      name: SubLevelTileSprites_29
       rect:
         serializedVersion: 2
-        x: 464
-        y: 560
+        x: 64
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -928,18 +739,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7ed7ae7bde2d4e53a0f92fea31d6432
-      internalID: 959297503
+      spriteID: ff4c87364d92c407ebb5ab0d99b91853
+      internalID: -684363368
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_61
+      name: SubLevelTileSprites_30
       rect:
         serializedVersion: 2
-        x: 480
-        y: 560
+        x: 112
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -949,18 +760,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55c96b21426304d739034192d7266fcd
-      internalID: 805496199
+      spriteID: 0f7df6a14ecf2420fa345905880ded11
+      internalID: -50146969
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_62
+      name: SubLevelTileSprites_31
       rect:
         serializedVersion: 2
-        x: 496
-        y: 560
+        x: 128
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -970,123 +781,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5fe15eb92f97c4bdd8b574b8c9d8dc31
-      internalID: 203411902
+      spriteID: 5a52740389d6a445793d0048494ea73a
+      internalID: -643138530
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_63
+      name: SubLevelTileSprites_32
       rect:
         serializedVersion: 2
-        x: 23
-        y: 493
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1d1e3caf6533c4d98ad17b11564c208d
-      internalID: -420832930
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PraetorianHero_68
-      rect:
-        serializedVersion: 2
-        x: 76
-        y: 493
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a3874ac28815846e091419b76195c44b
-      internalID: -142262740
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PraetorianHero_0
-      rect:
-        serializedVersion: 2
-        x: 336
-        y: 772
-        width: 30
-        height: 7
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 67ec4a1ae993546238bd5d018f5adcec
-      internalID: 1621429347
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PraetorianHero_1
-      rect:
-        serializedVersion: 2
-        x: 336
-        y: 758
-        width: 29
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 52a542b3fdaf6460c9852c56e6f5417b
-      internalID: -24735344
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PraetorianHero_3
-      rect:
-        serializedVersion: 2
-        x: 336
-        y: 742
-        width: 29
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5d320071234844598a61ce9b489c9217
-      internalID: 1018196867
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PraetorianHero_4
-      rect:
-        serializedVersion: 2
-        x: 560
-        y: 576
+        x: 144
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -1096,18 +802,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dbba8db8ee1b04b92bd46cbd91738912
-      internalID: -1591487740
+      spriteID: c5770e545e02c4e9996145086c18e656
+      internalID: -680703110
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_5
+      name: SubLevelTileSprites_33
       rect:
         serializedVersion: 2
-        x: 576
-        y: 576
+        x: 160
+        y: 224
         width: 16
         height: 16
       alignment: 0
@@ -1117,18 +823,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f23d7c9fe2f54437922d4663a0e1730
-      internalID: 1634981201
+      spriteID: 2a38214b25851498789d094bb4e06b0d
+      internalID: -666972856
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_6
+      name: SubLevelTileSprites_34
       rect:
         serializedVersion: 2
-        x: 576
-        y: 592
+        x: 0
+        y: 208
         width: 16
         height: 16
       alignment: 0
@@ -1138,18 +844,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e66df0bd6b1d4419e99e4831888fcf0c
-      internalID: 20911167
+      spriteID: cce23e8f5a41a444e8105e96caf17ed7
+      internalID: 1877916035
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_8
+      name: SubLevelTileSprites_35
       rect:
         serializedVersion: 2
-        x: 544
-        y: 592
+        x: 16
+        y: 208
         width: 16
         height: 16
       alignment: 0
@@ -1159,18 +865,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e61823beb0a744032a63eb6898bca81f
-      internalID: 46788915
+      spriteID: 6af7b4f2474cb4356a6859d9676bb212
+      internalID: -1632389614
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_9
+      name: SubLevelTileSprites_36
       rect:
         serializedVersion: 2
-        x: 544
-        y: 576
+        x: 32
+        y: 208
         width: 16
         height: 16
       alignment: 0
@@ -1180,18 +886,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d2cb480e60fa4717bbe4a2b28bd5a2a
-      internalID: 509871156
+      spriteID: 453fcd9f66e2047eebe20cc266752adc
+      internalID: 1661449298
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_11
+      name: SubLevelTileSprites_37
       rect:
         serializedVersion: 2
-        x: 560
-        y: 560
+        x: 48
+        y: 208
         width: 16
         height: 16
       alignment: 0
@@ -1201,18 +907,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71aaf05bd6dbe40a08c048520e2f4fa6
-      internalID: -1216289042
+      spriteID: 4870d53cdb69c4381a6a440b833387e7
+      internalID: -884798084
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_12
+      name: SubLevelTileSprites_38
       rect:
         serializedVersion: 2
-        x: 592
-        y: 592
+        x: 64
+        y: 208
         width: 16
         height: 16
       alignment: 0
@@ -1222,18 +928,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c671a43bec5d4cdcbde1a4014dd5e45
-      internalID: 1948587557
+      spriteID: 0a219351707484f1db4aa2dcd25f9f7b
+      internalID: 21687587
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_13
+      name: SubLevelTileSprites_39
       rect:
         serializedVersion: 2
-        x: 592
-        y: 576
+        x: 128
+        y: 208
         width: 16
         height: 16
       alignment: 0
@@ -1243,18 +949,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d3f4ef2fba72404095d4bef3f10c498
-      internalID: 139917214
+      spriteID: 1fb732229c70049ee9819dfc81bc7ba8
+      internalID: 1634380842
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_14
+      name: SubLevelTileSprites_40
       rect:
         serializedVersion: 2
-        x: 608
-        y: 608
+        x: 128
+        y: 176
         width: 16
         height: 16
       alignment: 0
@@ -1264,18 +970,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f41f32065db0246c79c4589346ccc0eb
-      internalID: 116743552
+      spriteID: 2c41dede4652d4d3d9d8306e5bf13e2a
+      internalID: -327462198
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_20
+      name: SubLevelTileSprites_41
       rect:
         serializedVersion: 2
-        x: 624
-        y: 608
+        x: 144
+        y: 176
         width: 16
         height: 16
       alignment: 0
@@ -1285,18 +991,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae1e20235208a4ee0bbbe1cdf45ef827
-      internalID: 1207310369
+      spriteID: 4f1644e9b76794351bf9998c42c34bc4
+      internalID: 1722374430
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_22
+      name: SubLevelTileSprites_42
       rect:
         serializedVersion: 2
-        x: 608
-        y: 624
+        x: 128
+        y: 160
         width: 16
         height: 16
       alignment: 0
@@ -1306,18 +1012,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b9f9f8cf8fdb4d9ca886bfcad13e6d0
-      internalID: 1217026271
+      spriteID: 55e40b0fd6ef04e1881cc84e61d7ea98
+      internalID: 1899578402
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_29
+      name: SubLevelTileSprites_43
       rect:
         serializedVersion: 2
-        x: 624
-        y: 624
+        x: 144
+        y: 160
         width: 16
         height: 16
       alignment: 0
@@ -1327,18 +1033,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 099bef2a71ba2428d9bb522387de1a42
-      internalID: -269644186
+      spriteID: 7614ad5a6221c40b3ae1b75e0961dba7
+      internalID: -361598
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_30
+      name: SubLevelTileSprites_44
       rect:
         serializedVersion: 2
-        x: 608
-        y: 640
+        x: 128
+        y: 144
         width: 16
         height: 16
       alignment: 0
@@ -1348,18 +1054,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5db307acbbef940e2a495a07a7669217
-      internalID: -1276397251
+      spriteID: 51047d30e76294a518759d8e56805451
+      internalID: -1995302945
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_31
+      name: SubLevelTileSprites_45
       rect:
         serializedVersion: 2
-        x: 624
-        y: 640
+        x: 144
+        y: 144
         width: 16
         height: 16
       alignment: 0
@@ -1369,18 +1075,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50f514bba5f904c46b453a37161805d6
-      internalID: 1433243537
+      spriteID: a07073218e7464346a2a0d8d6a7a69d9
+      internalID: 379852114
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_32
+      name: SubLevelTileSprites_46
       rect:
         serializedVersion: 2
-        x: 608
-        y: 656
+        x: 128
+        y: 128
         width: 16
         height: 16
       alignment: 0
@@ -1390,18 +1096,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ea9308b2e998484cbb04f8e013ee780
-      internalID: 1148602080
+      spriteID: 18d2d503e72b443efbb6d80cced346f2
+      internalID: -1092621276
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_33
+      name: SubLevelTileSprites_47
       rect:
         serializedVersion: 2
-        x: 624
-        y: 656
+        x: 144
+        y: 128
         width: 16
         height: 16
       alignment: 0
@@ -1411,18 +1117,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 009a4ebd131e34e4ebe5b7d6e3be1093
-      internalID: -164733818
+      spriteID: 729cd7aa3b5de41f0816676f9502e477
+      internalID: -1420438575
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_34
+      name: SubLevelTileSprites_48
       rect:
         serializedVersion: 2
-        x: 560
-        y: 528
+        x: 160
+        y: 304
         width: 16
         height: 16
       alignment: 0
@@ -1432,155 +1138,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f373611204894b38a0fd303aebe3d5d
-      internalID: 1802478265
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PraetorianHero_35
-      rect:
-        serializedVersion: 2
-        x: 560
-        y: 512
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9c8a309b55e934c5db69a2a9a34fee37
-      internalID: -893456415
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PraetorianHero_36
-      rect:
-        serializedVersion: 2
-        x: 560
-        y: 496
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dc1356e5c5e734ff18b605a0f401870c
-      internalID: 482227726
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PraetorianHero_64
-      rect:
-        serializedVersion: 2
-        x: 560
-        y: 480
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 00b57ab92aec5413eaed32c9ae9227ac
-      internalID: -390020215
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PraetorianHero_65
-      rect:
-        serializedVersion: 2
-        x: 576
-        y: 528
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 59954102b8d4d4a1f8aa80688cfa5513
-      internalID: -1336872200
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PraetorianHero_66
-      rect:
-        serializedVersion: 2
-        x: 576
-        y: 512
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 80fa5b8ef9557494db66e23986aaaf3f
-      internalID: 1458587996
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PraetorianHero_67
-      rect:
-        serializedVersion: 2
-        x: 576
-        y: 496
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d86366f7e15354a22b2812d7ddd589df
-      internalID: -1196506546
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PraetorianHero_69
-      rect:
-        serializedVersion: 2
-        x: 576
-        y: 480
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9451fbdd7eb314bf9b2e46f227b7504a
-      internalID: -1366715467
+      spriteID: df57fc5a1f3b446b5bd9f1e2c1dfe00f
+      internalID: -238387067
       vertices: []
       indices: 
       edges: []
@@ -1596,80 +1155,55 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PraetorianHero_35: -893456415
-      PraetorianHero_57: -1561654734
-      PraetorianHero_32: 1148602080
-      PraetorianHero_28: -1942594151
-      PraetorianHero_64: -390020215
-      PraetorianHero_23: 1195703197
-      PraetorianHero_21: 1306876610
-      PraetorianHero_42: -768863259
-      PraetorianHero_63: -420832930
-      PraetorianHero_50: -1099468376
-      PraetorianHero_52: -600432274
-      PraetorianHero_2: 1131921885
-      PraetorianHero_8: 46788915
-      PraetorianHero_40: 483931968
-      PraetorianHero_58: 2050348476
-      PraetorianHero_55: -705252907
-      PraetorianHero_43: -1544996459
-      PraetorianHero_60: 959297503
-      PraetorianHero_65: -1336872200
-      PraetorianHero_12: 1948587557
-      PraetorianHero_73: -609698166
-      PraetorianHero_31: 1433243537
-      PraetorianHero_56: -1375208808
-      PraetorianHero_7: 1990820267
-      PraetorianHero_48: -7004440
-      PraetorianHero_6: 20911167
-      PraetorianHero_72: -982432951
-      PraetorianHero_11: -1216289042
-      PraetorianHero_37: 1440432016
-      PraetorianHero_69: -1366715467
-      PraetorianHero_51: 569530391
-      PraetorianHero_19: 24113618
-      PraetorianHero_61: 805496199
-      PraetorianHero_24: 762835232
-      PraetorianHero_44: -1582037427
-      PraetorianHero_54: -1497679273
-      PraetorianHero_41: -873763883
-      PraetorianHero_29: -269644186
-      PraetorianHero_49: 1942290855
-      PraetorianHero_62: 203411902
-      PraetorianHero_14: 116743552
-      PraetorianHero_59: 827315738
-      PraetorianHero_0: 1621429347
-      PraetorianHero_68: -142262740
-      PraetorianHero_10: -821126881
-      PraetorianHero_27: 337960130
-      PraetorianHero_1: -24735344
-      PraetorianHero_5: 1634981201
-      PraetorianHero_39: -630871905
-      PraetorianHero_16: -331018679
-      PraetorianHero_66: 1458587996
-      PraetorianHero_45: 614627872
-      PraetorianHero_9: 509871156
-      PraetorianHero_71: -1221688834
-      PraetorianHero_47: 1340280506
-      PraetorianHero_53: 1271175014
-      PraetorianHero_25: 31981646
-      PraetorianHero_4: -1591487740
-      PraetorianHero_3: 1018196867
-      PraetorianHero_30: -1276397251
-      PraetorianHero_13: 139917214
-      PraetorianHero_20: 1207310369
-      PraetorianHero_18: -111683207
-      PraetorianHero_36: 482227726
-      PraetorianHero_22: 1217026271
-      PraetorianHero_38: -1520826117
-      PraetorianHero_33: -164733818
-      PraetorianHero_67: -1196506546
-      PraetorianHero_34: 1802478265
-      PraetorianHero_70: 535959834
-      PraetorianHero_26: -1954488691
-      PraetorianHero_17: -1330725921
-      PraetorianHero_46: -61592283
-      PraetorianHero_15: 1631356366
+      SubLevelTileSprites_47: -1420438575
+      SubLevelTileSprites_30: -50146969
+      SubLevelTileSprites_34: 1877916035
+      SubLevelTileSprites_31: -643138530
+      SubLevelTileSprites_37: -884798084
+      SubLevelTileSprites_48: -238387067
+      SubLevelTileSprites_39: 1634380842
+      SubLevelTileSprites_3: 409387177
+      SubLevelTileSprites_20: -309151274
+      SubLevelTileSprites_4: 1663028779
+      SubLevelTileSprites_7: -1358402052
+      SubLevelTileSprites_29: -684363368
+      SubLevelTileSprites_11: -797192783
+      SubLevelTileSprites_28: 1429668036
+      SubLevelTileSprites_35: -1632389614
+      SubLevelTileSprites_43: -361598
+      SubLevelTileSprites_13: 913233282
+      SubLevelTileSprites_1: -1689593771
+      SubLevelTileSprites_24: -182431350
+      SubLevelTileSprites_44: -1995302945
+      SubLevelTileSprites_12: 1417971995
+      SubLevelTileSprites_27: -389853288
+      SubLevelTileSprites_19: -1872850694
+      SubLevelTileSprites_36: 1661449298
+      SubLevelTileSprites_40: -327462198
+      SubLevelTileSprites_0: -1707262581
+      SubLevelTileSprites_26: -627038207
+      SubLevelTileSprites_6: -5677695
+      SubLevelTileSprites_14: -1598065351
+      SubLevelTileSprites_5: -137025363
+      SubLevelTileSprites_25: 304550500
+      SubLevelTileSprites_42: 1899578402
+      SubLevelTileSprites_22: 2108375937
+      SubLevelTileSprites_32: -680703110
+      SubLevelTileSprites_21: 2031324139
+      SubLevelTileSprites_33: -666972856
+      SubLevelTileSprites_9: 937962651
+      SubLevelTileSprites_41: 1722374430
+      SubLevelTileSprites_18: 888852626
+      SubLevelTileSprites_45: 379852114
+      SubLevelTileSprites_17: -475198025
+      SubLevelTileSprites_38: 21687587
+      SubLevelTileSprites_15: -356913851
+      SubLevelTileSprites_16: 623364341
+      SubLevelTileSprites_23: -1508267349
+      SubLevelTileSprites_46: -1092621276
+      SubLevelTileSprites_8: -719832525
+      SubLevelTileSprites_10: -592882778
+      SubLevelTileSprites_2: -474230526
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
