@@ -29,19 +29,19 @@ public class GridMovement : MonoBehaviour
     {
         float horizontal = 0;
         float vertical = 0;
-        if (Input.GetKeyDown("up"))
+        if (Input.GetKeyDown("w") || Input.GetKeyDown("up"))
         {
             vertical = 1;
         }
-        else if (Input.GetKeyDown("down"))
+        else if (Input.GetKeyDown("s") || Input.GetKeyDown("down"))
         {
             vertical = -1;
         }
-        else if (Input.GetKeyDown("left"))
+        else if (Input.GetKeyDown("a") || Input.GetKeyDown("left"))
         {
             horizontal = -1;
         }
-        else if (Input.GetKeyDown("right"))
+        else if (Input.GetKeyDown("d") || Input.GetKeyDown("right"))
         {
             horizontal = 1;
         }

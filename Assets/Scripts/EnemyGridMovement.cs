@@ -23,7 +23,11 @@ public class EnemyGridMovement : MonoBehaviour
         if (Input.GetKeyDown("up") ||
             Input.GetKeyDown("down") ||
             Input.GetKeyDown("left") ||
-            Input.GetKeyDown("right"))
+            Input.GetKeyDown("right") ||
+            Input.GetKeyDown("w") ||
+            Input.GetKeyDown("s") ||
+            Input.GetKeyDown("a") ||
+            Input.GetKeyDown("d"))
         {
             movementKeyPressed = true;
         }
