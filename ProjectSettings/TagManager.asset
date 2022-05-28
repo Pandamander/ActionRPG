@@ -8,6 +8,8 @@ TagManager:
   - Hero
   - DynamicObstacle
   - DamagePlayer
+  - OverworldEnemy
+  - OverworldHero
   layers:
   - Default
   - TransparentFX

@@ -5,14 +5,19 @@ public static class PlayerStats
     public static float Health { get; private set; }
     public static float MaxHealth { get; private set; }
 
+    private static bool Initialized;
     private static string[] WeaponVariation = { "" };
 
-    public static void InitializeStats()
+    public static void Initialize()
     {
-        Attack = 4;
-        Defense = 4;
-        MaxHealth = 4;
-        Health = MaxHealth;
+        if (!Initialized)
+        {
+            Attack = 4;
+            Defense = 4;
+            MaxHealth = 4;
+            Health = MaxHealth;
+            Initialized = true;
+        }
     }
 
     public static void UpgradetAttack()

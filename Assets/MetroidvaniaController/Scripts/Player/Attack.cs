@@ -28,25 +28,45 @@ public class Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (Input.GetKeyDown(KeyCode.X) && canAttack)
+		//if (Input.GetKeyDown(KeyCode.X) && canAttack)
+		//{
+		//	canAttack = false;
+		//	animator.SetBool("IsAttacking", true);
+		//	StartCoroutine(AttackCooldown());
+		//}
+
+		//if (Input.GetKeyDown(KeyCode.V))
+		//{
+		//	GameObject throwableWeapon = Instantiate(throwableObject, transform.position + new Vector3(transform.localScale.x * 0.5f, -0.2f), Quaternion.identity) as GameObject;
+		//	Vector2 direction = new Vector2(transform.localScale.x, 0);
+		//	throwableWeapon.GetComponent<ThrowableWeapon>().direction = direction;
+		//	throwableWeapon.name = "ThrowableWeapon";
+		//}
+
+		if (Input.GetButtonDown("Fire1") && canAttack)
 		{
 			canAttack = false;
 			animator.SetBool("IsAttacking", true);
-			StartCoroutine(AttackCooldown());
-		}
 
-		if (Input.GetKeyDown(KeyCode.V))
-		{
-			GameObject throwableWeapon = Instantiate(throwableObject, transform.position + new Vector3(transform.localScale.x * 0.5f,-0.2f), Quaternion.identity) as GameObject; 
 			Vector2 direction = new Vector2(transform.localScale.x, 0);
+
+			GameObject throwableWeapon = Instantiate(
+				throwableObject,
+				transform.position + new Vector3(transform.localScale.x * 0.5f,-0.2f),
+				Quaternion.Euler(0f, 0f, direction.x > 0 ? 0f : 180f)
+			) as GameObject;
+			
 			throwableWeapon.GetComponent<ThrowableWeapon>().direction = direction; 
 			throwableWeapon.name = "ThrowableWeapon";
+
+			StartCoroutine(AttackCooldown());
 		}
 	}
 
 	IEnumerator AttackCooldown()
 	{
 		yield return new WaitForSeconds(0.25f);
+		animator.SetBool("IsAttacking", false);
 		canAttack = true;
 	}
 

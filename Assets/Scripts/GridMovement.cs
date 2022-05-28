@@ -8,9 +8,16 @@ public class GridMovement : MonoBehaviour
     private Transform movePoint;
     private Animator animator;
     private bool isMovingTarget = false;
+    private Rigidbody2D rigidBody;
 
     private void Awake()
     {
+        rigidBody = gameObject.GetComponent<Rigidbody2D>();
+        rigidBody.transform.position = new Vector3(
+            OverworldSubzoneContainer.LastEncounterPosition.Item1,
+            OverworldSubzoneContainer.LastEncounterPosition.Item2
+        );
+
         movePoint = transform.Find("MovePoint");
         movePoint.parent = null;
 
@@ -68,7 +75,7 @@ public class GridMovement : MonoBehaviour
         }
         else
         {
-            transform.position = Vector3.MoveTowards(
+            rigidBody.transform.position = Vector3.MoveTowards(
                 transform.position,
                 movePoint.position,
                 moveSpeed * Time.deltaTime
