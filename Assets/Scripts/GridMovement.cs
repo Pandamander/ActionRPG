@@ -12,6 +12,7 @@ public class GridMovement : MonoBehaviour
 
     private void Awake()
     {
+        // Set position to last encounter
         rigidBody = gameObject.GetComponent<Rigidbody2D>();
         rigidBody.transform.position = new Vector3(
             OverworldSubzoneContainer.LastEncounterPosition.Item1,

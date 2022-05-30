@@ -27,9 +27,6 @@ public class SubzoneEnemy : MonoBehaviour
     {
         if (health <= 0f)
         {
-            //rigidBody.isKinematic = false;
-            //rigidBody.gravityScale = 10f;
-
             rigidBody.velocity = new Vector2(
                 0f,
                 -200 * Time.fixedDeltaTime
