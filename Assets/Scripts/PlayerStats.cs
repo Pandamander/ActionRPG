@@ -3,7 +3,7 @@ public static class PlayerStats
     public static int Attack { get; private set; }
     public static int Defense { get; private set; }
     public static float Health { get; private set; }
-    public static float MaxHealth { get; private set; }
+    public static float HealthCapacity { get; private set; }
 
     private static bool Initialized;
     private static string[] WeaponVariation = { "" };
@@ -14,8 +14,8 @@ public static class PlayerStats
         {
             Attack = 1;
             Defense = 1;
-            MaxHealth = 1;
-            Health = MaxHealth;
+            HealthCapacity = 1;
+            Health = HealthCapacity;
             Initialized = true;
         }
     }
@@ -32,7 +32,7 @@ public static class PlayerStats
 
     public static void UpgradeHealth()
     {
-        MaxHealth += 1;
+        HealthCapacity += 1;
     }
 
     public static float ApplyDamage(float amount)

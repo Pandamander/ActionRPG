@@ -11,8 +11,8 @@ public class Attack : MonoBehaviour
 	public Animator animator;
 	public bool canAttack = true;
 	public bool isTimeToCheck = false;
-
 	public GameObject cam;
+	public SubzoneAudioManager audioManager;
 
 	private SpriteRenderer spriteRenderer;
 
@@ -40,6 +40,7 @@ public class Attack : MonoBehaviour
 			
 			throwableWeapon.GetComponent<ThrowableWeapon>().direction = direction; 
 			throwableWeapon.name = "ThrowableWeapon";
+			audioManager.PlayAttack();
 
 			StartCoroutine(AttackCooldown());
 		}
@@ -74,6 +75,7 @@ public class Attack : MonoBehaviour
     {
 		if (collision.gameObject.CompareTag("SubzoneEnemy"))
         {
+			audioManager.PlayDamage();
 			PlayerStats.ApplyDamage(1f);
 			rigidBody.AddForce(new Vector2(-2000f, 0f));
 			StartCoroutine(TakeDamage());

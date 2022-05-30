@@ -8,6 +8,7 @@ public class SubzoneEnemy : MonoBehaviour
     public float patrolFlipTime;
     public float health;
     public bool isVertical;
+    public SubzoneAudioManager audioManager;
     private float patrolTime;
     private Rigidbody2D rigidBody;
     private SpriteRenderer spriteRenderer;
@@ -16,11 +17,6 @@ public class SubzoneEnemy : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-
-    private void Start()
-    {
-        
     }
 
     private void Update()
@@ -55,7 +51,6 @@ public class SubzoneEnemy : MonoBehaviour
                 rigidBody.velocity.y
             );
         }
-
     }
 
     private void Flip()
@@ -72,13 +67,9 @@ public class SubzoneEnemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("SubzoneHeroProjectile"))
         {
+            audioManager.PlayDamage();
             health -= PlayerStats.Attack;
 
-            // For testing purposes when stats have not been initialized
-            if (PlayerStats.Attack == 0)
-            {
-                health -= 1;
-            }
             StartCoroutine(TakeDamage());
         }
     }
