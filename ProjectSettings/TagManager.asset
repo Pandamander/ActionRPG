@@ -10,6 +10,9 @@ TagManager:
   - DamagePlayer
   - OverworldEnemy
   - OverworldHero
+  - Enemy
+  - SubzoneEnemy
+  - SubzoneHeroProjectile
   layers:
   - Default
   - TransparentFX

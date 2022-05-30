@@ -310,7 +310,7 @@ TextureImporter:
         serializedVersion: 2
         x: 464
         y: 704
-        width: 16
+        width: 32
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -326,33 +326,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_24
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 704
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7c49fef08b99c4424b577e487f76daeb
-      internalID: 762835232
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: PraetorianHero_25
       rect:
         serializedVersion: 2
-        x: 496
+        x: 497
         y: 704
-        width: 16
+        width: 32
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -368,33 +347,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PraetorianHero_26
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 704
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cd6c62d01afc040f7bb46e7bb093dd1d
-      internalID: -1954488691
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: PraetorianHero_27
       rect:
         serializedVersion: 2
         x: 528
         y: 704
-        width: 16
+        width: 32
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -405,27 +363,6 @@ TextureImporter:
       bones: []
       spriteID: 384183b2f90bd4630b76d8aba0e2e47a
       internalID: 337960130
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PraetorianHero_28
-      rect:
-        serializedVersion: 2
-        x: 544
-        y: 704
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 253c8f1fe1fe944c4949bba59ea309a7
-      internalID: -1942594151
       vertices: []
       indices: 
       edges: []
@@ -1426,7 +1363,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1447,7 +1384,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1468,7 +1405,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1489,7 +1426,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1510,7 +1447,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1531,7 +1468,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1552,7 +1489,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1573,7 +1510,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1597,7 +1534,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       PraetorianHero_35: -893456415
-      PraetorianHero_57: -1561654734
+      PraetorianHero_15: 1631356366
       PraetorianHero_32: 1148602080
       PraetorianHero_28: -1942594151
       PraetorianHero_64: -390020215
@@ -1669,7 +1606,7 @@ TextureImporter:
       PraetorianHero_26: -1954488691
       PraetorianHero_17: -1330725921
       PraetorianHero_46: -61592283
-      PraetorianHero_15: 1631356366
+      PraetorianHero_57: -1561654734
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

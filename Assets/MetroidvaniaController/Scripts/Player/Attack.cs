@@ -7,42 +7,24 @@ public class Attack : MonoBehaviour
 	public float dmgValue = 4;
 	public GameObject throwableObject;
 	public Transform attackCheck;
-	private Rigidbody2D m_Rigidbody2D;
+	private Rigidbody2D rigidBody;
 	public Animator animator;
 	public bool canAttack = true;
 	public bool isTimeToCheck = false;
 
 	public GameObject cam;
 
+	private SpriteRenderer spriteRenderer;
+
 	private void Awake()
 	{
-		m_Rigidbody2D = GetComponent<Rigidbody2D>();
+		rigidBody = GetComponent<Rigidbody2D>();
+		spriteRenderer = GetComponent<SpriteRenderer>();
 	}
-
-	// Start is called before the first frame update
-	void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
-		//if (Input.GetKeyDown(KeyCode.X) && canAttack)
-		//{
-		//	canAttack = false;
-		//	animator.SetBool("IsAttacking", true);
-		//	StartCoroutine(AttackCooldown());
-		//}
-
-		//if (Input.GetKeyDown(KeyCode.V))
-		//{
-		//	GameObject throwableWeapon = Instantiate(throwableObject, transform.position + new Vector3(transform.localScale.x * 0.5f, -0.2f), Quaternion.identity) as GameObject;
-		//	Vector2 direction = new Vector2(transform.localScale.x, 0);
-		//	throwableWeapon.GetComponent<ThrowableWeapon>().direction = direction;
-		//	throwableWeapon.name = "ThrowableWeapon";
-		//}
-
 		if (Input.GetButtonDown("Fire1") && canAttack)
 		{
 			canAttack = false;
@@ -86,5 +68,22 @@ public class Attack : MonoBehaviour
 				cam.GetComponent<CameraFollow>().ShakeCamera();
 			}
 		}
+	}
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+		if (collision.gameObject.CompareTag("SubzoneEnemy"))
+        {
+			PlayerStats.ApplyDamage(1f);
+			rigidBody.AddForce(new Vector2(-2000f, 0f));
+			StartCoroutine(TakeDamage());
+        }
+    }
+
+	private IEnumerator TakeDamage()
+	{
+		spriteRenderer.color = Color.red;
+		yield return new WaitForSeconds(0.1f);
+		spriteRenderer.color = Color.white;
 	}
 }

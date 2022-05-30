@@ -12,9 +12,9 @@ public static class PlayerStats
     {
         if (!Initialized)
         {
-            Attack = 4;
-            Defense = 4;
-            MaxHealth = 4;
+            Attack = 1;
+            Defense = 1;
+            MaxHealth = 1;
             Health = MaxHealth;
             Initialized = true;
         }
