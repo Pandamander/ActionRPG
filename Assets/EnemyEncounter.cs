@@ -15,15 +15,6 @@ public class EnemyEncounter : MonoBehaviour
         movePoint = transform.Find("MovePoint");
     }
 
-    private void Start()
-    {
-        if (OverworldSubzoneContainer.DestroyList.Contains(uniqueTag))
-        {
-            Debug.Log("I SHOULD BE DESTROYED!");
-            Destroy(gameObject);
-        }
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("OverworldHero"))

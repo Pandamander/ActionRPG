@@ -9,6 +9,7 @@ public class GridMovement : MonoBehaviour
     private Animator animator;
     private bool isMovingTarget = false;
     private Rigidbody2D rigidBody;
+    private Vector3 lastValidPosition;
 
     private void Awake()
     {
@@ -16,7 +17,7 @@ public class GridMovement : MonoBehaviour
         rigidBody = gameObject.GetComponent<Rigidbody2D>();
         rigidBody.transform.position = new Vector3(
             OverworldSubzoneContainer.LastEncounterPosition.Item1,
-            OverworldSubzoneContainer.LastEncounterPosition.Item2
+            OverworldSubzoneContainer.LastEncounterPosition.Item2 - 1 // Offset player from last encounter so we don't auto-collide again.
         );
 
         movePoint = transform.Find("MovePoint");
@@ -64,6 +65,7 @@ public class GridMovement : MonoBehaviour
         if (distanceToMovePoint == 0)
         {
             isMovingTarget = false;
+            lastValidPosition = transform.position;
         }
 
         if (!isMovingTarget)
@@ -88,5 +90,16 @@ public class GridMovement : MonoBehaviour
     {
         animator.SetFloat("horizontal", currentMovement.x);
         animator.SetFloat("vertical", currentMovement.y);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("OverworldTile-Rock"))
+        {
+            Debug.Log("Handle Tile Collision");
+            transform.position = lastValidPosition;
+            movePoint.position = lastValidPosition;
+        }
+
     }
 }

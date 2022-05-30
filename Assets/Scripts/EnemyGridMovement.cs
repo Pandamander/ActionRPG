@@ -32,7 +32,6 @@ public class EnemyGridMovement : MonoBehaviour
             movementKeyPressed = true;
         }
 
-
         Vector2 movement = new Vector2(0, 0);
         if (movementKeyPressed)
         {

@@ -7,21 +7,16 @@ public class OverworldSubzoneContainer
     public static (float, float) LastEncounterPosition { get; private set; }
     public static string LastEncounterSubzoneName { get; private set; }
     public static string LastEncounterEnemyName { get; private set; }
-    public static HashSet<string> DestroyList { get; private set; }
+    public static string LastEncounterUniqueTag { get; private set; }
 
     private static bool Initialized;
 
-    public static void AddEncounter(float x, float y, string subzoneName, string enemyName, string destroyObject)
+    public static void AddEncounter(float x, float y, string subzoneName, string enemyName, string uniqueTag)
     {
         LastEncounterPosition = (x, y);
         LastEncounterSubzoneName = subzoneName;
         LastEncounterEnemyName = enemyName;
-        DestroyList.Add(destroyObject);
-
-        foreach (string destroy in DestroyList)
-        {
-            Debug.Log("DESTROY LIST CONTAINS: " + destroy);
-        }
+        LastEncounterUniqueTag = uniqueTag;
     }
 
     public static void Initialize()
@@ -32,7 +27,7 @@ public class OverworldSubzoneContainer
             LastEncounterSubzoneName = "";
             LastEncounterEnemyName = "";
             Initialized = true;
-            DestroyList = new HashSet<string>();
+            LastEncounterUniqueTag = "999";
         }
     }
 }
