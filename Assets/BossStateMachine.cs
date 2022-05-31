@@ -28,6 +28,7 @@ public class BossStateMachine : MonoBehaviour
     private float swoopMovementTimer = 0f;
     private float swoopMovementFlip = 1f;
     private Vector3 moveTo;
+    private BossCombat combat;
 
 
     private void Awake()
@@ -35,6 +36,7 @@ public class BossStateMachine : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         rigidBody = gameObject.GetComponent<Rigidbody2D>();
         bossFightManager = GetComponent<BossFightManager>();
+        combat = GetComponent<BossCombat>();
         start = transform.position;
         moveTo = swoopRight.position;
     }
@@ -121,6 +123,7 @@ public class BossStateMachine : MonoBehaviour
         yield return new WaitForSeconds(3f);
         currentState = state;
         bossFightManager.InitialBossPhaseDidBegin();
+        combat.InitialBossPhaseDidBegin();
     }
 
     private IEnumerator MoveState(BossState state)

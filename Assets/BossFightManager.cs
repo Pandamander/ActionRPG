@@ -75,7 +75,7 @@ public class BossFightManager : MonoBehaviour
 
     private IEnumerator StartBossFight()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         stateMachine.Run();
     }
 
