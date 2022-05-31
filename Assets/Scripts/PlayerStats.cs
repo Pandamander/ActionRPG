@@ -33,6 +33,7 @@ public static class PlayerStats
     public static void UpgradeHealth()
     {
         HealthCapacity += 1;
+        Health = HealthCapacity;
     }
 
     public static float ApplyDamage(float amount)

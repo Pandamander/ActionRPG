@@ -7,6 +7,7 @@ public class SubzoneAudioManager : MonoBehaviour
     public AudioSource source;
     public AudioClip attack;
     public AudioClip damage;
+    public AudioClip powerup;
     // Start is called before the first frame update
 
     public void PlayAttack()
@@ -18,6 +19,12 @@ public class SubzoneAudioManager : MonoBehaviour
     public void PlayDamage()
     {
         source.clip = damage;
+        source.Play();
+    }
+
+    public void PlayPowerup()
+    {
+        source.clip = powerup;
         source.Play();
     }
 }

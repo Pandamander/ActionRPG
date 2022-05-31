@@ -48,6 +48,7 @@ MonoBehaviour:
   source: {fileID: 8023768132352030834}
   attack: {fileID: 8300000, guid: 32c1ed2c205174a36a6d45fd01b34703, type: 3}
   damage: {fileID: 8300000, guid: 199c79bec3d5e43fca0644ab00a6657d, type: 3}
+  powerup: {fileID: 8300000, guid: 45cb0035393a34741903a5e14f31db33, type: 3}
 --- !u!82 &8023768132352030834
 AudioSource:
   m_ObjectHideFlags: 0
