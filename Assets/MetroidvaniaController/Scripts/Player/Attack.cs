@@ -95,7 +95,30 @@ public class Attack : MonoBehaviour
         }
     }
 
-	private IEnumerator TakeDamage()
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+		if (collision.gameObject.CompareTag("Boss"))
+		{
+			Debug.Log("HIT BY BOSS");
+			if (dead) { return; }
+
+			audioManager.PlayDamage();
+			PlayerStats.ApplyDamage(1f);
+
+			if (PlayerStats.Health <= 0f)
+			{
+				Die();
+				StartCoroutine(GameOver());
+			}
+			else
+			{
+				rigidBody.AddForce(new Vector2(-2000f, 0f));
+				StartCoroutine(TakeDamage());
+			}
+		}
+	}
+
+    private IEnumerator TakeDamage()
 	{
 		spriteRenderer.color = Color.red;
 		yield return new WaitForSeconds(0.1f);

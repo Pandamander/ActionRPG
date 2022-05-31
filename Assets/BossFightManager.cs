@@ -14,9 +14,8 @@ public class BossFightManager : MonoBehaviour
     private CinemachineTransposer transposer;
     public Camera mainCam;
     private PixelPerfectCamera ppCam;
-    private float yOffset = 6f;
     private bool shouldMoveCamera = false;
-    private float moveCameraTimer = 0f;
+    private bool playedIntro = false;
 
     private void Awake()
     {
@@ -36,32 +35,29 @@ public class BossFightManager : MonoBehaviour
     {
         if (shouldMoveCamera)
         {
-            moveCameraTimer += Time.deltaTime;
-            if (moveCameraTimer >= 2f)
+            if (transposer.m_FollowOffset.y >= 6f)
             {
                 shouldMoveCamera = false;
             } else
             {
-                transposer.m_FollowOffset.y += (Time.deltaTime + 0.004f);
-                //Debug.Log("transposer.m_FollowOffset.y: " + transposer.m_FollowOffset.y);
+                transposer.m_FollowOffset.y += (Time.deltaTime + 0.008f);
             }
         }
     }
 
     private IEnumerator StartBossFight()
     {
-        stateMachine.TransitionTo(BossStateMachine.BossState.Intro);
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(1f);
         stateMachine.TransitionTo(BossStateMachine.BossState.Sin);
     }
 
     public void BeginBossFight()
     {
-        //ppCam.assetsPPU = 8;
+        if (playedIntro) { return; }
 
-        //StartCoroutine(StartBossFight());
+        playedIntro = true;
         shouldMoveCamera = true;
-        stateMachine.TransitionTo(BossStateMachine.BossState.Sin);
+        StartCoroutine(StartBossFight());
     }
 
     public void ApplyDamage(float damage)
