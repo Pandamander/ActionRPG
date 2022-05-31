@@ -118,6 +118,7 @@ MonoBehaviour:
   canAttack: 1
   isTimeToCheck: 0
   cam: {fileID: 0}
+  audioManager: {fileID: 0}
 --- !u!114 &557152561997098504
 MonoBehaviour:
   m_ObjectHideFlags: 0

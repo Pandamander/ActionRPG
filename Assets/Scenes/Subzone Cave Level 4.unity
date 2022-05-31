@@ -13907,6 +13907,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SubzoneSnake
       objectReference: {fileID: 0}
+    - target: {fileID: 6894392897223805044, guid: b343f00c5fc304e45a92bfbb085d7392, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 589347419}
     - target: {fileID: 6894392897223805046, guid: b343f00c5fc304e45a92bfbb085d7392, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -13960,6 +13964,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8641631247949744371, guid: 304b89cafe46caa4385703780e0330d4, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 589347419}
     - target: {fileID: 8641631247949744373, guid: 304b89cafe46caa4385703780e0330d4, type: 3}
       propertyPath: m_Name
       value: SubzoneHarpy (4)
@@ -26925,6 +26933,74 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &589347418
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8023768132352030835, guid: a0586c992e741a34a87f03a95a277467, type: 3}
+      propertyPath: m_Name
+      value: SubzoneAudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8023768132352030836, guid: a0586c992e741a34a87f03a95a277467, type: 3}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 8023768132352030836, guid: a0586c992e741a34a87f03a95a277467, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8023768132352030836, guid: a0586c992e741a34a87f03a95a277467, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8023768132352030836, guid: a0586c992e741a34a87f03a95a277467, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8023768132352030836, guid: a0586c992e741a34a87f03a95a277467, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8023768132352030836, guid: a0586c992e741a34a87f03a95a277467, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8023768132352030836, guid: a0586c992e741a34a87f03a95a277467, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8023768132352030836, guid: a0586c992e741a34a87f03a95a277467, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8023768132352030836, guid: a0586c992e741a34a87f03a95a277467, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8023768132352030836, guid: a0586c992e741a34a87f03a95a277467, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8023768132352030836, guid: a0586c992e741a34a87f03a95a277467, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a0586c992e741a34a87f03a95a277467, type: 3}
+--- !u!114 &589347419 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8023768132352030837, guid: a0586c992e741a34a87f03a95a277467, type: 3}
+  m_PrefabInstance: {fileID: 589347418}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e610a34e33b6bd4380034c5344d3ac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &670713224 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1025145325119744, guid: d975e66254b08984ab50d4c39dcb947f, type: 3}
@@ -27071,6 +27147,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8641631247949744371, guid: 304b89cafe46caa4385703780e0330d4, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 589347419}
     - target: {fileID: 8641631247949744373, guid: 304b89cafe46caa4385703780e0330d4, type: 3}
       propertyPath: m_Name
       value: SubzoneHarpy (3)
@@ -27243,6 +27323,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SubzoneSnake (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6894392897223805044, guid: b343f00c5fc304e45a92bfbb085d7392, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 589347419}
     - target: {fileID: 6894392897223805046, guid: b343f00c5fc304e45a92bfbb085d7392, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -27407,6 +27491,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8641631247949744371, guid: 304b89cafe46caa4385703780e0330d4, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 589347419}
     - target: {fileID: 8641631247949744373, guid: 304b89cafe46caa4385703780e0330d4, type: 3}
       propertyPath: m_Name
       value: SubzoneHarpy (1)
@@ -27733,6 +27821,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8641631247949744371, guid: 304b89cafe46caa4385703780e0330d4, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 589347419}
     - target: {fileID: 8641631247949744373, guid: 304b89cafe46caa4385703780e0330d4, type: 3}
       propertyPath: m_Name
       value: SubzoneHarpy (2)
@@ -27851,6 +27943,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8641631247949744371, guid: 304b89cafe46caa4385703780e0330d4, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 589347419}
     - target: {fileID: 8641631247949744373, guid: 304b89cafe46caa4385703780e0330d4, type: 3}
       propertyPath: m_Name
       value: SubzoneHarpy (5)
@@ -28022,5 +28118,9 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 670713224}
+    - target: {fileID: 556315576806101520, guid: d17581581e44e5644bd22c60e04f999c, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 589347419}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d17581581e44e5644bd22c60e04f999c, type: 3}

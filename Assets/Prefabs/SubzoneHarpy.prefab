@@ -145,7 +145,7 @@ MonoBehaviour:
   patrolFlipTime: 3
   health: 2
   isVertical: 1
-  audioManager: {fileID: 8023768132352030837, guid: a0586c992e741a34a87f03a95a277467, type: 3}
+  audioManager: {fileID: 0}
 --- !u!70 &8641631247949744372
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
