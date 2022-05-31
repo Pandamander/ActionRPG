@@ -11,6 +11,7 @@ public class BossFightManager : MonoBehaviour
     public float swoopAttackMoveSpeed;
     public float sinPhaseTime;
     public float swoopPhaseTime;
+    public GameObject walls;
     private BossStateMachine stateMachine;
     public CinemachineVirtualCamera vCam;
     private CinemachineTransposer transposer;
@@ -26,6 +27,7 @@ public class BossFightManager : MonoBehaviour
         stateMachine = gameObject.GetComponent<BossStateMachine>();
         CinemachineComponentBase componentBase = vCam.GetCinemachineComponent(CinemachineCore.Stage.Body);
         transposer = (componentBase as CinemachineTransposer);
+        walls.SetActive(false);
         //ppCam = mainCam.GetComponentInParent<PixelPerfectCamera>();
     }
     // Start is called before the first frame update
@@ -83,6 +85,7 @@ public class BossFightManager : MonoBehaviour
 
         playedIntro = true;
         shouldMoveCamera = true;
+        walls.SetActive(true);
         StartCoroutine(StartBossFight());
     }
 
@@ -93,6 +96,7 @@ public class BossFightManager : MonoBehaviour
         {
             shouldStartBossTimer = false;
             stateMachine.BossDead();
+            walls.SetActive(false);
         }
     }
 
