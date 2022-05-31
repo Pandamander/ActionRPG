@@ -162,6 +162,7 @@ MonoBehaviour:
   - {x: 1, y: 0}
   - {x: 0, y: 1}
   - {x: 0, y: -1}
+  movePoint: {fileID: 0}
 --- !u!95 &41285162
 Animator:
   serializedVersion: 4
@@ -570,6 +571,7 @@ MonoBehaviour:
   - {x: 0, y: -1}
   - {x: 0, y: 1}
   - {x: 0, y: 1}
+  movePoint: {fileID: 0}
 --- !u!95 &168642082
 Animator:
   serializedVersion: 4
@@ -1252,6 +1254,7 @@ MonoBehaviour:
   - {x: 0, y: 1}
   - {x: -1, y: 0}
   - {x: 0, y: -1}
+  movePoint: {fileID: 0}
 --- !u!95 &279502038
 Animator:
   serializedVersion: 4
@@ -84463,6 +84466,7 @@ MonoBehaviour:
   - {x: 1, y: 0}
   - {x: 0, y: 1}
   - {x: 0, y: -1}
+  movePoint: {fileID: 0}
 --- !u!95 &694438618
 Animator:
   serializedVersion: 4
@@ -98524,6 +98528,7 @@ MonoBehaviour:
   - {x: 0, y: 1}
   - {x: -1, y: 0}
   - {x: 0, y: -1}
+  movePoint: {fileID: 0}
 --- !u!114 &852340331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99197,6 +99202,7 @@ MonoBehaviour:
   - {x: 0, y: -1}
   - {x: -1, y: 0}
   - {x: 1, y: 0}
+  movePoint: {fileID: 0}
 --- !u!95 &1030428062
 Animator:
   serializedVersion: 4
@@ -99621,6 +99627,7 @@ MonoBehaviour:
   - {x: 1, y: 0}
   - {x: 0, y: 1}
   - {x: 0, y: -1}
+  movePoint: {fileID: 0}
 --- !u!61 &1149724356
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -99701,6 +99708,7 @@ MonoBehaviour:
   - {x: 0, y: 1}
   - {x: -1, y: 0}
   - {x: 0, y: -1}
+  movePoint: {fileID: 0}
 --- !u!95 &1199000033
 Animator:
   serializedVersion: 4
@@ -99941,6 +99949,7 @@ MonoBehaviour:
   - {x: 1, y: 0}
   - {x: -1, y: 0}
   - {x: 1, y: 0}
+  movePoint: {fileID: 0}
 --- !u!95 &1258319251
 Animator:
   serializedVersion: 4
@@ -100021,7 +100030,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1258319249}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.5, y: 2.5, z: 0}
+  m_LocalPosition: {x: -2.5, y: 2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -104694,6 +104703,7 @@ MonoBehaviour:
   - {x: 0, y: 1}
   - {x: -1, y: 0}
   - {x: 0, y: -1}
+  movePoint: {fileID: 0}
 --- !u!95 &1634712064
 Animator:
   serializedVersion: 4

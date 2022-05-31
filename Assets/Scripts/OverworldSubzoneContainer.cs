@@ -11,9 +11,6 @@ public class OverworldSubzoneContainer
 
     public static void AddEncounter(float x, float y, string subzoneName)
     {
-        Debug.Log("x " + x);
-        Debug.Log("y " + y);
-        Debug.Log("subzoneName " + subzoneName);
         LastEncounterPosition = (x, y);
         LastEncounterSubzoneName = subzoneName;
     }
