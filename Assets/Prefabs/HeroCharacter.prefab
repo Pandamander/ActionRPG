@@ -67,6 +67,7 @@ MonoBehaviour:
   m_DashForce: 25
   life: 10
   invincible: 0
+  canMove: 1
   particleJumpUp: {fileID: 355612547277407764}
   particleJumpDown: {fileID: 354728638671303870}
   OnFallEvent:
@@ -133,7 +134,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 557096882182385030}
   animator: {fileID: 538770066651341512}
-  runSpeed: 20
+  runSpeed: 30
+  canMove: 1
 --- !u!212 &349662688299814154
 SpriteRenderer:
   m_ObjectHideFlags: 0
