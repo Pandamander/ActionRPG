@@ -6,16 +6,12 @@ using UnityEngine.SceneManagement;
 public class EnemyEncounter : MonoBehaviour
 {
     public string subzoneName;
-    public string enemyName;
-    public string uniqueTag;
     public OverworldAudioManager audioManager;
     public GridMovement heroMovement;
     private EnemyGridMovement enemyMovement;
-    private Transform movePoint;
 
     private void Awake()
     {
-        movePoint = transform.Find("MovePoint");
         enemyMovement = gameObject.GetComponent<EnemyGridMovement>();
     }
 
@@ -24,12 +20,11 @@ public class EnemyEncounter : MonoBehaviour
         if (collision.gameObject.CompareTag("OverworldHero"))
         {
             audioManager.PlayEnemyEncounter();
+            Transform movePoint = enemyMovement.movePoint;
             OverworldSubzoneContainer.AddEncounter(
                 movePoint.position.x,
                 movePoint.position.y,
-                subzoneName,
-                enemyName,
-                uniqueTag
+                subzoneName
             );
 
             heroMovement.StopMovement();

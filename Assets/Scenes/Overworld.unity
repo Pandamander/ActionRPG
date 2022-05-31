@@ -289,8 +289,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subzoneName: Subzone Sand
-  enemyName: Octo
-  uniqueTag: 
   audioManager: {fileID: 1260429109}
   heroMovement: {fileID: 919761783}
 --- !u!1 &155995987
@@ -699,8 +697,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subzoneName: Subzone Sand
-  enemyName: Octo
-  uniqueTag: 
   audioManager: {fileID: 1260429109}
   heroMovement: {fileID: 919761783}
 --- !u!1 &174331084
@@ -1383,8 +1379,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subzoneName: Subzone Sand
-  enemyName: Spider
-  uniqueTag: spider-6
   audioManager: {fileID: 1260429109}
   heroMovement: {fileID: 919761783}
 --- !u!1 &322564106
@@ -84596,8 +84590,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subzoneName: Subzone Sand
-  enemyName: Octo
-  uniqueTag: 
   audioManager: {fileID: 1260429109}
   heroMovement: {fileID: 919761783}
 --- !u!1 &694754271
@@ -98545,8 +98537,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subzoneName: Subzone Sand
-  enemyName: Spider
-  uniqueTag: spider-3
   audioManager: {fileID: 1260429109}
   heroMovement: {fileID: 919761783}
 --- !u!61 &852340332
@@ -98936,7 +98926,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.95, y: 0.95}
+  m_Size: {x: 0.9, y: 0.9}
   m_EdgeRadius: 0
 --- !u!50 &919761787
 Rigidbody2D:
@@ -99334,8 +99324,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subzoneName: Subzone Sand
-  enemyName: Spider
-  uniqueTag: spider-4
   audioManager: {fileID: 1260429109}
   heroMovement: {fileID: 919761783}
 --- !u!1 &1047890931
@@ -99672,8 +99660,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subzoneName: Subzone Forest
-  enemyName: Octo
-  uniqueTag: 
   audioManager: {fileID: 1260429109}
   heroMovement: {fileID: 919761783}
 --- !u!1 &1199000031
@@ -99842,8 +99828,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subzoneName: Subzone Sand
-  enemyName: Spider
-  uniqueTag: spider-5
   audioManager: {fileID: 1260429109}
   heroMovement: {fileID: 919761783}
 --- !u!1 &1251381228
@@ -100084,8 +100068,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subzoneName: Subzone Forest
-  enemyName: Spider
-  uniqueTag: spider-2
   audioManager: {fileID: 1260429109}
   heroMovement: {fileID: 919761783}
 --- !u!1 &1260429108
@@ -104666,8 +104648,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subzoneName: Subzone Sand
-  enemyName: Spider
-  uniqueTag: spider-1
   audioManager: {fileID: 1260429109}
   heroMovement: {fileID: 919761783}
 --- !u!61 &1634712062

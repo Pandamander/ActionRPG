@@ -14,9 +14,7 @@ public class SubzoneEntrance : MonoBehaviour
             OverworldSubzoneContainer.AddEncounter(
                 gameObject.transform.position.x,
                 gameObject.transform.position.y,
-                subzone,
-                "",
-                ""
+                subzone
             );
 
             SceneManager.LoadScene(subzone);

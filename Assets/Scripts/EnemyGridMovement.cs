@@ -6,7 +6,7 @@ public class EnemyGridMovement : MonoBehaviour
 {
     public float moveSpeed;
     public Vector2[] movePath;
-    private Transform movePoint;
+    public Transform movePoint;
     private Animator animator;
     private bool isMovingTarget = false;
     private int moveIndex = 0;
