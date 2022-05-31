@@ -6,7 +6,7 @@ using UnityEngine.U2D;
 
 public class BossFightManager : MonoBehaviour
 {
-    public int bossHealth;
+    public float bossHealth;
     public float sinusoidalMoveSpeed;
     public float swoopAttackMoveSpeed;
     private BossStateMachine stateMachine;
@@ -62,5 +62,14 @@ public class BossFightManager : MonoBehaviour
         //StartCoroutine(StartBossFight());
         shouldMoveCamera = true;
         stateMachine.TransitionTo(BossStateMachine.BossState.Sin);
+    }
+
+    public void ApplyDamage(float damage)
+    {
+        bossHealth -= damage;
+        if (bossHealth <= 0f)
+        {
+
+        }
     }
 }

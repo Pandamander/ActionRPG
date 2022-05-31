@@ -32,34 +32,7 @@ public class GridMovement : MonoBehaviour
     {
         if (stopMovement) { return; }
 
-        float horizontal = 0;
-        float vertical = 0;
-        if (Input.GetKeyDown("w") || Input.GetKeyDown("up"))
-        {
-            vertical = 1;
-        }
-        else if (Input.GetKeyDown("s") || Input.GetKeyDown("down"))
-        {
-            vertical = -1;
-        }
-        else if (Input.GetKeyDown("a") || Input.GetKeyDown("left"))
-        {
-            horizontal = -1;
-        }
-        else if (Input.GetKeyDown("d") || Input.GetKeyDown("right"))
-        {
-            horizontal = 1;
-        }
 
-        Vector2 movement = new Vector2(
-            horizontal,
-            vertical
-        );
-
-        if (movement.x != 0 || movement.y != 0)
-        {
-            UpdateAnimation(movement);
-        }
 
         float distanceToMovePoint = Vector3.Distance(
             transform.position,
@@ -73,6 +46,41 @@ public class GridMovement : MonoBehaviour
 
         if (!isMovingTarget)
         {
+/*            bool isRight = (Input.GetAxis("DPadX") == 1f) ? true : false;
+            bool isLeft = (Input.GetAxis("DPadX") == -1f) ? true : false;
+            bool isDown = (Input.GetAxis("DPadY") == -1f) ? true : false;
+            bool isUp = (Input.GetAxis("DPadY") == 1f) ? true : false;*/
+
+            float horizontal = 0;
+            float vertical = 0;
+            if (Input.GetKeyDown("w") || Input.GetKeyDown("up"))// || isUp)
+            {
+                vertical = 1;
+            }
+            else if (Input.GetKeyDown("s") || Input.GetKeyDown("down"))// || isDown)
+            {
+                vertical = -1;
+            }
+            else if (Input.GetKeyDown("a") || Input.GetKeyDown("left"))// || isLeft)
+            {
+                horizontal = -1;
+            }
+            else if (Input.GetKeyDown("d") || Input.GetKeyDown("right"))// || isRight)
+            {
+                horizontal = 1;
+            }
+
+            Vector2 movement = new Vector2(
+                horizontal,
+                vertical
+            );
+
+            if (movement.x != 0 || movement.y != 0)
+            {
+                UpdateAnimation(movement);
+            }
+
+
             movePoint.position += new Vector3(
                 movement.x,
                 movement.y, 0.0f
