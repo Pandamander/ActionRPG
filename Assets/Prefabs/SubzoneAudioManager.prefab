@@ -49,6 +49,7 @@ MonoBehaviour:
   attack: {fileID: 8300000, guid: 32c1ed2c205174a36a6d45fd01b34703, type: 3}
   damage: {fileID: 8300000, guid: 199c79bec3d5e43fca0644ab00a6657d, type: 3}
   powerup: {fileID: 8300000, guid: 977eaccc24b3646d199462f1422a8a3f, type: 3}
+  gameOver: {fileID: 8300000, guid: b3934d5c50601440faafcfd937bfa31d, type: 3}
 --- !u!82 &8023768132352030834
 AudioSource:
   m_ObjectHideFlags: 0

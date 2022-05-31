@@ -24,4 +24,9 @@ public class OverworldSubzoneContainer
             Initialized = true;
         }
     }
+
+    public static void Reset()
+    {
+        Initialized = false;
+    }
 }

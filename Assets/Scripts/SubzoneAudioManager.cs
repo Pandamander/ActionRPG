@@ -8,6 +8,7 @@ public class SubzoneAudioManager : MonoBehaviour
     public AudioClip attack;
     public AudioClip damage;
     public AudioClip powerup;
+    public AudioClip gameOver;
 
     public void PlayAttack()
     {
@@ -24,6 +25,12 @@ public class SubzoneAudioManager : MonoBehaviour
     public void PlayPowerup()
     {
         source.clip = powerup;
+        source.Play();
+    }
+
+    public void PlayGameOver()
+    {
+        source.clip = gameOver;
         source.Play();
     }
 }

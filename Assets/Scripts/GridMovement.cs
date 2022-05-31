@@ -97,7 +97,8 @@ public class GridMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("OverworldTile-Rock"))
+        if (collision.gameObject.CompareTag("OverworldTile-Rock") ||
+            collision.gameObject.CompareTag("OverworldTile-Water"))
         {
             Debug.Log("Handle Tile Collision");
             transform.position = lastValidPosition;
