@@ -8,7 +8,6 @@ public class SubzoneAudioManager : MonoBehaviour
     public AudioClip attack;
     public AudioClip damage;
     public AudioClip powerup;
-    // Start is called before the first frame update
 
     public void PlayAttack()
     {

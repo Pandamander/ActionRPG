@@ -10,6 +10,7 @@ public class GridMovement : MonoBehaviour
     private bool isMovingTarget = false;
     private Rigidbody2D rigidBody;
     private Vector3 lastValidPosition;
+    private bool stopMovement = false;
 
     private void Awake()
     {
@@ -29,6 +30,8 @@ public class GridMovement : MonoBehaviour
 
     void Update()
     {
+        if (stopMovement) { return; }
+
         float horizontal = 0;
         float vertical = 0;
         if (Input.GetKeyDown("w") || Input.GetKeyDown("up"))
@@ -100,6 +103,10 @@ public class GridMovement : MonoBehaviour
             transform.position = lastValidPosition;
             movePoint.position = lastValidPosition;
         }
+    }
 
+    public void StopMovement()
+    {
+        stopMovement = true;
     }
 }

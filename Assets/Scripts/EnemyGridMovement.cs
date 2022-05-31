@@ -10,6 +10,7 @@ public class EnemyGridMovement : MonoBehaviour
     private Animator animator;
     private bool isMovingTarget = false;
     private int moveIndex = 0;
+    private bool stopMovement = false;
 
     private void Awake()
     {
@@ -19,6 +20,8 @@ public class EnemyGridMovement : MonoBehaviour
 
     void Update()
     {
+        if (stopMovement) { return; }
+
         bool movementKeyPressed = false;
         if (Input.GetKeyDown("up") ||
             Input.GetKeyDown("down") ||
@@ -69,5 +72,9 @@ public class EnemyGridMovement : MonoBehaviour
                 moveSpeed * Time.deltaTime
             );
         }
+    }
+    public void StopMovement()
+    {
+        stopMovement = true;
     }
 }
