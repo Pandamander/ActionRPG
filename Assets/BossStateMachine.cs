@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossStateMachine : MonoBehaviour
 {
-    public enum BossState { Idle, Intro, Sin, Swoop }
+    public enum BossState { Idle, Intro, Sin, Swoop, Die }
     private BossState currentState = BossState.Intro;
     public BossState currentlyRunningState
     {
@@ -52,13 +52,16 @@ public class BossStateMachine : MonoBehaviour
 
         switch (currentState)
         {
+            case BossState.Die:
+                rigidBody.velocity = new Vector2(0f, -80 * Time.fixedDeltaTime);
+                transform.Rotate(0f, 0f, 4 * 360 * Time.deltaTime);
+                break;
             case BossState.Idle:
                 break;
             case BossState.Intro:
                 rigidBody.position = start + transform.up * Mathf.Sin(Time.time * 1f) * 1f;
                 break;
             case BossState.Sin:
-                //Debug.Log("sin move: " + sinMovmentSpeed);
                 if (sinHorizontalMovementFlip > 0)
                 {
                     sinHorizontalMovementTimer += (Time.deltaTime + 0.005f) * sinMovmentSpeed;
@@ -106,6 +109,12 @@ public class BossStateMachine : MonoBehaviour
         this.swoopAttackMovementSpeed = swoopAttackMovementSpeed;
     }
 
+    public void BossDead()
+    {
+        StartCoroutine(DeathFlash(Color.red));
+        currentState = BossState.Die;
+    }
+
     private IEnumerator MoveToStartingState(BossState state)
     {
         StartCoroutine(Flash(Color.cyan));
@@ -124,6 +133,29 @@ public class BossStateMachine : MonoBehaviour
 
     private IEnumerator Flash(Color color)
     {
+        spriteRenderer.color = color;
+        yield return new WaitForSeconds(0.25f);
+        spriteRenderer.color = Color.white;
+        yield return new WaitForSeconds(0.25f);
+        spriteRenderer.color = color;
+        yield return new WaitForSeconds(0.25f);
+        spriteRenderer.color = Color.white;
+        yield return new WaitForSeconds(0.25f);
+        spriteRenderer.color = color;
+        yield return new WaitForSeconds(0.25f);
+        spriteRenderer.color = Color.white;
+    }
+
+    private IEnumerator DeathFlash(Color color)
+    {
+        spriteRenderer.color = color;
+        yield return new WaitForSeconds(0.25f);
+        spriteRenderer.color = Color.white;
+        yield return new WaitForSeconds(0.25f);
+        spriteRenderer.color = color;
+        yield return new WaitForSeconds(0.25f);
+        spriteRenderer.color = Color.white;
+        yield return new WaitForSeconds(0.25f);
         spriteRenderer.color = color;
         yield return new WaitForSeconds(0.25f);
         spriteRenderer.color = Color.white;

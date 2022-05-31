@@ -91,7 +91,8 @@ public class BossFightManager : MonoBehaviour
         bossHealth -= damage;
         if (bossHealth <= 0f)
         {
-
+            shouldStartBossTimer = false;
+            stateMachine.BossDead();
         }
     }
 

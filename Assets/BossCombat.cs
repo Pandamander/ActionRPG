@@ -12,6 +12,8 @@ public class BossCombat : MonoBehaviour
 
     private void Awake()
     {
+        PlayerStats.Initialize();
+
         rigidBody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         bossFightManager = GetComponent<BossFightManager>();
@@ -28,7 +30,7 @@ public class BossCombat : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("SubzoneHeroProjectile"))
         {

@@ -14,7 +14,7 @@ public static class PlayerStats
     {
         if (!Initialized)
         {
-            Attack = 1;
+            Attack = 10;
             DefenseCapacity = 1;
             Defense = DefenseCapacity;
             HealthCapacity = 1;
