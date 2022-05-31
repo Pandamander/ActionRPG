@@ -9,6 +9,8 @@ public class BossFightManager : MonoBehaviour
     public float bossHealth;
     public float sinusoidalMoveSpeed;
     public float swoopAttackMoveSpeed;
+    public float sinPhaseTime;
+    public float swoopPhaseTime;
     private BossStateMachine stateMachine;
     public CinemachineVirtualCamera vCam;
     private CinemachineTransposer transposer;
@@ -16,6 +18,8 @@ public class BossFightManager : MonoBehaviour
     private PixelPerfectCamera ppCam;
     private bool shouldMoveCamera = false;
     private bool playedIntro = false;
+    private float bossStateTimer = 0f;
+    private bool shouldStartBossTimer = false;
 
     private void Awake()
     {
@@ -43,12 +47,34 @@ public class BossFightManager : MonoBehaviour
                 transposer.m_FollowOffset.y += (Time.deltaTime + 0.008f);
             }
         }
+
+        if (shouldStartBossTimer)
+        {
+            bossStateTimer += Time.deltaTime;
+            switch (stateMachine.currentlyRunningState)
+            {
+                case BossStateMachine.BossState.Sin:
+                    if (bossStateTimer >= sinPhaseTime)
+                    {
+                        bossStateTimer = 0;
+                        stateMachine.TransitionTo(BossStateMachine.BossState.Swoop);
+                    }
+                    break;
+                case BossStateMachine.BossState.Swoop:
+                    if (bossStateTimer >= swoopPhaseTime)
+                    {
+                        bossStateTimer = 0;
+                        stateMachine.TransitionTo(BossStateMachine.BossState.Sin);
+                    }
+                    break;
+            }
+        }
     }
 
     private IEnumerator StartBossFight()
     {
         yield return new WaitForSeconds(1f);
-        stateMachine.TransitionTo(BossStateMachine.BossState.Sin);
+        stateMachine.Run();
     }
 
     public void BeginBossFight()
@@ -67,5 +93,10 @@ public class BossFightManager : MonoBehaviour
         {
 
         }
+    }
+
+    public void InitialBossPhaseDidBegin()
+    {
+        shouldStartBossTimer = true;
     }
 }
