@@ -152,7 +152,7 @@ public class Attack : MonoBehaviour
 		yield return new WaitForSeconds(3.0f);
 		PlayerStats.Reset();
 		OverworldSubzoneContainer.Reset();
-		SceneManager.LoadScene("Overworld");
+		SceneManager.LoadScene("GameOver");
 	}
 
 	private void Die()
