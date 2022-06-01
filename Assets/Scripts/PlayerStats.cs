@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 public static class PlayerStats
 {
     public static int Attack { get; private set; }
@@ -6,9 +7,10 @@ public static class PlayerStats
     public static float Health { get; private set; }
     public static float HealthCapacity { get; private set; }
 
-    private static bool Initialized;
-    private static string[] WeaponVariation = { "" };
+    public static List<string> PowerupDestroy { get; private set; }
     
+
+    private static bool Initialized;    
 
     public static void Initialize()
     {
@@ -20,24 +22,28 @@ public static class PlayerStats
             HealthCapacity = 1;
             Health = HealthCapacity;
             Initialized = true;
+            PowerupDestroy = new List<string>();
         }
     }
 
-    public static void UpgradetAttack()
+    public static void UpgradetAttack(string tag)
     {
         Attack += 1;
+        PowerupDestroy.Add(tag);
     }
 
-    public static void UpgradeDefense()
+    public static void UpgradeDefense(string tag)
     {
         DefenseCapacity += 1;
         Defense = DefenseCapacity;
+        PowerupDestroy.Add(tag);
     }
 
-    public static void UpgradeHealth()
+    public static void UpgradeHealth(string tag)
     {
         HealthCapacity += 1;
         Health = HealthCapacity;
+        PowerupDestroy.Add(tag);
     }
 
     public static void ApplyDamage(float amount)
@@ -55,11 +61,6 @@ public static class PlayerStats
         {
             Defense -= 1;
         }
-    }
-
-    public static string WeaponVariationName()
-    {
-        return WeaponVariation[Attack];
     }
 
     public static void Reset()

@@ -9,6 +9,14 @@ public class Powerup : MonoBehaviour
     public PowerupType powerupType;
     public string uniqueId;
 
+    private void Awake()
+    {
+        if (PlayerStats.PowerupDestroy.Contains(uniqueId))
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
     private void Update()
     {
         if (powerupType == PowerupType.Attack)
@@ -26,13 +34,13 @@ public class Powerup : MonoBehaviour
             switch (powerupType)
             {
                 case PowerupType.Attack:
-                    PlayerStats.UpgradetAttack();
+                    PlayerStats.UpgradetAttack(uniqueId);
                     break;
                 case PowerupType.Defense:
-                    PlayerStats.UpgradeDefense();
+                    PlayerStats.UpgradeDefense(uniqueId);
                     break;
                 case PowerupType.Health:
-                    PlayerStats.UpgradeHealth();
+                    PlayerStats.UpgradeHealth(uniqueId);
                     break;
             }
         }
