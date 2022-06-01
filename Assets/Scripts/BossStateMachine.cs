@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BossStateMachine : MonoBehaviour
 {
@@ -49,6 +50,10 @@ public class BossStateMachine : MonoBehaviour
             case BossState.Die:
                 rigidBody.velocity = new Vector2(0f, -80 * Time.fixedDeltaTime);
                 transform.Rotate(0f, 0f, 4 * 360 * Time.deltaTime);
+                if (transform.position.y <= -6)
+                {
+                    SceneManager.LoadScene("Victory");
+                }
                 break;
             case BossState.Idle:
                 break;

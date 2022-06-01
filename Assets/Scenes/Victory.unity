@@ -155,7 +155,7 @@ MonoBehaviour:
   anyKeyToAdvance: 1
   spaceToAdvance: 0
   returnToAdvance: 0
-  nextSceneName: Overworld
+  nextSceneName: Title
 --- !u!4 &73980146
 Transform:
   m_ObjectHideFlags: 0
@@ -397,7 +397,7 @@ GameObject:
   - component: {fileID: 1045671043}
   - component: {fileID: 1045671042}
   m_Layer: 5
-  m_Name: TXT Continue
+  m_Name: TXT Thanks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -420,7 +420,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4, y: -51.2}
+  m_AnchoredPosition: {x: -4, y: -53.699997}
   m_SizeDelta: {x: 451.35, y: 16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1045671042
@@ -443,7 +443,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Press any key to try again
+  m_text: 'Thanks for playing!
 
 
 '
@@ -535,7 +535,7 @@ GameObject:
   - component: {fileID: 1045888443}
   - component: {fileID: 1045888442}
   m_Layer: 5
-  m_Name: TXT Demise
+  m_Name: TXT Victory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -558,7 +558,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4, y: 1.6}
+  m_AnchoredPosition: {x: -4, y: 30.6}
   m_SizeDelta: {x: 451.35, y: 16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1045888442
@@ -582,8 +582,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: 'In his quest to defeat the monsters of the ancient world, the praetorian
-    met an unfortunate demise on a small, forsaken island in the mediterranean.
-
+    fought and defeated an evil medusa spirit that had taken up residence on a small,
+    forsaken island. The battle that day was won. But the war was just beginning...
 
 '
   m_isRightToLeft: 0
