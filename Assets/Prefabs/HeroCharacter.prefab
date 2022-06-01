@@ -113,7 +113,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmgValue: 4
-  throwableObject: {fileID: 5532974359214069763, guid: 340067e8e5a097546ad175f1d00a6ece, type: 3}
+  throwableObject1: {fileID: 5532974359214069763, guid: 340067e8e5a097546ad175f1d00a6ece, type: 3}
+  throwableObject2: {fileID: 5532974359214069763, guid: 6250a365245769f4081d863d2cd827b2, type: 3}
+  throwableObject3: {fileID: 5532974359214069763, guid: 733e56a35ac68bf46837e1d1cd5c9af9, type: 3}
+  throwableObject4: {fileID: 5532974359214069763, guid: 130311e4285b0304896c017eb641fcb1, type: 3}
+  throwableObject5: {fileID: 5532974359214069763, guid: b3cb726ebabd1d548913ce4a7c1a542b, type: 3}
   attackCheck: {fileID: 441747885288404200}
   animator: {fileID: 538770066651341512}
   canAttack: 1

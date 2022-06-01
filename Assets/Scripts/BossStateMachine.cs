@@ -25,8 +25,6 @@ public class BossStateMachine : MonoBehaviour
     private float sinHorizontalMovementFlip = 1f;
     private SpriteRenderer spriteRenderer;
     private BossFightManager bossFightManager;
-    private float swoopMovementTimer = 0f;
-    private float swoopMovementFlip = 1f;
     private Vector3 moveTo;
     private BossCombat combat;
 
@@ -39,12 +37,6 @@ public class BossStateMachine : MonoBehaviour
         combat = GetComponent<BossCombat>();
         start = transform.position;
         moveTo = swoopRight.position;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame

@@ -6,7 +6,11 @@ using UnityEngine.SceneManagement;
 public class Attack : MonoBehaviour
 {
 	public float dmgValue = 4;
-	public GameObject throwableObject;
+	public GameObject throwableObject1;
+	public GameObject throwableObject2;
+	public GameObject throwableObject3;
+	public GameObject throwableObject4;
+	public GameObject throwableObject5;
 	public Transform attackCheck;
 	private Rigidbody2D rigidBody;
 	public Animator animator;
@@ -34,11 +38,28 @@ public class Attack : MonoBehaviour
 
 			Vector2 direction = new Vector2(transform.localScale.x, 0);
 
-			GameObject throwableWeapon = Instantiate(
-				throwableObject,
-				transform.position + new Vector3(transform.localScale.x * 0.5f,-0.2f),
-				Quaternion.Euler(0f, 0f, direction.x > 0 ? 0f : 180f)
-			) as GameObject;
+			GameObject throwableWeapon;
+			switch (PlayerStats.Attack)
+            {
+				case 1:
+					throwableWeapon = Instantiate(throwableObject1, transform.position + new Vector3(transform.localScale.x * 0.5f, -0.2f), Quaternion.Euler(0f, 0f, direction.x > 0 ? 0f : 180f)) as GameObject;
+					break;
+				case 2:
+					throwableWeapon = Instantiate(throwableObject2, transform.position + new Vector3(transform.localScale.x * 0.5f, -0.2f), Quaternion.Euler(0f, 0f, direction.x > 0 ? 0f : 180f)) as GameObject;
+					break;
+				case 3:
+					throwableWeapon = Instantiate(throwableObject3, transform.position + new Vector3(transform.localScale.x * 0.5f, -0.2f), Quaternion.Euler(0f, 0f, direction.x > 0 ? 0f : 180f)) as GameObject;
+					break;
+				case 4:
+					throwableWeapon = Instantiate(throwableObject4, transform.position + new Vector3(transform.localScale.x * 0.5f, -0.2f), Quaternion.Euler(0f, 0f, direction.x > 0 ? 0f : 180f)) as GameObject;
+					break;
+				case 5:
+					throwableWeapon = Instantiate(throwableObject5, transform.position + new Vector3(transform.localScale.x * 0.5f, -0.2f), Quaternion.Euler(0f, 0f, direction.x > 0 ? 0f : 180f)) as GameObject;
+					break;
+				default:
+					throwableWeapon = Instantiate(throwableObject1, transform.position + new Vector3(transform.localScale.x * 0.5f, -0.2f), Quaternion.Euler(0f, 0f, direction.x > 0 ? 0f : 180f)) as GameObject;
+					break;
+			}
 			
 			throwableWeapon.GetComponent<ThrowableWeapon>().direction = direction; 
 			throwableWeapon.name = "ThrowableWeapon";

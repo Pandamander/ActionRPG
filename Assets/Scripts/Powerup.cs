@@ -7,6 +7,15 @@ public class Powerup : MonoBehaviour
 {
     public SubzoneAudioManager audioManager;
     public PowerupType powerupType;
+    public string uniqueId;
+
+    private void Update()
+    {
+        if (powerupType == PowerupType.Attack)
+        {
+            transform.Rotate(0f, 0f, 300f * Time.deltaTime);
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
