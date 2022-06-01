@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 public static class PlayerStats
 {
     public static int Attack { get; private set; }
@@ -8,7 +9,6 @@ public static class PlayerStats
     public static float HealthCapacity { get; private set; }
 
     public static List<string> PowerupDestroy { get; private set; }
-    
 
     private static bool Initialized;    
 
@@ -30,6 +30,8 @@ public static class PlayerStats
     {
         Attack += 1;
         PowerupDestroy.Add(tag);
+        Debug.Log("ADDED TAG: " + tag);
+        Debug.Log("PowerupDestroy: " + PowerupDestroy.Count);
     }
 
     public static void UpgradeDefense(string tag)
@@ -37,6 +39,8 @@ public static class PlayerStats
         DefenseCapacity += 1;
         Defense = DefenseCapacity;
         PowerupDestroy.Add(tag);
+        Debug.Log("ADDED TAG: " + tag);
+        Debug.Log("PowerupDestroy: " + PowerupDestroy.Count);
     }
 
     public static void UpgradeHealth(string tag)
@@ -44,6 +48,8 @@ public static class PlayerStats
         HealthCapacity += 1;
         Health = HealthCapacity;
         PowerupDestroy.Add(tag);
+        Debug.Log("ADDED TAG: " + tag);
+        Debug.Log("PowerupDestroy: " + PowerupDestroy.Count);
     }
 
     public static void ApplyDamage(float amount)

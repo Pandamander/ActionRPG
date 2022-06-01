@@ -11,6 +11,10 @@ public class Powerup : MonoBehaviour
 
     private void Awake()
     {
+        foreach (string tag in PlayerStats.PowerupDestroy)
+        {
+            Debug.Log("power up destroy: " + tag);
+        }
         if (PlayerStats.PowerupDestroy.Contains(uniqueId))
         {
             gameObject.SetActive(false);
