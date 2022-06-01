@@ -32163,6 +32163,10 @@ PrefabInstance:
       value: PowerupHealth
       objectReference: {fileID: 0}
     - target: {fileID: 6494084276423066862, guid: 4139860dcb40f8c42ab192b41026766e, type: 3}
+      propertyPath: uniqueId
+      value: Health-Fountain
+      objectReference: {fileID: 0}
+    - target: {fileID: 6494084276423066862, guid: 4139860dcb40f8c42ab192b41026766e, type: 3}
       propertyPath: audioManager
       value: 
       objectReference: {fileID: 2007040037}

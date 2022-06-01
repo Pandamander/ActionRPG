@@ -30584,6 +30584,10 @@ PrefabInstance:
       value: PowerupDefense
       objectReference: {fileID: 0}
     - target: {fileID: 1850451778655543555, guid: b4062f3b554cd5f4d99527119e792e8c, type: 3}
+      propertyPath: uniqueId
+      value: Temple-Defense
+      objectReference: {fileID: 0}
+    - target: {fileID: 1850451778655543555, guid: b4062f3b554cd5f4d99527119e792e8c, type: 3}
       propertyPath: audioManager
       value: 
       objectReference: {fileID: 1975425698}
