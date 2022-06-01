@@ -491,6 +491,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subzone: Subzone Fountain2
+  positionOverride: {x: 0, y: 0, z: 0}
+  usePositionOverride: 0
 --- !u!61 &167540815
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1078,6 +1080,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subzone: Subzone Cave 1
+  positionOverride: {x: 0, y: 0, z: 0}
+  usePositionOverride: 0
 --- !u!1 &237019779
 GameObject:
   m_ObjectHideFlags: 0
@@ -1446,6 +1450,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subzone: Subzone Cave Level 2
+  positionOverride: {x: 0, y: 0, z: 0}
+  usePositionOverride: 0
 --- !u!61 &337772503
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1580,6 +1586,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subzone: Subzone Cave Level 3
+  positionOverride: {x: 0, y: 0, z: 0}
+  usePositionOverride: 0
 --- !u!61 &438293531
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -84779,7 +84787,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c06814b7f145c2e479fdc62b52b82f93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  subzone: Subzone Temple
+  subzone: Subzone Temple2
+  positionOverride: {x: 0, y: 0, z: 0}
+  usePositionOverride: 0
 --- !u!61 &618167410
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -99547,6 +99557,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subzone: Subzone Fountain
+  positionOverride: {x: 0, y: 0, z: 0}
+  usePositionOverride: 0
 --- !u!61 &932508484
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -100294,6 +100306,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subzone: Subzone Temple Boss
+  positionOverride: {x: 0, y: 0, z: 0}
+  usePositionOverride: 0
 --- !u!61 &1251381230
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -100709,6 +100723,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subzone: Subzone Cave Level 4
+  positionOverride: {x: 9.5, y: 25.5, z: 0}
+  usePositionOverride: 1
 --- !u!61 &1313347337
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -105649,6 +105665,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subzone: Subzone Fountain3
+  positionOverride: {x: 0, y: 0, z: 0}
+  usePositionOverride: 0
 --- !u!61 &1575694895
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -106195,6 +106213,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subzone: Subzone Temple
+  positionOverride: {x: 0, y: 0, z: 0}
+  usePositionOverride: 0
 --- !u!61 &1973854973
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -106610,7 +106630,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: orthographic size
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
@@ -106622,7 +106642,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.9998075
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.height

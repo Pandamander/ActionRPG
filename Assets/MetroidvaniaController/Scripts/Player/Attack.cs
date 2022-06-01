@@ -120,7 +120,6 @@ public class Attack : MonoBehaviour
     {
 		if (collision.gameObject.CompareTag("Boss"))
 		{
-			Debug.Log("HIT BY BOSS");
 			if (dead) { return; }
 
 			audioManager.PlayDamage();

@@ -69,8 +69,12 @@ public class SubzoneEnemy : MonoBehaviour
         {
             audioManager.PlayDamage();
             health -= PlayerStats.Attack;
+            if (health <= 0f)
+            {
+                GetComponent<CapsuleCollider2D>().enabled = false;
+            }
 
-            StartCoroutine(TakeDamage());
+                StartCoroutine(TakeDamage());
         }
     }
 
