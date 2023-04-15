@@ -292,7 +292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   subzoneName: Subzone Sand
   audioManager: {fileID: 1260429109}
-  heroMovement: {fileID: 919761783}
+  heroMovement: {fileID: 0}
 --- !u!1 &76428320
 GameObject:
   m_ObjectHideFlags: 0
@@ -809,7 +809,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   subzoneName: Subzone Sand
   audioManager: {fileID: 1260429109}
-  heroMovement: {fileID: 919761783}
+  heroMovement: {fileID: 0}
 --- !u!1 &174331084
 GameObject:
   m_ObjectHideFlags: 0
@@ -1495,7 +1495,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   subzoneName: Subzone Sand
   audioManager: {fileID: 1260429109}
-  heroMovement: {fileID: 919761783}
+  heroMovement: {fileID: 0}
 --- !u!1 &322564106
 GameObject:
   m_ObjectHideFlags: 0
@@ -85200,7 +85200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   subzoneName: Subzone Sand
   audioManager: {fileID: 1260429109}
-  heroMovement: {fileID: 919761783}
+  heroMovement: {fileID: 0}
 --- !u!1 &694754271
 GameObject:
   m_ObjectHideFlags: 0
@@ -99149,7 +99149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   subzoneName: Subzone Sand
   audioManager: {fileID: 1260429109}
-  heroMovement: {fileID: 919761783}
+  heroMovement: {fileID: 0}
 --- !u!61 &852340332
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -99402,9 +99402,9 @@ GameObject:
   - component: {fileID: 919761782}
   - component: {fileID: 919761780}
   - component: {fileID: 919761784}
-  - component: {fileID: 919761783}
   - component: {fileID: 919761786}
   - component: {fileID: 919761787}
+  - component: {fileID: 919761788}
   m_Layer: 0
   m_Name: Hero
   m_TagString: OverworldHero
@@ -99449,19 +99449,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &919761783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919761779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a5fa1cc94537e64baccd663766a6723, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
 --- !u!212 &919761784
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -99550,17 +99537,30 @@ Rigidbody2D:
   m_GameObject: {fileID: 919761779}
   m_BodyType: 0
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 2
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
+--- !u!114 &919761788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919761779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 269d2483ae6bdcc439ca2f1f038dc841, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
 --- !u!1 &920044267
 GameObject:
   m_ObjectHideFlags: 0
@@ -99941,7 +99941,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   subzoneName: Subzone Sand
   audioManager: {fileID: 1260429109}
-  heroMovement: {fileID: 919761783}
+  heroMovement: {fileID: 0}
 --- !u!1 &1047890931
 GameObject:
   m_ObjectHideFlags: 0
@@ -100279,7 +100279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   subzoneName: Subzone Forest
   audioManager: {fileID: 1260429109}
-  heroMovement: {fileID: 919761783}
+  heroMovement: {fileID: 0}
 --- !u!1 &1199000031
 GameObject:
   m_ObjectHideFlags: 0
@@ -100449,7 +100449,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   subzoneName: Subzone Sand
   audioManager: {fileID: 1260429109}
-  heroMovement: {fileID: 919761783}
+  heroMovement: {fileID: 0}
 --- !u!1 &1251381228
 GameObject:
   m_ObjectHideFlags: 0
@@ -100693,7 +100693,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   subzoneName: Subzone Forest
   audioManager: {fileID: 1260429109}
-  heroMovement: {fileID: 919761783}
+  heroMovement: {fileID: 0}
 --- !u!1 &1260429108
 GameObject:
   m_ObjectHideFlags: 0
@@ -106087,7 +106087,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   subzoneName: Subzone Sand
   audioManager: {fileID: 1260429109}
-  heroMovement: {fileID: 919761783}
+  heroMovement: {fileID: 0}
 --- !u!61 &1634712062
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -106846,15 +106846,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0.07679181
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.99943346
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.8466297
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952797147, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_LocalPosition.x
