@@ -65,7 +65,7 @@ public class SubzoneEnemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("SubzoneHeroProjectile"))
+        if (collision.gameObject.CompareTag("SubzoneHeroProjectile") || collision.gameObject.CompareTag("SubzoneMeleeWeapon"))
         {
             audioManager.PlayDamage();
             health -= PlayerStats.Attack;
