@@ -113,6 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmgValue: 4
+  meleeWeapon1: {fileID: 5532974359214069763, guid: 600fcaba927fb9f41972fef7185a3131, type: 3}
   throwableObject1: {fileID: 5532974359214069763, guid: 340067e8e5a097546ad175f1d00a6ece, type: 3}
   throwableObject2: {fileID: 5532974359214069763, guid: 6250a365245769f4081d863d2cd827b2, type: 3}
   throwableObject3: {fileID: 5532974359214069763, guid: 733e56a35ac68bf46837e1d1cd5c9af9, type: 3}
@@ -194,7 +195,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &538770066651341512
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -211,7 +212,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!50 &475871843512969684
 Rigidbody2D:
   serializedVersion: 4

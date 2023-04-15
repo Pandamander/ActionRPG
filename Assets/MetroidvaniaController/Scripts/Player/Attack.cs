@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Attack : MonoBehaviour
 {
 	public float dmgValue = 4;
+	public GameObject meleeWeapon1;
 	public GameObject throwableObject1;
 	public GameObject throwableObject2;
 	public GameObject throwableObject3;
@@ -38,31 +39,54 @@ public class Attack : MonoBehaviour
 
 			Vector2 direction = new Vector2(transform.localScale.x, 0);
 
-			GameObject throwableWeapon;
+			GameObject weaponPrefab;
+			bool isMelee = false;
 			switch (PlayerStats.Attack)
             {
 				case 1:
-					throwableWeapon = Instantiate(throwableObject1, transform.position + new Vector3(transform.localScale.x * 0.5f, -0.2f), Quaternion.Euler(0f, 0f, direction.x > 0 ? 0f : 180f)) as GameObject;
+					weaponPrefab = meleeWeapon1;
+					isMelee = true;
 					break;
 				case 2:
-					throwableWeapon = Instantiate(throwableObject2, transform.position + new Vector3(transform.localScale.x * 0.5f, -0.2f), Quaternion.Euler(0f, 0f, direction.x > 0 ? 0f : 180f)) as GameObject;
+					weaponPrefab = throwableObject2;
 					break;
 				case 3:
-					throwableWeapon = Instantiate(throwableObject3, transform.position + new Vector3(transform.localScale.x * 0.5f, -0.2f), Quaternion.Euler(0f, 0f, direction.x > 0 ? 0f : 180f)) as GameObject;
+					weaponPrefab = throwableObject3;
 					break;
 				case 4:
-					throwableWeapon = Instantiate(throwableObject4, transform.position + new Vector3(transform.localScale.x * 0.5f, -0.2f), Quaternion.Euler(0f, 0f, direction.x > 0 ? 0f : 180f)) as GameObject;
+					weaponPrefab = throwableObject4;
 					break;
 				case 5:
-					throwableWeapon = Instantiate(throwableObject5, transform.position + new Vector3(transform.localScale.x * 0.5f, -0.2f), Quaternion.Euler(0f, 0f, direction.x > 0 ? 0f : 180f)) as GameObject;
+					weaponPrefab = throwableObject5;
 					break;
 				default:
-					throwableWeapon = Instantiate(throwableObject1, transform.position + new Vector3(transform.localScale.x * 0.5f, -0.2f), Quaternion.Euler(0f, 0f, direction.x > 0 ? 0f : 180f)) as GameObject;
+					weaponPrefab = meleeWeapon1;
+					isMelee = true;
 					break;
 			}
-			
-			throwableWeapon.GetComponent<ThrowableWeapon>().direction = direction; 
-			throwableWeapon.name = "ThrowableWeapon";
+
+			GameObject weapon;
+			if (isMelee)
+            {
+				weapon = Instantiate(
+					weaponPrefab,
+					transform.position + new Vector3(transform.localScale.x * 0.1f, -0.2f),
+					Quaternion.Euler(0f, 0f, direction.x > 0 ? 0f : 180f)
+				) as GameObject;
+				weapon.GetComponent<MeleeWeapon>().direction = direction;
+				weapon.name = "MeleeWeapon";
+				weapon.transform.parent = transform;
+			} else
+            {
+				weapon = Instantiate(
+					weaponPrefab,
+					transform.position + new Vector3(transform.localScale.x * 0.5f, -0.2f),
+					Quaternion.Euler(0f, 0f, direction.x > 0 ? 0f : 180f)
+				) as GameObject;
+				weapon.GetComponent<ThrowableWeapon>().direction = direction;
+				weapon.name = "ThrowableWeapon";
+			}
+
 			audioManager.PlayAttack();
 
 			StartCoroutine(AttackCooldown());

@@ -17,11 +17,11 @@ public class ThrowableWeapon : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-		if ( !hasHit)
-		GetComponent<Rigidbody2D>().velocity = direction * speed;
-	}
+        if (!hasHit)
+			GetComponent<Rigidbody2D>().velocity = direction * speed;
+    }
 
-	void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
 	{
 		if (collision.gameObject.tag == "Enemy")
 		{
