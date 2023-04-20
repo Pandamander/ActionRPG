@@ -25,7 +25,10 @@ public class TopDownMovement : MonoBehaviour
 
     void Update()
     {
-        if (stopMovement) { return; }
+        if (stopMovement) {
+            movement = Vector2.zero;
+            return;
+        }
 
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");

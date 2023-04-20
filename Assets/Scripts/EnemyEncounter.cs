@@ -7,7 +7,7 @@ public class EnemyEncounter : MonoBehaviour
 {
     public string subzoneName;
     public OverworldAudioManager audioManager;
-    public GridMovement heroMovement;
+    public TopDownMovement heroMovement;
     private EnemyGridMovement enemyMovement;
 
     private void Awake()
