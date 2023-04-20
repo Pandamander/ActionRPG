@@ -34,8 +34,7 @@ public class PlayerMovement : MonoBehaviour
 
 		if (Input.GetButtonDown("Fire3"))
 		{
-			// Disabling dash for now
-			//dash = true;
+			dash = true;
 		}
 
 		/*if (Input.GetAxisRaw("Dash") == 1 || Input.GetAxisRaw("Dash") == -1) //RT in Unity 2017 = -1, RT in Unity 2019 = 1
