@@ -60,7 +60,7 @@ MonoBehaviour:
   - id: 2
     fields:
     - title: Name
-      value: NPC
+      value: Porcusius Maximus
       type: 0
       typeString: 
     - title: Pictures
@@ -480,12 +480,13 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
-        value: If you are lucky on this island, you'll be dead. But there are fates
-          worse than death.
+        value: f
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 
+        value: Ugh, another intruder. You're a thousand years too late. I'm trapped
+          on this forsaken island, and I've no patience left for idle chatter. Leave
+          me be.
         type: 0
         typeString: 
       - title: Sequence
@@ -507,8 +508,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 57
-        y: 160
+        x: 63
+        y: 162
         width: 160
         height: 30
     entryGroups: []
