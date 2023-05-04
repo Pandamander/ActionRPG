@@ -19,7 +19,8 @@ public class TooltipInteraction : MonoBehaviour
     {
         if (isInTrigger && Input.GetKeyDown(KeyCode.E))
         {
-            DialogueSystemTrigger dialogueTrigger = FindObjectOfType<DialogueSystemTrigger>();
+            // Get the dialogue trigger component from this gameObject
+            DialogueSystemTrigger dialogueTrigger = this.GetComponent<DialogueSystemTrigger>();
             if (dialogueTrigger != null)
             {
                 dialogueTrigger.OnUse(transform);
@@ -34,7 +35,7 @@ public class TooltipInteraction : MonoBehaviour
     {
         Debug.Log("Trigger entered");
         // if the tag is "OverworldHero" or "Hero", the tooltip icon is enabled
-        if (other.CompareTag("OverworldHero") || other.CompareTag("Hero"))
+        if (other.CompareTag("OverworldHero") || other.CompareTag("Hero") || other.CompareTag("Player"))
         {
             isInTrigger = true;
             toolTipIcon.SetActive(true);
@@ -44,7 +45,7 @@ public class TooltipInteraction : MonoBehaviour
     // When the player exits the trigger, the tooltip icon is disabled
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("OverworldHero") || other.CompareTag("Hero"))
+        if (other.CompareTag("OverworldHero") || other.CompareTag("Hero") || other.CompareTag("Player"))
         {
             isInTrigger = false;
             toolTipIcon.SetActive(false);
