@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1338a30486a6ba048998e28e74bbeb2c, type: 3}
+  m_Name: ForestTileData
+  m_EditorClassIdentifier: 
+  tiles:
+  - {fileID: 11400000, guid: ab39ebfdb96e5477ebaab21cd73d139f, type: 2}
+  - {fileID: 11400000, guid: 7fc950b37af83423295fd459bf966457, type: 2}
+  - {fileID: 11400000, guid: 1872e55dd93b64929a410f38d3c98b56, type: 2}
+  - {fileID: 11400000, guid: 399319d4581634208a877460810befe8, type: 2}
+  - {fileID: 11400000, guid: 30b379e57d3b24d319f4850f7383ed0a, type: 2}
+  - {fileID: 11400000, guid: 104620c58b0974ec685204648fc8dbbb, type: 2}
+  - {fileID: 11400000, guid: e7d1d52a897c54c308dc32780b29fc15, type: 2}
+  - {fileID: 11400000, guid: a7a4e89cd1e7042ec95c6341a1b60eb1, type: 2}
+  - {fileID: 11400000, guid: 9bdc9bced54e14cf8a6a3e8abfa72b57, type: 2}
+  - {fileID: 11400000, guid: 5988c0113dea241a9a1e3d84139c3982, type: 2}
+  - {fileID: 11400000, guid: c701c2ece6ad14111bb8c73121938781, type: 2}
+  - {fileID: 11400000, guid: 1c631811101614d60b956ab1a09d1e8e, type: 2}
+  shaded: 1
