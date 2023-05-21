@@ -34160,6 +34160,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3250947733976302415, guid: 28c6a7d1be5b94a08b734368fec3cd9d, type: 3}
+      propertyPath: displaySettings.subtitleSettings.continueButton
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3250947733987226059, guid: 28c6a7d1be5b94a08b734368fec3cd9d, type: 3}
       propertyPath: m_Name
       value: Dialogue Manager Variant
@@ -34299,7 +34303,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952797147, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.222221
+      value: -3.6402435
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952797147, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_LocalPosition.y
