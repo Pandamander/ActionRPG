@@ -139,7 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 557096882182385030}
   animator: {fileID: 538770066651341512}
-  runSpeed: 30
+  runSpeed: 20
   canMove: 1
 --- !u!212 &349662688299814154
 SpriteRenderer:
@@ -182,7 +182,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: -821126881, guid: 62416d3be687b8746adf635d1caf8595, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6592bdbf9c0ea1e4bbcbdfaf4c7bb4bd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -248,7 +248,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.18}
+  m_Offset: {x: 0, y: -0.15}
   m_Size: {x: 0.65, y: 1.7}
   m_Direction: 0
 --- !u!1 &444187993514899534

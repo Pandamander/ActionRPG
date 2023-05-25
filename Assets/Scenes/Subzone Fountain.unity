@@ -18130,50 +18130,76 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 850942753}
     m_ColliderPaths:
-    - - X: 10000000
-        Y: -20000000
-      - X: 0
-        Y: -20000000
-      - X: 0
-        Y: -28125000
-      - X: -38750000
-        Y: -28125000
-      - X: -40000000
-        Y: -29375000
-      - X: -40000000
-        Y: -40000000
-      - X: -280000000
-        Y: -40000000
-      - X: -280000000
-        Y: -220000000
-      - X: 260000000
-        Y: -220000000
-      - X: 260000000
-        Y: -40000000
-      - X: 50000000
-        Y: -40000000
-      - X: 50000000
-        Y: -30000000
-      - X: 49375000
-        Y: -28125000
-      - X: 10000000
-        Y: -28125000
+    - - X: 260000032
+        Y: -39999900
+      - X: 50000100
+        Y: -39999900
+      - X: 50000100
+        Y: -30000028
+      - X: 50000108
+        Y: -30000016
+      - X: 50000100
+        Y: -29999992
+      - X: 50000100
+        Y: -29999960
+      - X: 50000083
+        Y: -29999942
+      - X: 49375084
+        Y: -28124938
+      - X: 49375032
+        Y: -28124900
+      - X: 10000100
+        Y: -28124900
+      - X: 10000100
+        Y: -19999960
+      - X: 10000041
+        Y: -19999900
+      - X: -41
+        Y: -19999900
+      - X: -100
+        Y: -19999960
+      - X: -100
+        Y: -28124900
+      - X: -38750020
+        Y: -28124900
+      - X: -38750056
+        Y: -28124914
+      - X: -40000084
+        Y: -29374942
+      - X: -40000100
+        Y: -29374980
+      - X: -40000100
+        Y: -39999900
+      - X: -280000032
+        Y: -39999900
+      - X: -280000096
+        Y: -39999960
+      - X: -280000096
+        Y: -220000032
+      - X: -280000032
+        Y: -220000096
+      - X: 260000032
+        Y: -220000096
+      - X: 260000096
+        Y: -220000032
+      - X: 260000096
+        Y: -39999960
   m_CompositePaths:
     m_Paths:
-    - - {x: 25.999971, y: -22}
-      - {x: 25.999971, y: -4}
-      - {x: 5, y: -3.9999704}
-      - {x: 4.999999, y: -2.9999962}
-      - {x: 4.93748, y: -2.8125}
-      - {x: 1, y: -2.8124707}
-      - {x: 0.99997073, y: -2}
-      - {x: 0, y: -2.0000293}
-      - {x: -0.0000294, y: -2.8125}
-      - {x: -3.8750076, y: -2.8125076}
-      - {x: -4, y: -2.9375107}
-      - {x: -4.0000296, y: -4}
-      - {x: -28, y: -4.000029}
-      - {x: -27.999971, y: -22}
+    - - {x: 25.999975, y: -22.00001}
+      - {x: 25.999975, y: -3.99999}
+      - {x: 5.00001, y: -3.999961}
+      - {x: 5.000007, y: -2.9999905}
+      - {x: 4.9374833, y: -2.81249}
+      - {x: 1.00001, y: -2.8124607}
+      - {x: 0.9999748, y: -1.99999}
+      - {x: -0.00001, y: -2.0000253}
+      - {x: -0.0000394, y: -2.81249}
+      - {x: -3.8750134, y: -2.812499}
+      - {x: -4.00001, y: -2.9375088}
+      - {x: -4.000039, y: -3.99999}
+      - {x: -28.00001, y: -4.0000253}
+      - {x: -27.999975, y: -22.00001}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
 --- !u!50 &850942755
@@ -32901,11 +32927,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: orthographic size
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.30572918
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
@@ -32913,19 +32939,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.6694445
+      value: 0.99999994
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.66944444
+      value: 0.9998748
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952797147, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.296296
+      value: -9.55
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952797147, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.757998
+      value: 0.7579999
       objectReference: {fileID: 0}
     - target: {fileID: 4064209768786870682, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_LocalPosition.x
