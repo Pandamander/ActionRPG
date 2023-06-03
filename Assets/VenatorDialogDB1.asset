@@ -208,6 +208,20 @@ MonoBehaviour:
       value: 
       type: 0
       typeString: 
+  - id: 3
+    fields:
+    - title: Name
+      value: XP
+      type: 0
+      typeString: 
+    - title: Initial Value
+      value: 0
+      type: 1
+      typeString: CustomFieldType_Number
+    - title: Description
+      value: 
+      type: 0
+      typeString: 
   conversations:
   - id: 1
     fields:
@@ -1296,8 +1310,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: There's an obsidian amulet in the temple with inscriptions that may
-          help us unravel the mystery. Please find it.
+        value: There's an obsidian amulet with inscriptions that may help us unravel
+          the mystery.
         type: 0
         typeString: 
       - title: Sequence
@@ -1457,7 +1471,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: I don't know why this dialog isn't showing
+        value: It is in the west temple, but I could not reach it. Please retrieve
+          it. It's our only hope to uncover the island's secrets.
         type: 0
         typeString: 
       - title: Sequence

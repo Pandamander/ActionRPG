@@ -176,7 +176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2560223189649536894, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
       propertyPath: m_Name
-      value: LevelExit (1)
+      value: LevelExit 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
@@ -19965,6 +19965,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &996370337 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3250947733987226059, guid: 28c6a7d1be5b94a08b734368fec3cd9d, type: 3}
+  m_PrefabInstance: {fileID: 2086997038}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &996370338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996370337}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d21f7e432746406d9145dd644da4ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  advanceKey: 101
 --- !u!1001 &1008769260
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34164,6 +34182,10 @@ PrefabInstance:
       propertyPath: displaySettings.subtitleSettings.continueButton
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3250947733976303935, guid: 28c6a7d1be5b94a08b734368fec3cd9d, type: 3}
+      propertyPath: inputDevice
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3250947733987226059, guid: 28c6a7d1be5b94a08b734368fec3cd9d, type: 3}
       propertyPath: m_Name
       value: Dialogue Manager Variant
@@ -34283,11 +34305,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: orthographic size
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.30572918
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
@@ -34295,15 +34317,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.6694445
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.66944444
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952797147, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.6402435
+      value: -10.222221
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952797147, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_LocalPosition.y

@@ -13,19 +13,25 @@ public class TooltipInteraction : MonoBehaviour
     void Start()
     {
         toolTipIcon.SetActive(false);
+
+        // Lua.RegisterFunction("HelloWorld", this, SymbolExtensions.GetMethodInfo(() => HelloWorld())); // Register the function to Lua
     }
 
     void Update()
     {
-        if (isInTrigger && Input.GetKeyDown(KeyCode.E))
+        if (isInTrigger && Input.GetKeyDown(KeyCode.E) && DialogueManager.IsConversationActive == false)
         {
             // Get the dialogue trigger component from this gameObject
             DialogueSystemTrigger dialogueTrigger = this.GetComponent<DialogueSystemTrigger>();
             if (dialogueTrigger != null)
             {
                 dialogueTrigger.OnUse(transform);
-
                 toolTipIcon.SetActive(false);
+
+                int XP = PixelCrushers.DialogueSystem.DialogueLua.GetVariable("XP").asInt;
+                Debug.Log("XP: " + XP);
+                PixelCrushers.DialogueSystem.DialogueLua.SetVariable("XP", XP + 100);
+
             }
         }
     }
@@ -33,7 +39,6 @@ public class TooltipInteraction : MonoBehaviour
     // When the player enters the trigger, the tooltip icon is enabled
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Trigger entered");
         // if the tag is "OverworldHero" or "Hero", the tooltip icon is enabled
         if (other.CompareTag("OverworldHero") || other.CompareTag("Hero") || other.CompareTag("Player"))
         {
@@ -51,7 +56,6 @@ public class TooltipInteraction : MonoBehaviour
             toolTipIcon.SetActive(false);
         }
     }
-
 
 
 
