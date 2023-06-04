@@ -19,7 +19,7 @@ public class OverworldSubzoneContainer
     {
         if (!Initialized)
         {
-            LastEncounterPosition = (-18f, -39f);
+            LastEncounterPosition = (5.5f, -2.5f);
             LastEncounterSubzoneName = "";
             Initialized = true;
         }
