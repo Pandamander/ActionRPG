@@ -992,6 +992,10 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: EventGuid
+        value: 52d54ed6-86ff-4a86-8d7f-886101fd0d96
+        type: 0
+        typeString: 
       conversationID: 4
       isRoot: 0
       isGroup: 0
@@ -1040,7 +1044,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Did you find the amulet?
+        value: Did you find?
         type: 0
         typeString: 
       - title: Sequence
@@ -1074,8 +1078,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 266
-        y: 110
+        x: 264
+        y: 109
         width: 160
         height: 30
     - id: 3
@@ -1178,7 +1182,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 193
+        x: 192
         y: 186
         width: 160
         height: 30
@@ -1227,8 +1231,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 355
-        y: 181
+        x: 371
+        y: 190
         width: 160
         height: 30
     - id: 7
@@ -1429,6 +1433,10 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: EventGuid
+        value: 87a5b72c-5fb9-494d-8f2b-ac810f3ed046
+        type: 0
+        typeString: 
       conversationID: 4
       isRoot: 0
       isGroup: 0
@@ -1491,7 +1499,19 @@ MonoBehaviour:
       userScript: SetQuestState("Amulet Quest", "active");
       onExecute:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: 
+            m_MethodName: 
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: 
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       canvasRect:
         serializedVersion: 2
         x: 17
