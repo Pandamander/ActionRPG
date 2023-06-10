@@ -5,6 +5,8 @@ using PixelCrushers.DialogueSystem;
 
 public class AdvanceDialogueOnKeyPress : MonoBehaviour
 {
+
+    //Overall this class is not working yet. It's supposed to advance dialog
     public KeyCode advanceKey = KeyCode.Space;
     private DialogueSystemController myDialogueSystemController;
 
