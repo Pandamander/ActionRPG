@@ -13,8 +13,6 @@ public class TooltipInteraction : MonoBehaviour
     void Start()
     {
         toolTipIcon.SetActive(false);
-
-        // Lua.RegisterFunction("HelloWorld", this, SymbolExtensions.GetMethodInfo(() => HelloWorld())); // Register the function to Lua
     }
 
     void Update()
@@ -23,15 +21,11 @@ public class TooltipInteraction : MonoBehaviour
         {
             // Get the dialogue trigger component from this gameObject
             DialogueSystemTrigger dialogueTrigger = this.GetComponent<DialogueSystemTrigger>();
+            
             if (dialogueTrigger != null)
             {
                 dialogueTrigger.OnUse(transform);
                 toolTipIcon.SetActive(false);
-
-                int XP = PixelCrushers.DialogueSystem.DialogueLua.GetVariable("XP").asInt;
-                Debug.Log("XP: " + XP);
-                PixelCrushers.DialogueSystem.DialogueLua.SetVariable("XP", XP + 100);
-
             }
         }
     }
