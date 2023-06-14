@@ -30,13 +30,18 @@ public class TopDownMovement : MonoBehaviour
             return;
         }
 
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        float horizontalMovement = Input.GetAxisRaw("Horizontal");
+        float verticalMovement = Input.GetAxisRaw("Vertical");
 
-        if (Vector2.SqrMagnitude(movement) > 0f)
+        if (Mathf.Abs(horizontalMovement) > 0)
         {
-            UpdateAnimation(movement);
+            movement = new Vector2(horizontalMovement, 0f);
+
+        } else if (Mathf.Abs(verticalMovement) > 0)
+        {
+            movement = new Vector2(0f, verticalMovement);
         }
+        UpdateAnimation(movement);
     }
 
     private void FixedUpdate()

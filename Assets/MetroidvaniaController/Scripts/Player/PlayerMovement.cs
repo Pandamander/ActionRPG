@@ -23,9 +23,11 @@ public class PlayerMovement : MonoBehaviour
 
 		if (!canMove) { return; }
 
-		horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+		float input = Input.GetAxisRaw("Horizontal");
 
-		animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+		horizontalMove = input * runSpeed;
+
+		animator.SetFloat("Speed", Mathf.Abs(input));
 
 		if (Input.GetButtonDown("Jump"))
 		{
