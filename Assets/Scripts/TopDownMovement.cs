@@ -33,8 +33,14 @@ public class TopDownMovement : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-        if (Vector2.SqrMagnitude(movement) > 0f)
+        if (Mathf.Abs(movement.x) > 0)
         {
+            movement.y = 0f;
+            UpdateAnimation(movement);
+        }
+        else if (Mathf.Abs(movement.y) > 0)
+        {
+            movement.x = 0f;
             UpdateAnimation(movement);
         }
     }
