@@ -18282,6 +18282,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SubzoneSnake (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6894392897223805044, guid: b343f00c5fc304e45a92bfbb085d7392, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 2007040037}
     - target: {fileID: 6894392897223805046, guid: b343f00c5fc304e45a92bfbb085d7392, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -18335,6 +18339,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8641631247949744371, guid: 304b89cafe46caa4385703780e0330d4, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 2007040037}
     - target: {fileID: 8641631247949744373, guid: 304b89cafe46caa4385703780e0330d4, type: 3}
       propertyPath: m_Name
       value: SubzoneHarpy (1)
@@ -18541,6 +18549,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8641631247949744371, guid: 304b89cafe46caa4385703780e0330d4, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 2007040037}
     - target: {fileID: 8641631247949744373, guid: 304b89cafe46caa4385703780e0330d4, type: 3}
       propertyPath: m_Name
       value: SubzoneHarpy (2)
@@ -18598,6 +18610,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8641631247949744371, guid: 304b89cafe46caa4385703780e0330d4, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 2007040037}
     - target: {fileID: 8641631247949744373, guid: 304b89cafe46caa4385703780e0330d4, type: 3}
       propertyPath: m_Name
       value: SubzoneHarpy
@@ -18720,6 +18736,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SubzoneSnake
       objectReference: {fileID: 0}
+    - target: {fileID: 6894392897223805044, guid: b343f00c5fc304e45a92bfbb085d7392, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 2007040037}
     - target: {fileID: 6894392897223805046, guid: b343f00c5fc304e45a92bfbb085d7392, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -18874,6 +18894,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SubzoneSnake (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6894392897223805044, guid: b343f00c5fc304e45a92bfbb085d7392, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 2007040037}
     - target: {fileID: 6894392897223805046, guid: b343f00c5fc304e45a92bfbb085d7392, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -18927,6 +18951,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8641631247949744371, guid: 304b89cafe46caa4385703780e0330d4, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 2007040037}
     - target: {fileID: 8641631247949744373, guid: 304b89cafe46caa4385703780e0330d4, type: 3}
       propertyPath: m_Name
       value: SubzoneHarpy (3)
@@ -32927,11 +32955,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: orthographic size
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0
+      value: 0.30648535
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
@@ -32939,11 +32967,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.99999994
+      value: 0.66573685
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.9998748
+      value: 0.6654275
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952797147, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_LocalPosition.x
