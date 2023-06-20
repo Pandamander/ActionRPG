@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
-  m_Name: Waterall Top
+  m_Name: Waterfall Bottom
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
-  - {fileID: 21300000, guid: 560c604c117c94a43b38429445be2197, type: 3}
-  - {fileID: 21300000, guid: 5cdc97be296d64443a4628e03964431d, type: 3}
-  m_MinSpeed: 8
-  m_MaxSpeed: 8
+  - {fileID: 21300000, guid: 3d8e794f1322f434c9d81d504d91e69f, type: 3}
+  - {fileID: 21300000, guid: 7c4ab25c27e07e742bfe60b0946fce49, type: 3}
+  - {fileID: 21300000, guid: 1ad1448d8d81aca42a0d1d8514f9f2a4, type: 3}
+  m_MinSpeed: 7
+  m_MaxSpeed: 7
   m_AnimationStartTime: 0
   m_AnimationStartFrame: 0
   m_TileColliderType: 0

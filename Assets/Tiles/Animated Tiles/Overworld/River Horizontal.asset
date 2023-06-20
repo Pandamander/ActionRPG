@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
-  m_Name: Waterall Top
+  m_Name: River Horizontal
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
-  - {fileID: 21300000, guid: 560c604c117c94a43b38429445be2197, type: 3}
-  - {fileID: 21300000, guid: 5cdc97be296d64443a4628e03964431d, type: 3}
+  - {fileID: 21300000, guid: bc5ef885b03d69b4cac8c0336b2e8de0, type: 3}
+  - {fileID: 21300000, guid: 26a7e9c16c5c26a4fb1a67936b705a8d, type: 3}
   m_MinSpeed: 8
   m_MaxSpeed: 8
   m_AnimationStartTime: 0
