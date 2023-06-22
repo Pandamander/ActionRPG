@@ -40,6 +40,7 @@ Transform:
   - {fileID: 441747885288404200}
   - {fileID: 441369034065316046}
   - {fileID: 450029528408781168}
+  - {fileID: 7832368607805318763}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -62,14 +63,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 53
   m_GroundCheck: {fileID: 441879516595157292}
-  m_WallCheck: {fileID: 450174503715564176}
-  canDoubleJump: 0
   m_DashForce: 25
   life: 10
   invincible: 0
   canMove: 1
-  particleJumpUp: {fileID: 355612547277407764}
-  particleJumpDown: {fileID: 354728638671303870}
   OnFallEvent:
     m_PersistentCalls:
       m_Calls:
@@ -113,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmgValue: 4
-  meleeWeapon1: {fileID: 5532974359214069763, guid: 600fcaba927fb9f41972fef7185a3131, type: 3}
+  meleeWeapon1: {fileID: 0}
   throwableObject1: {fileID: 5532974359214069763, guid: 340067e8e5a097546ad175f1d00a6ece, type: 3}
   throwableObject2: {fileID: 5532974359214069763, guid: 6250a365245769f4081d863d2cd827b2, type: 3}
   throwableObject3: {fileID: 5532974359214069763, guid: 733e56a35ac68bf46837e1d1cd5c9af9, type: 3}
@@ -125,6 +122,7 @@ MonoBehaviour:
   isTimeToCheck: 0
   cam: {fileID: 0}
   audioManager: {fileID: 0}
+  meleeCollider: {fileID: 7028015691329712909}
 --- !u!114 &557152561997098504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,7 +179,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 6592bdbf9c0ea1e4bbcbdfaf4c7bb4bd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -10051,3 +10049,74 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!1 &7028015691329712909
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7832368607805318763}
+  - component: {fileID: 6419897049519212775}
+  - component: {fileID: 7157634018971280151}
+  m_Layer: 1
+  m_Name: Meele
+  m_TagString: SubzoneMeleeWeapon
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7832368607805318763
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7028015691329712909}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 449917999560785454}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &6419897049519212775
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7028015691329712909}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.19, y: 0.125}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.87, y: 0.125}
+  m_EdgeRadius: 0
+--- !u!114 &7157634018971280151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7028015691329712909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af747d307dd83a47a2edfe9202e9c8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

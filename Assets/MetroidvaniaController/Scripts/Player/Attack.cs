@@ -23,10 +23,13 @@ public class Attack : MonoBehaviour
 	private SpriteRenderer spriteRenderer;
 	private bool dead = false;
 
+    [SerializeField] private GameObject meleeCollider;
+
 	private void Awake()
 	{
 		rigidBody = GetComponent<Rigidbody2D>();
 		spriteRenderer = GetComponent<SpriteRenderer>();
+		meleeCollider.SetActive(false);
 	}
 
     // Update is called once per frame
@@ -68,14 +71,7 @@ public class Attack : MonoBehaviour
 			GameObject weapon;
 			if (isMelee)
             {
-				weapon = Instantiate(
-					weaponPrefab,
-					transform.position + new Vector3(transform.localScale.x * 0.1f, -0.2f),
-					Quaternion.Euler(0f, 0f, direction.x > 0 ? 0f : 180f)
-				) as GameObject;
-				weapon.GetComponent<MeleeWeapon>().direction = direction;
-				weapon.name = "MeleeWeapon";
-				weapon.transform.parent = transform;
+				meleeCollider.SetActive(true);
 			} else
             {
 				weapon = Instantiate(
@@ -98,6 +94,7 @@ public class Attack : MonoBehaviour
 		yield return new WaitForSeconds(0.25f);
 		animator.SetBool("IsAttacking", false);
 		canAttack = true;
+		meleeCollider.SetActive(false);
 	}
 
 	public void DoDashDamage()
