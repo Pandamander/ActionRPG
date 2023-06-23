@@ -73,8 +73,7 @@ public class SubzoneEnemy : MonoBehaviour
             {
                 GetComponent<CapsuleCollider2D>().enabled = false;
             }
-
-                StartCoroutine(TakeDamage());
+            StartCoroutine(TakeDamage());
         }
     }
 
