@@ -23,6 +23,9 @@ public class LevelExit : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             SceneManager.LoadScene("Overworld");
+            // Note from Brice:
+            // If we want to use the transition animation here, we can use: FindObjectOfType<LevelLoaderTransitions>().LoadNextLevel(nextSceneName);
+            // Could probably do on the overworld transtion too
         }
     }
 }

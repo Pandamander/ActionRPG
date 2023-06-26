@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class DialogueCharacterActions : MonoBehaviour
 {
+    // New material
+    public Material newMaterial;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +21,8 @@ public class DialogueCharacterActions : MonoBehaviour
 
     public void NPCScholar_GiveAmulet()
     {
-        GetComponent<SpriteRenderer>().color = Color.black;
+        // Assign the SpriteRenderer's material to newMaterial
+        GetComponent<SpriteRenderer>().material = newMaterial;
         GetComponent<AudioSource>().Play();
         Debug.Log("You get 1000 XP!");
     }
