@@ -127,7 +127,7 @@ MonoBehaviour:
   - id: 1
     fields:
     - title: Name
-      value: Amulet Quest
+      value: Kill Siren
       type: 0
       typeString: 
     - title: Pictures
@@ -135,7 +135,7 @@ MonoBehaviour:
       type: 3
       typeString: CustomFieldType_Files
     - title: Description
-      value: Find Amulet
+      value: Kill the intro siren
       type: 0
       typeString: 
     - title: Success Description
@@ -197,13 +197,13 @@ MonoBehaviour:
   - id: 2
     fields:
     - title: Name
-      value: HasAmulet
+      value: KilledSiren
       type: 0
       typeString: 
     - title: Initial Value
-      value: 0
-      type: 1
-      typeString: CustomFieldType_Number
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
     - title: Description
       value: 
       type: 0
@@ -643,7 +643,7 @@ MonoBehaviour:
   - id: 3
     fields:
     - title: Title
-      value: New Conversation 3
+      value: POI-Intro-Ship
       type: 0
       typeString: 
     - title: Description
@@ -721,7 +721,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 3
@@ -737,8 +737,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 20
-        y: 54
+        x: 124
+        y: 60
         width: 160
         height: 30
     - id: 1
@@ -764,7 +764,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 
+        value: The ship is broken beyond repair.
         type: 0
         typeString: 
       - title: Sequence
@@ -792,8 +792,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 67
-        y: 156
+        x: 130
+        y: 142
         width: 160
         height: 30
     - id: 2
@@ -841,8 +841,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 88
-        y: 271
+        x: 143
+        y: 249
         width: 160
         height: 30
     entryGroups: []
@@ -990,8 +990,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Centurion, I have with me a hidden tablet with enigmatic symbols I
-          cannot decipher.
+        value: Ah, I do not recognize your face, sir. What brings you to our little
+          town?...
         type: 0
         typeString: 
       - title: Sequence
@@ -1050,7 +1050,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: ...The man is unresponsive with a vacant look in his unblinking eyes...
+        value: God speed, and I pray you find your men ashore on these islands.
         type: 0
         typeString: 
       - title: Sequence
@@ -1065,7 +1065,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: CurrentQuestState("Amulet Quest") == "success"
+      conditionsString: CurrentQuestState("Kill Siren") == "success"
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -1099,8 +1099,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: You have found the amulet! Please, hand it to me so I may translate
-          this text...
+        value: Ah, you have silenced her wail. I cannot remember how long it has
+          been since I heard such calm.
         type: 0
         typeString: 
       - title: Sequence
@@ -1118,74 +1118,19 @@ MonoBehaviour:
       - originConversationID: 4
         originDialogueID: 5
         destinationConversationID: 4
-        destinationDialogueID: 7
+        destinationDialogueID: 10
         isConnector: 0
         priority: 2
-      conditionsString: Variable["HasAmulet"] >= 1 and (CurrentQuestState("Amulet
-        Quest") == "active")
+      conditionsString: (CurrentQuestState("Kill Siren") == "active") and (Variable["KilledSiren"]
+        == true)
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 201
-        y: 157
-        width: 160
-        height: 30
-    - id: 7
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 3
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: Hmm...what a strange message...
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 4
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 4
-        originDialogueID: 7
-        destinationConversationID: 4
-        destinationDialogueID: 9
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 193
-        y: 236
+        x: 347
+        y: 151
         width: 160
         height: 30
     - id: 8
@@ -1211,8 +1156,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: There's an obsidian amulet with inscriptions that may help us unravel
-          the mystery.
+        value: You are marooned here? No...I'm sorry, I have not seen your men...I
+          pray they have come ashore.
         type: 0
         typeString: 
       - title: Sequence
@@ -1230,7 +1175,7 @@ MonoBehaviour:
       - originConversationID: 4
         originDialogueID: 8
         destinationConversationID: 4
-        destinationDialogueID: 11
+        destinationDialogueID: 13
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -1242,62 +1187,6 @@ MonoBehaviour:
         serializedVersion: 2
         x: 17
         y: 199
-        width: 160
-        height: 30
-    - id: 9
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 3
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "...It is warning me not to continue reading\u2026But I must know!\u2026The
-          tablet whispers forbidden knowledge\u2026"
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 4
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 4
-        originDialogueID: 9
-        destinationConversationID: 4
-        destinationDialogueID: 10
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 193
-        y: 286
         width: 160
         height: 30
     - id: 10
@@ -1323,7 +1212,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: The truth...too terrible to behold! ...Madness awaits us all! AAAAAHHHH!!
+        value: Go, use my boat and may the gods allow you to find your men.
         type: 0
         typeString: 
       - title: Sequence
@@ -1343,14 +1232,14 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: SetQuestState("Amulet Quest", "success")
+      userScript: SetQuestState("Kill Siren", "success")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 200
-        y: 349
+        x: 357
+        y: 256
         width: 160
         height: 30
     - id: 11
@@ -1376,8 +1265,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: It is in the west fountain, but I cannot reach it. Please retrieve
-          it. It's our only hope to uncover the island's secrets.
+        value: Find her in the temple in the west forest, and my boat to the north.
+          Good luck.
         type: 0
         typeString: 
       - title: Sequence
@@ -1393,7 +1282,7 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: SetQuestState("Amulet Quest", "active");
+      userScript: SetQuestState("Kill Siren", "active");
       onExecute:
         m_PersistentCalls:
           m_Calls:
@@ -1411,8 +1300,8 @@ MonoBehaviour:
             m_CallState: 2
       canvasRect:
         serializedVersion: 2
-        x: 17
-        y: 294
+        x: 18
+        y: 399
         width: 160
         height: 30
     - id: 12
@@ -1438,7 +1327,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Please, bring back the amulet. It is in the west fountain.
+        value: Silence the siren in the temple in the west forest, and find my boat
+          to the north. Good luck.
         type: 0
         typeString: 
       - title: Sequence
@@ -1453,16 +1343,128 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: (CurrentQuestState("Amulet Quest") == "active") and (Variable["HasAmulet"]
-        == 0)
+      conditionsString: (CurrentQuestState("Amulet Quest") == "active") and (Variable["KilledSiren"]
+        == false)
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 369
-        y: 157
+        x: 188
+        y: 161
+        width: 160
+        height: 30
+    - id: 13
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 3
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: If it is as you say, you must search for them, and quickly. Do I have
+          a boat? Yes and no...
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 4
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 4
+        originDialogueID: 13
+        destinationConversationID: 4
+        destinationDialogueID: 14
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 21
+        y: 260
+        width: 160
+        height: 30
+    - id: 14
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 3
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: A malicious siren haunts the shores. My boat remains bewitched, unmoving.
+          Silence her, and the curse will lift.
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 4
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 4
+        originDialogueID: 14
+        destinationConversationID: 4
+        destinationDialogueID: 11
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 38
+        y: 325
         width: 160
         height: 30
     entryGroups: []

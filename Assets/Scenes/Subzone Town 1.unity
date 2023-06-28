@@ -2652,11 +2652,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &438855112 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 444172796820223396, guid: d17581581e44e5644bd22c60e04f999c, type: 3}
-  m_PrefabInstance: {fileID: 1299934670}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &545165156
 GameObject:
   m_ObjectHideFlags: 0
@@ -7846,14 +7841,14 @@ PrefabInstance:
     - target: {fileID: 5429897842196661391, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 95c69c5b2a1bb47cb83c29d898490ed2, type: 2}
+      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     - target: {fileID: 8006399891801212307, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8006399891801212307, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.9
+      value: -8.22
       objectReference: {fileID: 0}
     - target: {fileID: 8006399891801212307, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18391,7 +18386,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7602499860941790150, guid: be926520ada144ee78a46e8e5f4a6f24, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -19.29
+      value: -0.58
       objectReference: {fileID: 0}
     - target: {fileID: 7602499860941790150, guid: be926520ada144ee78a46e8e5f4a6f24, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18642,152 +18637,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 449917999560785454, guid: d17581581e44e5644bd22c60e04f999c, type: 3}
   m_PrefabInstance: {fileID: 1299934670}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1299934672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 438855112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a5473918a168c44fa0294bd4d1399f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  conversationEvents:
-    onConversationStart:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1299934685}
-          m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-          m_MethodName: set_enabled
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    onConversationEnd:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1299934685}
-          m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-          m_MethodName: set_enabled
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-    runOnConversationEndEventsAtEndOfFrame: 0
-    onConversationCancelled:
-      m_PersistentCalls:
-        m_Calls: []
-    onConversationLine:
-      m_PersistentCalls:
-        m_Calls: []
-    onConversationLineEnd:
-      m_PersistentCalls:
-        m_Calls: []
-    onConversationLineCancelled:
-      m_PersistentCalls:
-        m_Calls: []
-    onConversationResponseMenu:
-      m_PersistentCalls:
-        m_Calls: []
-    onConversationResponseMenuTimeout:
-      m_PersistentCalls:
-        m_Calls: []
-    onLinkedConversationStart:
-      m_PersistentCalls:
-        m_Calls: []
-  barkEvents:
-    onBarkStart:
-      m_PersistentCalls:
-        m_Calls: []
-    onBarkEnd:
-      m_PersistentCalls:
-        m_Calls: []
-    onBarkLine:
-      m_PersistentCalls:
-        m_Calls: []
-  sequenceEvents:
-    onSequenceStart:
-      m_PersistentCalls:
-        m_Calls: []
-    onSequenceEnd:
-      m_PersistentCalls:
-        m_Calls: []
-  questEvents:
-    onQuestStateChange:
-      m_PersistentCalls:
-        m_Calls: []
-    onQuestTrackingEnabled:
-      m_PersistentCalls:
-        m_Calls: []
-    onQuestTrackingDisabled:
-      m_PersistentCalls:
-        m_Calls: []
-    onUpdateQuestTracker:
-      m_PersistentCalls:
-        m_Calls: []
-  pauseEvents:
-    onDialogueSystemPause:
-      m_PersistentCalls:
-        m_Calls: []
-    onDialogueSystemUnpause:
-      m_PersistentCalls:
-        m_Calls: []
---- !u!114 &1299934685 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 557152561997098504, guid: d17581581e44e5644bd22c60e04f999c, type: 3}
-  m_PrefabInstance: {fileID: 1299934670}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 438855112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8644d33345e77614ba3ace9c18398d0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1299934693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 438855112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a64578247383140469c45370654a984a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actor: Player
-  persistentDataName: 
-  portrait: {fileID: 0}
-  spritePortrait: {fileID: 0}
-  barkUISettings:
-    barkUI: {fileID: 0}
-    barkUIOffset: {x: 0, y: 2, z: 0}
-  standardDialogueUISettings:
-    subtitlePanelNumber: 0
-    customSubtitlePanel: {fileID: 0}
-    customSubtitlePanelOffset: {x: 0, y: 0, z: 0}
-    menuPanelNumber: 0
-    customMenuPanel: {fileID: 0}
-    customMenuPanelOffset: {x: 0, y: 0, z: 0}
-    useMenuPanelFor: 0
-    portraitAnimatorController: {fileID: 0}
-    setSubtitleColor: 0
-    applyColorToPrependedName: 0
-    prependActorNameSeparator: ': '
-    prependActorNameFormat: '{0}{1}'
-    subtitleColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1395907435
 GameObject:
   m_ObjectHideFlags: 0
@@ -32535,7 +32384,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952797147, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.222221
+      value: -18
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952797147, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_LocalPosition.y

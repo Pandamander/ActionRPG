@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
 	public float runSpeed = 40f;
 
-	float horizontalMove = 0f;
+	public float horizontalMove = 0f;
 	bool jump = false;
 	bool dash = false;
 	public bool canMove = true;
@@ -64,5 +64,20 @@ public class PlayerMovement : MonoBehaviour
 		animator.SetBool("IsJumping", false);
 		animator.SetFloat("Speed", 0f);
 		animator.SetBool("IsAttacking", false);
+	}
+
+	public void AllowMovement()
+	{
+		canMove = true;
+	}
+
+	public void StopForDialogue()
+	{
+		canMove = false;
+		horizontalMove = 0f;
+		animator.SetBool("IsJumping", false);
+		animator.SetFloat("Speed", 0f);
+		animator.SetBool("IsAttacking", false);
+
 	}
 }
