@@ -11,11 +11,11 @@ public class MeleeController : MonoBehaviour
         Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(
             currentMeleeWeapon.attackPoint,
             currentMeleeWeapon.attackBounds,
-            transform.eulerAngles.z,
-            currentMeleeWeapon.attackLayerMask
+            transform.eulerAngles.z
         );
+        Debug.DrawLine(new Vector3(currentMeleeWeapon.attackPoint.x, currentMeleeWeapon.attackPoint.y), new Vector3(currentMeleeWeapon.attackPoint.x + currentMeleeWeapon.attackBounds.x, currentMeleeWeapon.attackPoint.y + currentMeleeWeapon.attackBounds.y), Color.red, 1f);
 
-        foreach(Collider2D c in hitEnemies)
+        foreach (Collider2D c in hitEnemies)
         {
             Debug.Log("HIT: " + c.name);
             IDamageable enemy = c as IDamageable;

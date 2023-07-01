@@ -8,5 +8,5 @@ public class MeleeWeapon : ScriptableObject
     public Vector2 attackPoint;
     public Vector2 attackBounds;
     public float attackDamage;
-    public LayerMask attackLayerMask;
+    public ContactFilter2D contactFilter;
 }
