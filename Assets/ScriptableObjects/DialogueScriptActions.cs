@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/MyScriptableObject", order = 1)]
+[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/DialogueAction")]
 public class DialogueScriptActions : ScriptableObject //MonoBehaviour
 {
     // Start is called before the first frame update

@@ -6,12 +6,9 @@ using UnityEngine.SceneManagement;
 public class Attack : MonoBehaviour
 {
 	public float dmgValue = 4;
-	public GameObject meleeWeapon1;
-	public GameObject throwableObject1;
-	public GameObject throwableObject2;
-	public GameObject throwableObject3;
-	public GameObject throwableObject4;
-	public GameObject throwableObject5;
+	public MeleeController meleeWeaponController;
+	public GameObject rangedWeaponController;
+
 	public Transform attackCheck;
 	private Rigidbody2D rigidBody;
 	public Animator animator;
@@ -23,13 +20,10 @@ public class Attack : MonoBehaviour
 	private SpriteRenderer spriteRenderer;
 	private bool dead = false;
 
-    [SerializeField] private GameObject meleeCollider;
-
 	private void Awake()
 	{
 		rigidBody = GetComponent<Rigidbody2D>();
 		spriteRenderer = GetComponent<SpriteRenderer>();
-		meleeCollider.SetActive(false);
 	}
 
     // Update is called once per frame
@@ -40,48 +34,7 @@ public class Attack : MonoBehaviour
 			canAttack = false;
 			animator.SetBool("IsAttacking", true);
 
-			Vector2 direction = new Vector2(transform.localScale.x, 0);
-
-			GameObject weaponPrefab;
-			bool isMelee = false;
-			switch (PlayerStats.Attack)
-            {
-				case 1:
-					weaponPrefab = meleeWeapon1;
-					isMelee = true;
-					break;
-				case 2:
-					weaponPrefab = throwableObject2;
-					break;
-				case 3:
-					weaponPrefab = throwableObject3;
-					break;
-				case 4:
-					weaponPrefab = throwableObject4;
-					break;
-				case 5:
-					weaponPrefab = throwableObject5;
-					break;
-				default:
-					weaponPrefab = meleeWeapon1;
-					isMelee = true;
-					break;
-			}
-
-			GameObject weapon;
-			if (isMelee)
-            {
-				meleeCollider.SetActive(true);
-			} else
-            {
-				weapon = Instantiate(
-					weaponPrefab,
-					transform.position + new Vector3(transform.localScale.x * 0.5f, -0.2f),
-					Quaternion.Euler(0f, 0f, direction.x > 0 ? 0f : 180f)
-				) as GameObject;
-				weapon.GetComponent<ThrowableWeapon>().direction = direction;
-				weapon.name = "ThrowableWeapon";
-			}
+            meleeWeaponController.Attack();
 
 			audioManager.PlayAttack();
 
@@ -94,7 +47,6 @@ public class Attack : MonoBehaviour
 		yield return new WaitForSeconds(0.25f);
 		animator.SetBool("IsAttacking", false);
 		canAttack = true;
-		meleeCollider.SetActive(false);
 	}
 
 	public void DoDashDamage()
@@ -144,7 +96,6 @@ public class Attack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-		Debug.Log("player OnTriggerEnter2D: " + collision.gameObject.tag);
         if (collision.gameObject.CompareTag("Boss"))
 		{
 			if (dead) { return; }

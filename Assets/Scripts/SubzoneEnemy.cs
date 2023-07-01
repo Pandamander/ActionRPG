@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.Rendering;
 using UnityEngine;
 
-public class SubzoneEnemy : MonoBehaviour
+public class SubzoneEnemy : MonoBehaviour, IDamageable
 {
     public float moveSpeed;
     public float patrolFlipTime;
@@ -64,40 +64,22 @@ public class SubzoneEnemy : MonoBehaviour
         moveSpeed *= -1;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("enemy OnCollisionEnter2D: " + collision.gameObject.tag);
-        if (collision.gameObject.CompareTag("SubzoneHeroProjectile") || collision.gameObject.CompareTag("SubzoneMeleeWeapon"))
-        {
-            audioManager.PlayDamage();
-            health -= PlayerStats.Attack;
-            if (health <= 0f)
-            {
-                GetComponent<CapsuleCollider2D>().enabled = false;
-            }
-            StartCoroutine(TakeDamage());
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("enemy OnTriggerEnter2D: " + collision.gameObject.tag);
-        if (collision.gameObject.CompareTag("SubzoneHeroProjectile") || collision.gameObject.CompareTag("SubzoneMeleeWeapon"))
-        {
-            audioManager.PlayDamage();
-            health -= PlayerStats.Attack;
-            if (health <= 0f)
-            {
-                GetComponent<CapsuleCollider2D>().enabled = false;
-            }
-            StartCoroutine(TakeDamage());
-        }
-    }
-
     private IEnumerator TakeDamage()
     {
         spriteRenderer.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         spriteRenderer.color = Color.white;
+    }
+
+    // IDamageable
+    public void Damage(float damage)
+    {
+        audioManager.PlayDamage();
+        health -= PlayerStats.Attack;
+        if (health <= 0f)
+        {
+            GetComponent<CapsuleCollider2D>().enabled = false;
+        }
+        StartCoroutine(TakeDamage());
     }
 }

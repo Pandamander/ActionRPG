@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8641631247949744370}
   - component: {fileID: 8641631247949744371}
   - component: {fileID: 8641631247949744372}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SubzoneHarpy
   m_TagString: SubzoneEnemy
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &8641631247949744369
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -107,7 +107,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!50 &8641631247949744370
 Rigidbody2D:
   serializedVersion: 4
