@@ -117,6 +117,11 @@ public class Attack : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+		if (!collision.otherCollider.gameObject.CompareTag("Player"))
+		{
+			return;
+		}
+
 		if (collision.gameObject.CompareTag("SubzoneEnemy"))
         {
 			if (dead) { return; }
@@ -139,7 +144,8 @@ public class Attack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-		if (collision.gameObject.CompareTag("Boss"))
+		Debug.Log("player OnTriggerEnter2D: " + collision.gameObject.tag);
+        if (collision.gameObject.CompareTag("Boss"))
 		{
 			if (dead) { return; }
 
