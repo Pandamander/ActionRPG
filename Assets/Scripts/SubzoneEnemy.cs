@@ -75,7 +75,7 @@ public class SubzoneEnemy : MonoBehaviour, IDamageable
     public void Damage(float damage)
     {
         audioManager.PlayDamage();
-        health -= PlayerStats.Attack;
+        health -= damage;
         if (health <= 0f)
         {
             GetComponent<CapsuleCollider2D>().enabled = false;

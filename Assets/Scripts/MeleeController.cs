@@ -5,26 +5,53 @@ using UnityEngine;
 public class MeleeController : MonoBehaviour
 {
     public MeleeWeapon currentMeleeWeapon;
+    private Vector2 attackOriginPoint;
+    private Vector2 attackSize;
+
+    private void Awake()
+    {
+        attackOriginPoint = new Vector2(transform.position.x, transform.position.y) + currentMeleeWeapon.attackPoint;
+        attackSize = currentMeleeWeapon.attackBounds;
+    }
+
+    private void Update()
+    {
+        attackOriginPoint = new Vector2(transform.position.x, transform.position.y) + currentMeleeWeapon.attackPoint;
+    }
 
     public void Attack()
     {
         Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(
-            currentMeleeWeapon.attackPoint,
-            currentMeleeWeapon.attackBounds,
-            transform.eulerAngles.z
+            attackOriginPoint,
+            attackSize,
+            transform.eulerAngles.z,
+            currentMeleeWeapon.layerMask
         );
-        Debug.DrawLine(new Vector3(currentMeleeWeapon.attackPoint.x, currentMeleeWeapon.attackPoint.y), new Vector3(currentMeleeWeapon.attackPoint.x + currentMeleeWeapon.attackBounds.x, currentMeleeWeapon.attackPoint.y + currentMeleeWeapon.attackBounds.y), Color.red, 1f);
+
+        DebugDrawBox(attackOriginPoint, attackSize);
 
         foreach (Collider2D c in hitEnemies)
         {
             Debug.Log("HIT: " + c.name);
-            IDamageable enemy = c as IDamageable;
-            if (enemy != null)
+            if (c.gameObject.TryGetComponent<SubzoneEnemy>(out var enemy))
             {
                 Debug.Log("ENEMY DAMAGE");
                 enemy.Damage(currentMeleeWeapon.attackDamage);
             }
         }
+    }
+
+    private void DebugDrawBox(Vector2 point, Vector2 size)
+    {
+        Vector2 bottomLeft = new Vector2(point.x - size.x / 2, point.y - size.y / 2);
+        Vector2 bottomRight = new Vector2(point.x + size.x / 2, point.y - size.y / 2);
+        Vector2 topRight = point + size / 2;
+        Vector2 topLeft = new Vector2(point.x - size.x / 2, point.y + size.y / 2);
+
+        Debug.DrawLine(bottomLeft, bottomRight, Color.red, 1f);
+        Debug.DrawLine(bottomLeft, topLeft, Color.red, 1f);
+        Debug.DrawLine(topLeft, topRight, Color.red, 1f);
+        Debug.DrawLine(topRight, bottomRight, Color.red, 1f);
     }
 
     private void OnDrawGizmosSelected()
