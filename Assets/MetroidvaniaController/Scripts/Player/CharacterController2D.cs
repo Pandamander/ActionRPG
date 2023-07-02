@@ -28,6 +28,18 @@ public class CharacterController2D : MonoBehaviour
 
 	private Animator animator;
 
+	[SerializeField] private float slopeCheckDistance;
+    [SerializeField] private PhysicsMaterial2D noFriction;
+    [SerializeField] private PhysicsMaterial2D maxFriction;
+    private CapsuleCollider2D capsuleCollider;
+	private Vector2 capsuleColliderSize;
+	private float slopeDownAngle;
+	private Vector2 slopeNormalPerpendicular;
+	private bool isOnSlope;
+	private float slopeDownAngleOld;
+	private float slopeSideAngle;
+	private float horizMovement;
+
 	[Header("Events")]
 	[Space]
 
@@ -41,6 +53,8 @@ public class CharacterController2D : MonoBehaviour
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
 		animator = GetComponent<Animator>();
+		capsuleCollider = GetComponent<CapsuleCollider2D>();
+		capsuleColliderSize = capsuleCollider.size;
 
 		if (OnFallEvent == null)
 			OnFallEvent = new UnityEvent();
@@ -48,7 +62,6 @@ public class CharacterController2D : MonoBehaviour
 		if (OnLandEvent == null)
 			OnLandEvent = new UnityEvent();
 	}
-
 
 	private void FixedUpdate()
 	{
@@ -73,11 +86,90 @@ public class CharacterController2D : MonoBehaviour
 			OnFallEvent.Invoke();
 			//prevVelocityX = m_Rigidbody2D.velocity.x;
 		}
+
+		SlopeCheck();
 	}
 
-
-	public void Move(float move, bool jump, bool dash)
+	private void SlopeCheck()
 	{
+		Vector2 capsuleBottom = transform.position - new Vector3(0.0f, capsuleColliderSize.y / 2);
+		SlopeCheckHorizontal(capsuleBottom);
+		SlopeCheckVertical(capsuleBottom);
+
+		Debug.Log("isOnSlope: " + isOnSlope);
+	}
+
+	private void SlopeCheckHorizontal(Vector2 capsuleBottom)
+	{
+        RaycastHit2D slopeHitFont = Physics2D.Raycast(
+			capsuleBottom,
+			transform.right,
+			slopeCheckDistance,
+			m_WhatIsGround
+		);
+
+        RaycastHit2D slopeHitBack = Physics2D.Raycast(
+			capsuleBottom,
+			-transform.right,
+			slopeCheckDistance,
+			m_WhatIsGround
+		);
+
+		if (slopeHitFont)
+		{
+			isOnSlope = true;
+			slopeSideAngle = Vector2.Angle(slopeHitFont.normal, Vector2.up);
+            Debug.DrawRay(slopeHitFont.point, slopeHitFont.normal, Color.cyan);
+        } else if (slopeHitBack)
+		{
+            isOnSlope = true;
+            slopeSideAngle = Vector2.Angle(slopeHitBack.normal, Vector2.up);
+            Debug.DrawRay(slopeHitFont.point, slopeHitBack.normal, Color.green);
+        } else
+		{
+			slopeSideAngle = 0.0f;
+			isOnSlope = false;
+		}
+    }
+
+    private void SlopeCheckVertical(Vector2 capsuleBottom)
+    {
+		RaycastHit2D hit = Physics2D.Raycast(
+			capsuleBottom,
+			Vector2.down,
+			slopeCheckDistance,
+			m_WhatIsGround
+		);
+
+		if (hit)
+		{
+			slopeNormalPerpendicular = Vector2.Perpendicular(hit.normal).normalized;
+
+			slopeDownAngle = Vector2.Angle(hit.normal, Vector2.up);
+
+			if (slopeNormalPerpendicular.y < -0.5f)
+			{
+				isOnSlope = true;
+			}
+
+			slopeDownAngleOld = slopeDownAngle;
+
+            Debug.DrawRay(hit.point, hit.normal, Color.yellow);
+            Debug.DrawRay(hit.point, slopeNormalPerpendicular, Color.blue);
+
+			if (isOnSlope && horizMovement == 0f)
+			{
+				 capsuleCollider.sharedMaterial = maxFriction;
+			} else
+			{
+                capsuleCollider.sharedMaterial = noFriction;
+			}
+        }
+    }
+
+    public void Move(float move, bool jump, bool dash)
+	{
+		horizMovement = move;
 		if (canMove) {
 			if (dash && canDash)
 			{
@@ -90,10 +182,13 @@ public class CharacterController2D : MonoBehaviour
 				m_Rigidbody2D.velocity = new Vector2(transform.localScale.x * m_DashForce, 0);
 			}
 			//only control the player if grounded or airControl is turned on
-			else if (m_Grounded || m_AirControl)
+			else if ( (m_Grounded || m_AirControl) && !isOnSlope )
 			{
 				if (m_Rigidbody2D.velocity.y < -limitFallSpeed)
-					m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, -limitFallSpeed);
+				{
+                    m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, -limitFallSpeed);
+                }
+
 				// Move the character by finding the target velocity
 				Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
 				// And then smoothing it out and applying it to the character
@@ -111,9 +206,31 @@ public class CharacterController2D : MonoBehaviour
 					// ... flip the player.
 					Flip();
 				}
-			}
+			} else if (m_Grounded && isOnSlope) {
+
+                // Move the character by finding the target velocity
+                Vector3 targetVelocity = new Vector2(
+					-move * 15f * slopeNormalPerpendicular.x,
+                    -move * 15f * slopeNormalPerpendicular.y
+                );
+
+				m_Rigidbody2D.velocity = targetVelocity;
+
+                // If the input is moving the player right and the player is facing left...
+                if (move > 0 && !m_FacingRight)
+                {
+                    // ... flip the player.
+                    Flip();
+                }
+                // Otherwise if the input is moving the player left and the player is facing right...
+                else if (move < 0 && m_FacingRight)
+                {
+                    // ... flip the player.
+                    Flip();
+                }
+            }
 			// If the player should jump...
-			if (m_Grounded && jump)
+			if (m_Grounded && !isOnSlope && jump)
 			{
 				// Add a vertical force to the player.
 				animator.SetBool("IsJumping", true);
@@ -123,7 +240,6 @@ public class CharacterController2D : MonoBehaviour
 			}
 		}
 	}
-
 
 	private void Flip()
 	{
