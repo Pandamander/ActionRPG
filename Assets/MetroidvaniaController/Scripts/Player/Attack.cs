@@ -12,7 +12,7 @@ public class Attack : MonoBehaviour
 	public Transform attackCheck;
 	private Rigidbody2D rigidBody;
 	public Animator animator;
-	public bool canAttack = true;
+	public bool canMeleeAttack = true;
 	public bool isTimeToCheck = false;
 	public GameObject cam;
 	public SubzoneAudioManager audioManager;
@@ -29,24 +29,24 @@ public class Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (Input.GetButtonDown("Fire1") && canAttack)
+		if (Input.GetButtonDown("Fire1") && canMeleeAttack)
 		{
-			canAttack = false;
+            canMeleeAttack = false;
 			animator.SetBool("IsAttacking", true);
 
             meleeWeaponController.Attack();
 
 			audioManager.PlayAttack();
 
-			StartCoroutine(AttackCooldown());
+			StartCoroutine(MeleeAttackCooldown());
 		}
 	}
 
-	IEnumerator AttackCooldown()
+	IEnumerator MeleeAttackCooldown()
 	{
 		yield return new WaitForSeconds(0.25f);
 		animator.SetBool("IsAttacking", false);
-		canAttack = true;
+        canMeleeAttack = true;
 	}
 
 	public void DoDashDamage()
