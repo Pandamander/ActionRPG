@@ -63,12 +63,15 @@ MonoBehaviour:
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
-    m_Bits: 53
+    m_Bits: 128
   m_GroundCheck: {fileID: 441879516595157292}
   m_DashForce: 25
   life: 10
   invincible: 0
   canMove: 1
+  slopeCheckDistance: 0.5
+  noFriction: {fileID: 6200000, guid: 73035f974857c94489896440d1e2b9e8, type: 2}
+  maxFriction: {fileID: 6200000, guid: 9f7674ef93736a64fb2b0985bbd37fac, type: 2}
   OnFallEvent:
     m_PersistentCalls:
       m_Calls:
@@ -116,7 +119,7 @@ MonoBehaviour:
   rangedWeaponController: {fileID: 0}
   attackCheck: {fileID: 441747885288404200}
   animator: {fileID: 538770066651341512}
-  canAttack: 1
+  canMeleeAttack: 1
   isTimeToCheck: 0
   cam: {fileID: 0}
   audioManager: {fileID: 0}
