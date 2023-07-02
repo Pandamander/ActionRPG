@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeleeController : MonoBehaviour
+public interface IDamageable
 {
-
+    void Damage(float damage);
 }

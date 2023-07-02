@@ -33,7 +33,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 444172796820223396}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -32.86, y: -3.32, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -42,7 +42,7 @@ Transform:
   - {fileID: 441747885288404200}
   - {fileID: 441369034065316046}
   - {fileID: 450029528408781168}
-  - {fileID: 7832368607805318763}
+  - {fileID: 3591534936725891120}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -112,19 +112,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmgValue: 4
-  meleeWeapon1: {fileID: 0}
-  throwableObject1: {fileID: 5532974359214069763, guid: 340067e8e5a097546ad175f1d00a6ece, type: 3}
-  throwableObject2: {fileID: 5532974359214069763, guid: 6250a365245769f4081d863d2cd827b2, type: 3}
-  throwableObject3: {fileID: 5532974359214069763, guid: 733e56a35ac68bf46837e1d1cd5c9af9, type: 3}
-  throwableObject4: {fileID: 5532974359214069763, guid: 130311e4285b0304896c017eb641fcb1, type: 3}
-  throwableObject5: {fileID: 5532974359214069763, guid: b3cb726ebabd1d548913ce4a7c1a542b, type: 3}
+  meleeWeaponController: {fileID: 8982125354599466200}
+  rangedWeaponController: {fileID: 0}
   attackCheck: {fileID: 441747885288404200}
   animator: {fileID: 538770066651341512}
   canAttack: 1
   isTimeToCheck: 0
   cam: {fileID: 0}
   audioManager: {fileID: 0}
-  meleeCollider: {fileID: 7028015691329712909}
 --- !u!114 &557152561997098504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5281,7 +5276,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10187,7 +10181,7 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!1 &7028015691329712909
+--- !u!1 &1856960107153500083
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10195,23 +10189,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7832368607805318763}
-  - component: {fileID: 6419897049519212775}
-  - component: {fileID: 7157634018971280151}
+  - component: {fileID: 3591534936725891120}
+  - component: {fileID: 8982125354599466200}
   m_Layer: 1
-  m_Name: Meele
-  m_TagString: SubzoneMeleeWeapon
+  m_Name: Melee
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7832368607805318763
+--- !u!4 &3591534936725891120
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7028015691329712909}
+  m_GameObject: {fileID: 1856960107153500083}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -10220,41 +10213,16 @@ Transform:
   m_Father: {fileID: 449917999560785454}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &6419897049519212775
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7028015691329712909}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 1.19, y: 0.125}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.87, y: 0.125}
-  m_EdgeRadius: 0
---- !u!114 &7157634018971280151
+--- !u!114 &8982125354599466200
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7028015691329712909}
+  m_GameObject: {fileID: 1856960107153500083}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5af747d307dd83a47a2edfe9202e9c8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentMeleeWeapon: {fileID: 11400000, guid: 736183553da42ce4c912eef09fefb92f, type: 2}

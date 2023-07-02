@@ -19,7 +19,7 @@ public class LevelExit : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("collision: " + collision.gameObject.tag);
+        Debug.Log("LevelExit OnTriggerEnter2D: " + collision.gameObject.tag);
         if (collision.gameObject.CompareTag("Player"))
         {
             SceneManager.LoadScene("Overworld");
