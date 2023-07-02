@@ -10,13 +10,15 @@ public class MeleeController : MonoBehaviour
 
     private void Awake()
     {
-        attackOriginPoint = new Vector2(transform.position.x, transform.position.y) + currentMeleeWeapon.attackPoint;
         attackSize = currentMeleeWeapon.attackBounds;
     }
 
     private void Update()
     {
-        attackOriginPoint = new Vector2(transform.position.x, transform.position.y) + currentMeleeWeapon.attackPoint;
+        attackOriginPoint = new Vector2(
+            transform.position.x,
+            transform.position.y
+        ) + currentMeleeWeapon.attackPoint;
     }
 
     public void Attack()
@@ -32,10 +34,8 @@ public class MeleeController : MonoBehaviour
 
         foreach (Collider2D c in hitEnemies)
         {
-            Debug.Log("HIT: " + c.name);
             if (c.gameObject.TryGetComponent<SubzoneEnemy>(out var enemy))
             {
-                Debug.Log("ENEMY DAMAGE");
                 enemy.Damage(currentMeleeWeapon.attackDamage);
             }
         }
