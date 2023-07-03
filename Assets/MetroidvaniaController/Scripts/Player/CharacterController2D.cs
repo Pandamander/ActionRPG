@@ -11,15 +11,17 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private LayerMask m_WhatIsGround;							// A mask determining what is ground to the character
 	[SerializeField] private Transform m_GroundCheck;							// A position marking where to check if the player is grounded.
 
-	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
+	const float k_GroundedRadius = .1f; // Radius of the overlap circle to determine if grounded
 	private bool m_Grounded;            // Whether or not the player is grounded.
 	private Rigidbody2D m_Rigidbody2D;
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 velocity = Vector3.zero;
-	private float limitFallSpeed = 25f; // Limit fall speed
+	private float limitFallSpeed = 15f; // Limit fall speed
 
-	[SerializeField] private float m_DashForce = 25f;
-	private bool canDash = true;
+	private float postApexGravityMultiplier = 1f;
+
+	//[SerializeField] private float m_DashForce = 25f;
+	private bool canDash = false;
 	private bool isDashing = false; //If player is dashing
 
 	public float life = 10f; //Life of the player
@@ -95,8 +97,6 @@ public class CharacterController2D : MonoBehaviour
 		Vector2 capsuleBottom = transform.position - new Vector3(0.0f, capsuleColliderSize.y / 2);
 		SlopeCheckHorizontal(capsuleBottom);
 		SlopeCheckVertical(capsuleBottom);
-
-		Debug.Log("isOnSlope: " + isOnSlope);
 	}
 
 	private void SlopeCheckHorizontal(Vector2 capsuleBottom)
@@ -117,13 +117,28 @@ public class CharacterController2D : MonoBehaviour
 
 		if (slopeHitFont)
 		{
-			isOnSlope = true;
-			slopeSideAngle = Vector2.Angle(slopeHitFont.normal, Vector2.up);
+            slopeSideAngle = Vector2.Angle(slopeHitFont.normal, Vector2.up);
+
+			if (slopeSideAngle < 88f)
+			{
+                isOnSlope = true;
+            } else
+			{
+				isOnSlope = false;
+			}
             Debug.DrawRay(slopeHitFont.point, slopeHitFont.normal, Color.cyan);
         } else if (slopeHitBack)
 		{
-            isOnSlope = true;
             slopeSideAngle = Vector2.Angle(slopeHitBack.normal, Vector2.up);
+
+            if (slopeSideAngle < 88f)
+            {
+                isOnSlope = true;
+            }
+            else
+            {
+                isOnSlope = false;
+            }
             Debug.DrawRay(slopeHitFont.point, slopeHitBack.normal, Color.green);
         } else
 		{
@@ -179,18 +194,14 @@ public class CharacterController2D : MonoBehaviour
 			// If crouching, check to see if the character can stand up
 			if (isDashing)
 			{
-				m_Rigidbody2D.velocity = new Vector2(transform.localScale.x * m_DashForce, 0);
+				//m_Rigidbody2D.velocity = new Vector2(transform.localScale.x * m_DashForce, 0);
 			}
 			//only control the player if grounded or airControl is turned on
 			else if ( (m_Grounded || m_AirControl) && !isOnSlope )
 			{
-				if (m_Rigidbody2D.velocity.y < -limitFallSpeed)
-				{
-                    m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, -limitFallSpeed);
-                }
-
 				// Move the character by finding the target velocity
 				Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
+
 				// And then smoothing it out and applying it to the character
 				m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref velocity, m_MovementSmoothing);
 
@@ -210,8 +221,8 @@ public class CharacterController2D : MonoBehaviour
 
                 // Move the character by finding the target velocity
                 Vector3 targetVelocity = new Vector2(
-					-move * 15f * slopeNormalPerpendicular.x,
-                    -move * 15f * slopeNormalPerpendicular.y
+					-move * 10f * slopeNormalPerpendicular.x,
+                    -move * 10f * slopeNormalPerpendicular.y
                 );
 
 				m_Rigidbody2D.velocity = targetVelocity;
@@ -229,8 +240,25 @@ public class CharacterController2D : MonoBehaviour
                     Flip();
                 }
             }
-			// If the player should jump...
-			if (m_Grounded && !isOnSlope && jump)
+
+            if (!m_Grounded)
+            {
+                // post-apex gravity adjustment
+                if (m_Rigidbody2D.velocity.y < 0f)
+                {
+                    Vector2 gravityAdjustment = Vector2.up * Physics2D.gravity * (postApexGravityMultiplier - 1);
+                    m_Rigidbody2D.velocity += gravityAdjustment;
+                }
+
+                // Cap fall velocity
+                if (m_Rigidbody2D.velocity.y < -limitFallSpeed)
+                {
+                    m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, -limitFallSpeed);
+                }
+            }
+
+            // If the player should jump...
+            if (m_Grounded && !isOnSlope && jump)
 			{
 				// Add a vertical force to the player.
 				animator.SetBool("IsJumping", true);

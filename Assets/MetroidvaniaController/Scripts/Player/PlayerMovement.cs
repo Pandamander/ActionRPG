@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 	public CharacterController2D controller;
 	public Animator animator;
 
-	public float runSpeed = 40f;
+	[SerializeField] private float runSpeed = 40f;
 
 	public float horizontalMove = 0f;
 	bool jump = false;
@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
 		float input = Input.GetAxisRaw("Horizontal");
 
-		horizontalMove = input * runSpeed;
+        horizontalMove = input * runSpeed;
 
 		animator.SetFloat("Speed", Mathf.Abs(input));
 
@@ -52,7 +52,6 @@ public class PlayerMovement : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		// Move our character
 		controller.Move(horizontalMove * Time.fixedDeltaTime, jump, dash);
 		jump = false;
 		dash = false;
@@ -78,6 +77,5 @@ public class PlayerMovement : MonoBehaviour
 		animator.SetBool("IsJumping", false);
 		animator.SetFloat("Speed", 0f);
 		animator.SetBool("IsAttacking", false);
-
 	}
 }
