@@ -117,13 +117,28 @@ public class CharacterController2D : MonoBehaviour
 
 		if (slopeHitFont)
 		{
-			isOnSlope = true;
-			slopeSideAngle = Vector2.Angle(slopeHitFont.normal, Vector2.up);
+            slopeSideAngle = Vector2.Angle(slopeHitFont.normal, Vector2.up);
+
+			if (slopeSideAngle < 88f)
+			{
+                isOnSlope = true;
+            } else
+			{
+				isOnSlope = false;
+			}
             Debug.DrawRay(slopeHitFont.point, slopeHitFont.normal, Color.cyan);
         } else if (slopeHitBack)
 		{
-            isOnSlope = true;
             slopeSideAngle = Vector2.Angle(slopeHitBack.normal, Vector2.up);
+
+            if (slopeSideAngle < 88f)
+            {
+                isOnSlope = true;
+            }
+            else
+            {
+                isOnSlope = false;
+            }
             Debug.DrawRay(slopeHitFont.point, slopeHitBack.normal, Color.green);
         } else
 		{
@@ -210,8 +225,8 @@ public class CharacterController2D : MonoBehaviour
 
                 // Move the character by finding the target velocity
                 Vector3 targetVelocity = new Vector2(
-					-move * 15f * slopeNormalPerpendicular.x,
-                    -move * 15f * slopeNormalPerpendicular.y
+					-move * 10f * slopeNormalPerpendicular.x,
+                    -move * 10f * slopeNormalPerpendicular.y
                 );
 
 				m_Rigidbody2D.velocity = targetVelocity;
