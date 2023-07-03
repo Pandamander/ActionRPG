@@ -16,7 +16,7 @@ public class CharacterController2D : MonoBehaviour
 	private Rigidbody2D m_Rigidbody2D;
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 velocity = Vector3.zero;
-	private float limitFallSpeed = 25f; // Limit fall speed
+	private float limitFallSpeed = 15f; // Limit fall speed
 
 	[SerializeField] private float m_DashForce = 25f;
 	private bool canDash = true;
@@ -95,8 +95,6 @@ public class CharacterController2D : MonoBehaviour
 		Vector2 capsuleBottom = transform.position - new Vector3(0.0f, capsuleColliderSize.y / 2);
 		SlopeCheckHorizontal(capsuleBottom);
 		SlopeCheckVertical(capsuleBottom);
-
-		Debug.Log("isOnSlope: " + isOnSlope);
 	}
 
 	private void SlopeCheckHorizontal(Vector2 capsuleBottom)
@@ -206,6 +204,7 @@ public class CharacterController2D : MonoBehaviour
 
 				// Move the character by finding the target velocity
 				Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
+
 				// And then smoothing it out and applying it to the character
 				m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref velocity, m_MovementSmoothing);
 
