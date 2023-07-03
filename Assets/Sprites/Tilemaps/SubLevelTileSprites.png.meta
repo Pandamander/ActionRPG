@@ -3,7 +3,7 @@ guid: 4e9571c5f63e744cb832e6bdc04fc191
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -463,7 +464,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -8, y: 8}
+        - {x: -8, y: -8}
+        - {x: 8, y: -8}
+        - {x: 8, y: 8}
       tessellationDetail: 0
       bones: []
       spriteID: 063825bfa53fd4ea586710b7efdeaf3f
@@ -484,7 +489,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -8, y: 8}
+        - {x: -8, y: -8}
+        - {x: 8, y: -8}
+        - {x: 8, y: 8}
       tessellationDetail: 0
       bones: []
       spriteID: bee5459064e584cdbbde82691e8a2cfe
@@ -526,7 +535,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -8, y: 8}
+        - {x: -8, y: -8}
+        - {x: 8, y: -8}
+        - {x: 8, y: 8}
       tessellationDetail: 0
       bones: []
       spriteID: ea1c1bc1ec9ce44eeb409f3d4379a856
@@ -547,7 +560,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -8, y: 8}
+        - {x: -8, y: -8}
+        - {x: 8, y: -8}
+        - {x: 8, y: 8}
       tessellationDetail: 0
       bones: []
       spriteID: 99645e79304ab4d109ca73ac05c92789
@@ -841,7 +858,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -8, y: 8}
+        - {x: -8, y: -8}
+        - {x: 8, y: -8}
+        - {x: 8, y: 8}
       tessellationDetail: 0
       bones: []
       spriteID: cce23e8f5a41a444e8105e96caf17ed7
@@ -1132,7 +1153,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1155,55 +1176,55 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SubLevelTileSprites_47: -1420438575
-      SubLevelTileSprites_30: -50146969
-      SubLevelTileSprites_34: 1877916035
-      SubLevelTileSprites_31: -643138530
-      SubLevelTileSprites_37: -884798084
-      SubLevelTileSprites_48: -238387067
-      SubLevelTileSprites_39: 1634380842
-      SubLevelTileSprites_3: 409387177
-      SubLevelTileSprites_20: -309151274
-      SubLevelTileSprites_4: 1663028779
-      SubLevelTileSprites_7: -1358402052
-      SubLevelTileSprites_29: -684363368
-      SubLevelTileSprites_11: -797192783
-      SubLevelTileSprites_28: 1429668036
-      SubLevelTileSprites_35: -1632389614
-      SubLevelTileSprites_43: -361598
-      SubLevelTileSprites_13: 913233282
-      SubLevelTileSprites_1: -1689593771
-      SubLevelTileSprites_24: -182431350
-      SubLevelTileSprites_44: -1995302945
-      SubLevelTileSprites_12: 1417971995
-      SubLevelTileSprites_27: -389853288
-      SubLevelTileSprites_19: -1872850694
-      SubLevelTileSprites_36: 1661449298
-      SubLevelTileSprites_40: -327462198
       SubLevelTileSprites_0: -1707262581
-      SubLevelTileSprites_26: -627038207
-      SubLevelTileSprites_6: -5677695
+      SubLevelTileSprites_1: -1689593771
+      SubLevelTileSprites_10: -592882778
+      SubLevelTileSprites_11: -797192783
+      SubLevelTileSprites_12: 1417971995
+      SubLevelTileSprites_13: 913233282
       SubLevelTileSprites_14: -1598065351
-      SubLevelTileSprites_5: -137025363
-      SubLevelTileSprites_25: 304550500
-      SubLevelTileSprites_42: 1899578402
-      SubLevelTileSprites_22: 2108375937
-      SubLevelTileSprites_32: -680703110
-      SubLevelTileSprites_21: 2031324139
-      SubLevelTileSprites_33: -666972856
-      SubLevelTileSprites_9: 937962651
-      SubLevelTileSprites_41: 1722374430
-      SubLevelTileSprites_18: 888852626
-      SubLevelTileSprites_45: 379852114
-      SubLevelTileSprites_17: -475198025
-      SubLevelTileSprites_38: 21687587
       SubLevelTileSprites_15: -356913851
       SubLevelTileSprites_16: 623364341
-      SubLevelTileSprites_23: -1508267349
-      SubLevelTileSprites_46: -1092621276
-      SubLevelTileSprites_8: -719832525
-      SubLevelTileSprites_10: -592882778
+      SubLevelTileSprites_17: -475198025
+      SubLevelTileSprites_18: 888852626
+      SubLevelTileSprites_19: -1872850694
       SubLevelTileSprites_2: -474230526
+      SubLevelTileSprites_20: -309151274
+      SubLevelTileSprites_21: 2031324139
+      SubLevelTileSprites_22: 2108375937
+      SubLevelTileSprites_23: -1508267349
+      SubLevelTileSprites_24: -182431350
+      SubLevelTileSprites_25: 304550500
+      SubLevelTileSprites_26: -627038207
+      SubLevelTileSprites_27: -389853288
+      SubLevelTileSprites_28: 1429668036
+      SubLevelTileSprites_29: -684363368
+      SubLevelTileSprites_3: 409387177
+      SubLevelTileSprites_30: -50146969
+      SubLevelTileSprites_31: -643138530
+      SubLevelTileSprites_32: -680703110
+      SubLevelTileSprites_33: -666972856
+      SubLevelTileSprites_34: 1877916035
+      SubLevelTileSprites_35: -1632389614
+      SubLevelTileSprites_36: 1661449298
+      SubLevelTileSprites_37: -884798084
+      SubLevelTileSprites_38: 21687587
+      SubLevelTileSprites_39: 1634380842
+      SubLevelTileSprites_4: 1663028779
+      SubLevelTileSprites_40: -327462198
+      SubLevelTileSprites_41: 1722374430
+      SubLevelTileSprites_42: 1899578402
+      SubLevelTileSprites_43: -361598
+      SubLevelTileSprites_44: -1995302945
+      SubLevelTileSprites_45: 379852114
+      SubLevelTileSprites_46: -1092621276
+      SubLevelTileSprites_47: -1420438575
+      SubLevelTileSprites_48: -238387067
+      SubLevelTileSprites_5: -137025363
+      SubLevelTileSprites_6: -5677695
+      SubLevelTileSprites_7: -1358402052
+      SubLevelTileSprites_8: -719832525
+      SubLevelTileSprites_9: 937962651
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
