@@ -7,9 +7,9 @@ public class LevelLoaderTransitions : MonoBehaviour
 {
 
     public Animator transitionAnimator;
-    public float transitionTime = 1f;
+    public float transitionTime = 3f;
     // Brice made this script to do scene transitions. We should probably merge this in with the other Level Loader scripts we already have
-
+    public AudioSource source;
     
 
     public void LoadNextLevel(string nextSceneName)
@@ -22,6 +22,8 @@ public class LevelLoaderTransitions : MonoBehaviour
     {
         // Play animation
         transitionAnimator.SetTrigger("Start");
+
+        source.Play();
 
         // Wait
         yield return new WaitForSeconds(transitionTime); // Pauses this coroutine for 1 second before continuing

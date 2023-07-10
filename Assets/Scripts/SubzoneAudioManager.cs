@@ -5,10 +5,12 @@ using UnityEngine;
 public class SubzoneAudioManager : MonoBehaviour
 {
     public AudioSource source;
+    public AudioSource backgroundSource;
     public AudioClip attack;
     public AudioClip damage;
     public AudioClip powerup;
     public AudioClip gameOver;
+    public AudioClip backgroundMusic;
 
     public void PlayAttack()
     {
@@ -32,5 +34,22 @@ public class SubzoneAudioManager : MonoBehaviour
     {
         source.clip = gameOver;
         source.Play();
+    }
+
+    // Play background music on start
+    public void Start()
+    {
+        PlayBackgroundMusic();
+    }
+
+    public void PlayBackgroundMusic()
+    {
+        // If background music clip is not null, play it
+        if (backgroundMusic != null)
+        {
+            backgroundSource.clip = backgroundMusic;
+            backgroundSource.Play();
+        }
+        
     }
 }

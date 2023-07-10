@@ -7,6 +7,7 @@ public class CountdownTimerLevelExit : MonoBehaviour
 {
     [SerializeField] private float timeRemaining = 10f;
     [SerializeField] private string nextSceneName = "Subzone Intro 1";
+    bool timerHasBeenCalled = false;
 
     // Start is called before the first frame update
     void Start()
@@ -20,8 +21,9 @@ public class CountdownTimerLevelExit : MonoBehaviour
         // Count down timeRemaining by deltaTime. When it reaches 0, then load the next scene.
         timeRemaining -= Time.deltaTime;
 
-        if (timeRemaining <= 0)
+        if (timeRemaining <= 0 && !timerHasBeenCalled)
         {
+            timerHasBeenCalled = true;
             // Find the LevelLoaderTransitions and load the next scene
             FindObjectOfType<LevelLoaderTransitions>().LoadNextLevel(nextSceneName);
 
