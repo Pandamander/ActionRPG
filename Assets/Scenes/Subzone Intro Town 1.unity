@@ -201,6 +201,7 @@ MonoBehaviour:
   travelDistance: 1
   originalX: 0
   spriteRenderer: {fileID: 0}
+  animator: {fileID: 0}
   walking: 1
 --- !u!1 &331752778
 GameObject:
@@ -2679,23 +2680,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8149601827117059064, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
   m_PrefabInstance: {fileID: 1246224648}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &371525319
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 371525318}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 020cefdd1a0ad4f38a7eda029badd68e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  travelDistance: 3
-  originalX: 0
-  spriteRenderer: {fileID: 0}
-  walking: 1
 --- !u!114 &371525320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18767,21 +18751,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1167918222600912538, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
-      propertyPath: conversation
-      value: Town_Fast Man
-      objectReference: {fileID: 0}
-    - target: {fileID: 1167918222600912538, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
       propertyPath: conversationActor
       value: 
       objectReference: {fileID: 1299934671}
-    - target: {fileID: 4545121683329639360, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
-      propertyPath: m_SortingOrder
-      value: 9
-      objectReference: {fileID: 0}
+    - target: {fileID: 3335373694701896940, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e7bdd4b4f996941869e0a58d64b6a173, type: 2}
     - target: {fileID: 5429897842196661391, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
       propertyPath: m_FlipX
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5429897842196661391, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -384410928, guid: 4eb53e615c192435fbc082bd77cef3ed, type: 3}
     - target: {fileID: 5429897842196661391, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
       propertyPath: m_SortingOrder
       value: 9
@@ -19241,6 +19225,7 @@ MonoBehaviour:
   travelDistance: 1
   originalX: 0
   spriteRenderer: {fileID: 0}
+  animator: {fileID: 0}
   walking: 1
 --- !u!1 &1703517442
 GameObject:
@@ -19853,7 +19838,7 @@ Tilemap:
       - {fileID: 21300000, guid: eb6816fa4e4b62b4391dc4be5aea9390, type: 3}
       - {fileID: 21300000, guid: eb6816fa4e4b62b4391dc4be5aea9390, type: 3}
       - {fileID: 21300000, guid: eb6816fa4e4b62b4391dc4be5aea9390, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -6, y: -3, z: 0}
@@ -32658,11 +32643,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952797147, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -18
+      value: -23.46
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952797147, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.31999803
+      value: 0.31999993
       objectReference: {fileID: 0}
     - target: {fileID: 4064209768786870682, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_LocalPosition.x
