@@ -16,11 +16,27 @@ public class TopDownMovement : MonoBehaviour
         rigidBody = gameObject.GetComponent<Rigidbody2D>();
         rigidBody.transform.position = new Vector3(
             OverworldSubzoneContainer.LastEncounterPosition.Item1,
-            OverworldSubzoneContainer.LastEncounterPosition.Item2 - 1 // Offset player from last encounter so we don't auto-collide again.
+            OverworldSubzoneContainer.LastEncounterPosition.Item2
         );
 
         animator = gameObject.GetComponent<Animator>();
         animator.SetFloat("speed", 1);
+
+        switch (OverworldSubzoneContainer.LastEncounterDirection)
+        {
+            case OverworldSubzoneContainer.PlayerDirection.Up:
+                animator.SetFloat("vertical", 1);
+                break;
+            case OverworldSubzoneContainer.PlayerDirection.Down:
+                animator.SetFloat("vertical", -1);
+                break;
+            case OverworldSubzoneContainer.PlayerDirection.Left:
+                animator.SetFloat("horizontal", 1);
+                break;
+            case OverworldSubzoneContainer.PlayerDirection.Right:
+                animator.SetFloat("horizontal", -1);
+                break;
+        }
     }
 
     void Update()
@@ -47,7 +63,6 @@ public class TopDownMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //rigidBody.MovePosition(rigidBody.position + movement * moveSpeed * Time.fixedDeltaTime);
         rigidBody.velocity = movement * moveSpeed;
     }
 

@@ -4,23 +4,40 @@ using UnityEngine;
 
 public class OverworldSubzoneContainer
 {
+    public enum PlayerDirection { Up, Down, Left, Right }
     public static (float, float) LastEncounterPosition { get; private set; }
+    public static PlayerDirection LastEncounterDirection { get; private set; }
     public static string LastEncounterSubzoneName { get; private set; }
+
+    public static (float, float) SubzoneLevelStartPosition { get; private set; }
+    public static PlayerDirection SubzoneLevelStartDirection { get; private set; }
+    public static bool UseSubzoneLevelStartPosition { get; set; }
 
     private static bool Initialized;
 
-    public static void AddEncounter(float x, float y, string subzoneName)
+    public static void AddEncounter(float x, float y, string subzoneName, PlayerDirection direction)
     {
         LastEncounterPosition = (x, y);
         LastEncounterSubzoneName = subzoneName;
+        LastEncounterDirection = direction;
+    }
+
+    public static void AddSubzoneStartPosition(float x, float y, PlayerDirection direction)
+    {
+        SubzoneLevelStartPosition = (x, y);
+        SubzoneLevelStartDirection = direction;
+        UseSubzoneLevelStartPosition = true;
     }
 
     public static void Initialize()
     {
         if (!Initialized)
         {
-            LastEncounterPosition = (5.5f, -2.5f);
+            LastEncounterPosition = (6.3f, -2.8f);
+            LastEncounterPosition = (21.54f, 16.3f);
             LastEncounterSubzoneName = "";
+            LastEncounterDirection = PlayerDirection.Down;
+
             Initialized = true;
         }
     }

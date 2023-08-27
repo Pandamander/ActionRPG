@@ -23,8 +23,9 @@ public class EnemyEncounter : MonoBehaviour
             Transform movePoint = enemyMovement.movePoint;
             OverworldSubzoneContainer.AddEncounter(
                 movePoint.position.x,
-                movePoint.position.y,
-                subzoneName
+                movePoint.position.y - 1, // Offset player from last encounter so we don't auto-collide again.
+                subzoneName,
+                OverworldSubzoneContainer.PlayerDirection.Down
             );
 
             heroMovement.StopMovement();

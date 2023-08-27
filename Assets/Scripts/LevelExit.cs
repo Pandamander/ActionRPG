@@ -5,23 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class LevelExit : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    // Override position for Overworld placement when exiting this level
+    public Vector3 levelExitOverworldPositionOverride;
+    public bool usePositionOverride;
+    public string subzone;
+    public OverworldSubzoneContainer.PlayerDirection direction;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("LevelExit OnTriggerEnter2D: " + collision.gameObject.tag);
         if (collision.gameObject.CompareTag("Player"))
         {
+            if (usePositionOverride)
+            {
+                OverworldSubzoneContainer.AddEncounter(
+                    levelExitOverworldPositionOverride.x,
+                    levelExitOverworldPositionOverride.y,
+                    subzone,
+                    direction
+                );
+            }
             SceneManager.LoadScene("Overworld");
             // Note from Brice:
             // If we want to use the transition animation here, we can use: FindObjectOfType<LevelLoaderTransitions>().LoadNextLevel(nextSceneName);
