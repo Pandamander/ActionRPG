@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection.Emit;
 using UnityEngine;
 
 public class MeleeController : MonoBehaviour
 {
+    public enum PlayerDirection { Left, Right };
     public MeleeWeapon currentMeleeWeapon;
+    public PlayerDirection playerDirection;
     private Vector2 attackOriginPoint;
     private Vector2 attackSize;
 
@@ -18,7 +21,15 @@ public class MeleeController : MonoBehaviour
         attackOriginPoint = new Vector2(
             transform.position.x,
             transform.position.y
-        ) + currentMeleeWeapon.attackPoint;
+        );
+
+        if ( playerDirection == PlayerDirection.Left )
+        {
+            attackOriginPoint += new Vector2(-currentMeleeWeapon.attackPoint.x, currentMeleeWeapon.attackPoint.y);
+        } else
+        {
+            attackOriginPoint += currentMeleeWeapon.attackPoint;
+        }
     }
 
     public void Attack()

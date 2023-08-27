@@ -29,6 +29,9 @@ public class Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		meleeWeaponController.playerDirection = transform.localScale.x > 0 ?
+			MeleeController.PlayerDirection.Right : MeleeController.PlayerDirection.Left;
+
 		if (Input.GetButtonDown("Fire1") && canMeleeAttack)
 		{
             canMeleeAttack = false;
