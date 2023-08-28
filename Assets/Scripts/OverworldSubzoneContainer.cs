@@ -34,7 +34,7 @@ public class OverworldSubzoneContainer
         if (!Initialized)
         {
             LastEncounterPosition = (6.3f, -2.8f);
-            LastEncounterPosition = (21.54f, 16.3f);
+            // LastEncounterPosition = (21.54f, 16.3f); // Start near Intro Forest
             LastEncounterSubzoneName = "";
             LastEncounterDirection = PlayerDirection.Down;
 
