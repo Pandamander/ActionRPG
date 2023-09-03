@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4eb53e615c192435fbc082bd77cef3ed
+guid: 4f95bcbc91e68479485ff70f789203ac
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TownsPerson1-Walk_0
+      name: TownsPersonWoman_0
       rect:
         serializedVersion: 2
-        x: 27
+        x: 26
         y: 0
-        width: 10
-        height: 32
+        width: 11
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2e743e2913774f58b1033628d7e4d3c
-      internalID: -384410928
+      spriteID: 750464ee2b533439f8ceed6fdf95f338
+      internalID: -970250497
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TownsPerson1-Walk_1
+      name: TownsPersonWoman_1
       rect:
         serializedVersion: 2
-        x: 88
+        x: 90
         y: 0
-        width: 15
-        height: 31
+        width: 11
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +140,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77da5ba12ffb84bbf8629e26a4b77390
-      internalID: -75683992
+      spriteID: 247b4ca78a6024b5ba172dfaf5ace808
+      internalID: -1731315278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownsPersonWoman_2
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 0
+        width: 10
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cc95b6147d7a45479a3b61cdfb90307
+      internalID: -1804848356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TownsPersonWoman_3
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 0
+        width: 11
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43b5e205374564e05898a6a332a8530e
+      internalID: -631048139
       vertices: []
       indices: 
       edges: []
@@ -157,9 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      TownsPerson1-Walk_0: -384410928
-      TownsPerson1-Walk_1: -75683992
-      TownsPerson1-Walk_2: -490992544
+      TownsPersonWoman_0: -970250497
+      TownsPersonWoman_1: -1731315278
+      TownsPersonWoman_2: -1804848356
+      TownsPersonWoman_3: -631048139
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
