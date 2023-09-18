@@ -8143,6 +8143,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 857202325614202085, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1167918222600912538, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
       propertyPath: conversation
       value: Town_BoatQuestGiver
@@ -8151,14 +8155,22 @@ PrefabInstance:
       propertyPath: conversationActor
       value: 
       objectReference: {fileID: 1299934671}
+    - target: {fileID: 3335373694701896940, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6c3c840687a0f4008a7a8603801f9644, type: 2}
     - target: {fileID: 4545121683329639360, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
       propertyPath: m_SortingOrder
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5429897842196661391, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
       propertyPath: m_FlipX
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5429897842196661391, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1421634168, guid: 0cbf955eb335a4c9fa4646e43bdf8ec3, type: 3}
     - target: {fileID: 5429897842196661391, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
       propertyPath: m_SortingOrder
       value: 9
@@ -8167,17 +8179,33 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+    - target: {fileID: 5555541411065287512, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954347757780779676, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954347757780779676, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 8006399891801212307, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
       propertyPath: m_RootOrder
       value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8006399891801212307, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006399891801212307, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.23
+      value: 10.48
       objectReference: {fileID: 0}
     - target: {fileID: 8006399891801212307, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.033
+      value: -4.04
       objectReference: {fileID: 0}
     - target: {fileID: 8006399891801212307, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8213,7 +8241,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8149601827117059064, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
       propertyPath: m_Name
-      value: NPC-BoatLoanGuy
+      value: NPC-OldManBoatGuy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
@@ -32650,11 +32678,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952797147, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1
+      value: -10.222225
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952797147, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.31999898
+      value: 0.31999803
       objectReference: {fileID: 0}
     - target: {fileID: 4064209768786870682, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_LocalPosition.x
