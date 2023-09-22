@@ -10,10 +10,13 @@ public class AdvanceScene : MonoBehaviour
     [SerializeField] bool returnToAdvance;
 
     [SerializeField] public string nextSceneName;
+    [SerializeField] public float delay = 5f;
+    [SerializeField] bool autoAdvance = false;
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (autoAdvance)
+            Invoke("NextScene", delay);
     }
 
     // Update is called once per frame

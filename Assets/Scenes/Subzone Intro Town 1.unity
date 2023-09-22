@@ -20351,7 +20351,7 @@ PrefabInstance:
     - target: {fileID: 8023768132352030837, guid: a0586c992e741a34a87f03a95a277467, type: 3}
       propertyPath: backgroundMusic
       value: 
-      objectReference: {fileID: 8300000, guid: 68c21693aae714e0797830e584768c99, type: 3}
+      objectReference: {fileID: 8300000, guid: 34d3cf0b422da4550bd5308aaaa98364, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0586c992e741a34a87f03a95a277467, type: 3}
 --- !u!114 &2007040037 stripped
@@ -32678,7 +32678,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952797147, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.222225
+      value: -8.388153
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952797147, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_LocalPosition.y
