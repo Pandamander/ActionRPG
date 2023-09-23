@@ -78,4 +78,13 @@ public class PlayerMovement : MonoBehaviour
 		animator.SetFloat("Speed", 0f);
 		animator.SetBool("IsAttacking", false);
 	}
+
+	public void FreezeWalking()
+	{
+        canMove = false;
+        horizontalMove = 0f;
+        animator.SetBool("IsJumping", false);
+        animator.SetFloat("Speed", 1f);
+        animator.SetBool("IsAttacking", false);
+    }
 }
