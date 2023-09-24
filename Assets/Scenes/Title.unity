@@ -155,7 +155,9 @@ MonoBehaviour:
   anyKeyToAdvance: 1
   spaceToAdvance: 0
   returnToAdvance: 0
-  nextSceneName: Intro Storyboards
+  nextSceneName: Intro Story Scrolling
+  delay: 5
+  autoAdvance: 0
 --- !u!4 &73980146
 Transform:
   m_ObjectHideFlags: 0
