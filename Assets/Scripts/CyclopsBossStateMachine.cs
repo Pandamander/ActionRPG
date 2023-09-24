@@ -9,7 +9,7 @@ public class CyclopsBossStateMachine : MonoBehaviour
     private float attackTimer = 1f;
     private float attackTimeCounter = 0f;
     private bool hasStarted = false;
-    private float moveSpeed = 3f;
+    private float moveSpeed = 2.5f;
     private float moveDirection = -1f;
 
     public void Run()
@@ -26,9 +26,10 @@ public class CyclopsBossStateMachine : MonoBehaviour
         attackTimeCounter += Time.deltaTime;
         if (attackTimeCounter >= attackTimer)
         {
+            Debug.Log("ATTACK!");
             attackTimeCounter = 0f;
-            attackTimer = Random.Range(2.0f, 4.0f);
-            cyclops.Attack(cyclops.attackTypes[Random.Range(0, 2)]);
+            attackTimer = Random.Range(1.0f, 2.0f);
+            cyclops.Attack(cyclops.attackTypes[Random.Range(0, cyclops.attackTypes.Length - 1)]);
         }
 
         cyclops.Move(moveSpeed * moveDirection);

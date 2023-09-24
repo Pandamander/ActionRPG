@@ -9,8 +9,10 @@ public class Cyclops : MonoBehaviour
         ThrowBoulder, Smash, Swipe
     }
 
-    public AttackType[] attackTypes = { AttackType.ThrowBoulder, AttackType.Swipe };
+    public AttackType[] attackTypes = { AttackType.ThrowBoulder };
 
+    [SerializeField] private GameObject boulder;
+    [SerializeField] private Transform boulderSpawn;
     private Animator _animator;
     private Rigidbody2D rb;
 
@@ -28,7 +30,7 @@ public class Cyclops : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //Debug.Log("Boulder Spawn: " + boulderSpawn.transform.position);
     }
 
     public void Move(float xSpeed)
@@ -43,13 +45,14 @@ public class Cyclops : MonoBehaviour
 
     public void Walk()
     {
-        Debug.Log("Walking");
         _animator.SetBool("isWalking", true);
     }
 
     private void ThrowBoulder()
     {
+        Debug.Log("ThrowBoulder");
         _animator.SetTrigger("throwBoulder");
+        Instantiate(boulder, boulderSpawn.position, Quaternion.identity);
     }
 
     private void Smash()
