@@ -725,22 +725,25 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "My name is Titus. Each morning I awake, my first thought is vengeance.\n\nYears
-    ago, my father was a great general of the Roman army. He raised me in the way
-    of combat.\n\nOne day, our legion was sent on assignment at the fringes of the
-    empire. A black fog came upon us.\n\nConfusion broke out amongst the ranks. The
-    anguished cries of soldiers pierced the air. My father was among the dead.\n\nI
-    began to lose consciousness. The last thing I remember were the spectres of monstrous
+  m_text: "My name is Titus. Each morning when I awake, my first thought is vengeance.\n\nMany
+    years ago, my father was a great general of the Roman army. He fought many battles
+    and raised me in the ways of combat.\n\nOne day, our legion was sent on a special
+    assignment at the fringes of the empire. As we were encamped, a dense fog came
+    upon us.\n\nI was gripped by fear as confusion broke out amongst the ranks. The
+    anguished cries of soldiers pierced the air. \n\nMy father...was among the dead.\n\nA
+    sharp pain pierced my back, and I began to lose consciousness. As I collapsed
+    into the ground, the last thing I remember seeing were the spectres of monstrous
     otherworldly beasts.\n\nI opened my eyes in a bed I didn\u2019t know. I was rescued
-    by a man who spoke to me about terrors that exist beyond the natural order.\n\nI
-    renounced my service to the empire and devoted my life to pursuing the evils
-    that lurk in the shadows.\n\nI now set sail into the Mediterranean, hoping that
-    my years of training and preparation would lead me to the truth.\n\nI draw near
-    to an archipelago, where rumors of strange events have been occurring. A storm
-    brews\u2026perhaps pointing me in the right direction\u2026"
+    by a man who spoke to me about terrors that exist beyond the natural order.\n\nOn
+    that day, I renounced my service to the empire and devoted my life to pursuing
+    the evils that lurk in the shadows.\n\nI now set sail into the Mediterranean,
+    hoping that my years of training and preparation would lead me to the truth...and
+    to vengeance for my father.\n\nI draw near to an archipelago, where rumors of
+    strange events have been occurring. A storm is brewing\u2026perhaps a sign pointing
+    me in the right direction\u2026"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f07000dae16a64fcc979bffe80b7fe18, type: 2}
-  m_sharedMaterial: {fileID: -7358220893835152624, guid: f07000dae16a64fcc979bffe80b7fe18, type: 2}
+  m_sharedMaterial: {fileID: 8777788963673215855, guid: f07000dae16a64fcc979bffe80b7fe18, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8167,7 +8170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: orthographic size
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
@@ -8179,11 +8182,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 1
+      value: 0.99999994
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 1
+      value: 0.99995565
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952797147, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_LocalPosition.x
