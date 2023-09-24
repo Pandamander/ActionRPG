@@ -19,6 +19,6 @@ public class SubzoneHUD : MonoBehaviour
     {
         attackValue.text = PlayerStats.Attack.ToString();
         defenseValue.text = PlayerStats.Defense.ToString() + "/" + PlayerStats.DefenseCapacity.ToString();
-        healthValue.text = PlayerStats.Health.ToString() + "/" + PlayerStats.HealthCapacity.ToString();
+        //healthValue.text = PlayerStats.Health.ToString() + "/" + PlayerStats.HealthCapacity.ToString();
     }
 }
