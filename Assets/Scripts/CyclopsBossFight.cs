@@ -10,6 +10,7 @@ public class CyclopsBossFight : MonoBehaviour
     [SerializeField] private BoxCollider2D[] colliders;
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private Transform virtualCameraBossFightTarget;
+    [SerializeField] private CyclopsBossStateMachine stateMachine;
 
     private bool moveCam = false;
     private bool playerNeedsUnfreeze = false;
@@ -54,13 +55,14 @@ public class CyclopsBossFight : MonoBehaviour
             virtualCamera.transform.position = Vector3.MoveTowards(
                 virtualCamera.transform.position,
                 virtualCameraBossFightTarget.position,
-                Time.deltaTime * 5f
+                Time.deltaTime * 7f
             );
             
             if (virtualCamera.transform.position.x >= virtualCameraBossFightTarget.position.x)
             {
                 moveCam = false;
                 playerNeedsUnfreeze = true;
+                stateMachine.Run();
             }
         }
     }
