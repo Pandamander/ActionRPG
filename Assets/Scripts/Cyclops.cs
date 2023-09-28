@@ -15,6 +15,7 @@ public class Cyclops : MonoBehaviour
     [SerializeField] private Transform boulderSpawn;
     private Animator _animator;
     private Rigidbody2D rb;
+    private bool shouldWalk = true;
 
     private void Awake()
     {
@@ -30,12 +31,15 @@ public class Cyclops : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log("Boulder Spawn: " + boulderSpawn.transform.position);
+
     }
 
     public void Move(float xSpeed)
     {
-        rb.velocity = new Vector2(xSpeed, rb.velocity.y);
+        if (shouldWalk)
+        {
+            rb.velocity = new Vector2(xSpeed, rb.velocity.y);
+        }
     }
 
     public void FlipSprite()
@@ -50,9 +54,24 @@ public class Cyclops : MonoBehaviour
 
     private void ThrowBoulder()
     {
-        Debug.Log("ThrowBoulder");
+        shouldWalk = false;
         _animator.SetTrigger("throwBoulder");
-        Instantiate(boulder, boulderSpawn.position, Quaternion.identity);
+        StartCoroutine(SpawnBoulder());
+    }
+
+    private IEnumerator SpawnBoulder()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Rigidbody2D boulderrb = Instantiate(boulder, boulderSpawn.position, Quaternion.identity).GetComponent<Rigidbody2D>();
+        float direction = transform.localScale.x;
+        boulderrb.AddForce(5f * direction * Vector2.left, ForceMode2D.Impulse);
+        StartCoroutine(ResumeWalking());
+    }
+
+    private IEnumerator ResumeWalking()
+    {
+        yield return new WaitForSeconds(0.5f);
+        shouldWalk = true;
     }
 
     private void Smash()
@@ -65,6 +84,7 @@ public class Cyclops : MonoBehaviour
 
     public void Attack(AttackType type)
     {
+        Debug.Log("Attack: " + type);
         switch (type)
         {
             case AttackType.ThrowBoulder:

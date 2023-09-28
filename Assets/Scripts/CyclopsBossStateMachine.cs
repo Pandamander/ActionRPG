@@ -6,7 +6,7 @@ public class CyclopsBossStateMachine : MonoBehaviour
 {
     [SerializeField] private Cyclops cyclops;
     private BoxCollider2D currentTarget;
-    private float attackTimer = 1f;
+    private float attackTimer = 2f;
     private float attackTimeCounter = 0f;
     private bool hasStarted = false;
     private float moveSpeed = 2.5f;
@@ -26,10 +26,11 @@ public class CyclopsBossStateMachine : MonoBehaviour
         attackTimeCounter += Time.deltaTime;
         if (attackTimeCounter >= attackTimer)
         {
-            Debug.Log("ATTACK!");
             attackTimeCounter = 0f;
-            attackTimer = Random.Range(1.0f, 2.0f);
-            cyclops.Attack(cyclops.attackTypes[Random.Range(0, cyclops.attackTypes.Length - 1)]);
+            attackTimer = Random.Range(4.0f, 8.0f);
+            //int randAttack = Random.Range(0, cyclops.attackTypes.Length - 1);
+            //Debug.Log("randAttack: " + randAttack);
+            cyclops.Attack(cyclops.attackTypes[0]);
         }
 
         cyclops.Move(moveSpeed * moveDirection);
