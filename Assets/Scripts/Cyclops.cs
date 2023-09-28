@@ -55,6 +55,7 @@ public class Cyclops : MonoBehaviour
     private void ThrowBoulder()
     {
         shouldWalk = false;
+        rb.velocity = Vector2.zero;
         _animator.SetTrigger("throwBoulder");
         StartCoroutine(SpawnBoulder());
     }
