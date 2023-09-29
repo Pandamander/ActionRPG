@@ -17,6 +17,8 @@ public class Attack : MonoBehaviour, IDamageable
 	public GameObject cam;
 	public SubzoneAudioManager audioManager;
 
+	[SerializeField] private SubzoneHUD subzoneHUD;
+
 	private SpriteRenderer spriteRenderer;
 	private bool dead = false;
 
@@ -24,6 +26,9 @@ public class Attack : MonoBehaviour, IDamageable
 	{
 		rigidBody = GetComponent<Rigidbody2D>();
 		spriteRenderer = GetComponent<SpriteRenderer>();
+
+		// TODO: Elliott remove this
+		PlayerStats.Initialize();
 	}
 
     // Update is called once per frame
@@ -73,6 +78,7 @@ public class Attack : MonoBehaviour, IDamageable
     // IDamageable
     public void Damage(float damage)
     {
+		subzoneHUD.ReducePlayerHealthMeter((int)damage);
         audioManager.PlayDamage();
         PlayerStats.ApplyDamage(damage);
         if (PlayerStats.Health <= 0f)

@@ -13,10 +13,11 @@ public class Cyclops : MonoBehaviour, IDamageable
 
     [SerializeField] private GameObject boulder;
     [SerializeField] private Transform boulderSpawn;
+    [SerializeField] private SubzoneHUD subzoneHUD;
     private Animator _animator;
     private Rigidbody2D _rb;
     private bool shouldWalk = true;
-    private int _health = 0;
+    private int _health = 14;
     private SpriteRenderer _spriteRenderer;
     private SubzoneAudioManager _audioManager;
 
@@ -123,6 +124,7 @@ public class Cyclops : MonoBehaviour, IDamageable
     // IDamageable
     public void Damage(float damage)
     {
+        subzoneHUD.ReducePlayerHealthMeter((int)damage);
         _audioManager.PlayDamage();
         _health -= (int)damage;
         if (_health <= 0f)

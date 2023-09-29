@@ -5,23 +5,8 @@ using TMPro;
 
 public class SubzoneHUD : MonoBehaviour
 {
-    public TMP_Text attackValue;
-    public TMP_Text defenseValue;
     [SerializeField] private HUDHealthMeter playerHealthMeter;
     [SerializeField] private HUDHealthMeter bossHealthMeter;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        attackValue.text = PlayerStats.Attack.ToString();
-        defenseValue.text = PlayerStats.Defense.ToString() + "/" + PlayerStats.DefenseCapacity.ToString();
-    }
 
     public void FillBossHealthMeter()
     {
@@ -37,5 +22,4 @@ public class SubzoneHUD : MonoBehaviour
     {
         bossHealthMeter.Decrement(amount);
     }
-
 }
