@@ -7,6 +7,7 @@ using UnityEngine;
 public class HUDHealthMeter : MonoBehaviour
 {
     [SerializeField] private GameObject[] healthMeterFilled;
+    [SerializeField] private SubzoneAudioManager subzoneAudioManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +38,8 @@ public class HUDHealthMeter : MonoBehaviour
 
     private IEnumerator FillOne(GameObject bar)
     {
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.15f);
+        subzoneAudioManager.PlayArcadeJump();
         bar.SetActive(true);
     }
 

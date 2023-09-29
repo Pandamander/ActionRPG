@@ -71,7 +71,7 @@ public class CyclopsBossFight : MonoBehaviour
 
     private IEnumerator StartFight()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2.1f);
         playerNeedsUnfreeze = true;
         stateMachine.Run();
     }

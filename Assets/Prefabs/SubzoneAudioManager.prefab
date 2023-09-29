@@ -53,6 +53,7 @@ MonoBehaviour:
   powerup: {fileID: 8300000, guid: 977eaccc24b3646d199462f1422a8a3f, type: 3}
   gameOver: {fileID: 8300000, guid: b3934d5c50601440faafcfd937bfa31d, type: 3}
   backgroundMusic: {fileID: 8300000, guid: a29ce0f1c94a8455ab908e857a08cd20, type: 3}
+  arcadeJump: {fileID: 8300000, guid: ca74666e333e59f4e8fe6df2b496d076, type: 3}
 --- !u!82 &8023768132352030834
 AudioSource:
   m_ObjectHideFlags: 0
