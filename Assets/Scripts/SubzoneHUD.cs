@@ -7,7 +7,9 @@ public class SubzoneHUD : MonoBehaviour
 {
     public TMP_Text attackValue;
     public TMP_Text defenseValue;
-    public TMP_Text healthValue;
+    [SerializeField] private HUDHealthMeter playerHealthMeter;
+    [SerializeField] private HUDHealthMeter bossHealthMeter;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,21 @@ public class SubzoneHUD : MonoBehaviour
     {
         attackValue.text = PlayerStats.Attack.ToString();
         defenseValue.text = PlayerStats.Defense.ToString() + "/" + PlayerStats.DefenseCapacity.ToString();
-        //healthValue.text = PlayerStats.Health.ToString() + "/" + PlayerStats.HealthCapacity.ToString();
     }
+
+    public void FillBossHealthMeter()
+    {
+        bossHealthMeter.Fill();
+    }
+
+    public void ReducePlayerHealthMeter(int amount)
+    {
+        playerHealthMeter.Decrement(amount);
+    }
+
+    public void ReduceBossHealthMeter(int amount)
+    {
+        bossHealthMeter.Decrement(amount);
+    }
+
 }

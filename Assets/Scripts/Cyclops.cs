@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cyclops : MonoBehaviour
+public class Cyclops : MonoBehaviour, IDamageable
 {
     public enum AttackType
     {
@@ -14,13 +14,18 @@ public class Cyclops : MonoBehaviour
     [SerializeField] private GameObject boulder;
     [SerializeField] private Transform boulderSpawn;
     private Animator _animator;
-    private Rigidbody2D rb;
+    private Rigidbody2D _rb;
     private bool shouldWalk = true;
+    private int _health = 0;
+    private SpriteRenderer _spriteRenderer;
+    private SubzoneAudioManager _audioManager;
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _audioManager = GetComponent<SubzoneAudioManager>();
     }
     // Start is called before the first frame update
     void Start()
@@ -38,7 +43,7 @@ public class Cyclops : MonoBehaviour
     {
         if (shouldWalk)
         {
-            rb.velocity = new Vector2(xSpeed, rb.velocity.y);
+            _rb.velocity = new Vector2(xSpeed, _rb.velocity.y);
         }
     }
 
@@ -55,7 +60,7 @@ public class Cyclops : MonoBehaviour
     private void ThrowBoulder()
     {
         shouldWalk = false;
-        rb.velocity = Vector2.zero;
+        _rb.velocity = Vector2.zero;
         _animator.SetTrigger("throwBoulder");
         StartCoroutine(SpawnBoulder());
     }
@@ -95,5 +100,35 @@ public class Cyclops : MonoBehaviour
             case AttackType.Swipe:
                 Swipe(); break;
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (collision.gameObject.TryGetComponent<IDamageable>(out var player))
+            {
+                player.Damage(1f);
+            }
+        }
+    }
+
+    private IEnumerator TakeDamage()
+    {
+        _spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        _spriteRenderer.color = Color.white;
+    }
+
+    // IDamageable
+    public void Damage(float damage)
+    {
+        _audioManager.PlayDamage();
+        _health -= (int)damage;
+        if (_health <= 0f)
+        {
+            GetComponent<CapsuleCollider2D>().enabled = false;
+        }
+        StartCoroutine(TakeDamage());
     }
 }

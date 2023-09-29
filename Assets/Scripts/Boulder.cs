@@ -40,9 +40,13 @@ public class Boulder : MonoBehaviour
                 StartCoroutine(Destroy());
             }
         } else if (collision.collider.CompareTag("Player")) {
-            // TODO: damage player
             boulderAnimator.SetTrigger("Break");
             StartCoroutine(Destroy());
+
+            if (collision.gameObject.TryGetComponent<IDamageable>(out var player))
+            {
+                player.Damage(2f);
+            }
         }
     }
 }

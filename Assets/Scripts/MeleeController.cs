@@ -45,7 +45,7 @@ public class MeleeController : MonoBehaviour
 
         foreach (Collider2D c in hitEnemies)
         {
-            if (c.gameObject.TryGetComponent<SubzoneEnemy>(out var enemy))
+            if (c.gameObject.TryGetComponent<IDamageable>(out var enemy))
             {
                 enemy.Damage(currentMeleeWeapon.attackDamage);
             }
