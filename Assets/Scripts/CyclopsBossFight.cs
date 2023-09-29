@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Cinemachine;
+using Language.Lua;
 using UnityEngine;
 
 public class CyclopsBossFight : MonoBehaviour
@@ -11,6 +12,7 @@ public class CyclopsBossFight : MonoBehaviour
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private Transform virtualCameraBossFightTarget;
     [SerializeField] private CyclopsBossStateMachine stateMachine;
+    [SerializeField] private SubzoneHUD subzoneHUD;
 
     private bool moveCam = false;
     private bool playerNeedsUnfreeze = false;
@@ -60,11 +62,18 @@ public class CyclopsBossFight : MonoBehaviour
             
             if (virtualCamera.transform.position.x >= virtualCameraBossFightTarget.position.x)
             {
+                subzoneHUD.FillBossHealthMeter();
                 moveCam = false;
-                playerNeedsUnfreeze = true;
-                stateMachine.Run();
+                StartCoroutine(StartFight());
             }
         }
+    }
+
+    private IEnumerator StartFight()
+    {
+        yield return new WaitForSeconds(1f);
+        playerNeedsUnfreeze = true;
+        stateMachine.Run();
     }
 
     private void RetargetVirtualCamera()

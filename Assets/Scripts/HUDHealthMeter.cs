@@ -19,13 +19,18 @@ public class HUDHealthMeter : MonoBehaviour
         
     }
 
-    public void Fill()
+    public void FillMeter()
+    {
+        StartCoroutine(Fill());
+    }
+
+    private IEnumerator Fill()
     {
         foreach (GameObject bar in healthMeterFilled)
         {
             if (bar.activeInHierarchy == false)
             {
-                StartCoroutine(FillOne(bar));
+                yield return StartCoroutine(FillOne(bar));
             }
         }
     }

@@ -10,7 +10,7 @@ public class SubzoneHUD : MonoBehaviour
 
     public void FillBossHealthMeter()
     {
-        bossHealthMeter.Fill();
+        bossHealthMeter.FillMeter();
     }
 
     public void ReducePlayerHealthMeter(int amount)
