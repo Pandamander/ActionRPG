@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Cinemachine;
+using Language.Lua;
 using UnityEngine;
 
 public class CyclopsBossFight : MonoBehaviour
@@ -11,6 +12,8 @@ public class CyclopsBossFight : MonoBehaviour
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private Transform virtualCameraBossFightTarget;
     [SerializeField] private CyclopsBossStateMachine stateMachine;
+    [SerializeField] private SubzoneHUD subzoneHUD;
+    private BoxCollider2D _bossFightStartTrigger;
 
     private bool moveCam = false;
     private bool playerNeedsUnfreeze = false;
@@ -18,6 +21,7 @@ public class CyclopsBossFight : MonoBehaviour
     private void Awake()
     {
         DisableColliders();
+        _bossFightStartTrigger = GetComponent<BoxCollider2D>();
     }
 
     private void DisableColliders()
@@ -46,6 +50,7 @@ public class CyclopsBossFight : MonoBehaviour
     {
         if (playerNeedsUnfreeze)
         {
+            _bossFightStartTrigger.enabled = false;
             playerNeedsUnfreeze = false;
             EnableColliders();
             playerMovement.AllowMovement();
@@ -60,11 +65,18 @@ public class CyclopsBossFight : MonoBehaviour
             
             if (virtualCamera.transform.position.x >= virtualCameraBossFightTarget.position.x)
             {
+                subzoneHUD.FillBossHealthMeter();
                 moveCam = false;
-                playerNeedsUnfreeze = true;
-                stateMachine.Run();
+                StartCoroutine(StartFight());
             }
         }
+    }
+
+    private IEnumerator StartFight()
+    {
+        yield return new WaitForSeconds(2.1f);
+        playerNeedsUnfreeze = true;
+        stateMachine.Run();
     }
 
     private void RetargetVirtualCamera()

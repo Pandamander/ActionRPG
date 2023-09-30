@@ -7,6 +7,7 @@ public class MeleeController : MonoBehaviour
 {
     public enum PlayerDirection { Left, Right };
     public MeleeWeapon currentMeleeWeapon;
+    [SerializeField] private SubzoneAudioManager audioManager;
     public PlayerDirection playerDirection;
     private Vector2 attackOriginPoint;
     private Vector2 attackSize;
@@ -41,11 +42,19 @@ public class MeleeController : MonoBehaviour
             currentMeleeWeapon.layerMask
         );
 
+        if (hitEnemies.Length > 0)
+        {
+            audioManager.PlayAttackHit();
+        } else
+        {
+            audioManager.PlayAttack();
+        }
+
         DebugDrawBox(attackOriginPoint, attackSize);
 
         foreach (Collider2D c in hitEnemies)
         {
-            if (c.gameObject.TryGetComponent<SubzoneEnemy>(out var enemy))
+            if (c.gameObject.TryGetComponent<IDamageable>(out var enemy))
             {
                 enemy.Damage(currentMeleeWeapon.attackDamage);
             }

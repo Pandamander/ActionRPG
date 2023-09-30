@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Attack : MonoBehaviour
+public class Attack : MonoBehaviour, IDamageable
 {
 	public float dmgValue = 4;
 	public MeleeController meleeWeaponController;
@@ -17,6 +17,8 @@ public class Attack : MonoBehaviour
 	public GameObject cam;
 	public SubzoneAudioManager audioManager;
 
+	[SerializeField] private SubzoneHUD subzoneHUD;
+
 	private SpriteRenderer spriteRenderer;
 	private bool dead = false;
 
@@ -24,6 +26,9 @@ public class Attack : MonoBehaviour
 	{
 		rigidBody = GetComponent<Rigidbody2D>();
 		spriteRenderer = GetComponent<SpriteRenderer>();
+
+		// TODO: Elliott remove this
+		PlayerStats.Initialize();
 	}
 
     // Update is called once per frame
@@ -39,8 +44,6 @@ public class Attack : MonoBehaviour
 
             meleeWeaponController.Attack();
 
-			audioManager.PlayAttack();
-
 			StartCoroutine(MeleeAttackCooldown());
 		}
 	}
@@ -50,73 +53,6 @@ public class Attack : MonoBehaviour
 		yield return new WaitForSeconds(0.25f);
 		animator.SetBool("IsAttacking", false);
         canMeleeAttack = true;
-	}
-
-	public void DoDashDamage()
-	{
-		dmgValue = Mathf.Abs(dmgValue);
-		Collider2D[] collidersEnemies = Physics2D.OverlapCircleAll(attackCheck.position, 0.9f);
-		for (int i = 0; i < collidersEnemies.Length; i++)
-		{
-			if (collidersEnemies[i].gameObject.tag == "Enemy")
-			{
-				if (collidersEnemies[i].transform.position.x - transform.position.x < 0)
-				{
-					dmgValue = -dmgValue;
-				}
-				collidersEnemies[i].gameObject.SendMessage("ApplyDamage", dmgValue);
-				cam.GetComponent<CameraFollow>().ShakeCamera();
-			}
-		}
-	}
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-		if (!collision.otherCollider.gameObject.CompareTag("Player"))
-		{
-			return;
-		}
-
-		if (collision.gameObject.CompareTag("SubzoneEnemy"))
-        {
-			if (dead) { return; }
-
-			audioManager.PlayDamage();
-			PlayerStats.ApplyDamage(1f);
-
-			if (PlayerStats.Health <= 0f)
-            {
-				Die();
-				StartCoroutine(GameOver());
-            }
-			else
-            {
-				rigidBody.AddForce(new Vector2(-2000f, 0f));
-				StartCoroutine(TakeDamage());
-			}			
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Boss"))
-		{
-			if (dead) { return; }
-
-			audioManager.PlayDamage();
-			PlayerStats.ApplyDamage(1f);
-
-			if (PlayerStats.Health <= 0f)
-			{
-				Die();
-				StartCoroutine(GameOver());
-			}
-			else
-			{
-				rigidBody.AddForce(new Vector2(-2000f, 0f));
-				StartCoroutine(TakeDamage());
-			}
-		}
 	}
 
     private IEnumerator TakeDamage()
@@ -135,7 +71,24 @@ public class Attack : MonoBehaviour
 		SceneManager.LoadScene("GameOver");
 	}
 
-	private void Die()
+    // IDamageable
+    public void Damage(float damage)
+    {
+		subzoneHUD.ReducePlayerHealthMeter((int)damage);
+        audioManager.PlayDamage();
+        PlayerStats.ApplyDamage(damage);
+        if (PlayerStats.Health <= 0f)
+        {
+			Die();
+            GetComponent<CapsuleCollider2D>().enabled = false;
+        } else
+		{
+            rigidBody.AddForce(new Vector2(-2000f, 0f));
+            StartCoroutine(TakeDamage());
+        }
+    }
+
+    private void Die()
 	{
 		dead = true;
 		spriteRenderer.color = Color.red;

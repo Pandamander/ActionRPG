@@ -88,12 +88,12 @@ GameObject:
   - component: {fileID: 7986271463779465203}
   - component: {fileID: 4348335637035748021}
   m_Layer: 5
-  m_Name: Health Bar Filled 12
+  m_Name: Health Bar Filled 13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &189743132703022343
 RectTransform:
   m_ObjectHideFlags: 0
@@ -161,6 +161,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3605760154701544744}
+  - component: {fileID: 1368323791435616716}
   m_Layer: 5
   m_Name: Enemy Health
   m_TagString: Untagged
@@ -190,6 +191,33 @@ RectTransform:
   m_AnchoredPosition: {x: 48, y: -22}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1368323791435616716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207061364657378862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1a48868c780a0d42a26ffff59d98074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthMeterFilled:
+  - {fileID: 8278007056763155126}
+  - {fileID: 2973797037246515793}
+  - {fileID: 5846421874212628237}
+  - {fileID: 5164011698109728451}
+  - {fileID: 1732484263673484007}
+  - {fileID: 7970331941692559855}
+  - {fileID: 8507882972271401594}
+  - {fileID: 541777018776232872}
+  - {fileID: 9130760663209424887}
+  - {fileID: 3062068149057847832}
+  - {fileID: 3957811693971141631}
+  - {fileID: 6557480890367280188}
+  - {fileID: 186740530167460136}
+  - {fileID: 1730204601574875154}
 --- !u!1 &256532315828891269
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,14 +304,13 @@ GameObject:
   m_Component:
   - component: {fileID: 8418867578089681019}
   - component: {fileID: 7043376543299636243}
-  - component: {fileID: 5198767277646700380}
   m_Layer: 5
   m_Name: Enemy Health Filled
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8418867578089681019
 RectTransform:
   m_ObjectHideFlags: 0
@@ -315,7 +342,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 33.999996, y: -4}
+  m_AnchoredPosition: {x: 0, y: -4}
   m_SizeDelta: {x: 68, y: 8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7043376543299636243
@@ -344,20 +371,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &5198767277646700380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 332646061134763110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalFit: 2
-  m_VerticalFit: 0
 --- !u!1 &386341455061449014
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,7 +614,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6789301430379086722
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1122,12 +1135,12 @@ GameObject:
   - component: {fileID: 6365056035683987376}
   - component: {fileID: 1822434495454954765}
   m_Layer: 5
-  m_Name: Health Bar Filled 13
+  m_Name: Health Bar Filled 14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1605599298913097909
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1203,7 +1216,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6699455243124809081
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1532,9 +1545,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba61b6b1e6b0e704fbf00b754f137439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackValue: {fileID: 527882589330772665}
-  defenseValue: {fileID: 436339249967674035}
-  healthValue: {fileID: 0}
+  playerHealthMeter: {fileID: 0}
+  bossHealthMeter: {fileID: 0}
 --- !u!1 &2100172161104411091
 GameObject:
   m_ObjectHideFlags: 0
@@ -2150,7 +2162,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3823581270197575693
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2368,7 +2380,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2478747723914532742
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3278,7 +3290,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7301388796326180174
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3652,7 +3664,7 @@ GameObject:
   - component: {fileID: 5023118164240263548}
   - component: {fileID: 9002019698872050425}
   m_Layer: 5
-  m_Name: Health Bar Filled 13
+  m_Name: Health Bar Filled 14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3733,7 +3745,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &933150755053432626
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4336,7 +4348,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8930539359134312663
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4407,7 +4419,7 @@ GameObject:
   - component: {fileID: 8862382432963288639}
   - component: {fileID: 5280628957525889777}
   m_Layer: 5
-  m_Name: Health Bar Filled 12
+  m_Name: Health Bar Filled 13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4564,7 +4576,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7558920560202552055
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4975,7 +4987,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3717790432007602481}
   - component: {fileID: 4465548519877845981}
-  - component: {fileID: 6055349298955984611}
   m_Layer: 5
   m_Name: Enemy Health Empty
   m_TagString: Untagged
@@ -5014,8 +5025,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 33.999996, y: -4}
-  m_SizeDelta: {x: 0, y: 8}
+  m_AnchoredPosition: {x: 0, y: -4}
+  m_SizeDelta: {x: 68, y: 8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4465548519877845981
 MonoBehaviour:
@@ -5043,20 +5054,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &6055349298955984611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6864749281198624858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalFit: 2
-  m_VerticalFit: 0
 --- !u!1 &6927784691737938376
 GameObject:
   m_ObjectHideFlags: 0
@@ -5142,6 +5139,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5017386567926023117}
+  - component: {fileID: 5135127193670527968}
   m_Layer: 5
   m_Name: Player Health
   m_TagString: Untagged
@@ -5171,6 +5169,33 @@ RectTransform:
   m_AnchoredPosition: {x: 48, y: -10}
   m_SizeDelta: {x: 4, y: 11}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5135127193670527968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6974165189584343585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1a48868c780a0d42a26ffff59d98074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthMeterFilled:
+  - {fileID: 2321177812192718380}
+  - {fileID: 2595953550556802441}
+  - {fileID: 386341455061449014}
+  - {fileID: 3050210130871442370}
+  - {fileID: 8661434365659184952}
+  - {fileID: 6576941721771713607}
+  - {fileID: 5586768859766433584}
+  - {fileID: 8147877751868523849}
+  - {fileID: 1230128129485136953}
+  - {fileID: 6649779228112723973}
+  - {fileID: 1935254417561531477}
+  - {fileID: 256532315828891269}
+  - {fileID: 5931762199206963769}
+  - {fileID: 4858050018937652413}
 --- !u!1 &7624729115567213564
 GameObject:
   m_ObjectHideFlags: 0
@@ -5341,7 +5366,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5900285700323979955
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5531,7 +5556,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &699370663888107870
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5607,7 +5632,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &303550686178602696
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6061,7 +6086,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3351553834629074243
 RectTransform:
   m_ObjectHideFlags: 0

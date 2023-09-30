@@ -64,6 +64,17 @@ public class SubzoneEnemy : MonoBehaviour, IDamageable
         moveSpeed *= -1;
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (collision.gameObject.TryGetComponent<IDamageable>(out var player))
+            {
+                player.Damage(1f);
+            }
+        }
+    }
+
     private IEnumerator TakeDamage()
     {
         spriteRenderer.color = Color.red;
@@ -74,7 +85,6 @@ public class SubzoneEnemy : MonoBehaviour, IDamageable
     // IDamageable
     public void Damage(float damage)
     {
-        audioManager.PlayDamage();
         health -= damage;
         if (health <= 0f)
         {
