@@ -13,6 +13,7 @@ public class CyclopsBossFight : MonoBehaviour
     [SerializeField] private Transform virtualCameraBossFightTarget;
     [SerializeField] private CyclopsBossStateMachine stateMachine;
     [SerializeField] private SubzoneHUD subzoneHUD;
+    private BoxCollider2D _bossFightStartTrigger;
 
     private bool moveCam = false;
     private bool playerNeedsUnfreeze = false;
@@ -20,6 +21,7 @@ public class CyclopsBossFight : MonoBehaviour
     private void Awake()
     {
         DisableColliders();
+        _bossFightStartTrigger = GetComponent<BoxCollider2D>();
     }
 
     private void DisableColliders()
@@ -48,6 +50,7 @@ public class CyclopsBossFight : MonoBehaviour
     {
         if (playerNeedsUnfreeze)
         {
+            _bossFightStartTrigger.enabled = false;
             playerNeedsUnfreeze = false;
             EnableColliders();
             playerMovement.AllowMovement();

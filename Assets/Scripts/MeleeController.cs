@@ -7,6 +7,7 @@ public class MeleeController : MonoBehaviour
 {
     public enum PlayerDirection { Left, Right };
     public MeleeWeapon currentMeleeWeapon;
+    [SerializeField] private SubzoneAudioManager audioManager;
     public PlayerDirection playerDirection;
     private Vector2 attackOriginPoint;
     private Vector2 attackSize;
@@ -40,6 +41,14 @@ public class MeleeController : MonoBehaviour
             transform.eulerAngles.z,
             currentMeleeWeapon.layerMask
         );
+
+        if (hitEnemies.Length > 0)
+        {
+            audioManager.PlayAttackHit();
+        } else
+        {
+            audioManager.PlayAttack();
+        }
 
         DebugDrawBox(attackOriginPoint, attackSize);
 

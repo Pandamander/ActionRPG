@@ -44,8 +44,6 @@ public class Attack : MonoBehaviour, IDamageable
 
             meleeWeaponController.Attack();
 
-			audioManager.PlayAttack();
-
 			StartCoroutine(MeleeAttackCooldown());
 		}
 	}

@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 112853340}
   - component: {fileID: 112853342}
   - component: {fileID: 112853341}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cyclops
   m_TagString: Cyclops
   m_Icon: {fileID: 0}
@@ -249,6 +249,7 @@ MonoBehaviour:
   boulder: {fileID: 5556870647717838142, guid: 56559c00dcac41f49ac6f82b6c3bfecc, type: 3}
   boulderSpawn: {fileID: 1504959678}
   subzoneHUD: {fileID: 2028905508}
+  audioManager: {fileID: 578783516}
 --- !u!50 &112853341
 Rigidbody2D:
   serializedVersion: 4
@@ -284,7 +285,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.55}
-  m_Size: {x: 1.05, y: 3.86}
+  m_Size: {x: 1.75, y: 3.86}
   m_Direction: 0
 --- !u!4 &146475682 stripped
 Transform:
@@ -40310,6 +40311,10 @@ PrefabInstance:
       propertyPath: audioManager
       value: 
       objectReference: {fileID: 578783516}
+    - target: {fileID: 8982125354599466200, guid: d17581581e44e5644bd22c60e04f999c, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 578783516}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d17581581e44e5644bd22c60e04f999c, type: 3}
 --- !u!114 &1816264631 stripped
@@ -70034,7 +70039,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: orthographic size
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_BackGroundColor.b
@@ -70058,7 +70063,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 1
+      value: 0.99999994
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.height

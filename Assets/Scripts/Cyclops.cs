@@ -14,19 +14,19 @@ public class Cyclops : MonoBehaviour, IDamageable
     [SerializeField] private GameObject boulder;
     [SerializeField] private Transform boulderSpawn;
     [SerializeField] private SubzoneHUD subzoneHUD;
+    [SerializeField] private SubzoneAudioManager audioManager;
+
     private Animator _animator;
     private Rigidbody2D _rb;
     private bool shouldWalk = true;
     private int _health = 14;
     private SpriteRenderer _spriteRenderer;
-    private SubzoneAudioManager _audioManager;
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _audioManager = GetComponent<SubzoneAudioManager>();
     }
     // Start is called before the first frame update
     void Start()
@@ -117,15 +117,18 @@ public class Cyclops : MonoBehaviour, IDamageable
     private IEnumerator TakeDamage()
     {
         _spriteRenderer.color = Color.red;
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.05f);
+        _spriteRenderer.color = Color.white;
+        yield return new WaitForSeconds(0.05f);
+        _spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(0.05f);
         _spriteRenderer.color = Color.white;
     }
 
     // IDamageable
     public void Damage(float damage)
     {
-        subzoneHUD.ReducePlayerHealthMeter((int)damage);
-        _audioManager.PlayDamage();
+        subzoneHUD.ReduceBossHealthMeter((int)damage);
         _health -= (int)damage;
         if (_health <= 0f)
         {

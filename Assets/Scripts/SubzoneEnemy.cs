@@ -85,7 +85,6 @@ public class SubzoneEnemy : MonoBehaviour, IDamageable
     // IDamageable
     public void Damage(float damage)
     {
-        audioManager.PlayDamage();
         health -= damage;
         if (health <= 0f)
         {
