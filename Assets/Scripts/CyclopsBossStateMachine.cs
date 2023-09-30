@@ -30,9 +30,11 @@ public class CyclopsBossStateMachine : MonoBehaviour
         {
             attackTimeCounter = 0f;
             attackTimer = Random.Range(4.0f, 8.0f);
-            //int randAttack = Random.Range(0, cyclops.attackTypes.Length - 1);
-            //Debug.Log("randAttack: " + randAttack);
-            cyclops.Attack(cyclops.attackTypes[0]);
+            int randAttack = Random.Range(0, cyclops.attackTypes.Length);
+            Debug.Log("cyclops.attackTypes.Length: " + cyclops.attackTypes.Length);
+            Debug.Log("randAttack: " + randAttack);
+            cyclops.Attack(cyclops.attackTypes[randAttack]);
+            //cyclops.Attack(cyclops.attackTypes[2]);
         }
 
         cyclops.Move(moveSpeed * moveDirection);

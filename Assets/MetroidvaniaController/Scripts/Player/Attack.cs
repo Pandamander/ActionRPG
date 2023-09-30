@@ -55,8 +55,6 @@ public class Attack : MonoBehaviour, IDamageable
         canMeleeAttack = true;
 	}
 
-    // cam.GetComponent<CameraFollow>().ShakeCamera();
-
     private IEnumerator TakeDamage()
 	{
 		spriteRenderer.color = Color.red;
