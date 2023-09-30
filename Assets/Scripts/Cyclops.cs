@@ -15,6 +15,8 @@ public class Cyclops : MonoBehaviour, IDamageable
     [SerializeField] private Transform boulderSpawn;
     [SerializeField] private SubzoneHUD subzoneHUD;
     [SerializeField] private SubzoneAudioManager audioManager;
+    [SerializeField] private Transform playerTransform;
+    [SerializeField] private CameraShake cameraShake;
 
     private Animator _animator;
     private Rigidbody2D _rb;
@@ -37,7 +39,13 @@ public class Cyclops : MonoBehaviour, IDamageable
     // Update is called once per frame
     void Update()
     {
-
+        if ((playerTransform.position.x > transform.position.x) && transform.localScale.x > 0)
+        {
+            FlipSprite();
+        } else if ((playerTransform.position.x < transform.position.x) && transform.localScale.x < 0)
+        {
+            FlipSprite();
+        }
     }
 
     public void Move(float xSpeed)
@@ -50,7 +58,7 @@ public class Cyclops : MonoBehaviour, IDamageable
 
     public void FlipSprite()
     {
-        
+        transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
     }
 
     public void Walk()
@@ -69,9 +77,13 @@ public class Cyclops : MonoBehaviour, IDamageable
     private IEnumerator SpawnBoulder()
     {
         yield return new WaitForSeconds(0.5f);
-        Rigidbody2D boulderrb = Instantiate(boulder, boulderSpawn.position, Quaternion.identity).GetComponent<Rigidbody2D>();
+        GameObject spawnedBoulder = Instantiate(boulder, boulderSpawn.position, Quaternion.identity);
+        Boulder boulderInstance = spawnedBoulder.GetComponent<Boulder>();
+        boulderInstance.audioManager = audioManager;
+        boulderInstance.hud = subzoneHUD;
+        boulderInstance.cameraShake = cameraShake;
         float direction = transform.localScale.x;
-        boulderrb.AddForce(5f * direction * Vector2.left, ForceMode2D.Impulse);
+        spawnedBoulder.GetComponent<Rigidbody2D>().AddForce(5f * direction * Vector2.left, ForceMode2D.Impulse);
         StartCoroutine(ResumeWalking());
     }
 

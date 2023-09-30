@@ -6,6 +6,9 @@ public class Boulder : MonoBehaviour
 {
     private int bounceCount = 0;
     private Animator boulderAnimator;
+    public SubzoneAudioManager audioManager;
+    public SubzoneHUD hud;
+    public CameraShake cameraShake;
 
     private void Awake()
     {
@@ -33,6 +36,9 @@ public class Boulder : MonoBehaviour
     {
         if (collision.collider.CompareTag("Ground"))
         {
+            audioManager.PlayDamage();
+            cameraShake.ShakeCamera(0.25f, 2f);
+            
             bounceCount++;
             if (bounceCount == 2)
             {

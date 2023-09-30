@@ -11,6 +11,8 @@ public class CyclopsBossStateMachine : MonoBehaviour
     private bool hasStarted = false;
     private float moveSpeed = 2.5f;
     private float moveDirection = -1f;
+    private float moveTimer = 4f;
+    private float moveTimeCounter = 0f;
 
     public void Run()
     {
@@ -34,6 +36,13 @@ public class CyclopsBossStateMachine : MonoBehaviour
         }
 
         cyclops.Move(moveSpeed * moveDirection);
+
+        moveTimeCounter += Time.deltaTime;
+        if (moveTimeCounter >= moveTimer)
+        {
+            moveTimeCounter = 0f;
+            moveDirection *= -1;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
