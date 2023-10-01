@@ -9,7 +9,7 @@ public class Cyclops : MonoBehaviour, IDamageable
         ThrowBoulder, Smash, Swipe
     }
 
-    public AttackType[] attackTypes = { AttackType.ThrowBoulder, AttackType.Smash, AttackType.Swipe };
+    public AttackType[] autoAttackTypes = { AttackType.ThrowBoulder, AttackType.Smash };
 
     [SerializeField] private GameObject boulder;
     [SerializeField] private Transform boulderSpawn;
@@ -22,7 +22,7 @@ public class Cyclops : MonoBehaviour, IDamageable
     private Animator _animator;
     private Rigidbody2D _rb;
     private bool shouldWalk = true;
-    private int _health = 14;
+    public int health { get; private set; } = 14;
     private SpriteRenderer _spriteRenderer;
 
     private void Awake()
@@ -175,8 +175,8 @@ public class Cyclops : MonoBehaviour, IDamageable
     public void Damage(float damage)
     {
         subzoneHUD.ReduceBossHealthMeter((int)damage);
-        _health -= (int)damage;
-        if (_health <= 0f)
+        health -= (int)damage;
+        if (health <= 0f)
         {
             GetComponent<CapsuleCollider2D>().enabled = false;
         }
