@@ -32,7 +32,7 @@ public class CyclopsBossStateMachine : MonoBehaviour
             attackTimer = Random.Range(4.0f, 8.0f);
             int randAttack = Random.Range(0, cyclops.autoAttackTypes.Length);
             cyclops.Attack(cyclops.autoAttackTypes[randAttack]);
-            //cyclops.Attack(cyclops.attackTypes[1]);
+            //cyclops.Attack(Cyclops.AttackType.Swipe);
         }
 
         cyclops.Move(moveSpeed * moveDirection);

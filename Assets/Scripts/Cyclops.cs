@@ -18,6 +18,7 @@ public class Cyclops : MonoBehaviour, IDamageable
     [SerializeField] private Transform playerTransform;
     [SerializeField] private CameraShake cameraShake;
     [SerializeField] private SandWave sandWave;
+    [SerializeField] private Transform swipeAttackPoint;
 
     private Animator _animator;
     private Rigidbody2D _rb;
@@ -131,8 +132,31 @@ public class Cyclops : MonoBehaviour, IDamageable
     {
         yield return new WaitForSeconds(0.2f);
         audioManager.PlayAttack();
+        yield return new WaitForSeconds(0.3f);
+        SwipeMeleeAttack();
         yield return new WaitForSeconds(1.0f);
         StartCoroutine(ResumeWalking());
+    }
+
+    public void SwipeMeleeAttack()
+    {
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(
+            swipeAttackPoint.position,
+            0.5f
+        );
+
+        foreach (Collider2D c in hitEnemies)
+        {
+            if (c.gameObject.TryGetComponent<IDamageable>(out var enemy))
+            {
+                enemy.Damage(2f);
+            }
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawSphere(swipeAttackPoint.position, 0.5f);
     }
 
     public void Attack(AttackType type)

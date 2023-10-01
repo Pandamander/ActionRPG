@@ -216,7 +216,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 9
-  m_Sprite: {fileID: 21300000, guid: 6e30c78ae9097d6418f25492a07337cd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aef855732c8f0e54997d02dba67b7407, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -242,6 +242,7 @@ Transform:
   - {fileID: 1504959678}
   - {fileID: 406806300}
   - {fileID: 756228938}
+  - {fileID: 172365284}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -286,6 +287,7 @@ MonoBehaviour:
   playerTransform: {fileID: 146475682}
   cameraShake: {fileID: 1564467018}
   sandWave: {fileID: 406806301}
+  swipeAttackPoint: {fileID: 172365284}
 --- !u!50 &112853341
 Rigidbody2D:
   serializedVersion: 4
@@ -321,13 +323,44 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.55}
-  m_Size: {x: 1.75, y: 3.86}
+  m_Size: {x: 1.21, y: 3.86}
   m_Direction: 0
 --- !u!4 &146475682 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 449917999560785454, guid: d17581581e44e5644bd22c60e04f999c, type: 3}
   m_PrefabInstance: {fileID: 1809436042}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &172365283
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 172365284}
+  m_Layer: 9
+  m_Name: SwipeAttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &172365284
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172365283}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.1, y: -1.51, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 112853338}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &235434012
 GameObject:
   m_ObjectHideFlags: 0
@@ -70393,7 +70426,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: orthographic size
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_BackGroundColor.b
@@ -70417,7 +70450,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 1
+      value: 0.99999994
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
