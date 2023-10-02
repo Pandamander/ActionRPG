@@ -9,7 +9,7 @@ public class Cyclops : MonoBehaviour, IDamageable
         ThrowBoulder, Smash, Swipe
     }
 
-    public AttackType[] attackTypes = { AttackType.ThrowBoulder, AttackType.Smash, AttackType.Swipe };
+    public AttackType[] autoAttackTypes = { AttackType.ThrowBoulder, AttackType.Smash };
 
     [SerializeField] private GameObject boulder;
     [SerializeField] private Transform boulderSpawn;
@@ -17,16 +17,14 @@ public class Cyclops : MonoBehaviour, IDamageable
     [SerializeField] private SubzoneAudioManager audioManager;
     [SerializeField] private Transform playerTransform;
     [SerializeField] private CameraShake cameraShake;
-    [SerializeField] private Transform sandSpawn1;
-    [SerializeField] private Transform sandSpawn2;
-    [SerializeField] private GameObject sand;
+    [SerializeField] private SandWave sandWave;
+    [SerializeField] private Transform swipeAttackPoint;
 
     private Animator _animator;
     private Rigidbody2D _rb;
     private bool shouldWalk = true;
-    private int _health = 14;
+    public int health { get; private set; } = 14;
     private SpriteRenderer _spriteRenderer;
-    private bool _shouldSpawnSand = false;
 
     private void Awake()
     {
@@ -34,6 +32,7 @@ public class Cyclops : MonoBehaviour, IDamageable
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -102,41 +101,22 @@ public class Cyclops : MonoBehaviour, IDamageable
         shouldWalk = false;
         _rb.velocity = Vector2.zero;
         _animator.SetTrigger("smash");
-        Vector2 jump = Vector2.zero;
-        if (playerTransform.position.x > transform.position.x)
-        {
-            jump = Vector2.right;
-        } else
-        {
-            jump = Vector2.left;
-        }
-
-        _rb.AddForce(5f * new Vector2(jump.x, 1.92f), ForceMode2D.Impulse);
-        _shouldSpawnSand = true;
         StartCoroutine(SmashAttack());
     }
 
     private IEnumerator SmashAttack()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.2f);
+        cameraShake.ShakeCamera(0.25f, 5f);
+        audioManager.PlayDamage();
+        SpawnSand();
+        yield return new WaitForSeconds(1f);
         StartCoroutine(ResumeWalking());
     }
 
     private void SpawnSand()
     {
-        Rigidbody2D sand1rb = Instantiate(sand, sandSpawn1.position, Quaternion.identity).GetComponent<Rigidbody2D>();
-        Rigidbody2D sand2rb = Instantiate(sand, sandSpawn2.position, Quaternion.identity).GetComponent<Rigidbody2D>();
-        Vector2 sandDir = Vector2.zero;
-        if (playerTransform.position.x > transform.position.x)
-        {
-            sandDir = Vector2.right;
-        }
-        else
-        {
-            sandDir = Vector2.left;
-        }
-        sand1rb.AddForce(new Vector2(sandDir.x * 4f, 7f), ForceMode2D.Impulse);
-        sand2rb.AddForce(new Vector2(sandDir.x * -1 * 4f, 7f), ForceMode2D.Impulse);
+        sandWave.SpawnWave();
     }
 
     // TODO: ELLIOTT - Swipe does not damage player yet
@@ -152,6 +132,31 @@ public class Cyclops : MonoBehaviour, IDamageable
     {
         yield return new WaitForSeconds(0.2f);
         audioManager.PlayAttack();
+        yield return new WaitForSeconds(0.3f);
+        SwipeMeleeAttack();
+        yield return new WaitForSeconds(1.0f);
+        StartCoroutine(ResumeWalking());
+    }
+
+    public void SwipeMeleeAttack()
+    {
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(
+            swipeAttackPoint.position,
+            0.5f
+        );
+
+        foreach (Collider2D c in hitEnemies)
+        {
+            if (c.gameObject.TryGetComponent<IDamageable>(out var enemy))
+            {
+                enemy.Damage(2f);
+            }
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawSphere(swipeAttackPoint.position, 0.5f);
     }
 
     public void Attack(AttackType type)
@@ -177,14 +182,6 @@ public class Cyclops : MonoBehaviour, IDamageable
                 player.Damage(1f);
             }
         }
-        if (collision.gameObject.CompareTag("Ground") && _shouldSpawnSand)
-        {
-            _rb.velocity = Vector2.zero;
-            _shouldSpawnSand = false;
-            cameraShake.ShakeCamera(0.25f, 2f);
-            audioManager.PlayDamage();
-            SpawnSand();
-        }
     }
 
     private IEnumerator TakeDamage()
@@ -202,8 +199,8 @@ public class Cyclops : MonoBehaviour, IDamageable
     public void Damage(float damage)
     {
         subzoneHUD.ReduceBossHealthMeter((int)damage);
-        _health -= (int)damage;
-        if (_health <= 0f)
+        health -= (int)damage;
+        if (health <= 0f)
         {
             GetComponent<CapsuleCollider2D>().enabled = false;
         }

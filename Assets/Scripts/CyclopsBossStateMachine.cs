@@ -11,9 +11,9 @@ public class CyclopsBossStateMachine : MonoBehaviour
     private bool hasStarted = false;
     private float moveSpeed = 2.5f;
     private float moveDirection = -1f;
-    private float moveTimer = 4f;
+    private float moveTimer = 8f;
     private float moveTimeCounter = 0f;
-
+    private List<int> swipeHealths = new() { 11, 8, 5, 2 };
     public void Run()
     {
         cyclops.Walk();
@@ -30,11 +30,9 @@ public class CyclopsBossStateMachine : MonoBehaviour
         {
             attackTimeCounter = 0f;
             attackTimer = Random.Range(4.0f, 8.0f);
-            int randAttack = Random.Range(0, cyclops.attackTypes.Length);
-            Debug.Log("cyclops.attackTypes.Length: " + cyclops.attackTypes.Length);
-            Debug.Log("randAttack: " + randAttack);
-            cyclops.Attack(cyclops.attackTypes[randAttack]);
-            //cyclops.Attack(cyclops.attackTypes[2]);
+            int randAttack = Random.Range(0, cyclops.autoAttackTypes.Length);
+            cyclops.Attack(cyclops.autoAttackTypes[randAttack]);
+            //cyclops.Attack(Cyclops.AttackType.Swipe);
         }
 
         cyclops.Move(moveSpeed * moveDirection);
@@ -45,10 +43,12 @@ public class CyclopsBossStateMachine : MonoBehaviour
             moveTimeCounter = 0f;
             moveDirection *= -1;
         }
-    }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("OnCollisionEnter2D: " + collision.collider.tag);
+        int foundSwipeIndex = swipeHealths.IndexOf(cyclops.health);
+        if (foundSwipeIndex >= 0)
+        {
+            swipeHealths.RemoveAt(foundSwipeIndex);
+            cyclops.Attack(Cyclops.AttackType.Swipe);
+        }
     }
 }
