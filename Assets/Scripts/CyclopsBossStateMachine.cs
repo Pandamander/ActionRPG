@@ -29,7 +29,7 @@ public class CyclopsBossStateMachine : MonoBehaviour
         if (attackTimeCounter >= attackTimer)
         {
             attackTimeCounter = 0f;
-            attackTimer = Random.Range(4.0f, 8.0f);
+            attackTimer = Random.Range(2.0f, 3.0f);
             int randAttack = Random.Range(0, cyclops.autoAttackTypes.Length);
             cyclops.Attack(cyclops.autoAttackTypes[randAttack]);
             //cyclops.Attack(Cyclops.AttackType.Swipe);
