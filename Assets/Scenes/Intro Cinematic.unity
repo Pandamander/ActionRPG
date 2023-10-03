@@ -152,12 +152,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9b7e2f44805da4a9f067f2476020ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anyKeyToAdvance: 0
+  anyKeyToAdvance: 1
   spaceToAdvance: 0
   returnToAdvance: 0
-  nextSceneName: Subzone Intro Boat
-  delay: 40
-  autoAdvance: 1
+  nextSceneName: Overworld
+  delay: 5
+  autoAdvance: 0
 --- !u!4 &73980146
 Transform:
   m_ObjectHideFlags: 0
@@ -201,16 +201,16 @@ RectTransform:
   m_GameObject: {fileID: 244648007}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 678215363}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -92.6}
-  m_SizeDelta: {x: 160, y: 84}
+  m_SizeDelta: {x: 416, y: 96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &244648009
 CanvasRenderer:
@@ -233,14 +233,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a968904fc3ffc4ba08eeae991a00dcf1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 62f709e2d28f146729f340e437e757bc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -260,7 +260,7 @@ Animator:
   m_GameObject: {fileID: 244648007}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 021db26664b584158904dbad7802fb0e, type: 2}
+  m_Controller: {fileID: 9100000, guid: f2bc6ece5455945cb9d9d591ef7c6c26, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -271,126 +271,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &324899855
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 324899856}
-  - component: {fileID: 324899857}
-  m_Layer: 5
-  m_Name: StoryboardObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &324899856
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 324899855}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1045888441}
-  m_Father: {fileID: 678215363}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -81, y: -204}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &324899857
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 324899855}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d8fe7740e758a41b795c50cd0cd874ef, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!1001 &365305701
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 8023768132352030835, guid: a0586c992e741a34a87f03a95a277467, type: 3}
-      propertyPath: m_Name
-      value: SubzoneAudioManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 8023768132352030836, guid: a0586c992e741a34a87f03a95a277467, type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8023768132352030836, guid: a0586c992e741a34a87f03a95a277467, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8023768132352030836, guid: a0586c992e741a34a87f03a95a277467, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8023768132352030836, guid: a0586c992e741a34a87f03a95a277467, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8023768132352030836, guid: a0586c992e741a34a87f03a95a277467, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8023768132352030836, guid: a0586c992e741a34a87f03a95a277467, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8023768132352030836, guid: a0586c992e741a34a87f03a95a277467, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8023768132352030836, guid: a0586c992e741a34a87f03a95a277467, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8023768132352030836, guid: a0586c992e741a34a87f03a95a277467, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8023768132352030836, guid: a0586c992e741a34a87f03a95a277467, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8023768132352030836, guid: a0586c992e741a34a87f03a95a277467, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8023768132352030837, guid: a0586c992e741a34a87f03a95a277467, type: 3}
-      propertyPath: backgroundMusic
-      value: 
-      objectReference: {fileID: 8300000, guid: 7ad540f48b95844cf899523c38e532f7, type: 3}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a0586c992e741a34a87f03a95a277467, type: 3}
 --- !u!1 &398430020
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,8 +431,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1045888441}
   - {fileID: 244648008}
-  - {fileID: 324899856}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -615,7 +495,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1018901711}
-  - component: {fileID: 1018901710}
+  - component: {fileID: 1018901712}
   m_Layer: 0
   m_Name: StoryboardManager
   m_TagString: Untagged
@@ -623,35 +503,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1018901710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1018901709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f405fa26009b74a8c9e45a64b477c252, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  images:
-  - {fileID: 21300000, guid: a968904fc3ffc4ba08eeae991a00dcf1, type: 3}
-  - {fileID: 21300000, guid: 240dd0fdb82a24f458b05e33afd6f1ea, type: 3}
-  - {fileID: 21300000, guid: faf6389efd9304f61bc309c9eaf562c9, type: 3}
-  - {fileID: 21300000, guid: 0d509448314e14b80a1d7a407e4f8556, type: 3}
-  storyText:
-  - Throughout the Roman Empire no general is more revered than Decimus Cornelius
-    Nero.
-  - "With a lifetime of battle behind him, Decimus\u2019 scars are numerous. His
-    duty has estranged him from his family, but he believes he had no choice."
-  - While sailing back to Rome from his villa, Decimus is confused to find that the
-    land has shifted from his memory. The the familiar home port is missing.
-  - "It is at this moment that a storm approaches\u2026"
-  mainStoryboardImage: {fileID: 244648010}
-  mainStoryboardText: {fileID: 1045888442}
-  Imageanimator: {fileID: 244648011}
-  textAnimator: {fileID: 0}
 --- !u!4 &1018901711
 Transform:
   m_ObjectHideFlags: 0
@@ -667,6 +518,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1018901712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018901709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7da7cdcbc88354caa922617997b1c17a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textObject: {fileID: 1045888440}
+  imageObject: {fileID: 244648007}
+  storySections:
+  - image: {fileID: 21300000, guid: 62f709e2d28f146729f340e437e757bc, type: 3}
+    animationClipName: Intro Illustration 01
+    storyText:
+    - My name is Titus.<br>Every morning when I wake, all I think of is vengeance.
+    - Many years ago, my father was a great general in the Roman army. He fought
+      many battles and raised me in the ways of combat.
+    - One day, our legion was sent to the fringes of the empire. As we were encamped,
+      a dense black fog came upon us.
+    - I was gripped by fear as confusion broke out amongst the ranks. The anguished
+      cries of soldiers pierced the air.
+    - My father...was among the dead.
+    - A sharp pain pierced my back. As I collapsed into the ground, the last thing
+      I saw were the spectres of monstrous, otherworldly beasts.
+    - I opened my eyes in a bed I didn't know. I was rescued by a man who spoke to
+      me about terrors that exist beyond the natural order.
+    - On that day, I renounced my service to the empire and devoted my life to pursuing
+      the evils that lurk in the shadows.
+    - I now set sail into the mediterranean, hoping that my years of training will
+      lead me to the truth...<br>and to vengeance for my father.
+    - I draw near to an archipelago, where rumors of strange events have been occuring.
+    - A storm is brewing...<br>Perhaps a sign pointing me in the right direction...
 --- !u!1 &1045888440
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,13 +584,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 324899856}
+  m_Father: {fileID: 678215363}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 115}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 4, y: 90}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1045888442
 MonoBehaviour:
@@ -725,22 +612,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "My name is Titus. Each morning when I awake, my first thought is vengeance.\n\nMany
-    years ago, my father was a great general of the Roman army. He fought many battles
-    and raised me in the ways of combat.\n\nOne day, our legion was sent on a special
-    assignment at the fringes of the empire. As we were encamped, a dense fog came
-    upon us.\n\nI was gripped by fear as confusion broke out amongst the ranks. The
-    anguished cries of soldiers pierced the air. \n\nMy father...was among the dead.\n\nA
-    sharp pain pierced my back, and I began to lose consciousness. As I collapsed
-    into the ground, the last thing I remember seeing were the spectres of monstrous
-    otherworldly beasts.\n\nI opened my eyes in a bed I didn\u2019t know. I was rescued
-    by a man who spoke to me about terrors that exist beyond the natural order.\n\nOn
-    that day, I renounced my service to the empire and devoted my life to pursuing
-    the evils that lurk in the shadows.\n\nI now set sail into the Mediterranean,
-    hoping that my years of training and preparation would lead me to the truth...and
-    to vengeance for my father.\n\nI draw near to an archipelago, where rumors of
-    strange events have been occurring. A storm is brewing\u2026perhaps a sign pointing
-    me in the right direction\u2026"
+  m_text: Text to go here
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f07000dae16a64fcc979bffe80b7fe18, type: 2}
   m_sharedMaterial: {fileID: 8777788963673215855, guid: f07000dae16a64fcc979bffe80b7fe18, type: 2}
@@ -763,7 +635,7 @@ MonoBehaviour:
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
+  m_overrideHtmlColors: 1
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
@@ -779,7 +651,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 12
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -803,7 +675,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -177.84335, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -8174,7 +8046,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.044395924
+      value: 0.003125
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
@@ -8182,7 +8054,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.9108847
+      value: 0.99382716
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.height

@@ -155,7 +155,7 @@ MonoBehaviour:
   anyKeyToAdvance: 1
   spaceToAdvance: 0
   returnToAdvance: 0
-  nextSceneName: Intro Story Scrolling
+  nextSceneName: Intro Cinematic
   delay: 5
   autoAdvance: 0
 --- !u!4 &73980146
@@ -234,7 +234,7 @@ MonoBehaviour:
   m_text: "\xA92023 Coopal00ps, Elliott Dahle, Pandamander"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f07000dae16a64fcc979bffe80b7fe18, type: 2}
-  m_sharedMaterial: {fileID: -7358220893835152624, guid: f07000dae16a64fcc979bffe80b7fe18, type: 2}
+  m_sharedMaterial: {fileID: 8777788963673215855, guid: f07000dae16a64fcc979bffe80b7fe18, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -585,7 +585,7 @@ MonoBehaviour:
   m_text: Press any key to start
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f07000dae16a64fcc979bffe80b7fe18, type: 2}
-  m_sharedMaterial: {fileID: -7358220893835152624, guid: f07000dae16a64fcc979bffe80b7fe18, type: 2}
+  m_sharedMaterial: {fileID: 8777788963673215855, guid: f07000dae16a64fcc979bffe80b7fe18, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8029,7 +8029,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0
+      value: 0.003125
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
@@ -8037,7 +8037,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 1
+      value: 0.99382716
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
