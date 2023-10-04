@@ -18934,6 +18934,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 556315576806101520, guid: d17581581e44e5644bd22c60e04f999c, type: 3}
+      propertyPath: subzoneHUD
+      value: 
+      objectReference: {fileID: 1801175709}
+    - target: {fileID: 556315576806101520, guid: d17581581e44e5644bd22c60e04f999c, type: 3}
       propertyPath: audioManager
       value: 
       objectReference: {fileID: 2007040037}
@@ -19546,6 +19550,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2044853668514510745, guid: d7ef947b56703b3428009724724c06a6, type: 3}
+      propertyPath: bossHealthMeter
+      value: 
+      objectReference: {fileID: 1801175711}
+    - target: {fileID: 2044853668514510745, guid: d7ef947b56703b3428009724724c06a6, type: 3}
+      propertyPath: playerHealthMeter
+      value: 
+      objectReference: {fileID: 1801175710}
     - target: {fileID: 2046269019478999186, guid: d7ef947b56703b3428009724724c06a6, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -20117,6 +20129,39 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8588429179352728456, guid: d7ef947b56703b3428009724724c06a6, type: 3}
   m_PrefabInstance: {fileID: 1801175707}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1801175709 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2044853668514510745, guid: d7ef947b56703b3428009724724c06a6, type: 3}
+  m_PrefabInstance: {fileID: 1801175707}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba61b6b1e6b0e704fbf00b754f137439, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1801175710 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5135127193670527968, guid: d7ef947b56703b3428009724724c06a6, type: 3}
+  m_PrefabInstance: {fileID: 1801175707}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1a48868c780a0d42a26ffff59d98074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1801175711 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1368323791435616716, guid: d7ef947b56703b3428009724724c06a6, type: 3}
+  m_PrefabInstance: {fileID: 1801175707}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1a48868c780a0d42a26ffff59d98074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1972407021
 GameObject:
   m_ObjectHideFlags: 0
@@ -20524,7 +20569,7 @@ Tilemap:
       - {fileID: 21300000, guid: eb6816fa4e4b62b4391dc4be5aea9390, type: 3}
       - {fileID: 21300000, guid: eb6816fa4e4b62b4391dc4be5aea9390, type: 3}
       - {fileID: 21300000, guid: eb6816fa4e4b62b4391dc4be5aea9390, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -15, y: -3, z: 0}
@@ -20657,7 +20702,7 @@ Tilemap:
       - {fileID: 21300000, guid: eb6816fa4e4b62b4391dc4be5aea9390, type: 3}
       - {fileID: 21300000, guid: eb6816fa4e4b62b4391dc4be5aea9390, type: 3}
       - {fileID: 21300000, guid: eb6816fa4e4b62b4391dc4be5aea9390, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 20, y: -3, z: 0}
@@ -33347,11 +33392,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: orthographic size
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0
+      value: 0.045081966
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
@@ -33359,15 +33404,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 1
+      value: 1.1876137
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.9998364
+      value: 1.1876138
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952797147, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.222221
+      value: -11.023682
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952797147, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_LocalPosition.y

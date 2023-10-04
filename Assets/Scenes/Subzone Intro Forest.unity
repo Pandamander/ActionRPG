@@ -6107,6 +6107,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b343f00c5fc304e45a92bfbb085d7392, type: 3}
+--- !u!114 &751758544 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5135127193670527968, guid: d7ef947b56703b3428009724724c06a6, type: 3}
+  m_PrefabInstance: {fileID: 948488623}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1a48868c780a0d42a26ffff59d98074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &850942749
 GameObject:
   m_ObjectHideFlags: 0
@@ -23902,6 +23913,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2044853668514510745, guid: d7ef947b56703b3428009724724c06a6, type: 3}
+      propertyPath: bossHealthMeter
+      value: 
+      objectReference: {fileID: 948488624}
+    - target: {fileID: 2044853668514510745, guid: d7ef947b56703b3428009724724c06a6, type: 3}
+      propertyPath: playerHealthMeter
+      value: 
+      objectReference: {fileID: 751758544}
     - target: {fileID: 2046269019478999186, guid: d7ef947b56703b3428009724724c06a6, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -24472,6 +24491,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7ef947b56703b3428009724724c06a6, type: 3}
+--- !u!114 &948488624 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1368323791435616716, guid: d7ef947b56703b3428009724724c06a6, type: 3}
+  m_PrefabInstance: {fileID: 948488623}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1a48868c780a0d42a26ffff59d98074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1066657781 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2044853668514510745, guid: d7ef947b56703b3428009724724c06a6, type: 3}
+  m_PrefabInstance: {fileID: 948488623}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba61b6b1e6b0e704fbf00b754f137439, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1077032759
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24783,6 +24824,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 556315576806101520, guid: d17581581e44e5644bd22c60e04f999c, type: 3}
+      propertyPath: subzoneHUD
+      value: 
+      objectReference: {fileID: 1066657781}
     - target: {fileID: 556315576806101520, guid: d17581581e44e5644bd22c60e04f999c, type: 3}
       propertyPath: audioManager
       value: 
@@ -80537,7 +80582,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: orthographic size
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
@@ -80549,11 +80594,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 1
+      value: 0.99999994
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.9998364
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796965, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_UpdateMethod
@@ -80561,7 +80606,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952797147, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.2222214
+      value: -4.0236816
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952797147, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_LocalPosition.y
