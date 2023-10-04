@@ -23,9 +23,11 @@ public class Cyclops : MonoBehaviour, IDamageable
     private Animator _animator;
     private Rigidbody2D _rb;
     private bool shouldWalk = true;
-    public int health { get; private set; } = 14;
+    public int health { get; private set; } = 1;
     private SpriteRenderer _spriteRenderer;
     private bool isAttacking = false;
+    private bool isKneeling = false;
+    private Coroutine kneelFlash;
 
     private void Awake()
     {
@@ -176,14 +178,61 @@ public class Cyclops : MonoBehaviour, IDamageable
         }
     }
 
+    public void KneelForFinalBlow()
+    {
+        StopAllCoroutines();
+        isKneeling = true;
+        shouldWalk = false;
+        _rb.velocity = Vector2.zero;
+        _animator.SetTrigger("kneel");
+        kneelFlash = StartCoroutine(KneelFlash());
+    }
+
+    public void Die()
+    {
+        StopCoroutine(kneelFlash); kneelFlash = null;
+        shouldWalk = false;
+        _rb.velocity = Vector2.zero;
+        cameraShake.ShakeCamera(5f, 5f);
+        StartCoroutine(DeathFlash(5f));
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (isKneeling)
+        {
+            return;
+        }
         if (collision.gameObject.CompareTag("Player"))
         {
             if (collision.gameObject.TryGetComponent<IDamageable>(out var player))
             {
                 player.Damage(1f);
             }
+        }
+    }
+
+    private IEnumerator DeathFlash(float time)
+    {
+        Color color = Color.red;
+        while (time >= 0)
+        {
+            _spriteRenderer.color = color;
+            yield return new WaitForSeconds(0.05f);
+            color = Color.white;
+            time--;
+        }
+        yield return null;
+    }
+
+    private IEnumerator KneelFlash()
+    {
+        Color color = Color.red;
+        while (true)
+        {
+            _spriteRenderer.color = color;
+            yield return new WaitForSeconds(1f);
+            color = (color == Color.white) ? Color.red : Color.white;
         }
     }
 
@@ -201,12 +250,12 @@ public class Cyclops : MonoBehaviour, IDamageable
     // IDamageable
     public void Damage(float damage)
     {
+        if (isKneeling) {
+            health = -1;
+            return;
+        }
         subzoneHUD.ReduceBossHealthMeter((int)damage);
         health -= (int)damage;
-        if (health <= 0f)
-        {
-            GetComponent<CapsuleCollider2D>().enabled = false;
-        }
         StartCoroutine(TakeDamage());
     }
 }
