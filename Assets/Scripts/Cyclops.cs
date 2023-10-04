@@ -25,6 +25,7 @@ public class Cyclops : MonoBehaviour, IDamageable
     private bool shouldWalk = true;
     public int health { get; private set; } = 14;
     private SpriteRenderer _spriteRenderer;
+    private bool isAttacking = false;
 
     private void Awake()
     {
@@ -94,6 +95,7 @@ public class Cyclops : MonoBehaviour, IDamageable
     {
         yield return new WaitForSeconds(0.5f);
         shouldWalk = true;
+        isAttacking = false;
     }
 
     private void Smash()
@@ -110,7 +112,7 @@ public class Cyclops : MonoBehaviour, IDamageable
         cameraShake.ShakeCamera(0.25f, 5f);
         audioManager.PlayDamage();
         SpawnSand();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         StartCoroutine(ResumeWalking());
     }
 
@@ -161,7 +163,8 @@ public class Cyclops : MonoBehaviour, IDamageable
 
     public void Attack(AttackType type)
     {
-        Debug.Log("Attack: " + type);
+        if (isAttacking) { return; }
+        isAttacking = true;
         switch (type)
         {
             case AttackType.ThrowBoulder:
