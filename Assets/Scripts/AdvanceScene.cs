@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class AdvanceScene : MonoBehaviour
@@ -12,33 +13,59 @@ public class AdvanceScene : MonoBehaviour
     [SerializeField] public string nextSceneName;
     [SerializeField] public float delay = 5f;
     [SerializeField] bool autoAdvance = false;
+
+    [SerializeField] GameObject faderObject;
+    private Image image;
+    private bool isAdvancing = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        if (autoAdvance)
-            Invoke("NextScene", delay);
+        //if (autoAdvance)
+            //Invoke("NextScene", delay);
+
+        if (faderObject != null)
+        {
+            image = faderObject.GetComponent<Image>();
+            image.color = new Color(image.color.r, image.color.g, image.color.b, 0);
+        }
+        
     }
 
-    // Update is called once per frame
-    void NextScene()
+    private IEnumerator NextScene()
     {
+        isAdvancing = true;
         //FindObjectOfType<AudioManager>().Play("MenuClick");
+
+        // do a fade out if the image exists
+        if (image != null)
+        {
+            while (image.color.a < 1.0f)
+            {
+                image.color = new Color(image.color.r, image.color.g, image.color.b, image.color.a + 0.2f);
+                yield return new WaitForSeconds(0.08f);
+            }
+            yield return new WaitForSeconds(2.0f); // short delay after fade out before advancing
+        }
+
         SceneManager.LoadScene(nextSceneName);
+
+        yield return null;
     }
 
     private void Update()
     {
-        if (Input.anyKey && anyKeyToAdvance)
+        if (Input.anyKey && anyKeyToAdvance && isAdvancing == false)
         {
-            NextScene();
+            StartCoroutine(NextScene());
         }
-        if (Input.GetKeyDown(KeyCode.Space) && spaceToAdvance)
+        if (Input.GetKeyDown(KeyCode.Space) && spaceToAdvance && isAdvancing == false)
         {
-            NextScene();
+            StartCoroutine(NextScene());
         }
-        if (Input.GetKeyDown(KeyCode.Return) && returnToAdvance)
+        if (Input.GetKeyDown(KeyCode.Return) && returnToAdvance && isAdvancing == false)
         {
-            NextScene();
+            StartCoroutine(NextScene());
         }
 
     }
