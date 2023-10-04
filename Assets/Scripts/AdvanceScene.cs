@@ -46,6 +46,8 @@ public class AdvanceScene : MonoBehaviour
                 yield return new WaitForSeconds(0.08f);
             }
             yield return new WaitForSeconds(2.0f); // short delay after fade out before advancing
+        } else {
+            print("No fader object specified on AdvanceScene script");
         }
 
         SceneManager.LoadScene(nextSceneName);

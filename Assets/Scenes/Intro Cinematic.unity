@@ -152,8 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9b7e2f44805da4a9f067f2476020ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anyKeyToAdvance: 1
-  spaceToAdvance: 0
+  anyKeyToAdvance: 0
+  spaceToAdvance: 1
   returnToAdvance: 0
   nextSceneName: Overworld
   delay: 5
