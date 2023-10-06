@@ -8,26 +8,26 @@ public class NPCWalkLeftRight : MonoBehaviour
     // Customizable Variables for walking left and right
     public float speed = 1.0f;
     public float travelDistance = 1.0f;
-    public float originalX;
-    public SpriteRenderer spriteRenderer;
-    public Animator animator;
+
+    private float originalX;
+    private SpriteRenderer spriteRenderer;
+    private Animator animator;
 
     public bool walking = true;
 
-    void Start()
+    void Awake()
     {
         originalX = transform.position.x;
-        // randomize travelDistance +/- 0.5
-        travelDistance = Random.Range(travelDistance - 0.5f, travelDistance + 0.5f);
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (DialogueManager.IsConversationActive == true)
+        // Only stop the NPC being conversed with
+        if (DialogueManager.IsConversationActive == true &&
+            DialogueManager.currentConversant.gameObject.CompareTag(gameObject.tag))
         {
             walking = false;
         }
@@ -44,12 +44,10 @@ public class NPCWalkLeftRight : MonoBehaviour
 
             if (transform.position.x > originalX + travelDistance)
             {
-                //transform.position = new Vector3(travelDistance, transform.position.y, transform.position.z);
                 FlipDirection();
             }
             else if (transform.position.x < originalX - travelDistance)
             {
-                //transform.position = new Vector3(-travelDistance, transform.position.y, transform.position.z);
                 FlipDirection();
             }
         }
@@ -64,6 +62,5 @@ public class NPCWalkLeftRight : MonoBehaviour
     {
         speed *= -1;
         spriteRenderer.flipX = !spriteRenderer.flipX;
-        
     }
 }

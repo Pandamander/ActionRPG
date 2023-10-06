@@ -22,7 +22,7 @@ public class Parallax : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        print("camera position in fixed update is" + lastCameraPosition);
+        //print("camera position in fixed update is" + lastCameraPosition);
         Vector3 deltaMovement = cameraTransform.position - lastCameraPosition; // the amount the camera has moved since the last frame
         transform.position += new Vector3(deltaMovement.x * parallaxEffectMultiplier.x, deltaMovement.y * parallaxEffectMultiplier.y); // update the transform of the object this script is on
 

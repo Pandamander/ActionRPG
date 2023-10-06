@@ -2892,12 +2892,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     - target: {fileID: 5954347757780779676, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 0.6875
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954347757780779676, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 1.875
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954347757780779676, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.625
+      value: 0.6875
       objectReference: {fileID: 0}
     - target: {fileID: 5954347757780779676, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 2
+      value: 1.875
       objectReference: {fileID: 0}
     - target: {fileID: 8006399891801212307, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
       propertyPath: m_RootOrder
@@ -2945,6 +2953,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8149601827117059064, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
       propertyPath: m_Name
+      value: NPC-OldWoman
+      objectReference: {fileID: 0}
+    - target: {fileID: 8149601827117059064, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
+      propertyPath: m_TagString
       value: NPC-OldWoman
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -8217,6 +8229,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8149601827117059064, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
       propertyPath: m_Name
+      value: NPC-OldManBoatGuy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8149601827117059064, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
+      propertyPath: m_TagString
       value: NPC-OldManBoatGuy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -18824,6 +18840,22 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+    - target: {fileID: 5954347757780779676, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 0.6875
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954347757780779676, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 1.8125
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954347757780779676, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.6875
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954347757780779676, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.8125
+      objectReference: {fileID: 0}
     - target: {fileID: 8006399891801212307, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -18870,6 +18902,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8149601827117059064, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
       propertyPath: m_Name
+      value: NPC-Scholar
+      objectReference: {fileID: 0}
+    - target: {fileID: 8149601827117059064, guid: dec1bb71fe95246e1b8715cec7cc26f4, type: 3}
+      propertyPath: m_TagString
       value: NPC-Scholar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -33400,7 +33436,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: orthographic size
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
@@ -33416,7 +33452,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.9998364
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952797147, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_LocalPosition.x
