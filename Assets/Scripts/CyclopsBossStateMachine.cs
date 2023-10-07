@@ -13,6 +13,7 @@ public class CyclopsBossStateMachine : MonoBehaviour
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private Transform playerDeathBlowLocation1;
     [SerializeField] private Transform playerDeathBlowLocation2;
+    [SerializeField] private SubzoneAudioManager audioManager;
 
     private BossState bossState = BossState.NotStarted;
     private float attackTimer = 2f;
@@ -78,6 +79,7 @@ public class CyclopsBossStateMachine : MonoBehaviour
                 break;
             case BossState.FinalBlow:
                 if (!startedDeathSequence) {
+                    audioManager.StopMusic();
                     startedDeathSequence = true;
                     Debug.Log("Start Death Sequence!");
                     playerDeathBlowStartingX = playerRb.position.x;
@@ -96,7 +98,7 @@ public class CyclopsBossStateMachine : MonoBehaviour
 
     private IEnumerator DeathBlow()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(1f);
     }
 
     private IEnumerator MoveToPosition(Rigidbody2D rb, Vector3 target)

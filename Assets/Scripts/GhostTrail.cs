@@ -28,7 +28,7 @@ public class GhostTrail : MonoBehaviour
 
     IEnumerator FadeTrailPart(SpriteRenderer trailPartRenderer)
     {
-        Color color = trailPartRenderer.color;
+        Color color = trailPartRenderer.color;// Random.ColorHSV(.5f, 1f, 1f, 1f, 0.8f, 1f, 1f, 1f);
         color.a -= 0.5f;
         trailPartRenderer.color = color;
 
