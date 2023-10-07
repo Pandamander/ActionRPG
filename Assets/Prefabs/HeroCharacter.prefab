@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 492230876075113696}
   - component: {fileID: 114872570013150608}
   - component: {fileID: 7002638208835366791}
+  - component: {fileID: 4913584762642090190}
   m_Layer: 1
   m_Name: HeroCharacter
   m_TagString: Player
@@ -122,6 +123,7 @@ MonoBehaviour:
   isTimeToCheck: 0
   cam: {fileID: 0}
   audioManager: {fileID: 0}
+  subzoneHUD: {fileID: 0}
 --- !u!114 &557152561997098504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,6 +386,18 @@ MonoBehaviour:
     prependActorNameSeparator: ': '
     prependActorNameFormat: '{0}{1}'
     subtitleColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &4913584762642090190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444172796820223396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a37129759add6b8448dca9e58de8e5d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &444187993514899534
 GameObject:
   m_ObjectHideFlags: 0
@@ -10228,4 +10242,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentMeleeWeapon: {fileID: 11400000, guid: 736183553da42ce4c912eef09fefb92f, type: 2}
+  audioManager: {fileID: 0}
   playerDirection: 0

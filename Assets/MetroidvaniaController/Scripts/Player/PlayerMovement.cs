@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
 	bool jump = false;
 	bool dash = false;
 	public bool canMove = true;
+	public bool grounded { get; private set; }
 
 	//bool dashAxis = false;
 
@@ -38,6 +39,13 @@ public class PlayerMovement : MonoBehaviour
 		{
 			dash = true;
 		}
+
+		grounded = controller.m_Grounded;
+	}
+
+	public void DoJump()
+	{
+		jump = true;
 	}
 
 	public void OnFall()

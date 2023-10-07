@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class CyclopsBossStateMachine : MonoBehaviour
 {
-    private enum BossState { NotStarted, Attacking, Kneeling }
+    private enum BossState { NotStarted, Attacking, Kneeling, FinalBlow }
 
     [SerializeField] private Cyclops cyclops;
     [SerializeField] private Rigidbody2D playerRb;
     [SerializeField] private Animator playerAnimator;
+    [SerializeField] private GhostTrail playerGhostTrail;
+    [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private Transform playerDeathBlowLocation1;
     [SerializeField] private Transform playerDeathBlowLocation2;
 
@@ -21,6 +23,7 @@ public class CyclopsBossStateMachine : MonoBehaviour
     private float moveTimeCounter = 0f;
     private List<int> swipeHealths = new() { 11, 8, 5, 2 };
     private bool startedDeathSequence = false;
+    private float playerDeathBlowStartingX;
     public void Run()
     {
         cyclops.Walk();
@@ -68,13 +71,45 @@ public class CyclopsBossStateMachine : MonoBehaviour
 
                 break;
             case BossState.Kneeling:
-                if (startedDeathSequence) { return; }
-                if (cyclops.health < 0)
+                if (cyclops.health == 0)
                 {
-                    startedDeathSequence = true;
-                    Debug.Log("Start Death Sequence!");
+                    bossState = BossState.FinalBlow;
                 }
                 break;
+            case BossState.FinalBlow:
+                if (!startedDeathSequence) {
+                    startedDeathSequence = true;
+                    Debug.Log("Start Death Sequence!");
+                    playerDeathBlowStartingX = playerRb.position.x;
+                    playerGhostTrail.StartTrail();
+                    playerMovement.DoJump();
+                } else
+                {
+                    if (!playerMovement.grounded)
+                    {
+                        playerRb.velocity = new Vector2(-15f, playerRb.velocity.y);
+                    }
+                }
+                break;
+        }
+    }
+
+    private IEnumerator DeathBlow()
+    {
+        yield return new WaitForSeconds(0.1f);
+    }
+
+    private IEnumerator MoveToPosition(Rigidbody2D rb, Vector3 target)
+    {
+        float t = 0;
+        Vector3 start = rb.position;
+
+        while (t <= 1)
+        {
+            t += Time.fixedDeltaTime * 0.3f;
+            rb.MovePosition(Vector3.Lerp(start, target, t));
+
+            yield return null;
         }
     }
 }

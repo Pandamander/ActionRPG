@@ -40261,6 +40261,8 @@ MonoBehaviour:
   cyclops: {fileID: 112853340}
   playerRb: {fileID: 2018580047}
   playerAnimator: {fileID: 2018580042}
+  playerGhostTrail: {fileID: 2018580054}
+  playerMovement: {fileID: 1324578001}
   playerDeathBlowLocation1: {fileID: 1751742843}
   playerDeathBlowLocation2: {fileID: 1911060517}
 --- !u!1 &1456168084
@@ -40765,6 +40767,17 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 475871843512969684, guid: d17581581e44e5644bd22c60e04f999c, type: 3}
   m_PrefabInstance: {fileID: 1809436042}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2018580054 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4913584762642090190, guid: d17581581e44e5644bd22c60e04f999c, type: 3}
+  m_PrefabInstance: {fileID: 1809436042}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a37129759add6b8448dca9e58de8e5d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2028905508 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2044853668514510745, guid: d7ef947b56703b3428009724724c06a6, type: 3}
@@ -70512,7 +70525,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: orthographic size
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_BackGroundColor.b
