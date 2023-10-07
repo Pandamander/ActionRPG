@@ -42,11 +42,11 @@ public class NPCWalkLeftRight : MonoBehaviour
             transform.position += Vector3.right * speed * Time.deltaTime;
             animator.SetBool("isWalking", true);
 
-            if (transform.position.x > originalX + travelDistance)
+            if ((transform.position.x >= originalX + travelDistance) && !spriteRenderer.flipX)
             {
                 FlipDirection();
             }
-            else if (transform.position.x < originalX - travelDistance)
+            else if ((transform.position.x <= originalX - travelDistance) && spriteRenderer.flipX)
             {
                 FlipDirection();
             }
