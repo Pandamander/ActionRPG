@@ -60,7 +60,11 @@ public class Attack : MonoBehaviour, IDamageable
 		spriteRenderer.color = Color.red;
 		yield return new WaitForSeconds(0.1f);
 		spriteRenderer.color = Color.white;
-	}
+        yield return new WaitForSeconds(0.1f);
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        spriteRenderer.color = Color.white;
+    }
 
 	private IEnumerator GameOver()
 	{
@@ -77,6 +81,7 @@ public class Attack : MonoBehaviour, IDamageable
 		subzoneHUD.ReducePlayerHealthMeter((int)damage);
         audioManager.PlayDamage();
         PlayerStats.ApplyDamage(damage);
+		animator.SetTrigger("IsDamaged");
         if (PlayerStats.Health <= 0f)
         {
 			Die();

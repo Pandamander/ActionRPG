@@ -72,6 +72,7 @@ public class CyclopsBossStateMachine : MonoBehaviour
                 if (cyclops.health < 0)
                 {
                     startedDeathSequence = true;
+                    Debug.Log("Start Death Sequence!");
                 }
                 break;
         }
