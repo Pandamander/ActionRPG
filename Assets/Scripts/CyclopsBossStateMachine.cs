@@ -82,6 +82,7 @@ public class CyclopsBossStateMachine : MonoBehaviour
                     audioManager.StopMusic();
                     startedDeathSequence = true;
                     Debug.Log("Start Death Sequence!");
+                    playerMovement.canMove = false;
                     playerDeathBlowStartingX = playerRb.position.x;
                     playerGhostTrail.StartTrail();
                     playerMovement.DoJump();
