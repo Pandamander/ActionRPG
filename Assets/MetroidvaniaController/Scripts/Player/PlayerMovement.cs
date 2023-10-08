@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
 	bool dash = false;
 	public bool canMove = true;
 	public bool grounded { get; private set; }
+	private bool StopFixedUpdate = false;
 
 	//bool dashAxis = false;
 
@@ -60,14 +61,18 @@ public class PlayerMovement : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		controller.Move(horizontalMove * Time.fixedDeltaTime, jump, dash);
+		if (StopFixedUpdate) { return; } 
+        controller.Move(horizontalMove * Time.fixedDeltaTime, jump, dash);
 		jump = false;
 		dash = false;
 	}
 
 	public void Stop()
 	{
-		canMove = false;
+		horizontalMove = 0f;
+        canMove = false;
+		StopFixedUpdate = true;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 		animator.SetBool("IsJumping", false);
 		animator.SetFloat("Speed", 0f);
 		animator.SetBool("IsAttacking", false);
@@ -76,7 +81,8 @@ public class PlayerMovement : MonoBehaviour
 	public void AllowMovement()
 	{
 		canMove = true;
-	}
+        StopFixedUpdate = false;
+    }
 
 	public void StopForDialogue()
 	{

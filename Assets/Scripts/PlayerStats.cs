@@ -10,6 +10,8 @@ public static class PlayerStats
 
     public static List<string> PowerupDestroy { get; private set; }
 
+    public static List<string> OverworldDestroyList { get; private set; }
+
     private static bool Initialized;    
 
     public static void Initialize()
@@ -23,7 +25,13 @@ public static class PlayerStats
             Health = HealthCapacity;
             Initialized = true;
             PowerupDestroy = new List<string>();
+            OverworldDestroyList = new List<string>();
         }
+    }
+
+    public static void BossDefeated(string tag)
+    {
+        OverworldDestroyList.Add(tag);
     }
 
     public static void UpgradetAttack(string tag)

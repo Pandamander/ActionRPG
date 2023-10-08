@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class CyclopsBossStateMachine : MonoBehaviour
 {
-    private enum BossState { NotStarted, Attacking, Kneeling, FinalBlow }
+    public enum BossState { NotStarted, Attacking, Kneeling, FinalBlow, Dead }
 
     [SerializeField] private Cyclops cyclops;
     [SerializeField] private Rigidbody2D playerRb;
     [SerializeField] private Animator playerAnimator;
     [SerializeField] private GhostTrail playerGhostTrail;
     [SerializeField] private PlayerMovement playerMovement;
-    [SerializeField] private Transform playerDeathBlowLocation1;
     [SerializeField] private Transform playerDeathBlowLocation2;
     [SerializeField] private SubzoneAudioManager audioManager;
+    [SerializeField] private CameraShake cameraShake;
 
-    private BossState bossState = BossState.NotStarted;
+    public BossState bossState { get; private set; } = BossState.NotStarted;
     private float attackTimer = 2f;
     private float attackTimeCounter = 0f;
     private float moveSpeed = 2.5f;
@@ -24,7 +24,8 @@ public class CyclopsBossStateMachine : MonoBehaviour
     private float moveTimeCounter = 0f;
     private List<int> swipeHealths = new() { 11, 8, 5, 2 };
     private bool startedDeathSequence = false;
-    private float playerDeathBlowStartingX;
+    private bool beginCheckingForGrounded = false;
+    private bool beginCheckingForFinalPosition = false;
     public void Run()
     {
         cyclops.Walk();
@@ -39,10 +40,11 @@ public class CyclopsBossStateMachine : MonoBehaviour
             case BossState.NotStarted:
                 return;
             case BossState.Attacking:
-                if (cyclops.health <= 0)
+                if (cyclops.health == 0)
                 {
                     cyclops.KneelForFinalBlow();
                     bossState = BossState.Kneeling;
+                    return;
                 }
 
                 attackTimeCounter += Time.deltaTime;
@@ -79,27 +81,66 @@ public class CyclopsBossStateMachine : MonoBehaviour
                 break;
             case BossState.FinalBlow:
                 if (!startedDeathSequence) {
-                    audioManager.StopMusic();
                     startedDeathSequence = true;
-                    Debug.Log("Start Death Sequence!");
-                    playerMovement.canMove = false;
-                    playerDeathBlowStartingX = playerRb.position.x;
-                    playerGhostTrail.StartTrail();
-                    playerMovement.DoJump();
-                } else
+                    audioManager.StopMusic();
+                    StartCoroutine(JumpBackForDeathBlow());
+                }
+                if (beginCheckingForGrounded)
                 {
-                    if (!playerMovement.grounded)
+                    if (playerRb.position.y < -2.5f)
                     {
-                        playerRb.velocity = new Vector2(-15f, playerRb.velocity.y);
+                        beginCheckingForGrounded = false;
+                        beginCheckingForFinalPosition = true;
+                        playerMovement.Stop();
+                        StartCoroutine(DeathBlow());
+                    }
+                }
+                if (beginCheckingForFinalPosition)
+                {
+                    if (playerRb.position.x >= playerDeathBlowLocation2.position.x)
+                    {
+                        beginCheckingForFinalPosition = false;
+                        playerRb.gravityScale = 0f;
+                        StartCoroutine(CyclopsDie());
                     }
                 }
                 break;
         }
     }
 
+    private IEnumerator CyclopsDie()
+    {
+        cameraShake.ShakeCamera(3.5f, 5f);
+        audioManager.PlayExplosion();
+        cyclops.Die();
+        yield return new WaitForSeconds(3.5f);
+        Destroy(cyclops.gameObject);
+        playerGhostTrail.StopTrail();
+        playerRb.gravityScale = 5f;
+        playerAnimator.SetBool("IsAttacking", false);
+        playerMovement.AllowMovement();
+        bossState = BossState.Dead;
+    }
+
     private IEnumerator DeathBlow()
     {
         yield return new WaitForSeconds(1f);
+        playerAnimator.SetBool("IsCrouching", false);
+        playerAnimator.SetBool("IsAttacking", true);
+        audioManager.PlayAttackHit();
+        yield return StartCoroutine(MoveToPosition(playerRb, playerDeathBlowLocation2.position));
+    }
+
+    private IEnumerator JumpBackForDeathBlow()
+    {
+        playerMovement.Stop();
+        playerAnimator.SetBool("IsCrouching", true);
+        yield return new WaitForSeconds(2f);
+        playerGhostTrail.StartTrail();
+        audioManager.PlayArcadeJump();
+        playerRb.AddForce( new Vector2(10f * Vector2.left.x, 30f), ForceMode2D.Impulse);
+        yield return new WaitForSeconds(0.25f);
+        beginCheckingForGrounded = true;
     }
 
     private IEnumerator MoveToPosition(Rigidbody2D rb, Vector3 target)
@@ -109,7 +150,7 @@ public class CyclopsBossStateMachine : MonoBehaviour
 
         while (t <= 1)
         {
-            t += Time.fixedDeltaTime * 0.3f;
+            t += Time.fixedDeltaTime * 0.2f;
             rb.MovePosition(Vector3.Lerp(start, target, t));
 
             yield return null;

@@ -17,11 +17,14 @@ public class CyclopsBossFight : MonoBehaviour
 
     private bool moveCam = false;
     private bool playerNeedsUnfreeze = false;
+    private Transform originalCameraFollow;
+    private bool reset = false;
 
     private void Awake()
     {
         DisableColliders();
         _bossFightStartTrigger = GetComponent<BoxCollider2D>();
+        originalCameraFollow = virtualCamera.Follow;
     }
 
     private void DisableColliders()
@@ -68,6 +71,16 @@ public class CyclopsBossFight : MonoBehaviour
                 subzoneHUD.FillBossHealthMeter();
                 moveCam = false;
                 StartCoroutine(StartFight());
+            }
+        }
+
+        if (stateMachine.bossState == CyclopsBossStateMachine.BossState.Dead)
+        {
+            if (!reset)
+            {
+                reset = true;
+                DisableColliders();
+                PlayerStats.BossDefeated("OverworldCyclops");
             }
         }
     }

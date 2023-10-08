@@ -12,6 +12,11 @@ public class GhostTrail : MonoBehaviour
         InvokeRepeating("SpawnTrailPart", 0, 0.1f);
     }
 
+    public void StopTrail()
+    {
+        CancelInvoke("SpawnTrailPart");
+    }
+
     void SpawnTrailPart()
     {
         GameObject trailPart = new GameObject();

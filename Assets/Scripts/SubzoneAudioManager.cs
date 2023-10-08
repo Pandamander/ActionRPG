@@ -13,11 +13,19 @@ public class SubzoneAudioManager : MonoBehaviour
     public AudioClip backgroundMusic;
     public AudioClip arcadeJump;
     public AudioClip attackHit;
+    public AudioClip explosion;
 
     public void StopMusic()
     {
         backgroundSource.Stop();
     }
+
+    public void PlayExplosion()
+    {
+        source.clip = explosion;
+        source.Play();
+    }
+
     public void PlayAttack()
     {
         source.clip = attack;

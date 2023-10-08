@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class OverworldInitialization : MonoBehaviour
@@ -8,5 +9,15 @@ public class OverworldInitialization : MonoBehaviour
     {
         PlayerStats.Initialize();
         OverworldSubzoneContainer.Initialize();
+
+        OverworldDestroy();
+    }
+
+    private void OverworldDestroy()
+    {
+        foreach (string tag in PlayerStats.OverworldDestroyList)
+        {
+            Destroy(GameObject.FindGameObjectWithTag(tag));
+        }
     }
 }

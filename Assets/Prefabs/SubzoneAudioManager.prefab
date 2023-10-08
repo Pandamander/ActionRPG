@@ -55,6 +55,7 @@ MonoBehaviour:
   backgroundMusic: {fileID: 8300000, guid: a29ce0f1c94a8455ab908e857a08cd20, type: 3}
   arcadeJump: {fileID: 8300000, guid: ca74666e333e59f4e8fe6df2b496d076, type: 3}
   attackHit: {fileID: 8300000, guid: b498133e34e5ee6448a99413b0061712, type: 3}
+  explosion: {fileID: 8300000, guid: 7631f2eb0586ba543917586b3c860146, type: 3}
 --- !u!82 &8023768132352030834
 AudioSource:
   m_ObjectHideFlags: 0

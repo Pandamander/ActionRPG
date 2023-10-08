@@ -28,12 +28,14 @@ public class Cyclops : MonoBehaviour, IDamageable
     private bool isAttacking = false;
     private bool isKneeling = false;
     private Coroutine kneelFlash;
+    private Collider2D _collider;
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _collider = GetComponent<Collider2D>();
     }
 
     // Start is called before the first frame update
@@ -70,6 +72,11 @@ public class Cyclops : MonoBehaviour, IDamageable
     public void Walk()
     {
         _animator.SetBool("isWalking", true);
+    }
+
+    public void DisableCollider()
+    {
+        _collider.enabled = false;
     }
 
     private void ThrowBoulder()
@@ -185,7 +192,7 @@ public class Cyclops : MonoBehaviour, IDamageable
         shouldWalk = false;
         _rb.velocity = Vector2.zero;
         _animator.SetTrigger("kneel");
-        kneelFlash = StartCoroutine(KneelFlash());
+        kneelFlash = StartCoroutine(KneelFlash(1f));
     }
 
     public void Die()
@@ -193,8 +200,7 @@ public class Cyclops : MonoBehaviour, IDamageable
         StopCoroutine(kneelFlash); kneelFlash = null;
         shouldWalk = false;
         _rb.velocity = Vector2.zero;
-        cameraShake.ShakeCamera(5f, 5f);
-        StartCoroutine(DeathFlash(5f));
+        StartCoroutine(KneelFlash(0.08f));
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -212,26 +218,13 @@ public class Cyclops : MonoBehaviour, IDamageable
         }
     }
 
-    private IEnumerator DeathFlash(float time)
-    {
-        Color color = Color.red;
-        while (time >= 0)
-        {
-            _spriteRenderer.color = color;
-            yield return new WaitForSeconds(0.05f);
-            color = Color.white;
-            time--;
-        }
-        yield return null;
-    }
-
-    private IEnumerator KneelFlash()
+    private IEnumerator KneelFlash(float interval)
     {
         Color color = Color.red;
         while (true)
         {
             _spriteRenderer.color = color;
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(interval);
             color = (color == Color.white) ? Color.red : Color.white;
         }
     }
