@@ -77,6 +77,7 @@ public class CyclopsBossFight : MonoBehaviour
             if (!reset)
             {
                 reset = true;
+                subzoneHUD.FillPlayerHealthMeter();
                 DisableColliders();
                 PlayerStats.BossDefeated("OverworldCyclops");
             }

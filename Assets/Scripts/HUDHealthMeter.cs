@@ -39,8 +39,11 @@ public class HUDHealthMeter : MonoBehaviour
     private IEnumerator FillOne(GameObject bar)
     {
         yield return new WaitForSeconds(0.15f);
-        subzoneAudioManager.PlayArcadeJump();
-        bar.SetActive(true);
+        if (!bar.activeInHierarchy)
+        {
+            subzoneAudioManager.PlayArcadeJump();
+            bar.SetActive(true);
+        }
     }
 
     public void Increment(int number)

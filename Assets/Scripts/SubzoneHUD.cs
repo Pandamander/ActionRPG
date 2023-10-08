@@ -13,6 +13,11 @@ public class SubzoneHUD : MonoBehaviour
         bossHealthMeter.FillMeter();
     }
 
+    public void FillPlayerHealthMeter()
+    {
+        playerHealthMeter.FillMeter();
+    }
+
     public void ReducePlayerHealthMeter(int amount)
     {
         playerHealthMeter.Decrement(amount);
