@@ -49,15 +49,25 @@ public class TopDownMovement : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-        if (Mathf.Abs(movement.x) > 0)
+        if (Mathf.Abs(movement.x) >= 1f)
         {
             movement.y = 0f;
             UpdateAnimation(movement);
         }
-        else if (Mathf.Abs(movement.y) > 0)
+        if (Mathf.Abs(movement.y) >= 1f)
         {
             movement.x = 0f;
             UpdateAnimation(movement);
+        }
+
+        // Enforce single direction movement on gamepad
+        if (Mathf.Abs(movement.x) < 1f)
+        {
+            movement.x = 0f;
+        }
+        if (Mathf.Abs(movement.y) < 1f)
+        {
+            movement.y = 0f;
         }
     }
 
