@@ -12,7 +12,7 @@ public class AdvanceScene : MonoBehaviour
 
     [SerializeField] public string nextSceneName;
     [SerializeField] public float delay = 5f;
-    [SerializeField] bool autoAdvance = false;
+    //[SerializeField] bool autoAdvance = false;
 
     [SerializeField] GameObject faderObject;
     private Image image;

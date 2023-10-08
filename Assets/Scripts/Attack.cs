@@ -20,7 +20,7 @@ public class Attack : MonoBehaviour, IDamageable
 	[SerializeField] private SubzoneHUD subzoneHUD;
 
 	private SpriteRenderer spriteRenderer;
-	private bool dead = false;
+	//private bool dead = false;
 
 	private void Awake()
 	{
@@ -95,7 +95,7 @@ public class Attack : MonoBehaviour, IDamageable
 
     private void Die()
 	{
-		dead = true;
+		//dead = true;
 		spriteRenderer.color = Color.red;
 		CharacterController2D controller = gameObject.GetComponent<CharacterController2D>();
 		controller.canMove = false;
