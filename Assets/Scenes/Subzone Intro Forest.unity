@@ -5957,6 +5957,10 @@ PrefabInstance:
       value: SubzoneSnake (3)
       objectReference: {fileID: 0}
     - target: {fileID: 6894392897223805044, guid: b343f00c5fc304e45a92bfbb085d7392, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 1991212018}
+    - target: {fileID: 6894392897223805044, guid: b343f00c5fc304e45a92bfbb085d7392, type: 3}
       propertyPath: audioManager
       value: 
       objectReference: {fileID: 1089494029}
@@ -6037,6 +6041,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SubzoneSnake (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6894392897223805044, guid: b343f00c5fc304e45a92bfbb085d7392, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 1991212018}
     - target: {fileID: 6894392897223805044, guid: b343f00c5fc304e45a92bfbb085d7392, type: 3}
       propertyPath: audioManager
       value: 
@@ -23743,7 +23751,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 470456349107416013, guid: d7ef947b56703b3428009724724c06a6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 23.474993
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 470456349107416013, guid: d7ef947b56703b3428009724724c06a6, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -23823,7 +23831,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1902536247727176740, guid: d7ef947b56703b3428009724724c06a6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 23.474993
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1902536247727176740, guid: d7ef947b56703b3428009724724c06a6, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -24367,7 +24375,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7584860500968806653, guid: d7ef947b56703b3428009724724c06a6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 3.4749928
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7584860500968806653, guid: d7ef947b56703b3428009724724c06a6, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -24491,7 +24499,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9084715727016336030, guid: d7ef947b56703b3428009724724c06a6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 3.4749928
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9084715727016336030, guid: d7ef947b56703b3428009724724c06a6, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -24604,6 +24612,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SubzoneSnake
       objectReference: {fileID: 0}
+    - target: {fileID: 6894392897223805044, guid: b343f00c5fc304e45a92bfbb085d7392, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 1991212018}
     - target: {fileID: 6894392897223805044, guid: b343f00c5fc304e45a92bfbb085d7392, type: 3}
       propertyPath: audioManager
       value: 
@@ -24933,6 +24945,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
+--- !u!114 &1991212018 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4064209768059073766, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
+  m_PrefabInstance: {fileID: 2128745815}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29134996dca4a408ea8c143bf8d1cac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2052254225
 GameObject:
   m_ObjectHideFlags: 0
@@ -80452,6 +80475,10 @@ PrefabInstance:
       value: SubzoneSnake (2)
       objectReference: {fileID: 0}
     - target: {fileID: 6894392897223805044, guid: b343f00c5fc304e45a92bfbb085d7392, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 1991212018}
+    - target: {fileID: 6894392897223805044, guid: b343f00c5fc304e45a92bfbb085d7392, type: 3}
       propertyPath: audioManager
       value: 
       objectReference: {fileID: 1089494029}
@@ -80590,7 +80617,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: orthographic size
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
@@ -80606,7 +80633,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.9998364
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796965, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_UpdateMethod

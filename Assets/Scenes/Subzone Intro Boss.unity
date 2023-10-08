@@ -40104,6 +40104,10 @@ PrefabInstance:
       propertyPath: levelExitOverworldPositionOverride.x
       value: 16.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2560223189649536867, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
+      propertyPath: levelExitOverworldPositionOverride.y
+      value: 31.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2560223189649536894, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
       propertyPath: m_Name
       value: LevelExit (1)

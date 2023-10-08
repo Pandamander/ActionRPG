@@ -13,6 +13,7 @@ public class SubzoneEnemy : MonoBehaviour, IDamageable
     private float patrolTime;
     private Rigidbody2D rigidBody;
     private SpriteRenderer spriteRenderer;
+    [SerializeField] private CameraShake cameraShake;
 
     private void Awake()
     {
@@ -85,6 +86,7 @@ public class SubzoneEnemy : MonoBehaviour, IDamageable
     // IDamageable
     public void Damage(float damage)
     {
+        cameraShake.ShakeCamera(0.15f, 1.5f);
         health -= damage;
         if (health <= 0f)
         {

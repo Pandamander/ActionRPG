@@ -17,14 +17,12 @@ public class CyclopsBossFight : MonoBehaviour
 
     private bool moveCam = false;
     private bool playerNeedsUnfreeze = false;
-    private Transform originalCameraFollow;
     private bool reset = false;
 
     private void Awake()
     {
         DisableColliders();
         _bossFightStartTrigger = GetComponent<BoxCollider2D>();
-        originalCameraFollow = virtualCamera.Follow;
     }
 
     private void DisableColliders()

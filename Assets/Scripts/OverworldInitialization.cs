@@ -17,7 +17,10 @@ public class OverworldInitialization : MonoBehaviour
     {
         foreach (string tag in PlayerStats.OverworldDestroyList)
         {
-            Destroy(GameObject.FindGameObjectWithTag(tag));
+            foreach (GameObject obj in GameObject.FindGameObjectsWithTag(tag))
+            {
+                Destroy(obj);
+            }
         }
     }
 }
