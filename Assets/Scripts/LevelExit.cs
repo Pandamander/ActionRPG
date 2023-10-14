@@ -12,16 +12,7 @@ public class LevelExit : MonoBehaviour
     public string subzone;
     public OverworldSubzoneContainer.PlayerDirection direction;
 
-    [SerializeField] GameObject faderObject;
-    private Image image;
-
-    private void Start()
-    {
-        if (faderObject != null)
-        {
-            image = faderObject.GetComponent<Image>();
-        }
-    }
+    [SerializeField] private Fader fader;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -51,18 +42,10 @@ public class LevelExit : MonoBehaviour
 
     private IEnumerator DoSceneExit()
     {
-        if (image != null)
-        {
-            while (image.color.a < 1.0f)
-            {
-                image.color = new Color(image.color.r, image.color.g, image.color.b, image.color.a + 0.2f);
-                yield return new WaitForSeconds(0.08f);
-            }
-
-        } else {
-            print("No fader object specified on LevelExit script");
-        }
+        yield return StartCoroutine(fader.DoFadeIn());
         
         SceneManager.LoadScene("Overworld");
+
+        yield return null;
     }
 }

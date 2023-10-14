@@ -9,6 +9,7 @@ public class TopDownMovement : MonoBehaviour
     private Rigidbody2D rigidBody;
     private bool stopMovement = false;
     private Vector2 movement;
+    private bool endAnimationOverride = false;
 
     private void Awake()
     {
@@ -41,6 +42,12 @@ public class TopDownMovement : MonoBehaviour
 
     void Update()
     {
+        if (endAnimationOverride)
+        {
+            movement = new Vector2(1f, 0f);
+            UpdateAnimation(movement);
+            return;
+        }
         if (stopMovement) {
             movement = Vector2.zero;
             return;
@@ -73,6 +80,10 @@ public class TopDownMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (endAnimationOverride)
+        {
+            return;
+        }
         rigidBody.velocity = movement * moveSpeed;
     }
 
@@ -82,14 +93,16 @@ public class TopDownMovement : MonoBehaviour
         animator.SetFloat("vertical", currentMovement.y);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-
-    }
-
     public void StopMovement()
     {
         stopMovement = true;
         animator.speed = 0;
+    }
+
+    // TODO: Temp demo end
+    public void AnimateWalkingRight()
+    {
+        rigidBody.velocity = Vector2.zero;
+        endAnimationOverride = true;
     }
 }

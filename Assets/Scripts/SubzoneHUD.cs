@@ -7,7 +7,16 @@ public class SubzoneHUD : MonoBehaviour
 {
     [SerializeField] private HUDHealthMeter playerHealthMeter;
     [SerializeField] private HUDHealthMeter bossHealthMeter;
+    private Fader _fader;
 
+    private void Awake()
+    {
+        _fader = GetComponentInChildren<Fader>();
+    }
+    private void Start()
+    {
+        _fader.FadeOut();
+    }
     public void FillBossHealthMeter()
     {
         bossHealthMeter.FillMeter();
