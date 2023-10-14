@@ -8,6 +8,7 @@ public class BoatEntrance : MonoBehaviour
     [SerializeField] private Transform hero;
     [SerializeField] private BoxCollider2D heroCollider;
     [SerializeField] private TopDownMovement heroTopDownMovement;
+    [SerializeField] private DemoEndScreen demoEndScreen;
 
     private bool _shouldMoveBoat = false;
     private float _boatMoveSpeed = 1f;
@@ -41,6 +42,8 @@ public class BoatEntrance : MonoBehaviour
         hero.gameObject.SetActive(false);
         yield return new WaitForSeconds(1f);
         _shouldMoveBoat = true;
+        yield return new WaitForSeconds(3f);
+        demoEndScreen.FadeIn();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
