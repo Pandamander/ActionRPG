@@ -45,5 +45,7 @@ public class LevelExit : MonoBehaviour
         yield return StartCoroutine(fader.DoFadeIn());
         
         SceneManager.LoadScene("Overworld");
+
+        yield return null;
     }
 }
