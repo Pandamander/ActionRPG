@@ -5,12 +5,19 @@ using UnityEngine;
 
 public class OverworldInitialization : MonoBehaviour
 {
+    [SerializeField] private Fader fader;
+
     private void Awake()
     {
         PlayerStats.Initialize();
         OverworldSubzoneContainer.Initialize();
 
         OverworldDestroy();
+    }
+
+    private void Start()
+    {
+        fader.FadeOut();
     }
 
     private void OverworldDestroy()

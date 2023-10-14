@@ -33,8 +33,9 @@ public class OverworldSubzoneContainer
     {
         if (!Initialized)
         {
-            LastEncounterPosition = (6.3f, -2.8f);
+            LastEncounterPosition = (6.3f, -2.8f); // Start near wrecked ship (default)
             // LastEncounterPosition = (21.54f, 16.3f); // Start near Intro Forest
+            //LastEncounterPosition = (16.5f, 32.5f); // Start near Boat
             LastEncounterSubzoneName = "";
             LastEncounterDirection = PlayerDirection.Down;
 
