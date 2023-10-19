@@ -16,6 +16,7 @@ public class StorySection
 public class StoryboardManagerBeta : MonoBehaviour
 {
 
+    public string nextScene = "";
     public GameObject textObject;
     public GameObject imageObject;
     public List<StorySection> storySections = new List<StorySection>(); // a list of storyboard sections - each section can include multiple text strings and an image
@@ -52,7 +53,7 @@ public class StoryboardManagerBeta : MonoBehaviour
         //yield return new WaitForSeconds(2.0f);
 
         // after all the sections are finished, load the intro boat scene
-        SceneManager.LoadScene("Subzone Intro Boat");
+        SceneManager.LoadScene(nextScene);
     }
 
     IEnumerator LoadStoryboardSection(int currentSection)
