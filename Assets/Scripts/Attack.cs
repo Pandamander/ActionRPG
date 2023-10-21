@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Attack : MonoBehaviour, IDamageable
 {
-	public float dmgValue = 4;
+	public float dmgValue = 4f;
+	public int invulnerableDuration = 10;
 	public MeleeController meleeWeaponController;
 	public GameObject rangedWeaponController;
 
@@ -59,14 +60,27 @@ public class Attack : MonoBehaviour, IDamageable
 	{
 		spriteRenderer.color = Color.red;
 		yield return new WaitForSeconds(0.1f);
-		spriteRenderer.color = Color.white;
-        yield return new WaitForSeconds(0.1f);
-        spriteRenderer.color = Color.red;
-        yield return new WaitForSeconds(0.1f);
         spriteRenderer.color = Color.white;
+		yield return StartCoroutine(Invulnerability(invulnerableDuration));
     }
 
-	private IEnumerator GameOver()
+    private IEnumerator Invulnerability(int duration)
+    {
+		Physics2D.IgnoreLayerCollision(1, 9, true);
+        Color color = Color.clear;
+		int durationCounter = 0;
+        while (durationCounter <= duration)
+        {
+            spriteRenderer.color = color;
+            yield return new WaitForSeconds(0.1f);
+            color = (color == Color.clear) ? Color.white : Color.clear;
+			durationCounter++;
+        }
+        spriteRenderer.color = Color.white;
+        Physics2D.IgnoreLayerCollision(1, 9, false);
+    }
+
+    private IEnumerator GameOver()
 	{
 		audioManager.PlayGameOver();
 		yield return new WaitForSeconds(3.0f);
@@ -88,7 +102,8 @@ public class Attack : MonoBehaviour, IDamageable
             GetComponent<CapsuleCollider2D>().enabled = false;
         } else
 		{
-            rigidBody.AddForce(new Vector2(-2000f, 0f));
+			float knockbackForce = transform.localScale.x > 0f ? -2000f : 2000f;
+            rigidBody.AddForce(new Vector2(knockbackForce, 0f));
             StartCoroutine(TakeDamage());
         }
     }
