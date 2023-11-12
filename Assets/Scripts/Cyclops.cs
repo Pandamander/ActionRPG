@@ -84,12 +84,10 @@ public class Cyclops : MonoBehaviour, IDamageable
         shouldWalk = false;
         _rb.velocity = Vector2.zero;
         _animator.SetTrigger("throwBoulder");
-        StartCoroutine(SpawnBoulder());
     }
 
-    private IEnumerator SpawnBoulder()
+    public void ThrowBoulderAnimationSpawnFrame()
     {
-        yield return new WaitForSeconds(0.5f);
         GameObject spawnedBoulder = Instantiate(boulder, boulderSpawn.position, Quaternion.identity);
         Boulder boulderInstance = spawnedBoulder.GetComponent<Boulder>();
         boulderInstance.audioManager = audioManager;
@@ -112,17 +110,20 @@ public class Cyclops : MonoBehaviour, IDamageable
         shouldWalk = false;
         _rb.velocity = Vector2.zero;
         _animator.SetTrigger("smash");
-        StartCoroutine(SmashAttack());
     }
 
-    private IEnumerator SmashAttack()
+    private IEnumerator ResumeWalkAfterSmash()
     {
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(2f);
+        StartCoroutine(ResumeWalking());
+    }
+
+    public void SmashAnimationHitGroundFrame()
+    {
         cameraShake.ShakeCamera(0.25f, 5f);
         audioManager.PlayDamage();
         SpawnSand();
-        yield return new WaitForSeconds(2f);
-        StartCoroutine(ResumeWalking());
+        StartCoroutine(ResumeWalkAfterSmash());
     }
 
     private void SpawnSand()
@@ -130,7 +131,6 @@ public class Cyclops : MonoBehaviour, IDamageable
         sandWave.SpawnWave();
     }
 
-    // TODO: ELLIOTT - Swipe does not damage player yet
     private void Swipe()
     {
         shouldWalk = false;
