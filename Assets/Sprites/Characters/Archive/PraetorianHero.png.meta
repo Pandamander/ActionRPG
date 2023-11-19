@@ -3,7 +3,7 @@ guid: 62416d3be687b8746adf635d1caf8595
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -1533,80 +1534,80 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PraetorianHero_35: -893456415
-      PraetorianHero_15: 1631356366
-      PraetorianHero_32: 1148602080
-      PraetorianHero_28: -1942594151
-      PraetorianHero_64: -390020215
-      PraetorianHero_23: 1195703197
-      PraetorianHero_21: 1306876610
-      PraetorianHero_42: -768863259
-      PraetorianHero_63: -420832930
-      PraetorianHero_50: -1099468376
-      PraetorianHero_52: -600432274
-      PraetorianHero_2: 1131921885
-      PraetorianHero_8: 46788915
-      PraetorianHero_40: 483931968
-      PraetorianHero_58: 2050348476
-      PraetorianHero_55: -705252907
-      PraetorianHero_43: -1544996459
-      PraetorianHero_60: 959297503
-      PraetorianHero_65: -1336872200
-      PraetorianHero_12: 1948587557
-      PraetorianHero_73: -609698166
-      PraetorianHero_31: 1433243537
-      PraetorianHero_56: -1375208808
-      PraetorianHero_7: 1990820267
-      PraetorianHero_48: -7004440
-      PraetorianHero_6: 20911167
-      PraetorianHero_72: -982432951
-      PraetorianHero_11: -1216289042
-      PraetorianHero_37: 1440432016
-      PraetorianHero_69: -1366715467
-      PraetorianHero_51: 569530391
-      PraetorianHero_19: 24113618
-      PraetorianHero_61: 805496199
-      PraetorianHero_24: 762835232
-      PraetorianHero_44: -1582037427
-      PraetorianHero_54: -1497679273
-      PraetorianHero_41: -873763883
-      PraetorianHero_29: -269644186
-      PraetorianHero_49: 1942290855
-      PraetorianHero_62: 203411902
-      PraetorianHero_14: 116743552
-      PraetorianHero_59: 827315738
       PraetorianHero_0: 1621429347
-      PraetorianHero_68: -142262740
-      PraetorianHero_10: -821126881
-      PraetorianHero_27: 337960130
       PraetorianHero_1: -24735344
-      PraetorianHero_5: 1634981201
-      PraetorianHero_39: -630871905
+      PraetorianHero_10: -821126881
+      PraetorianHero_11: -1216289042
+      PraetorianHero_12: 1948587557
+      PraetorianHero_13: 139917214
+      PraetorianHero_14: 116743552
+      PraetorianHero_15: 1631356366
       PraetorianHero_16: -331018679
-      PraetorianHero_66: 1458587996
-      PraetorianHero_45: 614627872
-      PraetorianHero_9: 509871156
-      PraetorianHero_71: -1221688834
-      PraetorianHero_47: 1340280506
-      PraetorianHero_53: 1271175014
+      PraetorianHero_17: -1330725921
+      PraetorianHero_18: -111683207
+      PraetorianHero_19: 24113618
+      PraetorianHero_2: 1131921885
+      PraetorianHero_20: 1207310369
+      PraetorianHero_21: 1306876610
+      PraetorianHero_22: 1217026271
+      PraetorianHero_23: 1195703197
+      PraetorianHero_24: 762835232
       PraetorianHero_25: 31981646
-      PraetorianHero_4: -1591487740
+      PraetorianHero_26: -1954488691
+      PraetorianHero_27: 337960130
+      PraetorianHero_28: -1942594151
+      PraetorianHero_29: -269644186
       PraetorianHero_3: 1018196867
       PraetorianHero_30: -1276397251
-      PraetorianHero_13: 139917214
-      PraetorianHero_20: 1207310369
-      PraetorianHero_18: -111683207
-      PraetorianHero_36: 482227726
-      PraetorianHero_22: 1217026271
-      PraetorianHero_38: -1520826117
+      PraetorianHero_31: 1433243537
+      PraetorianHero_32: 1148602080
       PraetorianHero_33: -164733818
-      PraetorianHero_67: -1196506546
       PraetorianHero_34: 1802478265
-      PraetorianHero_70: 535959834
-      PraetorianHero_26: -1954488691
-      PraetorianHero_17: -1330725921
+      PraetorianHero_35: -893456415
+      PraetorianHero_36: 482227726
+      PraetorianHero_37: 1440432016
+      PraetorianHero_38: -1520826117
+      PraetorianHero_39: -630871905
+      PraetorianHero_4: -1591487740
+      PraetorianHero_40: 483931968
+      PraetorianHero_41: -873763883
+      PraetorianHero_42: -768863259
+      PraetorianHero_43: -1544996459
+      PraetorianHero_44: -1582037427
+      PraetorianHero_45: 614627872
       PraetorianHero_46: -61592283
+      PraetorianHero_47: 1340280506
+      PraetorianHero_48: -7004440
+      PraetorianHero_49: 1942290855
+      PraetorianHero_5: 1634981201
+      PraetorianHero_50: -1099468376
+      PraetorianHero_51: 569530391
+      PraetorianHero_52: -600432274
+      PraetorianHero_53: 1271175014
+      PraetorianHero_54: -1497679273
+      PraetorianHero_55: -705252907
+      PraetorianHero_56: -1375208808
       PraetorianHero_57: -1561654734
+      PraetorianHero_58: 2050348476
+      PraetorianHero_59: 827315738
+      PraetorianHero_6: 20911167
+      PraetorianHero_60: 959297503
+      PraetorianHero_61: 805496199
+      PraetorianHero_62: 203411902
+      PraetorianHero_63: -420832930
+      PraetorianHero_64: -390020215
+      PraetorianHero_65: -1336872200
+      PraetorianHero_66: 1458587996
+      PraetorianHero_67: -1196506546
+      PraetorianHero_68: -142262740
+      PraetorianHero_69: -1366715467
+      PraetorianHero_7: 1990820267
+      PraetorianHero_70: 535959834
+      PraetorianHero_71: -1221688834
+      PraetorianHero_72: -982432951
+      PraetorianHero_73: -609698166
+      PraetorianHero_8: 46788915
+      PraetorianHero_9: 509871156
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
