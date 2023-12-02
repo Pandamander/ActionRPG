@@ -12,6 +12,7 @@ public class SubzoneEntrance : MonoBehaviour
 
     public Vector3 subzoneLevelStartPositionOverride;
     public bool usesubzoneLevelStartPositionOverride;
+    public OverworldSubzoneContainer.PlayerDirection subzoneLevelStartDirectionOverride = OverworldSubzoneContainer.PlayerDirection.Left;
 
     [SerializeField] private Fader fader;
 
@@ -36,7 +37,7 @@ public class SubzoneEntrance : MonoBehaviour
                 OverworldSubzoneContainer.AddSubzoneStartPosition(
                     subzoneLevelStartPositionOverride.x,
                     subzoneLevelStartPositionOverride.y,
-                    OverworldSubzoneContainer.PlayerDirection.Left
+                    subzoneLevelStartDirectionOverride
                 );
             }
 

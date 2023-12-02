@@ -12,6 +12,7 @@ public class SubzoneLevelManager : MonoBehaviour
     private void Awake()
     {
         Movement = Player.GetComponent<PlayerMovement>();
+        animator = Movement.GetComponent<Animator>();
     }
 
     private void Start()
@@ -26,9 +27,7 @@ public class SubzoneLevelManager : MonoBehaviour
                 OverworldSubzoneContainer.SubzoneLevelStartPosition.Item2
             );
 
-            animator = Movement.GetComponent<Animator>();
-
-            switch (OverworldSubzoneContainer.LastEncounterDirection)
+            switch (OverworldSubzoneContainer.SubzoneLevelStartDirection)
             {
                 case OverworldSubzoneContainer.PlayerDirection.Up:
                     break;
@@ -47,6 +46,6 @@ public class SubzoneLevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
