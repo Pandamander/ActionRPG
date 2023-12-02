@@ -17,19 +17,30 @@ public class Attack : MonoBehaviour, IDamageable
 	public bool isTimeToCheck = false;
 	public GameObject cam;
 	public SubzoneAudioManager audioManager;
+	public bool isAttacking
+	{
+		get
+		{
+			return !canMeleeAttack;
+		}
+	}
 
 	[SerializeField] private SubzoneHUD subzoneHUD;
 
 	private SpriteRenderer spriteRenderer;
-	//private bool dead = false;
+    private PlayerMovement playerMovement;
+    private CharacterController2D controller;
+    //private bool dead = false;
 
-	private void Awake()
+    private void Awake()
 	{
 		rigidBody = GetComponent<Rigidbody2D>();
 		spriteRenderer = GetComponent<SpriteRenderer>();
+        playerMovement = gameObject.GetComponent<PlayerMovement>();
+        controller = gameObject.GetComponent<CharacterController2D>();
 
-		// TODO: Elliott remove this
-		PlayerStats.Initialize();
+        // TODO: Elliott remove this
+        PlayerStats.Initialize();
 	}
 
     // Update is called once per frame
@@ -40,6 +51,10 @@ public class Attack : MonoBehaviour, IDamageable
 
 		if (Input.GetButtonDown("Fire1") && canMeleeAttack)
 		{
+			if (playerMovement.grounded)
+			{
+                playerMovement.StopForAttack();
+            }
             canMeleeAttack = false;
 			animator.SetBool("IsAttacking", true);
 
@@ -54,7 +69,8 @@ public class Attack : MonoBehaviour, IDamageable
 		yield return new WaitForSeconds(0.25f);
 		animator.SetBool("IsAttacking", false);
         canMeleeAttack = true;
-	}
+		playerMovement.AllowMovement();
+    }
 
     private IEnumerator TakeDamage()
 	{
@@ -112,9 +128,8 @@ public class Attack : MonoBehaviour, IDamageable
 	{
 		//dead = true;
 		spriteRenderer.color = Color.red;
-		CharacterController2D controller = gameObject.GetComponent<CharacterController2D>();
+		controller = gameObject.GetComponent<CharacterController2D>();
 		controller.canMove = false;
-		PlayerMovement playerMovement = gameObject.GetComponent<PlayerMovement>();
 		playerMovement.Stop();
 	}
 }

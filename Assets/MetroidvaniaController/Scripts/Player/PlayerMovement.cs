@@ -16,11 +16,24 @@ public class PlayerMovement : MonoBehaviour
 	public bool canMove = true;
 	public bool grounded { get; private set; }
 	private bool StopFixedUpdate = false;
+    private Attack attack;
+	public bool isAttacking
+	{
+		get
+		{
+			return attack.isAttacking;
+		}
+	}
 
-	//bool dashAxis = false;
+    //bool dashAxis = false;
 
-	// Update is called once per frame
-	void Update()
+    private void Awake()
+    {
+        attack = GetComponent<Attack>();
+    }
+
+    // Update is called once per frame
+    void Update()
 	{
 
 		if (!canMove) { return; }
@@ -77,6 +90,14 @@ public class PlayerMovement : MonoBehaviour
 		animator.SetFloat("Speed", 0f);
 		animator.SetBool("IsAttacking", false);
 	}
+
+	public void StopForAttack()
+	{
+        horizontalMove = 0f;
+        canMove = false;
+        StopFixedUpdate = true;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+    }
 
 	public void AllowMovement()
 	{

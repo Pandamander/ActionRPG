@@ -41,6 +41,7 @@ public class CharacterController2D : MonoBehaviour
 	private float slopeDownAngleOld;
 	private float slopeSideAngle;
 	private float horizMovement;
+	private PlayerMovement playerMovement;
 
 	[Header("Events")]
 	[Space]
@@ -57,6 +58,7 @@ public class CharacterController2D : MonoBehaviour
 		animator = GetComponent<Animator>();
 		capsuleCollider = GetComponent<CapsuleCollider2D>();
 		capsuleColliderSize = capsuleCollider.size;
+		playerMovement = GetComponent<PlayerMovement>();
 
 		if (OnFallEvent == null)
 			OnFallEvent = new UnityEvent();
@@ -85,9 +87,11 @@ public class CharacterController2D : MonoBehaviour
 
 		if (!m_Grounded)
 		{
-			OnFallEvent.Invoke();
-			//prevVelocityX = m_Rigidbody2D.velocity.x;
-		}
+			if (!playerMovement.isAttacking)
+			{
+                OnFallEvent.Invoke();
+            }
+        }
 
 		SlopeCheck();
 	}
@@ -185,6 +189,7 @@ public class CharacterController2D : MonoBehaviour
     public void Move(float move, bool jump, bool dash)
 	{
 		horizMovement = move;
+
 		if (canMove) {
 			if (dash && canDash)
 			{
@@ -261,7 +266,11 @@ public class CharacterController2D : MonoBehaviour
             if (m_Grounded && !isOnSlope && jump)
 			{
 				// Add a vertical force to the player.
-				animator.SetBool("IsJumping", true);
+				if (!playerMovement.isAttacking)
+				{
+                    animator.SetBool("IsJumping", true);
+                }
+
 				m_Grounded = false;
 				m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 			}
