@@ -49,7 +49,7 @@ public class Attack : MonoBehaviour, IDamageable
 		meleeWeaponController.playerDirection = transform.localScale.x > 0 ?
 			MeleeController.PlayerDirection.Right : MeleeController.PlayerDirection.Left;
 
-		if (Input.GetButtonDown("Fire1") && canMeleeAttack)
+		if (playerMovement.canMove && Input.GetButtonDown("Fire1") && canMeleeAttack)
 		{
 			if (playerMovement.grounded)
 			{

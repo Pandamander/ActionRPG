@@ -12,7 +12,7 @@ public static class PlayerStats
 
     public static List<string> OverworldDestroyList { get; private set; }
 
-    private static bool Initialized;    
+    private static bool Initialized;
 
     public static void Initialize()
     {

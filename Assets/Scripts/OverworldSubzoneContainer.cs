@@ -13,6 +13,8 @@ public class OverworldSubzoneContainer
     public static PlayerDirection SubzoneLevelStartDirection { get; private set; }
     public static bool UseSubzoneLevelStartPosition { get; set; }
 
+    public static bool HasShownWreckedShipIntro { get; set; }
+
     private static bool Initialized;
 
     public static void AddEncounter(float x, float y, string subzoneName, PlayerDirection direction)

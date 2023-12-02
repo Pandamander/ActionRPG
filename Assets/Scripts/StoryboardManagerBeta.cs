@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 [System.Serializable]
 public class StorySection
@@ -40,6 +41,15 @@ public class StoryboardManagerBeta : MonoBehaviour
         imageAnimator = imageObject.GetComponent<Animator>();
 
         StartCoroutine(RunStoryboard());
+    }
+
+    private void Update()
+    {
+        // Temp Skip Dialogue
+        if (Input.GetButtonDown("Fire2"))
+        {
+            SceneManager.LoadScene(nextScene);
+        }
     }
 
     IEnumerator RunStoryboard()
