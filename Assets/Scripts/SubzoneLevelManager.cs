@@ -5,14 +5,12 @@ using UnityEngine;
 public class SubzoneLevelManager : MonoBehaviour
 {
     public GameObject Player;
-    private PlayerMovement Movement;
     private Rigidbody2D rigidBody;
-    private Animator animator;
+    private PlayerMovement movement;
 
     private void Awake()
     {
-        Movement = Player.GetComponent<PlayerMovement>();
-        animator = Movement.GetComponent<Animator>();
+        movement = Player.GetComponent<PlayerMovement>();
     }
 
     private void Start()
@@ -27,19 +25,7 @@ public class SubzoneLevelManager : MonoBehaviour
                 OverworldSubzoneContainer.SubzoneLevelStartPosition.Item2
             );
 
-            switch (OverworldSubzoneContainer.SubzoneLevelStartDirection)
-            {
-                case OverworldSubzoneContainer.PlayerDirection.Up:
-                    break;
-                case OverworldSubzoneContainer.PlayerDirection.Down:
-                    break;
-                case OverworldSubzoneContainer.PlayerDirection.Left:
-                    animator.SetFloat("speed", -1);
-                    break;
-                case OverworldSubzoneContainer.PlayerDirection.Right:
-                    animator.SetFloat("speed", 1);
-                    break;
-            }
+            movement.SetDirection(OverworldSubzoneContainer.SubzoneLevelStartDirection);
         }
     }
 

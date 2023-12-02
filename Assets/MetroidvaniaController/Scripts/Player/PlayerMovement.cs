@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -121,5 +122,21 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("IsJumping", false);
         animator.SetFloat("Speed", 1f);
         animator.SetBool("IsAttacking", false);
+    }
+
+	public void SetDirection(OverworldSubzoneContainer.PlayerDirection direction)
+	{
+        switch (direction)
+        {
+            case OverworldSubzoneContainer.PlayerDirection.Up:
+                break;
+            case OverworldSubzoneContainer.PlayerDirection.Down:
+                break;
+            case OverworldSubzoneContainer.PlayerDirection.Left:
+				controller.Flip();
+                break;
+            case OverworldSubzoneContainer.PlayerDirection.Right:
+                break;
+        }
     }
 }
