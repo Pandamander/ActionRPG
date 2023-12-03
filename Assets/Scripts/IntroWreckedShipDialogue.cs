@@ -27,10 +27,10 @@ public class IntroWreckedShipDialogue : MonoBehaviour
 
     private IEnumerator GetUp()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(4);
         animator.SetBool("IsCollapsed", false);
         animator.SetBool("IsGettingUp", true);
-        yield return new WaitForSeconds(0.667f);
+        yield return new WaitForSeconds(2.0f);
         animator.SetBool("IsCrouchIdling", true);
         yield return new WaitForSeconds(3f);
         animator.SetBool("IsStandingUp", true);
