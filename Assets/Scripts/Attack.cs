@@ -54,7 +54,10 @@ public class Attack : MonoBehaviour, IDamageable
 			if (playerMovement.grounded)
 			{
                 playerMovement.StopForAttack();
-            }
+            } else
+			{
+				playerMovement.StopAirControlForJumpAttack();
+			}
             canMeleeAttack = false;
 			animator.SetBool("IsAttacking", true);
 

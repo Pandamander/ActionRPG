@@ -100,7 +100,12 @@ public class PlayerMovement : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 
-	public void AllowMovement()
+    public void StopAirControlForJumpAttack()
+    {
+        canMove = false;
+    }
+
+    public void AllowMovement()
 	{
 		canMove = true;
         StopFixedUpdate = false;
