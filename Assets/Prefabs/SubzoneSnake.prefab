@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 6894392897223805047}
   - component: {fileID: 6894392897223805040}
   - component: {fileID: 6894392897223805045}
-  - component: {fileID: 6894392897223805044}
   - component: {fileID: 6894392897223805051}
+  - component: {fileID: 3772674003615199812}
   m_Layer: 9
   m_Name: SubzoneSnake
   m_TagString: SubzoneEnemy
@@ -130,23 +130,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &6894392897223805044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6894392897223805041}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef079d30d261af443944e5b2015ad541, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 30
-  patrolFlipTime: 3
-  health: 1
-  isVertical: 0
-  audioManager: {fileID: 0}
 --- !u!70 &6894392897223805051
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -163,3 +146,22 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
+--- !u!114 &3772674003615199812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6894392897223805041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caf282a9d09d48e47b00db83032e1ce3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 30
+  patrolFlipTime: 3
+  attackDamage: 1
+  health: 1
+  isVertical: 0
+  audioManager: {fileID: 0}
+  cameraShake: {fileID: 0}

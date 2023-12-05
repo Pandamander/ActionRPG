@@ -7,21 +7,22 @@ public class SubzoneEnemy : MonoBehaviour, IDamageable
 {
     public float moveSpeed;
     public float patrolFlipTime;
+    public float attackDamage = 1f;
     public float health;
     public bool isVertical;
     public SubzoneAudioManager audioManager;
-    private float patrolTime;
-    private Rigidbody2D rigidBody;
-    private SpriteRenderer spriteRenderer;
-    [SerializeField] private CameraShake cameraShake;
+    protected float patrolTime;
+    protected Rigidbody2D rigidBody;
+    protected SpriteRenderer spriteRenderer;
+    [SerializeField] protected CameraShake cameraShake;
 
-    private void Awake()
+    public virtual void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    private void Update()
+    public virtual void Update()
     {
         if (health <= 0f)
         {
@@ -32,30 +33,9 @@ public class SubzoneEnemy : MonoBehaviour, IDamageable
             transform.Rotate(0f, 0f, 2 * 360 * Time.deltaTime);
             return;
         }
-
-        patrolTime += Time.deltaTime;
-        if (patrolTime >= patrolFlipTime)
-        {
-            Flip();
-            patrolTime = 0f;
-        }
-
-        if (isVertical)
-        {
-            rigidBody.velocity = new Vector2(
-                rigidBody.velocity.x,
-                -moveSpeed * Time.fixedDeltaTime
-            );
-        } else
-        {
-            rigidBody.velocity = new Vector2(
-                -moveSpeed * Time.fixedDeltaTime,
-                rigidBody.velocity.y
-            );
-        }
     }
 
-    private void Flip()
+    protected void Flip()
     {
         if (!isVertical)
         {
@@ -71,7 +51,7 @@ public class SubzoneEnemy : MonoBehaviour, IDamageable
         {
             if (collision.gameObject.TryGetComponent<IDamageable>(out var player))
             {
-                player.Damage(1f);
+                player.Damage(attackDamage);
             }
         }
     }
