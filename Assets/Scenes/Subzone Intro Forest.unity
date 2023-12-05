@@ -36979,6 +36979,7 @@ GameObject:
   - component: {fileID: 1407209446}
   - component: {fileID: 1407209449}
   - component: {fileID: 1407209450}
+  - component: {fileID: 1407209451}
   m_Layer: 0
   m_Name: Owl Test
   m_TagString: SubzoneEnemy
@@ -37112,6 +37113,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1407209451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407209445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05c9a6b84d8936c42b9411d3b1cf8a9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 30
+  attackDamage: 1
+  health: 1
+  audioManager: {fileID: 1089494029}
+  cameraShake: {fileID: 1991212018}
 --- !u!1001 &1491375973
 PrefabInstance:
   m_ObjectHideFlags: 0

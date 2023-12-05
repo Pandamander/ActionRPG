@@ -6,10 +6,9 @@ using UnityEngine;
 public class SubzoneEnemy : MonoBehaviour, IDamageable
 {
     public float moveSpeed;
-    public float patrolFlipTime;
+
     public float attackDamage = 1f;
     public float health;
-    public bool isVertical;
     public SubzoneAudioManager audioManager;
     protected float patrolTime;
     protected Rigidbody2D rigidBody;
@@ -37,10 +36,7 @@ public class SubzoneEnemy : MonoBehaviour, IDamageable
 
     protected void Flip()
     {
-        if (!isVertical)
-        {
-            transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
-        }
+        transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
 
         moveSpeed *= -1;
     }
