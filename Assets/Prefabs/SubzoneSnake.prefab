@@ -159,9 +159,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 30
-  patrolFlipTime: 3
   attackDamage: 1
   health: 1
-  isVertical: 0
   audioManager: {fileID: 0}
   cameraShake: {fileID: 0}
+  patrolFlipTime: 3

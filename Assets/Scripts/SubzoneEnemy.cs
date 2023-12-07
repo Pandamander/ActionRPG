@@ -3,35 +3,32 @@ using System.Collections.Generic;
 using UnityEditor.Rendering;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(CapsuleCollider2D))]
 public class SubzoneEnemy : MonoBehaviour, IDamageable
 {
     public float moveSpeed;
-
     public float attackDamage = 1f;
     public float health;
     public SubzoneAudioManager audioManager;
     protected float patrolTime;
     protected Rigidbody2D rigidBody;
     protected SpriteRenderer spriteRenderer;
+    protected Animator _animator;
     [SerializeField] protected CameraShake cameraShake;
 
     public virtual void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        _animator = GetComponent<Animator>();
     }
 
     public virtual void Update()
     {
-        if (health <= 0f)
-        {
-            rigidBody.velocity = new Vector2(
-                0f,
-                -200 * Time.fixedDeltaTime
-            );
-            transform.Rotate(0f, 0f, 2 * 360 * Time.deltaTime);
-            return;
-        }
+
     }
 
     protected void Flip()
@@ -66,8 +63,15 @@ public class SubzoneEnemy : MonoBehaviour, IDamageable
         health -= damage;
         if (health <= 0f)
         {
+            _animator.SetBool("IsDead", true);
             GetComponent<CapsuleCollider2D>().enabled = false;
+            
         }
         StartCoroutine(TakeDamage());
+    }
+
+    public void EnemyDeathAnimationComplete()
+    {
+        Destroy(gameObject);
     }
 }

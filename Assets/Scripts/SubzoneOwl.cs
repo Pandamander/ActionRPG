@@ -6,7 +6,6 @@ using static UnityEditor.Searcher.SearcherWindow.Alignment;
 public class SubzoneOwl : SubzoneEnemy
 {
     [SerializeField] private Transform player;
-    private Animator _animator;
     private BoxCollider2D _boxCollider;
     private Vector2 _target;
     private Vector2 _direction;
@@ -16,7 +15,6 @@ public class SubzoneOwl : SubzoneEnemy
     public override void Awake()
     {
         base.Awake();
-        _animator = GetComponent<Animator>();
         _boxCollider = GetComponent<BoxCollider2D>();
     }
 
