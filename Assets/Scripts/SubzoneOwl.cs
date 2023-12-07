@@ -11,11 +11,28 @@ public class SubzoneOwl : SubzoneEnemy
     private Vector2 _direction;
     private bool _flyTowardPlayer;
     private bool _hasBegunSwoopUp;
+    private float _swoopUpTimer = 0f;
+    private float _flyUpTimeToLive = 5f;
 
     public override void Awake()
     {
         base.Awake();
         _boxCollider = GetComponent<BoxCollider2D>();
+    }
+
+    public override void Update()
+    {
+        base.Update();
+
+        if (_hasBegunSwoopUp)
+        {
+            _swoopUpTimer += Time.deltaTime;
+            if (_swoopUpTimer >= _flyUpTimeToLive)
+            {
+                Debug.Log("Destroying owl");
+                Destroy(gameObject);
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -29,7 +46,7 @@ public class SubzoneOwl : SubzoneEnemy
                 _hasBegunSwoopUp = true;
                 _direction = new Vector2(_direction.y, -_direction.x);
             }
-        }
+        }         
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
