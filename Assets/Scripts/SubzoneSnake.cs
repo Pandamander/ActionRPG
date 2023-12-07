@@ -10,6 +10,8 @@ public class SubzoneSnake : SubzoneEnemy
     {
         base.Update();
 
+        if (_isDying) { return; }
+
         patrolTime += Time.deltaTime;
         if (patrolTime >= patrolFlipTime)
         {

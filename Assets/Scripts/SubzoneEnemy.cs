@@ -17,6 +17,7 @@ public class SubzoneEnemy : MonoBehaviour, IDamageable
     protected Rigidbody2D rigidBody;
     protected SpriteRenderer spriteRenderer;
     protected Animator _animator;
+    protected bool _isDying = false;
     [SerializeField] protected CameraShake cameraShake;
 
     public virtual void Awake()
@@ -63,7 +64,9 @@ public class SubzoneEnemy : MonoBehaviour, IDamageable
         health -= damage;
         if (health <= 0f)
         {
+            _isDying = true;
             _animator.SetBool("IsDead", true);
+            rigidBody.velocity = Vector2.zero;
             GetComponent<CapsuleCollider2D>().enabled = false;
             
         }

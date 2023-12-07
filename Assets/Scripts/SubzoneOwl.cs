@@ -37,6 +37,8 @@ public class SubzoneOwl : SubzoneEnemy
 
     private void FixedUpdate()
     {
+        if (_isDying) {  return; }
+
         if (_flyTowardPlayer)
         {
             rigidBody.MovePosition(rigidBody.position + _direction * moveSpeed * Time.fixedDeltaTime);
