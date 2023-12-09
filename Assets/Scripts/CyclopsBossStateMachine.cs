@@ -22,6 +22,7 @@ public class CyclopsBossStateMachine : MonoBehaviour
     private float moveDirection = -1f;
     private float moveTimer = 8f;
     private float moveTimeCounter = 0f;
+    private float swipeDistance = 3f;
     private List<int> swipeHealths = new() { 11, 8, 5, 2 };
     private bool startedDeathSequence = false;
     private bool beginCheckingForGrounded = false;
@@ -65,10 +66,15 @@ public class CyclopsBossStateMachine : MonoBehaviour
                     moveDirection *= -1;
                 }
 
-                int foundSwipeIndex = swipeHealths.IndexOf(cyclops.health);
-                if (foundSwipeIndex >= 0)
+                //int foundSwipeIndex = swipeHealths.IndexOf(cyclops.health);
+                //if (foundSwipeIndex >= 0)
+                //{
+                //    swipeHealths.RemoveAt(foundSwipeIndex);
+                //    cyclops.Attack(Cyclops.AttackType.Swipe);
+                //}
+
+                if (Mathf.Abs(cyclops.transform.position.x - playerRb.position.x) < swipeDistance)
                 {
-                    swipeHealths.RemoveAt(foundSwipeIndex);
                     cyclops.Attack(Cyclops.AttackType.Swipe);
                 }
 
