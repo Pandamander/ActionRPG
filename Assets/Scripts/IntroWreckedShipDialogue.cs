@@ -15,7 +15,7 @@ public class IntroWreckedShipDialogue : MonoBehaviour
         movement = Player.GetComponent<PlayerMovement>();
         animator = Player.GetComponent<Animator>();
     }
-    // Start is called before the first frame update
+
     void Start()
     {
         if (!OverworldSubzoneContainer.HasShownWreckedShipIntro)
@@ -33,9 +33,6 @@ public class IntroWreckedShipDialogue : MonoBehaviour
 
         // Now do dialogue
         dialogueTrigger.OnUse(transform);
-
-        // Temp - need to wire up to dialogue complete
-        GetUp();
     }
     private IEnumerator GetUpToCrochIdle()
     {
@@ -46,15 +43,10 @@ public class IntroWreckedShipDialogue : MonoBehaviour
         animator.SetBool("IsCrouchIdling", true);
     }
 
-    private void GetUp()
+    // Called by `DialogueSystemTrigger.OnConversationEnd`
+    public void StandUp()
     {
         animator.SetBool("IsStandingUp", true);
         movement.AllowMovement();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
