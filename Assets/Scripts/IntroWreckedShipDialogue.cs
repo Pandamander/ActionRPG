@@ -31,6 +31,7 @@ public class IntroWreckedShipDialogue : MonoBehaviour
     {
         yield return StartCoroutine(GetUpToCrochIdle());
 
+        yield return new WaitForSeconds(1f);
         // Now do dialogue
         dialogueTrigger.OnUse(transform);
     }
