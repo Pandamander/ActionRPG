@@ -63,7 +63,7 @@ public class SubzoneOwl : SubzoneEnemy
     public void AppearAnimationComplete()
     {
         _animator.SetBool("IsFlying", true);
-        _target = new Vector2(player.position.x, player.position.y - 1f);
+        _target = new Vector2(player.position.x, player.position.y - 2f);
         _direction = (new Vector2(_target.x, _target.y) - rigidBody.position).normalized;
         _flyTowardPlayer = true;
     }
