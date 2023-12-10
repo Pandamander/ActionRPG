@@ -68,7 +68,7 @@ public class SubzoneEnemy : MonoBehaviour, IDamageable
             _animator.SetBool("IsDead", true);
             rigidBody.velocity = Vector2.zero;
             GetComponent<CapsuleCollider2D>().enabled = false;
-            
+            return;
         }
         StartCoroutine(TakeDamage());
     }
