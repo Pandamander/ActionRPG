@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Cloud : MonoBehaviour
 {
-    public float speed = 1.2f;
+    private float speed;
 
     private float xDirection = -1.0f;
     private float yDirection = -1.0f;
@@ -13,6 +13,7 @@ public class Cloud : MonoBehaviour
 
     private void Start()
     {
+        speed = Random.Range(0.03f, 0.15f);
         direction = new Vector3(xDirection, yDirection);
     }
 
