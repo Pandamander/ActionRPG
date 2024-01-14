@@ -1718,7 +1718,7 @@ MonoBehaviour:
       type: 5
       typeString: CustomFieldType_Actor
     overrideSettings:
-      useOverrides: 1
+      useOverrides: 0
       overrideSubtitleSettings: 0
       showNPCSubtitlesDuringLine: 1
       showNPCSubtitlesWithResponses: 1
@@ -2550,7 +2550,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 21
-        y: 131
+        y: 130
         width: 160
         height: 30
     - id: 2
