@@ -125,7 +125,7 @@ public class Attack : MonoBehaviour, IDamageable
 			Die();
 			GetComponent<CapsuleCollider2D>().enabled = false;
 		}
-		else
+		else if (!isDamaged)
 		{
 			isDamaged = true;
 			playerMovement.StopForKnockback();
