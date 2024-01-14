@@ -61,7 +61,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_JumpForce: 900
   m_MovementSmoothing: 0.05
-  m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 128
@@ -115,6 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmgValue: 4
+  invulnerableDuration: 10
   meleeWeaponController: {fileID: 8982125354599466200}
   rangedWeaponController: {fileID: 0}
   attackCheck: {fileID: 441747885288404200}
@@ -123,6 +123,8 @@ MonoBehaviour:
   isTimeToCheck: 0
   cam: {fileID: 0}
   audioManager: {fileID: 0}
+  knockbackForce: {x: 5, y: 10}
+  knockbackLoseControlDuration: 0.7
   subzoneHUD: {fileID: 0}
 --- !u!114 &557152561997098504
 MonoBehaviour:

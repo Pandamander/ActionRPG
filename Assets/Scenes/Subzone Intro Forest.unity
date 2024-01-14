@@ -35766,7 +35766,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 470456349107416013, guid: d7ef947b56703b3428009724724c06a6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 23.474993
       objectReference: {fileID: 0}
     - target: {fileID: 470456349107416013, guid: d7ef947b56703b3428009724724c06a6, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -35846,7 +35846,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1902536247727176740, guid: d7ef947b56703b3428009724724c06a6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 23.474993
       objectReference: {fileID: 0}
     - target: {fileID: 1902536247727176740, guid: d7ef947b56703b3428009724724c06a6, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -36390,7 +36390,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7584860500968806653, guid: d7ef947b56703b3428009724724c06a6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 3.4749928
       objectReference: {fileID: 0}
     - target: {fileID: 7584860500968806653, guid: d7ef947b56703b3428009724724c06a6, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -36514,7 +36514,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9084715727016336030, guid: d7ef947b56703b3428009724724c06a6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 3.4749928
       objectReference: {fileID: 0}
     - target: {fileID: 9084715727016336030, guid: d7ef947b56703b3428009724724c06a6, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -37077,18 +37077,6 @@ PrefabInstance:
       propertyPath: audioManager
       value: 
       objectReference: {fileID: 1089494029}
-    - target: {fileID: 556315576806101520, guid: d17581581e44e5644bd22c60e04f999c, type: 3}
-      propertyPath: knockbackForce.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 556315576806101520, guid: d17581581e44e5644bd22c60e04f999c, type: 3}
-      propertyPath: knockbackForce.y
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 556315576806101520, guid: d17581581e44e5644bd22c60e04f999c, type: 3}
-      propertyPath: knockbackLoseControlDuration
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 557096882182385030, guid: d17581581e44e5644bd22c60e04f999c, type: 3}
       propertyPath: m_AirControl
       value: 0
