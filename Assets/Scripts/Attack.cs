@@ -17,6 +17,8 @@ public class Attack : MonoBehaviour, IDamageable
 	public bool isTimeToCheck = false;
 	public GameObject cam;
 	public SubzoneAudioManager audioManager;
+	public Vector2 knockbackForce = Vector2.zero;
+	public float knockbackLoseControlDuration = 1f;
 	public bool isAttacking
 	{
 		get
@@ -24,8 +26,9 @@ public class Attack : MonoBehaviour, IDamageable
 			return !canMeleeAttack;
 		}
 	}
+	public bool isDamaged { get; private set; }
 
-	[SerializeField] private SubzoneHUD subzoneHUD;
+    [SerializeField] private SubzoneHUD subzoneHUD;
 
 	private SpriteRenderer spriteRenderer;
     private PlayerMovement playerMovement;
@@ -75,14 +78,6 @@ public class Attack : MonoBehaviour, IDamageable
 		playerMovement.AllowMovement();
     }
 
-    private IEnumerator TakeDamage()
-	{
-		spriteRenderer.color = Color.red;
-		yield return new WaitForSeconds(0.1f);
-        spriteRenderer.color = Color.white;
-		yield return StartCoroutine(Invulnerability(invulnerableDuration));
-    }
-
     private IEnumerator Invulnerability(int duration)
     {
 		Physics2D.IgnoreLayerCollision(1, 9, true);
@@ -99,6 +94,16 @@ public class Attack : MonoBehaviour, IDamageable
         Physics2D.IgnoreLayerCollision(1, 9, false);
     }
 
+	private IEnumerator ResumeControlAfterKnockback()
+	{
+		yield return new WaitForSeconds(knockbackLoseControlDuration);
+        animator.SetBool("IsHit", false);
+		isDamaged = false;
+        playerMovement.AllowMovement();
+		canMeleeAttack = true;
+        yield return StartCoroutine(Invulnerability(invulnerableDuration));
+    }
+
     private IEnumerator GameOver()
 	{
 		audioManager.PlayGameOver();
@@ -108,24 +113,29 @@ public class Attack : MonoBehaviour, IDamageable
 		SceneManager.LoadScene("GameOver");
 	}
 
-    // IDamageable
-    public void Damage(float damage)
-    {
+	// IDamageable
+	public void Damage(float damage)
+	{
 		subzoneHUD.ReducePlayerHealthMeter((int)damage);
-        audioManager.PlayDamage();
-        PlayerStats.ApplyDamage(damage);
-		animator.SetTrigger("IsDamaged");
-        if (PlayerStats.Health <= 0f)
-        {
-			Die();
-            GetComponent<CapsuleCollider2D>().enabled = false;
-        } else
+		audioManager.PlayDamage();
+		PlayerStats.ApplyDamage(damage);
+		animator.SetBool("IsHit", true);
+		if (PlayerStats.Health <= 0f)
 		{
-			float knockbackForce = transform.localScale.x > 0f ? -2000f : 2000f;
-            rigidBody.AddForce(new Vector2(knockbackForce, 0f));
-            StartCoroutine(TakeDamage());
-        }
-    }
+			Die();
+			GetComponent<CapsuleCollider2D>().enabled = false;
+		}
+		else
+		{
+			isDamaged = true;
+			playerMovement.StopForKnockback();
+			canMeleeAttack = false;
+            animator.SetBool("IsHit", true);
+            float knockbackDirection = transform.localScale.x > 0f ? -1f : 1f;
+			rigidBody.AddForce(new Vector2(knockbackForce.x * knockbackDirection, knockbackForce.y), ForceMode2D.Impulse);
+			StartCoroutine(ResumeControlAfterKnockback());
+		}
+	}
 
     private void Die()
 	{

@@ -25,6 +25,13 @@ public class PlayerMovement : MonoBehaviour
 			return attack.isAttacking;
 		}
 	}
+	public bool isDamaged
+    {
+        get
+        {
+            return attack.isDamaged;
+        }
+    }
 
     //bool dashAxis = false;
 
@@ -97,6 +104,17 @@ public class PlayerMovement : MonoBehaviour
         horizontalMove = 0f;
         canMove = false;
         StopFixedUpdate = true;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+    }
+
+    public void StopForKnockback()
+    {
+        horizontalMove = 0f;
+        canMove = false;
+        StopFixedUpdate = true;
+        animator.SetBool("IsJumping", false);
+        animator.SetFloat("Speed", 0f);
+        animator.SetBool("IsAttacking", false);
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 

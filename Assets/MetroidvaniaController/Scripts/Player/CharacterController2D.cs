@@ -87,7 +87,7 @@ public class CharacterController2D : MonoBehaviour
 
 		if (!m_Grounded)
 		{
-			if (!playerMovement.isAttacking)
+			if (!playerMovement.isAttacking && !playerMovement.isDamaged)
 			{
                 OnFallEvent.Invoke();
             }
