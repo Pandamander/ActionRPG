@@ -42,6 +42,8 @@ public class MeleeController : MonoBehaviour
             currentMeleeWeapon.layerMask
         );
 
+        //Debug.Log("HIT " + hitEnemies.Length + " ENEMIES");
+
         if (hitEnemies.Length > 0)
         {
             audioManager.PlayAttackHit();

@@ -6,7 +6,7 @@ using static UnityEditor.Searcher.SearcherWindow.Alignment;
 public class SubzoneOwl : SubzoneEnemy
 {
     [SerializeField] private Transform player;
-    private BoxCollider2D _boxCollider;
+    [SerializeField] private BoxCollider2D _boxCollider;
     private Vector2 _target;
     private Vector2 _direction;
     private bool _flyTowardPlayer;
@@ -17,7 +17,6 @@ public class SubzoneOwl : SubzoneEnemy
     public override void Awake()
     {
         base.Awake();
-        _boxCollider = GetComponent<BoxCollider2D>();
     }
 
     public override void Update()
@@ -29,7 +28,6 @@ public class SubzoneOwl : SubzoneEnemy
             _swoopUpTimer += Time.deltaTime;
             if (_swoopUpTimer >= _flyUpTimeToLive)
             {
-                Debug.Log("Destroying owl");
                 Destroy(gameObject);
             }
         }
@@ -51,13 +49,10 @@ public class SubzoneOwl : SubzoneEnemy
         }         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void AppearTrigger()
     {
-        if (collision.CompareTag("Player"))
-        {
-            _boxCollider.enabled = false;
-            _animator.SetBool("IsAppearing", true);
-        }
+        _boxCollider.enabled = false;
+        _animator.SetBool("IsAppearing", true);
     }
 
     public void AppearAnimationComplete()
