@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class LightningFlash : MonoBehaviour
 {
 
-    private float timeBetweenFlashes = 5.0f;
+    private float timeBetweenFlashes = 4.0f;
     private float elapsedTime = 0;
     private Image lightningFlashImage;
 
@@ -25,6 +25,7 @@ public class LightningFlash : MonoBehaviour
         {
             StartCoroutine(LightingFlash());
             elapsedTime = 0;
+            timeBetweenFlashes = Random.Range(2.0f, 5.0f);
         }
     }
 

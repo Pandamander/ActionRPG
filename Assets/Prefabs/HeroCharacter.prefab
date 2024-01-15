@@ -124,7 +124,7 @@ MonoBehaviour:
   cam: {fileID: 0}
   audioManager: {fileID: 0}
   knockbackForce: {x: 5, y: 10}
-  knockbackLoseControlDuration: 0.7
+  knockbackLoseControlDuration: 0.44
   subzoneHUD: {fileID: 0}
 --- !u!114 &557152561997098504
 MonoBehaviour:
