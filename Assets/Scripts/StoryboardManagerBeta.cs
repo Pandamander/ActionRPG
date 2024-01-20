@@ -12,6 +12,7 @@ public class StorySection
     public Sprite image;
     public string animationClipName;
     public string[] storyText;
+
 }
 
 public class StoryboardManagerBeta : MonoBehaviour
@@ -31,6 +32,16 @@ public class StoryboardManagerBeta : MonoBehaviour
     private float punctuationDelay = 0.5f;
     private float waitTimeAtEnd = 2.0f;
 
+    // stuff related to the skip cutscene UI/UX
+    [SerializeField] private Image skipCutsceneRadialIndicator;
+    [SerializeField] private KeyCode skipKey = KeyCode.E;
+    [SerializeField] private Image skipCutsceneFadeBG;
+
+    private float radialSkipIndicatorTimer = 0;
+    private float radialSkipIndicatorTimerMax = 1.0f;
+    private bool skipKeyPressed = false;
+    private bool skippingCutscene = false;
+
     void Start()
     {
         textField = textObject.GetComponent<TMP_Text>();
@@ -45,10 +56,41 @@ public class StoryboardManagerBeta : MonoBehaviour
 
     private void Update()
     {
-        // Temp Skip Dialogue
-        if (Input.GetButtonDown("Fire2"))
+
+        // This is a bunch of stuff for skipping the cutscene and showing a
+        // radial progress indicator by pressing and holding a key
+
+        if (!skippingCutscene && Input.GetKeyDown(skipKey))
         {
-            SceneManager.LoadScene(nextScene);
+            skipKeyPressed = true;
+        }
+
+        if (!skippingCutscene && Input.GetKeyUp(skipKey))
+        {
+            skipKeyPressed = false;
+        }
+
+        if (!skippingCutscene && skipKeyPressed)
+        {
+
+            if (radialSkipIndicatorTimer >= radialSkipIndicatorTimerMax)
+            {
+                // skip cutscene here
+                radialSkipIndicatorTimer = radialSkipIndicatorTimerMax;
+                skippingCutscene = true;
+                StartCoroutine(SkipCutscene());
+            }
+            else
+            {
+                radialSkipIndicatorTimer += Time.deltaTime;
+                skipCutsceneRadialIndicator.fillAmount = radialSkipIndicatorTimer;
+            }
+
+        }
+        else if (!skippingCutscene && !skipKeyPressed && skipCutsceneRadialIndicator.fillAmount > 0)
+        {
+            radialSkipIndicatorTimer -= Time.deltaTime;
+            skipCutsceneRadialIndicator.fillAmount = radialSkipIndicatorTimer;
         }
     }
 
@@ -166,6 +208,30 @@ public class StoryboardManagerBeta : MonoBehaviour
         yield return new WaitForSeconds(waitTimeAtEnd);
     }
 
+    private IEnumerator SkipCutscene()
+    {
+        yield return StartCoroutine(DoSkipCutsceneFade());
+        SceneManager.LoadScene(nextScene);
+        yield return null;
+    }
 
+    private IEnumerator DoSkipCutsceneFade ()
+    {
+        float fadeDuration = 1.0f;
+        float elapsedTime = 0;
+        float alpha = 0;
+
+        while (alpha < 1.0f)
+        {
+            //print ("alpha is " + alpha);
+            //print("elapsed time is " + elapsedTime);
+            alpha = Mathf.Lerp(0, 1.0f, elapsedTime / fadeDuration);
+            skipCutsceneFadeBG.color = new Color(skipCutsceneFadeBG.color.r, skipCutsceneFadeBG.color.g, skipCutsceneFadeBG.color.b, alpha);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        yield return null;
+    }
 
 }
