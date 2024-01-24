@@ -7,6 +7,6 @@ public class MeleeWeapon : ScriptableObject
 {
     public Vector2 attackPoint;
     public Vector2 attackBounds;
-    public float attackDamage;
+    public int attackDamage;
     public LayerMask layerMask;
 }

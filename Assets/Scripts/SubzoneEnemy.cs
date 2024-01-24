@@ -10,8 +10,8 @@ using UnityEngine;
 public class SubzoneEnemy : MonoBehaviour, IDamageable
 {
     public float moveSpeed;
-    public float attackDamage = 1f;
-    public float health;
+    public int attackDamage = 1;
+    public int health;
     public SubzoneAudioManager audioManager;
     protected float patrolTime;
     protected Rigidbody2D rigidBody;
@@ -58,11 +58,11 @@ public class SubzoneEnemy : MonoBehaviour, IDamageable
     }
 
     // IDamageable
-    public void Damage(float damage)
+    public void Damage(int damage)
     {
         cameraShake.ShakeCamera(0.15f, 1.5f);
         health -= damage;
-        if (health <= 0f)
+        if (health <= 0)
         {
             _isDying = true;
             _animator.SetBool("IsDead", true);

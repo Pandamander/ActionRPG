@@ -5,8 +5,8 @@ public static class PlayerStats
     public static int Attack { get; private set; }
     public static int Defense { get; private set; }
     public static int DefenseCapacity { get; private set; }
-    public static float Health { get; private set; }
-    public static float HealthCapacity { get; private set; }
+    public static int Health { get; private set; }
+    public static int HealthCapacity { get; private set; }
 
     public static List<string> PowerupDestroy { get; private set; }
 
@@ -60,21 +60,14 @@ public static class PlayerStats
         Debug.Log("PowerupDestroy: " + PowerupDestroy.Count);
     }
 
-    public static void ApplyDamage(float amount)
+    public static void ApplyDamage(int amount)
     {
-        if (Defense == 0)
+        int newHealth = Health - amount;
+        if (newHealth < 0)
         {
-            float newHealth = Health - amount;
-            if (newHealth < 0f)
-            {
-                newHealth = 0f;
-            }
-            Health = newHealth;
+            newHealth = 0;
         }
-        else
-        {
-            Defense -= 1;
-        }
+        Health = newHealth;
     }
 
     public static void Reset()

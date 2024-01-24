@@ -10,7 +10,7 @@ public class CyclopsDamageCollider : MonoBehaviour
         {
             if (collision.gameObject.TryGetComponent<IDamageable>(out var player))
             {
-                player.Damage(1f);
+                player.Damage(1);
             }
         }
     }

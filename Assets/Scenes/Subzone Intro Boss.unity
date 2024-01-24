@@ -41069,6 +41069,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5135127193670527968, guid: d7ef947b56703b3428009724724c06a6, type: 3}
+      propertyPath: isPlayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5135127193670527968, guid: d7ef947b56703b3428009724724c06a6, type: 3}
       propertyPath: subzoneAudioManager
       value: 
       objectReference: {fileID: 578783516}

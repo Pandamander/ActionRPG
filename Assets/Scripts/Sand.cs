@@ -29,7 +29,7 @@ public class Sand : MonoBehaviour
             Destroy(gameObject);
             if (collision.gameObject.TryGetComponent<IDamageable>(out var player))
             {
-                player.Damage(1f);
+                player.Damage(1);
             }
         }
     }

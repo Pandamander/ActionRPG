@@ -114,9 +114,9 @@ public class Attack : MonoBehaviour, IDamageable
 	}
 
 	// IDamageable
-	public void Damage(float damage)
+	public void Damage(int damage)
 	{
-		subzoneHUD.ReducePlayerHealthMeter((int)damage);
+		subzoneHUD.ReducePlayerHealthMeter(damage);
 		audioManager.PlayDamage();
 		PlayerStats.ApplyDamage(damage);
 		animator.SetBool("IsHit", true);

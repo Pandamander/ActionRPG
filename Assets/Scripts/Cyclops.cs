@@ -160,7 +160,7 @@ public class Cyclops : MonoBehaviour, IDamageable
         {
             if (c.gameObject.TryGetComponent<IDamageable>(out var enemy))
             {
-                enemy.Damage(2f);
+                enemy.Damage(2);
             }
         }
     }
@@ -213,7 +213,7 @@ public class Cyclops : MonoBehaviour, IDamageable
         {
             if (collision.gameObject.TryGetComponent<IDamageable>(out var player))
             {
-                player.Damage(1f);
+                player.Damage(1);
             }
         }
     }
@@ -241,14 +241,14 @@ public class Cyclops : MonoBehaviour, IDamageable
     }
 
     // IDamageable
-    public void Damage(float damage)
+    public void Damage(int damage)
     {
         if (isKneeling) {
             health = -1;
             return;
         }
-        subzoneHUD.ReduceBossHealthMeter((int)damage);
-        health -= (int)damage;
+        subzoneHUD.ReduceBossHealthMeter(damage);
+        health -= damage;
         StartCoroutine(TakeDamage());
     }
 }

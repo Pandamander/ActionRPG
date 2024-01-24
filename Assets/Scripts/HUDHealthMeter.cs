@@ -6,23 +6,39 @@ using UnityEngine;
 
 public class HUDHealthMeter : MonoBehaviour
 {
+    public bool isPlayer = false;
     [SerializeField] private GameObject[] healthMeterFilled;
     [SerializeField] private SubzoneAudioManager subzoneAudioManager;
-    // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
-        
+        // Set to empty health and let level managers / PlayerStats update
+        for (int i = healthMeterFilled.Length; i-- > 0;)
+        {
+            healthMeterFilled[i].SetActive(false);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        // Set player health to current stat health when play starts
+        if (isPlayer && (PlayerStats.Health <= healthMeterFilled.Length) )
+        {
+            SetHealth(PlayerStats.Health);
+        }
     }
 
     public void FillMeter()
     {
         StartCoroutine(Fill());
+    }
+
+    public void SetHealth(int health)
+    {
+        for (int i = 0; i < health; i++)
+        {
+            healthMeterFilled[i].SetActive(true);
+        }
     }
 
     private IEnumerator Fill()
