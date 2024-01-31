@@ -26,28 +26,28 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Archive/Subzone Forest.unity
     guid: a502f8b6ec5e241f2b8ecff8486c39c8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Archive/Subzone Forest Level 2.unity
     guid: 10820c7b351a44668a53d9b17817633a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Archive/Subzone Cave 1.unity
     guid: 967967666b4124957949b9ef4fd35f04
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Archive/Subzone Cave Level 2.unity
     guid: 4e458d63c127f48f4bf94cfb15681813
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Archive/Subzone Cave Level 3.unity
     guid: ed84110ca5253414fa9dddc407b119d8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Archive/Subzone Cave Level 4.unity
     guid: 9a2dd1a86bd5242a0b9de2c381d24b53
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Archive/Subzone Fountain.unity
     guid: 41fe10e8517f9aa4c98157706d20bf89
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Archive/Subzone Fountain2.unity
     guid: 9f656b0161e9b24408d3ebcfb325bb0a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Archive/Subzone Fountain3.unity
     guid: 58d07a379e26b9f41a475d2a4ed7c170
   - enabled: 1
@@ -69,8 +69,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Subzone Intro Wrecked Ship.unity
     guid: 3af6208166889491f91d31d8758f8cd3
   - enabled: 0
-    path: Assets/Scenes/Subzone Intro 2.unity
-    guid: 73673f14db44f4aff8ccf11299173250
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Subzone Intro Town.unity
     guid: c35855835914c4d298234e0e8050515d
@@ -80,4 +80,7 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Subzone Intro Cave.unity
+    guid: 54da5b6e55cf642bd953c2e03357743e
   m_configObjects: {}
