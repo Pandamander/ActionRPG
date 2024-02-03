@@ -46,11 +46,11 @@ public class PlayerMovement : MonoBehaviour
 
 		if (!canMove) { return; }
 
-		float input = Input.GetAxisRaw("Horizontal");
+		float inputHorizontal = Input.GetAxisRaw("Horizontal");
 
-        horizontalMove = input * runSpeed;
+        horizontalMove = inputHorizontal * runSpeed;
 
-		animator.SetFloat("Speed", Mathf.Abs(input));
+		animator.SetFloat("Speed", Mathf.Abs(inputHorizontal));
 
 		if (Input.GetButtonDown("Jump"))
 		{
@@ -62,10 +62,34 @@ public class PlayerMovement : MonoBehaviour
 			dash = true;
 		}
 
-		grounded = controller.m_Grounded;
+        grounded = controller.m_Grounded;
+
+        float inputVertical = Input.GetAxisRaw("Vertical");
+
+        if (grounded)
+		{
+			if (inputVertical == -1f)
+			{
+                Crouch();
+            } else
+			{
+				UnCrouch();
+			}
+		}
 	}
 
-	public void DoJump()
+	private void Crouch()
+	{
+        horizontalMove = 0f;
+        animator.SetBool("IsCrouching", true);
+    }
+
+    private void UnCrouch()
+    {
+        animator.SetBool("IsCrouching", false);
+    }
+
+    public void DoJump()
 	{
 		jump = true;
 	}
