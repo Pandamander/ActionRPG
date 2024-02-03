@@ -9,6 +9,7 @@ public class MeleeController : MonoBehaviour
     public MeleeWeapon currentMeleeWeapon;
     [SerializeField] private SubzoneAudioManager audioManager;
     public PlayerDirection playerDirection;
+    public bool isCrouching = false;
     private Vector2 attackOriginPoint;
     private Vector2 attackSize;
 
@@ -24,12 +25,13 @@ public class MeleeController : MonoBehaviour
             transform.position.y
         );
 
+        Vector2 weaponAttackPoint = isCrouching ? currentMeleeWeapon.crouchAttackPoint : currentMeleeWeapon.attackPoint;
         if ( playerDirection == PlayerDirection.Left )
         {
-            attackOriginPoint += new Vector2(-currentMeleeWeapon.attackPoint.x, currentMeleeWeapon.attackPoint.y);
+            attackOriginPoint += new Vector2(-weaponAttackPoint.x, weaponAttackPoint.y);
         } else
         {
-            attackOriginPoint += currentMeleeWeapon.attackPoint;
+            attackOriginPoint += weaponAttackPoint;
         }
     }
 

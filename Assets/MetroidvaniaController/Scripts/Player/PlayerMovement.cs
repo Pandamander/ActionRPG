@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
             return attack.isDamaged;
         }
     }
+	public bool isCrouching = false;
 
     //bool dashAxis = false;
 
@@ -82,11 +83,13 @@ public class PlayerMovement : MonoBehaviour
 	{
         horizontalMove = 0f;
         animator.SetBool("IsCrouching", true);
+		isCrouching = true;
     }
 
     private void UnCrouch()
     {
         animator.SetBool("IsCrouching", false);
+        isCrouching = false;
     }
 
     public void DoJump()

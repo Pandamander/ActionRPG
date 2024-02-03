@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: MeleeWeapon1
   m_EditorClassIdentifier: 
   attackPoint: {x: 1.186, y: 0.12}
+  crouchAttackPoint: {x: 0.9683, y: -0.3742}
   attackBounds: {x: 0.88, y: 0.12}
   attackDamage: 1
   layerMask:
