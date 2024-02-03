@@ -60,6 +60,12 @@ public class SubzoneOwl : SubzoneEnemy
         _animator.SetBool("IsFlying", true);
         _target = new Vector2(player.position.x, player.position.y - 2f);
         _direction = (new Vector2(_target.x, _target.y) - rigidBody.position).normalized;
+        if (_direction.x > 0f) { FlipFacingDirection(); }
         _flyTowardPlayer = true;
+    }
+
+    private void FlipFacingDirection()
+    {
+        transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
     }
 }
