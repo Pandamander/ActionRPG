@@ -2129,8 +2129,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 28.201187, y: 20.310713}
-    canvasZoom: 1.3429972
+    canvasScrollPosition: {x: 32.475677, y: 23.105686}
+    canvasZoom: 0.57350177
   - id: 9
     fields:
     - title: Title
@@ -2484,7 +2484,7 @@ MonoBehaviour:
       - originConversationID: 10
         originDialogueID: 0
         destinationConversationID: 10
-        destinationDialogueID: 1
+        destinationDialogueID: 3
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -2494,8 +2494,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 21
-        y: 54
+        x: 753
+        y: 42
         width: 160
         height: 30
     - id: 1
@@ -2521,7 +2521,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: This is a test
+        value: I'm...alive.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -2539,7 +2539,7 @@ MonoBehaviour:
       - originConversationID: 10
         originDialogueID: 1
         destinationConversationID: 10
-        destinationDialogueID: 2
+        destinationDialogueID: 4
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -2549,8 +2549,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 21
-        y: 130
+        x: 754
+        y: 202
         width: 160
         height: 30
     - id: 2
@@ -2576,7 +2576,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: This is the end of the test
+        value: I don't see anything but ocean in all directions. Where am I?
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -2598,13 +2598,123 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 22
-        y: 217
+        x: 757.6832
+        y: 389.46597
+        width: 160
+        height: 30
+    - id: 3
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 5
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: ...
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 10
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 10
+        originDialogueID: 3
+        destinationConversationID: 10
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 754
+        y: 121
+        width: 160
+        height: 30
+    - id: 4
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 5
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: But my vessel is damaged beyond repair...
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 10
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 10
+        originDialogueID: 4
+        destinationConversationID: 10
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 755.2278
+        y: 295.2775
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    canvasScrollPosition: {x: 2.4554443, y: 2.4555054}
+    canvasZoom: 0.8144997
   syncInfo:
     syncActors: 0
     syncItems: 0
