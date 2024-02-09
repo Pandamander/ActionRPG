@@ -34,7 +34,7 @@ public class Attack : MonoBehaviour, IDamageable
     private CharacterController2D controller;
 	private bool shouldCheckGroundedForKnockback = false;
     private bool playerWasKnockedBack = false;
-    //private bool dead = false;
+    private bool dead = false;
 
     private void Awake()
 	{
@@ -109,7 +109,6 @@ public class Attack : MonoBehaviour, IDamageable
         if (!playerMovement.grounded)
         {
             playerWasKnockedBack = true;
-
         }
         else
         {
@@ -118,18 +117,23 @@ public class Attack : MonoBehaviour, IDamageable
                 shouldCheckGroundedForKnockback = false;
                 playerWasKnockedBack = false;
                 StartCoroutine(ResumeControlAfterKnockback());
-
             }
         }
     }
 
     private IEnumerator ResumeControlAfterKnockback()
 	{
-        animator.SetBool("IsHit", false);
-		isDamaged = false;
-        playerMovement.AllowMovement();
-		canMeleeAttack = true;
-        yield return StartCoroutine(Invulnerability(invulnerableDuration));
+        if (PlayerStats.Health <= 0f)
+        {
+            yield return StartCoroutine(Die());
+        } else
+		{
+            animator.SetBool("IsHit", false);
+            isDamaged = false;
+            playerMovement.AllowMovement();
+            canMeleeAttack = true;
+            yield return StartCoroutine(Invulnerability(invulnerableDuration));
+        }
     }
 
     private IEnumerator GameOver()
@@ -144,16 +148,14 @@ public class Attack : MonoBehaviour, IDamageable
 	// IDamageable
 	public void Damage(int damage)
 	{
+		if (dead) { return; }
+
 		subzoneHUD.ReducePlayerHealthMeter(damage);
 		audioManager.PlayDamage();
 		PlayerStats.ApplyDamage(damage);
 		animator.SetBool("IsHit", true);
-		if (PlayerStats.Health <= 0f)
-		{
-			Die();
-			GetComponent<CapsuleCollider2D>().enabled = false;
-		}
-		else if (!isDamaged)
+
+		if (!isDamaged)
 		{
 			isDamaged = true;
 			playerMovement.StopForKnockback();
@@ -165,12 +167,13 @@ public class Attack : MonoBehaviour, IDamageable
         }
 	}
 
-    private void Die()
+    private IEnumerator Die()
 	{
-		//dead = true;
-		spriteRenderer.color = Color.red;
-		controller = gameObject.GetComponent<CharacterController2D>();
-		controller.canMove = false;
-		playerMovement.Stop();
+        audioManager.PlayGameOver();
+        dead = true;
+        animator.SetBool("IsDead", true);
+		yield return new WaitForSeconds(4);
+        GameOverScreen gameOver = GameObject.FindAnyObjectByType<GameOverScreen>();
+		gameOver.ShowGameOver(SceneManager.GetActiveScene().name);
 	}
 }

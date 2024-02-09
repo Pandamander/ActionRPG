@@ -74,4 +74,9 @@ public static class PlayerStats
     {
         Initialized = false;
     }
+
+    public static void ResetHealthForContinue()
+    {
+        Health = HealthCapacity;
+    }
 }
