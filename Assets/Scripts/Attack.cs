@@ -18,7 +18,6 @@ public class Attack : MonoBehaviour, IDamageable
 	public GameObject cam;
 	public SubzoneAudioManager audioManager;
 	public Vector2 knockbackForce = Vector2.zero;
-	public float knockbackLoseControlDuration = 1f;
 	public bool isAttacking
 	{
 		get
@@ -33,6 +32,8 @@ public class Attack : MonoBehaviour, IDamageable
 	private SpriteRenderer spriteRenderer;
     private PlayerMovement playerMovement;
     private CharacterController2D controller;
+	private bool shouldCheckGroundedForKnockback = false;
+    private bool playerWasKnockedBack = false;
     //private bool dead = false;
 
     private void Awake()
@@ -49,10 +50,12 @@ public class Attack : MonoBehaviour, IDamageable
     // Update is called once per frame
     void Update()
     {
+		// Update melee attack direction
 		meleeWeaponController.playerDirection = transform.localScale.x > 0 ?
 			MeleeController.PlayerDirection.Right : MeleeController.PlayerDirection.Left;
 		meleeWeaponController.isCrouching = playerMovement.isCrouching;
 
+		// Handle melee attack
 		if (playerMovement.canMove && Input.GetButtonDown("Fire1") && canMeleeAttack)
 		{
 			if (playerMovement.grounded)
@@ -69,6 +72,12 @@ public class Attack : MonoBehaviour, IDamageable
 
 			StartCoroutine(MeleeAttackCooldown());
 		}
+
+		// Handle knockback landing
+		if (shouldCheckGroundedForKnockback && animator.GetBool("IsHit"))
+		{
+			CheckGroundedForKnockback();
+        }
 	}
 
 	IEnumerator MeleeAttackCooldown()
@@ -95,9 +104,27 @@ public class Attack : MonoBehaviour, IDamageable
         Physics2D.IgnoreLayerCollision(1, 9, false);
     }
 
-	private IEnumerator ResumeControlAfterKnockback()
+	private void CheckGroundedForKnockback()
 	{
-		yield return new WaitForSeconds(knockbackLoseControlDuration);
+        if (!playerMovement.grounded)
+        {
+            playerWasKnockedBack = true;
+
+        }
+        else
+        {
+            if (playerWasKnockedBack)
+            {
+                shouldCheckGroundedForKnockback = false;
+                playerWasKnockedBack = false;
+                StartCoroutine(ResumeControlAfterKnockback());
+
+            }
+        }
+    }
+
+    private IEnumerator ResumeControlAfterKnockback()
+	{
         animator.SetBool("IsHit", false);
 		isDamaged = false;
         playerMovement.AllowMovement();
@@ -134,8 +161,8 @@ public class Attack : MonoBehaviour, IDamageable
             animator.SetBool("IsHit", true);
             float knockbackDirection = transform.localScale.x > 0f ? -1f : 1f;
 			rigidBody.AddForce(new Vector2(knockbackForce.x * knockbackDirection, knockbackForce.y), ForceMode2D.Impulse);
-			StartCoroutine(ResumeControlAfterKnockback());
-		}
+			shouldCheckGroundedForKnockback = true;
+        }
 	}
 
     private void Die()

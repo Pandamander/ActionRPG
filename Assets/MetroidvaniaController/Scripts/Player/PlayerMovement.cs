@@ -44,8 +44,9 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
 	{
+        grounded = controller.m_Grounded;
 
-		if (!canMove) { return; }
+        if (!canMove) { return; }
 
 		float inputHorizontal = Input.GetAxisRaw("Horizontal");
 
@@ -62,8 +63,6 @@ public class PlayerMovement : MonoBehaviour
 		{
 			dash = true;
 		}
-
-        grounded = controller.m_Grounded;
 
         float inputVertical = Input.GetAxisRaw("Vertical");
 
