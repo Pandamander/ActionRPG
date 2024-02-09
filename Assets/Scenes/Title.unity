@@ -307,7 +307,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\xA92023 Coopal00ps, Elliott Dahle, Pandamander"
+  m_text: "\xA92024 Coopal00ps, Elliott Dahle, Pandamander"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f07000dae16a64fcc979bffe80b7fe18, type: 2}
   m_sharedMaterial: {fileID: 8777788963673215855, guid: f07000dae16a64fcc979bffe80b7fe18, type: 2}
@@ -860,7 +860,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.9998509
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
