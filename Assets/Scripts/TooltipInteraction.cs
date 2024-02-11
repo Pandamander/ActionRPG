@@ -17,7 +17,7 @@ public class TooltipInteraction : MonoBehaviour
 
     void Update()
     {
-        if (isInTrigger && Input.GetKeyDown(KeyCode.E) && DialogueManager.IsConversationActive == false)
+        if (isInTrigger && Input.GetKeyDown(KeyCode.UpArrow) && DialogueManager.IsConversationActive == false)
         {
             // Get the dialogue trigger component from this gameObject
             DialogueSystemTrigger dialogueTrigger = this.GetComponent<DialogueSystemTrigger>();
