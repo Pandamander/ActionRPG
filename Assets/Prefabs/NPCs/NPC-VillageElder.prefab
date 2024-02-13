@@ -124,7 +124,6 @@ GameObject:
   - component: {fileID: 2913649486895069}
   - component: {fileID: 859973174565019121}
   - component: {fileID: 859973174565019120}
-  - component: {fileID: 859973174454833121}
   - component: {fileID: 859973174454833151}
   m_Layer: 0
   m_Name: NPC-VillageElder
@@ -197,7 +196,7 @@ MonoBehaviour:
   allowBarksDuringConversations: 0
   skipBarkIfNoValidEntries: 0
   cacheBarkLines: 0
-  conversation: Town_BoatQuestGiver
+  conversation: Intro Town Village Elder
   conversationConversant: {fileID: 7274244976559300267}
   conversationActor: {fileID: 0}
   startConversationEntryID: -1
@@ -471,19 +470,6 @@ AudioSource:
     m_PostInfinity: 2
     m_RotationOrder: 4
 --- !u!114 &859973174565019120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8860285419709452480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73a8f046e12324fcab238423256bb142, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  newMaterial: {fileID: 2100000, guid: 95c69c5b2a1bb47cb83c29d898490ed2, type: 2}
---- !u!114 &859973174454833121
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

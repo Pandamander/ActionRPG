@@ -123,6 +123,28 @@ MonoBehaviour:
     spritePortrait: {fileID: 21300000, guid: c34f4ccff677141a0baeea632ed89509, type: 3}
     alternatePortraits: []
     spritePortraits: []
+  - id: 6
+    fields:
+    - title: Name
+      value: Intro Town Young Man
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Pictures
+      value: '[]'
+      type: 3
+      typeString: CustomFieldType_Files
+    - title: Description
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: IsPlayer
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    portrait: {fileID: 2800000, guid: 28bf9de4f7059844baea8c7182827739, type: 3}
+    spritePortrait: {fileID: 21300000, guid: 28bf9de4f7059844baea8c7182827739, type: 3}
+    alternatePortraits: []
+    spritePortraits: []
   items:
   - id: 1
     fields:
@@ -848,7 +870,7 @@ MonoBehaviour:
   - id: 5
     fields:
     - title: Title
-      value: Town_Old Woman
+      value: Intro Town Old Woman
       type: 0
       typeString: CustomFieldType_Text
     - title: Description
@@ -969,7 +991,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: The creatures of our island have become more aggressive as of late.
+        value: Our island has been a quiet place for many years, but recently it
+          feels like a grave darkness has taken hold.
         type: 0
         typeString: 
       - title: Sequence
@@ -1024,7 +1047,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: One man in town even claims to have lost his boat to a towering fiend.
+        value: Several residents have gone missing, and there are rumors of a foul
+          creature lurking deep in the forest.
         type: 0
         typeString: 
       - title: Sequence
@@ -1056,7 +1080,7 @@ MonoBehaviour:
   - id: 8
     fields:
     - title: Title
-      value: Town_BoatQuestGiver
+      value: Intro Town Village Elder
       type: 0
       typeString: CustomFieldType_Text
     - title: Description
@@ -1177,7 +1201,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: My young man, I have not seen someone like you in eons.
+        value: My young man, I have not seen someone like you in ages.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -1232,8 +1256,9 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Why is someone of your stature visiting our town? Here to investigate
-          our peculiarities?
+        value: 'Why is someone of your stature visiting our town?
+
+'
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -1261,8 +1286,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 20
-        y: 153
+        x: 27.89264
+        y: 159.3141
         width: 160
         height: 30
     - id: 4
@@ -1399,8 +1424,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: There is a monstrosity that has taken claim to it, and the beach that
-          it's moored on.
+        value: The boat is moored at a dock on the other side of the forest. You
+          must travel through the forest to get to it.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -1428,7 +1453,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 31
+        x: 32.578537
         y: 322
         width: 160
         height: 30
@@ -1455,8 +1480,64 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Go north, through the forest. You will find this brute. If you can
-          best him, you may use the boat.
+        value: But be warned...several villagers have recently gone missing, and
+          we know not the dangers that are currently lurking in the woods.
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 8
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 8
+        originDialogueID: 7
+        destinationConversationID: 8
+        destinationDialogueID: 8
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 31
+        y: 372
+        width: 160
+        height: 30
+    - id: 8
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 4
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: It would be wise to equip yourself with the means of protection before
+          you proceed.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -1478,29 +1559,29 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 31
-        y: 372
+        x: 34.157043
+        y: 422
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 51.00449}
-    canvasZoom: 0.57350177
+    canvasScrollPosition: {x: 0, y: 60.22762}
+    canvasZoom: 0.57350194
   - id: 9
     fields:
     - title: Title
-      value: Town_Fast Man
+      value: Intro Town Young Man
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Description
       value: 
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Actor
-      value: -1
+      value: 1
       type: 5
       typeString: CustomFieldType_Actor
     - title: Conversant
-      value: -1
+      value: 6
       type: 5
       typeString: CustomFieldType_Actor
     overrideSettings:
@@ -1542,11 +1623,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Actor
-        value: -1
+        value: 1
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: -1
+        value: 6
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -1591,32 +1672,32 @@ MonoBehaviour:
       - title: Title
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Description
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Actor
-        value: -1
+        value: 6
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: -1
+        value: 6
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: I've lived on this island all my life. My family was originally from
           Crete.
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Sequence
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       conversationID: 9
       isRoot: 0
       isGroup: 0
@@ -1653,11 +1734,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Actor
-        value: -1
+        value: 6
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: -1
+        value: 6
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -1666,7 +1747,7 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: Things have always been peaceful, but several weeks ago a black fog
-          overtook the west island.
+          overtook the east island.
         type: 0
         typeString: 
       - title: Sequence
@@ -1695,7 +1776,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 20
-        y: 154
+        y: 154.89008
         width: 160
         height: 30
     - id: 3
@@ -1709,11 +1790,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Actor
-        value: -1
+        value: 6
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: -1
+        value: 6
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -1721,14 +1802,69 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: No one who has sailed that way has returned. There are rumors of unknown
-          creatures.
+        value: No one who has sailed that way has returned.
         type: 0
         typeString: 
       - title: Sequence
         value: 
         type: 0
         typeString: 
+      conversationID: 9
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 9
+        originDialogueID: 3
+        destinationConversationID: 9
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 20
+        y: 204
+        width: 160
+        height: 30
+    - id: 4
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 6
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: On top of that, recent disappearances in our own village have been
+          making me feel uneasy. What do you think is happening?
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 9
       isRoot: 0
       isGroup: 0
@@ -1745,12 +1881,12 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 20
-        y: 204
+        y: 254
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0.40464613, y: 0.29999626}
-    canvasZoom: 1.0035006
+    canvasScrollPosition: {x: 2.670227, y: 100.941795}
+    canvasZoom: 1.1235006
   - id: 10
     fields:
     - title: Title
