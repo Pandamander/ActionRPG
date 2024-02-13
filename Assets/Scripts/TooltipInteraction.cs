@@ -17,7 +17,7 @@ public class TooltipInteraction : MonoBehaviour
 
     void Update()
     {
-        if (isInTrigger && Input.GetKeyDown(KeyCode.UpArrow) && DialogueManager.IsConversationActive == false)
+        if (isInTrigger && UpPressed() && DialogueManager.IsConversationActive == false)
         {
             // Get the dialogue trigger component from this gameObject
             DialogueSystemTrigger dialogueTrigger = this.GetComponent<DialogueSystemTrigger>();
@@ -51,6 +51,8 @@ public class TooltipInteraction : MonoBehaviour
         }
     }
 
-
-
+    private bool UpPressed()
+    {
+        return Input.GetKeyDown(KeyCode.UpArrow) || Input.GetAxisRaw("DPadY") == 1 || Input.GetAxisRaw("Vertical") == 1;
+    }
 }
