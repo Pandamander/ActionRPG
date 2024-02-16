@@ -991,8 +991,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Our island has been a quiet and peaceful place for many years, but
-          recently it feels like a darkness has taken hold.
+        value: Our island has always been a quiet and peaceful place, but recently
+          it feels like a shadow has been cast upon us.
         type: 0
         typeString: 
       - title: Sequence
@@ -1062,7 +1062,13 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 5
+        originDialogueID: 2
+        destinationConversationID: 5
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -1129,8 +1135,57 @@ MonoBehaviour:
         y: 73
         width: 160
         height: 30
+    - id: 4
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: These are troubling times, indeed.
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 5
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 40.36586
+        y: 280.48776
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
+    canvasScrollPosition: {x: 0, y: 91.46341}
     canvasZoom: 0.8200002
   - id: 8
     fields:
@@ -1535,8 +1590,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: But be warned . . . several villagers have recently gone missing,
-          and we know not the dangers that are currently lurking in the woods.
+        value: But be warned... several villagers have recently gone missing, and
+          we know not the dangers that are currently lurking in the woods.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -1591,7 +1646,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: It would be wise to equip yourself with the means of protection before
+        value: It would be wise to equip yourself with a means of protection before
           you proceed.
         type: 0
         typeString: CustomFieldType_Text
@@ -1619,8 +1674,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 298.7115}
-    canvasZoom: 1.0535016
+    canvasScrollPosition: {x: 0, y: 292.1224}
+    canvasZoom: 0.9335017
   - id: 9
     fields:
     - title: Title
@@ -1940,7 +1995,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 111.30629}
+    canvasScrollPosition: {x: 0, y: 79.67186}
     canvasZoom: 0.85350084
   - id: 10
     fields:
