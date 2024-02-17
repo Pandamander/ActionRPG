@@ -10,6 +10,7 @@ public class LevelExit : MonoBehaviour
     public Vector3 levelExitOverworldPositionOverride;
     public bool usePositionOverride;
     public string subzone;
+    public string levelToLoadOnExit = "Overworld";
     public OverworldSubzoneContainer.PlayerDirection direction;
 
     [SerializeField] private Fader fader;
@@ -33,10 +34,6 @@ public class LevelExit : MonoBehaviour
             }
 
             StartCoroutine(DoSceneExit());
-
-            // Note from Brice:
-            // If we want to use the transition animation here, we can use: FindObjectOfType<LevelLoaderTransitions>().LoadNextLevel(nextSceneName);
-            // Could probably do on the overworld transtion too
         }
     }
 
@@ -44,7 +41,7 @@ public class LevelExit : MonoBehaviour
     {
         yield return StartCoroutine(fader.DoFadeIn());
         
-        SceneManager.LoadScene("Overworld");
+        SceneManager.LoadScene(levelToLoadOnExit);
 
         yield return null;
     }
