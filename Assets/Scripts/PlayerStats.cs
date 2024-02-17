@@ -7,6 +7,7 @@ public static class PlayerStats
     public static int DefenseCapacity { get; private set; }
     public static int Health { get; private set; }
     public static int HealthCapacity { get; private set; }
+    public static string MeleeWeapon { get; private set; }
 
     public static List<string> PowerupDestroy { get; private set; }
 
@@ -58,6 +59,12 @@ public static class PlayerStats
         PowerupDestroy.Add(tag);
         Debug.Log("ADDED TAG: " + tag);
         Debug.Log("PowerupDestroy: " + PowerupDestroy.Count);
+    }
+
+    public static void PickUpWeapon(string weaponSOPath)
+    {
+        Debug.Log("PickUpWeapon: " + weaponSOPath);
+        MeleeWeapon = weaponSOPath;
     }
 
     public static void ApplyDamage(int amount)

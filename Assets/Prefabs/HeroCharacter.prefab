@@ -124,7 +124,6 @@ MonoBehaviour:
   cam: {fileID: 0}
   audioManager: {fileID: 0}
   knockbackForce: {x: 5, y: 10}
-  knockbackLoseControlDuration: 0.44
   subzoneHUD: {fileID: 0}
 --- !u!114 &557152561997098504
 MonoBehaviour:
@@ -143,6 +142,7 @@ MonoBehaviour:
   runSpeed: 20
   horizontalMove: 0
   canMove: 1
+  isCrouching: 0
 --- !u!212 &349662688299814154
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10243,6 +10243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5af747d307dd83a47a2edfe9202e9c8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentMeleeWeapon: {fileID: 11400000, guid: 736183553da42ce4c912eef09fefb92f, type: 2}
   audioManager: {fileID: 0}
+  weapons:
+  - {fileID: 11400000, guid: 736183553da42ce4c912eef09fefb92f, type: 2}
   playerDirection: 0
+  isCrouching: 0

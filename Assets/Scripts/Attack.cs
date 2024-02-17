@@ -58,7 +58,7 @@ public class Attack : MonoBehaviour, IDamageable
 		meleeWeaponController.isCrouching = playerMovement.isCrouching;
 
 		// Handle melee attack
-		if (playerMovement.canMove && Input.GetButtonDown("Fire1") && canMeleeAttack)
+		if (meleeWeaponController.HasWeapon && playerMovement.canMove && Input.GetButtonDown("Fire1") && canMeleeAttack)
 		{
 			if (playerMovement.grounded)
 			{
@@ -168,4 +168,16 @@ public class Attack : MonoBehaviour, IDamageable
         GameOverScreen gameOver = GameObject.FindAnyObjectByType<GameOverScreen>();
 		gameOver.ShowGameOver(SceneManager.GetActiveScene().name);
 	}
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.name == "GladiusItem")
+        {
+            MeleeWeaponPickup weaponPickup = collision.gameObject.GetComponentInChildren<MeleeWeaponPickup>();
+            if (weaponPickup != null)
+            {
+                meleeWeaponController.SetMeleeWeapon(weaponPickup.weapon);
+            }
+        }
+    }
 }

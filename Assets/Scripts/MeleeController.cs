@@ -2,24 +2,62 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection.Emit;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class MeleeController : MonoBehaviour
 {
     public enum PlayerDirection { Left, Right };
-    public MeleeWeapon currentMeleeWeapon;
+    public MeleeWeapon currentMeleeWeapon { get; private set; }
     [SerializeField] private SubzoneAudioManager audioManager;
+    [SerializeField] private List<MeleeWeapon> weapons;
+    private Dictionary<string, MeleeWeapon> WeaponScriptableObjectMap;
     public PlayerDirection playerDirection;
     public bool isCrouching = false;
+    public bool HasWeapon
+    {
+        get
+        {
+            return currentMeleeWeapon != null;
+        }
+    }
     private Vector2 attackOriginPoint;
     private Vector2 attackSize;
 
     private void Awake()
     {
+        InitializeWeaponMap();
+
+        LoadLastObtainedWeapon();
+
+        if (!HasWeapon) return;
+
         attackSize = currentMeleeWeapon.attackBounds;
+    }
+
+    private void LoadLastObtainedWeapon()
+    {
+        if (PlayerStats.MeleeWeapon != null)
+        {
+            MeleeWeapon weapon = WeaponScriptableObjectMap[PlayerStats.MeleeWeapon];
+            if (weapon != null)
+            {
+                currentMeleeWeapon = weapon;
+            }
+        }
+    }
+
+    private void InitializeWeaponMap()
+    {
+        WeaponScriptableObjectMap = new Dictionary<string, MeleeWeapon>()
+        {
+            { "GladiusSword", weapons[0] },
+        };
     }
 
     private void Update()
     {
+        if (!HasWeapon) return;
+
         attackOriginPoint = new Vector2(
             transform.position.x,
             transform.position.y
@@ -37,6 +75,8 @@ public class MeleeController : MonoBehaviour
 
     public void Attack()
     {
+        if (!HasWeapon) return;
+
         Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(
             attackOriginPoint,
             attackSize,
@@ -65,6 +105,12 @@ public class MeleeController : MonoBehaviour
         }
     }
 
+    public void SetMeleeWeapon(MeleeWeapon weapon)
+    {
+        PlayerStats.PickUpWeapon(weapon.name);
+        currentMeleeWeapon = weapon;
+    }
+
     private void DebugDrawBox(Vector2 point, Vector2 size)
     {
         Vector2 bottomLeft = new Vector2(point.x - size.x / 2, point.y - size.y / 2);
@@ -80,7 +126,8 @@ public class MeleeController : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        if (currentMeleeWeapon == null) return;
+        if (!HasWeapon) return;
+
         Gizmos.DrawWireCube(
             currentMeleeWeapon.attackPoint,
             currentMeleeWeapon.attackBounds
