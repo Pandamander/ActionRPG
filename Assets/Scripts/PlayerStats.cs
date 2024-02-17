@@ -27,6 +27,7 @@ public static class PlayerStats
             Initialized = true;
             PowerupDestroy = new List<string>();
             OverworldDestroyList = new List<string>();
+            //MeleeWeapon = "GladiusSword";
         }
     }
 
