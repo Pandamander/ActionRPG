@@ -99,6 +99,12 @@ public class TopDownMovement : MonoBehaviour
         animator.speed = 0;
     }
 
+    public void AllowMovement()
+    {
+        stopMovement = false;
+        animator.speed = 1;
+    }
+
     // TODO: Temp demo end
     public void AnimateWalkingRight()
     {

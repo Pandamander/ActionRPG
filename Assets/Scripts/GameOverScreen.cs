@@ -24,6 +24,7 @@ public class GameOverScreen : MonoBehaviour
         continueLevelName = levelName;
         _gameOverScreen.SetActive(true);
         _isPaused = true;
+        StopPlayerMovement();
     }
 
     // Update is called once per frame
@@ -44,6 +45,15 @@ public class GameOverScreen : MonoBehaviour
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
 #endif
+        }
+    }
+
+    private void StopPlayerMovement()
+    {
+        PlayerMovement playerMovement = GameObject.FindAnyObjectByType<PlayerMovement>();
+        if (playerMovement != null)
+        {
+            playerMovement.Stop();
         }
     }
 }

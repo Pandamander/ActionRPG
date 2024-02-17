@@ -24,6 +24,7 @@ public class PauseScreen : MonoBehaviour
         {
             _pauseScreen.SetActive(!_isPaused);
             _isPaused = _pauseScreen.activeInHierarchy;
+            TogglePlayerMovement(_isPaused);
         }
         if (Input.GetButtonDown("Fire2") && _isPaused)
         {
@@ -33,6 +34,35 @@ public class PauseScreen : MonoBehaviour
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
 #endif
+        }
+    }
+
+    private void TogglePlayerMovement(bool shouldStop)
+    {
+        PlayerMovement playerMovement = GameObject.FindAnyObjectByType<PlayerMovement>();
+        if (playerMovement != null)
+        {
+            if (shouldStop)
+            {
+                playerMovement.Stop();
+            } else
+            {
+                playerMovement.AllowMovement();
+            }
+        } else
+        {
+            TopDownMovement overworldMovement = GameObject.FindAnyObjectByType<TopDownMovement>();
+            if (overworldMovement != null)
+            {
+                if (shouldStop)
+                {
+                    overworldMovement.StopMovement();
+                }
+                else
+                {
+                    overworldMovement.AllowMovement();
+                }
+            }
         }
     }
 }
