@@ -120,7 +120,8 @@ public class PlayerMovement : MonoBehaviour
         canMove = false;
 		StopFixedUpdate = true;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-		animator.SetBool("IsJumping", false);
+        UnCrouch();
+        animator.SetBool("IsJumping", false);
 		animator.SetFloat("Speed", 0f);
 		animator.SetBool("IsAttacking", false);
 	}
@@ -138,6 +139,7 @@ public class PlayerMovement : MonoBehaviour
         horizontalMove = 0f;
         canMove = false;
         StopFixedUpdate = true;
+		UnCrouch();
         animator.SetBool("IsJumping", false);
         animator.SetFloat("Speed", 0f);
         animator.SetBool("IsAttacking", false);
@@ -159,7 +161,8 @@ public class PlayerMovement : MonoBehaviour
 	{
 		canMove = false;
 		horizontalMove = 0f;
-		animator.SetBool("IsJumping", false);
+        UnCrouch();
+        animator.SetBool("IsJumping", false);
 		animator.SetFloat("Speed", 0f);
 		animator.SetBool("IsAttacking", false);
 	}
@@ -168,6 +171,7 @@ public class PlayerMovement : MonoBehaviour
 	{
         canMove = false;
         horizontalMove = 0f;
+        UnCrouch();
         animator.SetBool("IsJumping", false);
         animator.SetFloat("Speed", 1f);
         animator.SetBool("IsAttacking", false);

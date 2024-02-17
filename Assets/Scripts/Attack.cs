@@ -92,7 +92,6 @@ public class Attack : MonoBehaviour, IDamageable
 
     private IEnumerator Invulnerability(int duration)
     {
-		Physics2D.IgnoreLayerCollision(1, 9, true);
         Color color = Color.clear;
 		int durationCounter = 0;
         while (durationCounter <= duration)
@@ -103,7 +102,7 @@ public class Attack : MonoBehaviour, IDamageable
 			durationCounter++;
         }
         spriteRenderer.color = Color.white;
-        Physics2D.IgnoreLayerCollision(1, 9, false);
+        Physics2D.IgnoreLayerCollision(PLAYER_COLLISION_LAYER, ENEMY_COLLISION_LAYER, false);
     }
 
 	private void CheckGroundedForKnockback()
@@ -132,21 +131,11 @@ public class Attack : MonoBehaviour, IDamageable
 		{
             animator.SetBool("IsHit", false);
             isDamaged = false;
-            Physics2D.IgnoreLayerCollision(PLAYER_COLLISION_LAYER, ENEMY_COLLISION_LAYER, false);
             playerMovement.AllowMovement();
             canMeleeAttack = true;
             yield return StartCoroutine(Invulnerability(invulnerableDuration));
         }
     }
-
-    private IEnumerator GameOver()
-	{
-		audioManager.PlayGameOver();
-		yield return new WaitForSeconds(3.0f);
-		PlayerStats.Reset();
-		OverworldSubzoneContainer.Reset();
-		SceneManager.LoadScene("GameOver");
-	}
 
 	// IDamageable
 	public void Damage(int damage)
