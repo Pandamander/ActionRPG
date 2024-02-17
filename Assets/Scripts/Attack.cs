@@ -35,6 +35,8 @@ public class Attack : MonoBehaviour, IDamageable
 	private bool shouldCheckGroundedForKnockback = false;
     private bool playerWasKnockedBack = false;
     private bool dead = false;
+    private const int PLAYER_COLLISION_LAYER = 1;
+    private const int ENEMY_COLLISION_LAYER = 9;
 
     private void Awake()
 	{
@@ -130,6 +132,7 @@ public class Attack : MonoBehaviour, IDamageable
 		{
             animator.SetBool("IsHit", false);
             isDamaged = false;
+            Physics2D.IgnoreLayerCollision(PLAYER_COLLISION_LAYER, ENEMY_COLLISION_LAYER, false);
             playerMovement.AllowMovement();
             canMeleeAttack = true;
             yield return StartCoroutine(Invulnerability(invulnerableDuration));
@@ -150,14 +153,14 @@ public class Attack : MonoBehaviour, IDamageable
 	{
 		if (dead) { return; }
 
-		subzoneHUD.ReducePlayerHealthMeter(damage);
-		audioManager.PlayDamage();
-		PlayerStats.ApplyDamage(damage);
-		animator.SetBool("IsHit", true);
-
 		if (!isDamaged)
 		{
-			isDamaged = true;
+            isDamaged = true;
+			Physics2D.IgnoreLayerCollision(PLAYER_COLLISION_LAYER, ENEMY_COLLISION_LAYER, true);
+            subzoneHUD.ReducePlayerHealthMeter(damage);
+            audioManager.PlayDamage();
+            PlayerStats.ApplyDamage(damage);
+
 			playerMovement.StopForKnockback();
 			canMeleeAttack = false;
             animator.SetBool("IsHit", true);
