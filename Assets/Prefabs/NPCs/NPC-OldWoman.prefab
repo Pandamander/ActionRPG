@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7602499860941790150}
   - component: {fileID: 3246643317353263467}
-  - component: {fileID: 3337855710716933746}
   - component: {fileID: 5962135072523191959}
   - component: {fileID: 4709518143271978675}
   - component: {fileID: 2623531762833166872}
@@ -19,7 +18,6 @@ GameObject:
   - component: {fileID: 5493043077357473262}
   - component: {fileID: 5493043077357473263}
   - component: {fileID: 5493043077296867095}
-  - component: {fileID: 5493043077296867080}
   m_Layer: 0
   m_Name: NPC-OldWoman
   m_TagString: NPC-OldWoman
@@ -116,31 +114,6 @@ MonoBehaviour:
   useBarkTitlePicker: 1
   useQuestNamePicker: 1
   selectedDatabase: {fileID: 11400000, guid: 50062277953854be19adda13fcdfdc09, type: 2}
---- !u!114 &3337855710716933746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 235806039305477291}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 274b80ab5b659c646ba9338870d14625, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  overrideName: 
-  overrideUseMessage: 
-  maxUseDistance: 30
-  events:
-    onSelect:
-      m_PersistentCalls:
-        m_Calls: []
-    onDeselect:
-      m_PersistentCalls:
-        m_Calls: []
-    onUse:
-      m_PersistentCalls:
-        m_Calls: []
 --- !u!61 &5962135072523191959
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -473,19 +446,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5493043077296867080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 235806039305477291}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73a8f046e12324fcab238423256bb142, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  newMaterial: {fileID: 2100000, guid: 95c69c5b2a1bb47cb83c29d898490ed2, type: 2}
 --- !u!1 &3171225820206830996
 GameObject:
   m_ObjectHideFlags: 0
