@@ -8,11 +8,12 @@ public class TooltipInteraction : MonoBehaviour
     [SerializeField] public GameObject toolTipIcon;
 
     private bool isInTrigger = false;
+    private SpriteRenderer tooltipSpriteRenderer;
     
     // Start is called before the first frame update
     void Start()
     {
-        toolTipIcon.SetActive(false);
+        tooltipSpriteRenderer = toolTipIcon.GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -24,8 +25,9 @@ public class TooltipInteraction : MonoBehaviour
             
             if (dialogueTrigger != null)
             {
+                StopAllCoroutines();
+                tooltipSpriteRenderer.color = new Color(tooltipSpriteRenderer.color.r, tooltipSpriteRenderer.color.g, tooltipSpriteRenderer.color.b, 0);
                 dialogueTrigger.OnUse(transform);
-                toolTipIcon.SetActive(false);
             }
         }
     }
@@ -37,7 +39,8 @@ public class TooltipInteraction : MonoBehaviour
         if (other.CompareTag("OverworldHero") || other.CompareTag("Hero") || other.CompareTag("Player"))
         {
             isInTrigger = true;
-            toolTipIcon.SetActive(true);
+            StopAllCoroutines();
+            StartCoroutine(ShowTooltip());
         }
     }
 
@@ -47,12 +50,43 @@ public class TooltipInteraction : MonoBehaviour
         if (other.CompareTag("OverworldHero") || other.CompareTag("Hero") || other.CompareTag("Player"))
         {
             isInTrigger = false;
-            toolTipIcon.SetActive(false);
+            StopAllCoroutines();
+            StartCoroutine(HideTooltip());
         }
     }
 
     private bool UpPressed()
     {
         return Input.GetKeyDown(KeyCode.UpArrow) || Input.GetAxisRaw("DPadY") == 1 || Input.GetAxisRaw("Vertical") == 1;
+    }
+
+    private IEnumerator ShowTooltip()
+    {
+        float duration = .2f;
+        float elapsedTime = 0;
+        float colorAlphaStartingValue = tooltipSpriteRenderer.color.a;
+        while (tooltipSpriteRenderer.color.a <= 1)
+        {
+            float colorAlpha = Mathf.Lerp(colorAlphaStartingValue, 1.0f, elapsedTime / duration);
+            tooltipSpriteRenderer.color = new Color(tooltipSpriteRenderer.color.r, tooltipSpriteRenderer.color.g, tooltipSpriteRenderer.color.b, colorAlpha);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        yield return null;
+    }
+
+    private IEnumerator HideTooltip()
+    {
+        float duration = .2f;
+        float elapsedTime = 0;
+        float colorAlphaStartingValue = tooltipSpriteRenderer.color.a;
+        while (tooltipSpriteRenderer.color.a >= 0)
+        {
+            float colorAlpha = Mathf.Lerp(colorAlphaStartingValue, 0, elapsedTime / duration);
+            tooltipSpriteRenderer.color = new Color(tooltipSpriteRenderer.color.r, tooltipSpriteRenderer.color.g, tooltipSpriteRenderer.color.b, colorAlpha);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        yield return null;
     }
 }
