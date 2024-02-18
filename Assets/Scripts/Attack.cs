@@ -165,8 +165,7 @@ public class Attack : MonoBehaviour, IDamageable
         dead = true;
         animator.SetBool("IsDead", true);
 		yield return new WaitForSeconds(4);
-        GameOverScreen gameOver = GameObject.FindAnyObjectByType<GameOverScreen>();
-		gameOver.ShowGameOver(SceneManager.GetActiveScene().name);
+        GameManager.sharedInstance.ShowGameOver(SceneManager.GetActiveScene().name);
 	}
 
     private void OnTriggerEnter2D(Collider2D collision)

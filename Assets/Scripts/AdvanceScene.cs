@@ -57,6 +57,9 @@ public class AdvanceScene : MonoBehaviour
 
     private void Update()
     {
+        // Don't trigger game start from showing Pause Menu
+        if (Input.GetButtonDown("Cancel")) return;
+
         if (Input.anyKey && anyKeyToAdvance && isAdvancing == false)
         {
             StartCoroutine(NextScene());
