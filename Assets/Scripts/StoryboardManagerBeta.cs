@@ -35,6 +35,9 @@ public class StoryboardManagerBeta : MonoBehaviour
     // stuff related to the skip cutscene UI/UX
     [SerializeField] private Image skipCutsceneRadialIndicator;
     [SerializeField] private KeyCode skipKey = KeyCode.E;
+    [SerializeField] private TextMeshProUGUI skipTextLabel;
+    [SerializeField] private Color skipTextLabelActiveColor = new Color(1.0f, 1.0f, 1.0f);
+    private Color skipTextLabelInactiveColor;
     [SerializeField] private Image skipCutsceneFadeBG;
 
     private float radialSkipIndicatorTimer = 0;
@@ -51,6 +54,8 @@ public class StoryboardManagerBeta : MonoBehaviour
         image = imageObject.GetComponent<Image>();
         imageAnimator = imageObject.GetComponent<Animator>();
 
+        skipTextLabelInactiveColor = skipTextLabel.color;
+
         StartCoroutine(RunStoryboard());
     }
 
@@ -62,11 +67,13 @@ public class StoryboardManagerBeta : MonoBehaviour
 
         if (!skippingCutscene && Input.GetKeyDown(skipKey))
         {
+            skipTextLabel.color = skipTextLabelActiveColor;
             skipKeyPressed = true;
         }
 
         if (!skippingCutscene && Input.GetKeyUp(skipKey))
         {
+            skipTextLabel.color = skipTextLabelInactiveColor;
             skipKeyPressed = false;
         }
 

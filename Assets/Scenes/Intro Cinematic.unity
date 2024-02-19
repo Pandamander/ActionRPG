@@ -898,6 +898,8 @@ MonoBehaviour:
     - A storm is brewing...<br>Perhaps a sign pointing me in the right direction...
   skipCutsceneRadialIndicator: {fileID: 363774613}
   skipKey: 101
+  skipTextLabel: {fileID: 124126769}
+  skipTextLabelActiveColor: {r: 1, g: 1, b: 1, a: 1}
   skipCutsceneFadeBG: {fileID: 661241262}
 --- !u!1 &1045888440
 GameObject:
@@ -1141,11 +1143,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: orthographic size
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.4119792
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
@@ -1153,11 +1155,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.50185186
+      value: 0.999539
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.50185186
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952797147, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_LocalPosition.x
