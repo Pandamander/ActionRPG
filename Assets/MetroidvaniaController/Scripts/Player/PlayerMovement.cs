@@ -56,17 +56,13 @@ public class PlayerMovement : MonoBehaviour
 
 		if (Input.GetButtonDown("Jump"))
 		{
+            if (isCrouching) UnCrouch();
 			jump = true;
-		}
-
-		if (Input.GetButtonDown("Fire3"))
-		{
-			dash = true;
 		}
 
         float inputVertical = Input.GetAxisRaw("Vertical");
 
-        if (grounded)
+        if (grounded & !jump)
 		{
 			if (inputVertical == -1f)
 			{
