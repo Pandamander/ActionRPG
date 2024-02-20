@@ -61,22 +61,25 @@ public class PlayerMovement : MonoBehaviour
 
 		if (Input.GetButtonDown("Jump"))
 		{
-            if (isCrouching) UnCrouch();
+            UnCrouch();
 			jump = true;
 		}
 
         float inputVertical = Input.GetAxisRaw("Vertical");
 
-        if (grounded & !jump)
+        if (grounded)
 		{
 			if (inputVertical == -1f)
 			{
                 Crouch();
             } else
 			{
-				UnCrouch();
+                UnCrouch();
 			}
-		}
+		} else
+        {
+            UnCrouch();
+        }
 	}
 
 	private void Crouch()

@@ -2352,7 +2352,7 @@ Tilemap:
       - {fileID: 21300000, guid: 1d96496fef6cc45b9875808b9427742a, type: 3}
       - {fileID: 21300000, guid: dc0b692550f9b46cd82bc62a59c6f4b0, type: 3}
       - {fileID: 21300000, guid: 69d8f3986237c41a68c848bcea87477a, type: 3}
-      m_AnimationSpeed: 7
+      m_AnimationSpeed: 7.0000005
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 23, y: -1, z: 0}
@@ -2475,7 +2475,7 @@ GameObject:
   - component: {fileID: 850942754}
   m_Layer: 7
   m_Name: Foreground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19216,7 +19216,7 @@ GameObject:
   - component: {fileID: 1894365123}
   m_Layer: 7
   m_Name: Stairs
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
