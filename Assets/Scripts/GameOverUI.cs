@@ -17,7 +17,11 @@ public class GameOverUI : MonoBehaviour
     private List<Action> menuActions = new List<Action>(); // a list of delegate functions for menu actions
 
     private int currentMenuItemIndex = 0;
-    
+
+    private float axisInputDelayDuration = 0.5f; // add a delay of .5 seconds between switching menu items when holding a direction
+    private float elapsedTimeSinceAxisInput = 0;
+    private bool acceptingAxisInputUp = true;
+    private bool acceptingAxisInputDown = true;
 
     void Start()
     {
@@ -30,14 +34,19 @@ public class GameOverUI : MonoBehaviour
         menuActions.Add(() => GameManager.sharedInstance.QuitGame());
     }
 
-    // Update is called once per frame
     void Update()
     {
 
         float inputVertical = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        // axis input down
+        if (inputVertical < 0 && acceptingAxisInputDown == true)
         {
+            acceptingAxisInputDown = false;
+            acceptingAxisInputUp = true; // should immediately be able to move up after pressing down
+
+            StartCoroutine(DelayAxisInputDown());
+
             currentMenuItemIndex--;
             // if it goes below the first menu item, then start at the top
             if (currentMenuItemIndex < 0)
@@ -54,10 +63,16 @@ public class GameOverUI : MonoBehaviour
 
         }
 
-        else if (Input.GetKeyDown(KeyCode.UpArrow))
+        // axis input up
+        else if (inputVertical > 0 && acceptingAxisInputUp == true)
         {
+            acceptingAxisInputUp = false;
+            acceptingAxisInputDown = true;
+
+            StartCoroutine(DelayAxisInputUp());
+
             currentMenuItemIndex++;
-            // if it goes above the last menu item, then start back at the beginning
+            // if it goes past the last menu item, then start back at the beginning
             if (currentMenuItemIndex > (menuActions.Count - 1))
             {
                 currentMenuItemIndex = 0;
@@ -71,10 +86,18 @@ public class GameOverUI : MonoBehaviour
             UpdateMenuItemsTextColors();
         }
 
+        // confirm button
         if (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.X))
         {
             //do menu action based on currently selected menu item
             menuActions[currentMenuItemIndex]();
+        }
+
+        // reset rate limit when releasing a direction
+        if (inputVertical == 0)
+        {
+            acceptingAxisInputDown = true;
+            acceptingAxisInputUp = true;
         }
     }
 
@@ -91,6 +114,38 @@ public class GameOverUI : MonoBehaviour
                 menuItemsText[i].color = inactiveMenuTextColor;
             }
         }
+    }
+
+    private IEnumerator DelayAxisInputDown()
+    {
+
+        elapsedTimeSinceAxisInput = 0;
+
+        while (elapsedTimeSinceAxisInput < axisInputDelayDuration)
+        {
+            elapsedTimeSinceAxisInput += Time.deltaTime;
+            yield return null;
+        }
+
+        acceptingAxisInputDown = true;
+
+        yield return null;
+    }
+
+    private IEnumerator DelayAxisInputUp()
+    {
+
+        elapsedTimeSinceAxisInput = 0;
+
+        while (elapsedTimeSinceAxisInput < axisInputDelayDuration)
+        {
+            elapsedTimeSinceAxisInput += Time.deltaTime;
+            yield return null;
+        }
+
+        acceptingAxisInputUp = true;
+
+        yield return null;
     }
 
     // based on Robert Penner's easing functions,
