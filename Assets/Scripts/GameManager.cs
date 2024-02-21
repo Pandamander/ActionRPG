@@ -34,10 +34,10 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetButtonDown("Jump") && _isGameOver)
-        {
-            ContinueFromGameOver();
-        }
+        //if (Input.GetButtonDown("Jump") && _isGameOver)
+        //{
+        //    ContinueFromGameOver();
+        //}
         if (Input.GetButtonDown("Cancel") && !_isGameOver)
         {
             _pauseScreen.SetActive(!_isPaused);
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
         _continueLevelName = levelName;
         _gameOverScreen.SetActive(true);
         _isGameOver = true;
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
         TogglePlayerMovement(true);
     }
 
@@ -70,16 +70,17 @@ public class GameManager : MonoBehaviour
         _gameOverScreen.SetActive(false);
     }
 
-    private void ContinueFromGameOver()
+    public void ContinueFromGameOver()
     {
-        _gameOverScreen.SetActive(false);
-        _isGameOver = false;
+        //_gameOverScreen.SetActive(false);
+        //_isGameOver = false;
         Time.timeScale = 1f;
         PlayerStats.ResetHealthForContinue();
         SceneManager.LoadScene(_continueLevelName);
+        SceneManager.sceneLoaded += DisableGameOverScreen; // subscribe a delegate function to disable the game over screen after the scene load is finished
     }
 
-    private void QuitGame()
+    public void QuitGame()
     {
 #if UNITY_STANDALONE
         Application.Quit();
@@ -87,6 +88,14 @@ public class GameManager : MonoBehaviour
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
+    }
+
+    private void DisableGameOverScreen(Scene scene, LoadSceneMode mode)
+    {
+        _gameOverScreen.SetActive(false);
+        _isGameOver = false;
+
+        SceneManager.sceneLoaded -= DisableGameOverScreen; // unsubscribe this function after removing the game over screen
     }
 
     private void TogglePlayerMovement(bool shouldStop)
