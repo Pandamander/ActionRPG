@@ -165,6 +165,7 @@ public class Attack : MonoBehaviour, IDamageable
         dead = true;
         animator.SetBool("IsDead", true);
 		yield return new WaitForSeconds(4);
+        Physics2D.IgnoreLayerCollision(PLAYER_COLLISION_LAYER, ENEMY_COLLISION_LAYER, false);
         GameManager.sharedInstance.ShowGameOver(SceneManager.GetActiveScene().name);
 	}
 
