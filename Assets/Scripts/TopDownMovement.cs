@@ -53,8 +53,8 @@ public class TopDownMovement : MonoBehaviour
             return;
         }
 
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        movement.x = Input.GetAxisRaw("Horizontal") + Input.GetAxisRaw("DPadX");
+        movement.y = Input.GetAxisRaw("Vertical") + Input.GetAxisRaw("DPadY");
 
         if (Mathf.Abs(movement.x) >= 1f)
         {

@@ -45,6 +45,8 @@ public class Attack : MonoBehaviour, IDamageable
         playerMovement = gameObject.GetComponent<PlayerMovement>();
         controller = gameObject.GetComponent<CharacterController2D>();
 
+        Physics2D.IgnoreLayerCollision(PLAYER_COLLISION_LAYER, ENEMY_COLLISION_LAYER, false);
+
         // TODO: Elliott remove this
         PlayerStats.Initialize();
 	}
@@ -165,7 +167,6 @@ public class Attack : MonoBehaviour, IDamageable
         dead = true;
         animator.SetBool("IsDead", true);
 		yield return new WaitForSeconds(4);
-        Physics2D.IgnoreLayerCollision(PLAYER_COLLISION_LAYER, ENEMY_COLLISION_LAYER, false);
         GameManager.sharedInstance.ShowGameOver(SceneManager.GetActiveScene().name);
 	}
 

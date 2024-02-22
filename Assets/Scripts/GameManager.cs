@@ -33,11 +33,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        //if (Input.GetButtonDown("Jump") && _isGameOver)
-        //{
-        //    ContinueFromGameOver();
-        //}
         if (Input.GetButtonDown("Cancel") && !_isGameOver)
         {
             _pauseScreen.SetActive(!_isPaused);
@@ -56,7 +51,6 @@ public class GameManager : MonoBehaviour
         _continueLevelName = levelName;
         _gameOverScreen.SetActive(true);
         _isGameOver = true;
-        //Time.timeScale = 0f;
         TogglePlayerMovement(true);
     }
 
@@ -72,8 +66,6 @@ public class GameManager : MonoBehaviour
 
     public void ContinueFromGameOver()
     {
-        //_gameOverScreen.SetActive(false);
-        //_isGameOver = false;
         Time.timeScale = 1f;
         PlayerStats.ResetHealthForContinue();
         SceneManager.LoadScene(_continueLevelName);
