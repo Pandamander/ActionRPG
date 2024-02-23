@@ -119,6 +119,7 @@ public class StoryboardManagerBeta : MonoBehaviour
     {
         // begin the first image transition in
         yield return StartCoroutine(SteppedImageFadeIn());
+        textGUI.alpha = 1.0f;
 
         // loop through the text in a section and do the typewriter effect on it
         for (int i = 0; i < storySections[currentSection].storyText.Length; i++)
