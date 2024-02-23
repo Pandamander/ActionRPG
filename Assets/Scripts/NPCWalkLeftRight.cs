@@ -30,17 +30,21 @@ public class NPCWalkLeftRight : MonoBehaviour
             DialogueManager.currentConversant.gameObject.CompareTag(gameObject.tag))
         {
             walking = false;
+            animator.SetBool("isWalking", false);
+            FacePlayer();
         }
         else
         {
             walking = true;
+            animator.SetBool("isWalking", true);
         }
 
         // If walking, move the NPC left and right based on the speed and travel distance
         if (walking)
         {
+            FaceWalkingDirection();
+
             transform.position += Vector3.right * speed * Time.deltaTime;
-            animator.SetBool("isWalking", true);
 
             if ((transform.position.x >= originalX + travelDistance) && !spriteRenderer.flipX)
             {
@@ -51,11 +55,36 @@ public class NPCWalkLeftRight : MonoBehaviour
                 FlipDirection();
             }
         }
-        else
-        {
-            animator.SetBool("isWalking", false);
-        }
 
+    }
+
+    void FacePlayer()
+    {
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+
+        if (playerObject.transform.position.x < transform.position.x)
+        {
+            // face left
+            spriteRenderer.flipX = true;
+        } else if (playerObject.transform.position.x > transform.position.x)
+        {
+            // face right
+            spriteRenderer.flipX = false;
+        }
+    }
+
+    void FaceWalkingDirection()
+    {
+        // right
+        if (speed > 0)
+        {
+            spriteRenderer.flipX = false;
+        }
+        // left
+        else if (speed < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
     }
 
     void FlipDirection()
