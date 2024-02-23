@@ -37,7 +37,7 @@ public class GameOverUI : MonoBehaviour
     void Update()
     {
 
-        float inputVertical = Input.GetAxisRaw("Vertical");
+        float inputVertical = Input.GetAxisRaw("Vertical") + Input.GetAxisRaw("DPadY");
 
         // axis input down
         if (inputVertical < 0 && acceptingAxisInputDown == true)
@@ -87,7 +87,7 @@ public class GameOverUI : MonoBehaviour
         }
 
         // confirm button
-        if (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.X))
+        if (Input.GetButtonDown("Fire1"))
         {
             //do menu action based on currently selected menu item
             menuActions[currentMenuItemIndex]();

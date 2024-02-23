@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (!isCrouching)
         {
-            float inputHorizontal = Input.GetAxisRaw("Horizontal");
+            float inputHorizontal = Input.GetAxisRaw("Horizontal") + Input.GetAxisRaw("DPadX");
             horizontalMove = inputHorizontal * runSpeed;
             animator.SetFloat("Speed", Mathf.Abs(inputHorizontal));
         } else
@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
 			jump = true;
 		}
 
-        float inputVertical = Input.GetAxisRaw("Vertical");
+        float inputVertical = Input.GetAxisRaw("Vertical") + Input.GetAxisRaw("DPadY");
 
         if (grounded)
 		{
