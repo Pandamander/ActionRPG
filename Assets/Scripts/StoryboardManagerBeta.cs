@@ -117,8 +117,16 @@ public class StoryboardManagerBeta : MonoBehaviour
 
     IEnumerator LoadStoryboardSection(int currentSection)
     {
-        // begin the first image transition in
-        yield return StartCoroutine(SteppedImageFadeIn());
+        // if it's the first image, do a stepped fade in
+        if (currentSection == 0)
+        {
+            yield return StartCoroutine(SteppedImageFadeIn(0.5f));
+        }
+        // if not the first image, then do a regular fade in
+        else {
+            StartCoroutine(SteppedImageFadeIn(0.5f));
+        }
+
         textGUI.alpha = 1.0f;
 
         // loop through the text in a section and do the typewriter effect on it
@@ -139,38 +147,97 @@ public class StoryboardManagerBeta : MonoBehaviour
             yield return StartCoroutine(TypeWriterEffect());
         }
 
-        StartCoroutine(SteppedImageFadeOut());
-        yield return StartCoroutine(SteppedTextFadeOut());
+        // if the last section, do a stepped fade out
+        if (currentSection == storySections.Count - 1)
+        {
+            StartCoroutine(SteppedImageFadeOut(0.5f));
+            yield return StartCoroutine(SteppedTextFadeOut(0.5f));
+        }
+        // otherwise do a regular fade out
+        else {
+            image.color = new Color(image.color.r, image.color.g, image.color.b, 0);
+            //yield return StartCoroutine(SteppedImageFadeOut(.25f));
+            //yield return StartCoroutine(TextFadeOut());
+        }
+        
     }
 
-    private IEnumerator SteppedImageFadeIn ()
+    private IEnumerator ImageFadeOut()
+    {
+        float duration = 2.0f;
+        float elapsedTime = 0;
+
+        while (image.color.a > 0)
+        {
+            float newAlpha = Mathf.Lerp(1.0f, 0, elapsedTime / duration);
+            image.color = new Color(image.color.r, image.color.g, image.color.b, newAlpha);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        yield return null;
+    }
+
+    private IEnumerator ImageFadeIn()
+    {
+        float duration = 2.0f;
+        float elapsedTime = 0;
+
+        while (image.color.a < 1.0f)
+        {
+            float newAlpha = Mathf.Lerp(0, 1.0f, elapsedTime / duration);
+            image.color = new Color(image.color.r, image.color.g, image.color.b, newAlpha);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        yield return null;
+    }
+
+    private IEnumerator TextFadeOut()
+    {
+        float duration = 2.0f;
+        float elapsedTime = 0;
+
+        while (textGUI.alpha > 0)
+        {
+            float newAlpha = Mathf.Lerp(1.0f, 0, elapsedTime / duration);
+            textGUI.alpha = newAlpha;
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        yield return null;
+    }
+
+    private IEnumerator SteppedImageFadeIn (float timeBetweenSteps)
     {
         while (image.color.a < 1.0)
         {
             image.color = new Color(image.color.r, image.color.g, image.color.b, image.color.a + 0.25f);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(timeBetweenSteps);
         }
 
         yield return null;
     }
 
-    private IEnumerator SteppedImageFadeOut()
+    private IEnumerator SteppedImageFadeOut(float timeBetweenSteps)
     {
         while (image.color.a > 0)
         {
             image.color = new Color(image.color.r, image.color.g, image.color.b, image.color.a - 0.25f);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(timeBetweenSteps);
         }
 
         yield return null;
     }
 
-    private IEnumerator SteppedTextFadeOut()
+    private IEnumerator SteppedTextFadeOut(float timeBetweenSteps)
     {
         while (textGUI.alpha > 0)
         {
             textGUI.alpha = textGUI.alpha - 0.25f;
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(timeBetweenSteps);
         }
 
         yield return null;

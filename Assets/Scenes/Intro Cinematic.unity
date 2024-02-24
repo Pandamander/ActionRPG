@@ -884,6 +884,9 @@ MonoBehaviour:
     storyText:
     - My father was a great general in the Roman army. He fought many battles and
       raised me in the ways of combat.
+  - image: {fileID: 21300000, guid: 62f709e2d28f146729f340e437e757bc, type: 3}
+    animationClipName: Intro Illustration 01
+    storyText:
     - One day, our legion was sent to the fringes of the empire.<br>As we were encamped,
       a dense black fog came upon us.
     - I was gripped by fear as confusion broke out amongst the ranks. The anguished
@@ -1158,11 +1161,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 1
+      value: 0.999539
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.9998623
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952797147, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_LocalPosition.x
