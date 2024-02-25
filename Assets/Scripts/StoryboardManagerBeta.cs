@@ -30,7 +30,7 @@ public class StoryboardManagerBeta : MonoBehaviour
     private int currentVisibleCharacterIndex;
     private float waitTimeBetweenLetters = 0.05f;
     private float punctuationDelay = 0.5f;
-    private float waitTimeAtEnd = 2.0f;
+    private float waitTimeAtEnd = 3.5f; // the time between the end of a section of text and the beginning of another
 
     // stuff related to the skip cutscene UI/UX
     [SerializeField] private Image skipCutsceneRadialIndicator;
@@ -109,7 +109,7 @@ public class StoryboardManagerBeta : MonoBehaviour
             yield return StartCoroutine(LoadStoryboardSection(i));
         }
 
-        //yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(2.0f); // wait a couple seconds before going to the next scene
 
         // after all the sections are finished, load the intro boat scene
         SceneManager.LoadScene(nextScene);
@@ -124,7 +124,7 @@ public class StoryboardManagerBeta : MonoBehaviour
         }
         // if not the first image, then do a regular fade in
         else {
-            StartCoroutine(SteppedImageFadeIn(0.5f));
+            StartCoroutine(ImageFadeIn(0.5f));
         }
 
         textGUI.alpha = 1.0f;
@@ -153,18 +153,15 @@ public class StoryboardManagerBeta : MonoBehaviour
             StartCoroutine(SteppedImageFadeOut(0.5f));
             yield return StartCoroutine(SteppedTextFadeOut(0.5f));
         }
-        // otherwise do a regular fade out
+        // otherwise just immediately set the image alpha to 0
         else {
             image.color = new Color(image.color.r, image.color.g, image.color.b, 0);
-            //yield return StartCoroutine(SteppedImageFadeOut(.25f));
-            //yield return StartCoroutine(TextFadeOut());
         }
         
     }
 
-    private IEnumerator ImageFadeOut()
+    private IEnumerator ImageFadeOut(float duration)
     {
-        float duration = 2.0f;
         float elapsedTime = 0;
 
         while (image.color.a > 0)
@@ -178,9 +175,8 @@ public class StoryboardManagerBeta : MonoBehaviour
         yield return null;
     }
 
-    private IEnumerator ImageFadeIn()
+    private IEnumerator ImageFadeIn(float duration)
     {
-        float duration = 2.0f;
         float elapsedTime = 0;
 
         while (image.color.a < 1.0f)
@@ -194,9 +190,8 @@ public class StoryboardManagerBeta : MonoBehaviour
         yield return null;
     }
 
-    private IEnumerator TextFadeOut()
+    private IEnumerator TextFadeOut(float duration)
     {
-        float duration = 2.0f;
         float elapsedTime = 0;
 
         while (textGUI.alpha > 0)
