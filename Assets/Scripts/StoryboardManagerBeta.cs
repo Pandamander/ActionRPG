@@ -34,6 +34,8 @@ public class StoryboardManagerBeta : MonoBehaviour
 
     // stuff related to the skip cutscene UI/UX
     [SerializeField] private Image skipCutsceneRadialIndicator;
+    [SerializeField] private Image skipKeyGraphicResting;
+    [SerializeField] private Image skipKeyGraphicPressed;
     [SerializeField] private KeyCode skipKey = KeyCode.E;
     [SerializeField] private TextMeshProUGUI skipTextLabel;
     [SerializeField] private Color skipTextLabelActiveColor = new Color(1.0f, 1.0f, 1.0f);
@@ -65,18 +67,25 @@ public class StoryboardManagerBeta : MonoBehaviour
         // This is a bunch of stuff for skipping the cutscene and showing a
         // radial progress indicator by pressing and holding a key
 
+        // skip key pressed
         if (!skippingCutscene && Input.GetKeyDown(skipKey))
         {
             skipTextLabel.color = skipTextLabelActiveColor;
             skipKeyPressed = true;
+            skipKeyGraphicResting.gameObject.SetActive(false);
+            skipKeyGraphicPressed.gameObject.SetActive(true);
         }
 
+        // skip key released
         if (!skippingCutscene && Input.GetKeyUp(skipKey))
         {
             skipTextLabel.color = skipTextLabelInactiveColor;
             skipKeyPressed = false;
+            skipKeyGraphicResting.gameObject.SetActive(true);
+            skipKeyGraphicPressed.gameObject.SetActive(false);
         }
 
+        // skipping in progress
         if (!skippingCutscene && skipKeyPressed)
         {
 
@@ -89,11 +98,14 @@ public class StoryboardManagerBeta : MonoBehaviour
             }
             else
             {
+                // fill radial skip progress indicator
                 radialSkipIndicatorTimer += Time.deltaTime;
                 skipCutsceneRadialIndicator.fillAmount = radialSkipIndicatorTimer;
             }
 
         }
+
+        // this reduces any existing radial fill on the skip progress bar when the skip key is released
         else if (!skippingCutscene && !skipKeyPressed && skipCutsceneRadialIndicator.fillAmount > 0)
         {
             radialSkipIndicatorTimer -= Time.deltaTime;
