@@ -23,7 +23,7 @@ public class Cyclops : MonoBehaviour, IDamageable
     private Animator _animator;
     private Rigidbody2D _rb;
     private bool shouldWalk = true;
-    public int health { get; private set; } = 1;
+    public int health { get; private set; } = 14;
     private SpriteRenderer _spriteRenderer;
     private bool isAttacking = false;
     private bool isKneeling = false;
