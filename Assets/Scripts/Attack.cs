@@ -46,9 +46,6 @@ public class Attack : MonoBehaviour, IDamageable
         controller = gameObject.GetComponent<CharacterController2D>();
 
         Physics2D.IgnoreLayerCollision(PLAYER_COLLISION_LAYER, ENEMY_COLLISION_LAYER, false);
-
-        // TODO: Elliott remove this
-        PlayerStats.Initialize();
 	}
 
     // Update is called once per frame

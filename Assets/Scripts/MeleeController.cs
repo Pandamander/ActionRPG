@@ -25,6 +25,9 @@ public class MeleeController : MonoBehaviour
 
     private void Awake()
     {
+        // TODO: Elliott remove this
+        PlayerStats.Initialize();
+
         InitializeWeaponMap();
 
         LoadLastObtainedWeapon();

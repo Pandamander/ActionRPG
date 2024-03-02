@@ -23,7 +23,7 @@ public class Cyclops : MonoBehaviour, IDamageable
     private Animator _animator;
     private Rigidbody2D _rb;
     private bool shouldWalk = true;
-    public int health { get; private set; } = 14;
+    public int health { get; private set; } = 3;
     private SpriteRenderer _spriteRenderer;
     private bool isAttacking = false;
     private bool isKneeling = false;
@@ -187,20 +187,17 @@ public class Cyclops : MonoBehaviour, IDamageable
 
     public void KneelForFinalBlow()
     {
-        StopAllCoroutines();
         isKneeling = true;
         shouldWalk = false;
         _rb.velocity = Vector2.zero;
         _animator.SetTrigger("kneel");
-        kneelFlash = StartCoroutine(KneelFlash(1f));
+        StartCoroutine(KneelFlash(1f));
     }
 
     public void Die()
     {
-        StopCoroutine(kneelFlash); kneelFlash = null;
         shouldWalk = false;
         _rb.velocity = Vector2.zero;
-        StartCoroutine(KneelFlash(0.08f));
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -243,12 +240,17 @@ public class Cyclops : MonoBehaviour, IDamageable
     // IDamageable
     public void Damage(int damage)
     {
+        audioManager.PlayAttackHit();
+
         if (isKneeling) {
             health = -1;
             return;
         }
         subzoneHUD.ReduceBossHealthMeter(damage);
         health -= damage;
-        StartCoroutine(TakeDamage());
+        if (health > 0)
+        {
+            StartCoroutine(TakeDamage());
+        }
     }
 }
