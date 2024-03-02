@@ -13,16 +13,20 @@ public class CyclopsBossFight : MonoBehaviour
     [SerializeField] private Transform virtualCameraBossFightTarget;
     [SerializeField] private CyclopsBossStateMachine stateMachine;
     [SerializeField] private SubzoneHUD subzoneHUD;
+    [SerializeField] private Transform playerTransform;
     private BoxCollider2D _bossFightStartTrigger;
 
     private bool moveCam = false;
     private bool playerNeedsUnfreeze = false;
     private bool reset = false;
+    private Transform originalVirtualCameraFollow;
+    private bool moveCamBackToPlayer = false;
 
     private void Awake()
     {
         DisableColliders();
         _bossFightStartTrigger = GetComponent<BoxCollider2D>();
+        originalVirtualCameraFollow = virtualCamera.Follow;
     }
 
     private void DisableColliders()
@@ -39,11 +43,6 @@ public class CyclopsBossFight : MonoBehaviour
         {
             collider.enabled = true;
         }
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame
@@ -80,6 +79,26 @@ public class CyclopsBossFight : MonoBehaviour
                 subzoneHUD.FillPlayerHealthMeter();
                 DisableColliders();
                 PlayerStats.BossDefeated("OverworldCyclops");
+                moveCamBackToPlayer = true;
+                playerMovement.StopForDialogue();
+            }
+        }
+
+        if (moveCamBackToPlayer)
+        {
+            Vector3 followTarget = playerTransform.position +
+                virtualCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset;
+            virtualCamera.transform.position = Vector3.MoveTowards(
+                virtualCamera.transform.position,
+                followTarget,
+                Time.deltaTime * 7f
+            );
+
+            if (Mathf.Abs(virtualCamera.transform.position.x - followTarget.x) < 0.2f)
+            {
+                moveCamBackToPlayer = false;
+                RetargetVirtualCamera();
+                playerMovement.AllowMovement();
             }
         }
     }
@@ -91,10 +110,17 @@ public class CyclopsBossFight : MonoBehaviour
         stateMachine.Run();
     }
 
-    private void RetargetVirtualCamera()
+    private void UntargetVirtualCamera()
     {
         virtualCamera.Follow = null;
         moveCam = true;
+    }
+
+    private void RetargetVirtualCamera()
+    {
+        virtualCamera.PreviousStateIsValid = false;
+        virtualCamera.Follow = originalVirtualCameraFollow;
+        moveCam = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -102,7 +128,7 @@ public class CyclopsBossFight : MonoBehaviour
         if (collision.CompareTag("Player") == true)
         {
             playerMovement.StopForDialogue();
-            RetargetVirtualCamera();
+            UntargetVirtualCamera();
         }
     }
 }

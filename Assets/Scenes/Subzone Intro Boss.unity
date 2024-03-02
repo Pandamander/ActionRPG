@@ -34550,6 +34550,7 @@ MonoBehaviour:
   virtualCameraBossFightTarget: {fileID: 1125066393}
   stateMachine: {fileID: 1330127540}
   subzoneHUD: {fileID: 2028905508}
+  playerTransform: {fileID: 146475682}
 --- !u!4 &1330127538
 Transform:
   m_ObjectHideFlags: 0
