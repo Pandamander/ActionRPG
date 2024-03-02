@@ -62,7 +62,11 @@ public class SubzoneEnemy : MonoBehaviour, IDamageable
     {
         //cameraShake.ShakeCamera(0.15f, 1.5f); Elliott: disabled this as I don't think it's adding any value. Feel free to reenable!
         health -= damage;
-        if (health <= 0)
+        if (health < 0) return;
+
+        audioManager.PlayAttackHit();
+
+        if (health == 0)
         {
             _isDying = true;
             _animator.SetBool("IsDead", true);
