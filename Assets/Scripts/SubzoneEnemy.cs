@@ -60,7 +60,7 @@ public class SubzoneEnemy : MonoBehaviour, IDamageable
     // IDamageable
     public void Damage(int damage)
     {
-        cameraShake.ShakeCamera(0.15f, 1.5f);
+        //cameraShake.ShakeCamera(0.15f, 1.5f); Elliott: disabled this as I don't think it's adding any value. Feel free to reenable!
         health -= damage;
         if (health <= 0)
         {

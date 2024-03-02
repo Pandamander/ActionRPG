@@ -101,7 +101,7 @@ public class CyclopsBossFight : MonoBehaviour
     {
         if (collision.CompareTag("Player") == true)
         {
-            playerMovement.FreezeWalking();
+            playerMovement.StopForDialogue();
             RetargetVirtualCamera();
         }
     }
