@@ -34712,16 +34712,32 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2038778901}
     - target: {fileID: 2560223189649536867, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
+      propertyPath: levelToLoadOnExit
+      value: Subzone Intro Forest
+      objectReference: {fileID: 0}
+    - target: {fileID: 2560223189649536867, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
       propertyPath: usePositionOverride
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2560223189649536867, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
+      propertyPath: subzoneLevelStartPositionOverride.x
+      value: 119
+      objectReference: {fileID: 0}
+    - target: {fileID: 2560223189649536867, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
+      propertyPath: subzoneLevelStartPositionOverride.y
+      value: -1.98
       objectReference: {fileID: 0}
     - target: {fileID: 2560223189649536867, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
       propertyPath: levelExitOverworldPositionOverride.x
-      value: 16.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2560223189649536867, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
       propertyPath: levelExitOverworldPositionOverride.y
-      value: 29
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2560223189649536867, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
+      propertyPath: useSubzoneLevelStartPositionOverride
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2560223189649536894, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
       propertyPath: m_Name

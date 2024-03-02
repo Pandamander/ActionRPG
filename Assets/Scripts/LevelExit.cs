@@ -9,6 +9,12 @@ public class LevelExit : MonoBehaviour
     // Override position for Overworld placement when exiting this level
     public Vector3 levelExitOverworldPositionOverride;
     public bool usePositionOverride;
+
+    // Overrides if loading a Subzone from a Subzone
+    public Vector3 subzoneLevelStartPositionOverride;
+    public bool useSubzoneLevelStartPositionOverride;
+    public OverworldSubzoneContainer.PlayerDirection subzoneLevelStartDirectionOverride = OverworldSubzoneContainer.PlayerDirection.Left;
+
     public string subzone;
     public string levelToLoadOnExit = "Overworld";
     public OverworldSubzoneContainer.PlayerDirection direction;
@@ -30,6 +36,15 @@ public class LevelExit : MonoBehaviour
                     levelExitOverworldPositionOverride.y,
                     subzone,
                     direction
+                );
+            }
+
+            if (useSubzoneLevelStartPositionOverride)
+            {
+                OverworldSubzoneContainer.AddSubzoneStartPosition(
+                    subzoneLevelStartPositionOverride.x,
+                    subzoneLevelStartPositionOverride.y,
+                    subzoneLevelStartDirectionOverride
                 );
             }
 
