@@ -29,6 +29,7 @@ public class Cyclops : MonoBehaviour, IDamageable
     private bool isKneeling = false;
     private Coroutine kneelFlash;
     private Collider2D _collider;
+    private const int PLAYER_COLLISION_LAYER = 1;
 
     private void Awake()
     {
@@ -60,6 +61,7 @@ public class Cyclops : MonoBehaviour, IDamageable
     {
         if (shouldWalk)
         {
+            _animator.SetBool("isWalking", true);
             _rb.velocity = new Vector2(xSpeed, _rb.velocity.y);
         }
     }
@@ -67,11 +69,6 @@ public class Cyclops : MonoBehaviour, IDamageable
     public void FlipSprite()
     {
         transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
-    }
-
-    public void Walk()
-    {
-        _animator.SetBool("isWalking", true);
     }
 
     public void DisableCollider()
@@ -153,7 +150,8 @@ public class Cyclops : MonoBehaviour, IDamageable
     {
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(
             swipeAttackPoint.position,
-            0.5f
+            0.5f,
+            LayerMask.GetMask("TransparentFX")
         );
 
         foreach (Collider2D c in hitEnemies)

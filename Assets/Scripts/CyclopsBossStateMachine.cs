@@ -26,7 +26,6 @@ public class CyclopsBossStateMachine : MonoBehaviour
     private bool startedDeathSequence = false;
     public void Run()
     {
-        cyclops.Walk();
         bossState = BossState.Attacking;
     }
 
