@@ -153,13 +153,15 @@ public class Attack : MonoBehaviour, IDamageable
 			canMeleeAttack = false;
             animator.SetBool("IsHit", true);
             float knockbackDirection = transform.localScale.x > 0f ? -1f : 1f;
-			rigidBody.AddForce(new Vector2(knockbackForce.x * knockbackDirection, knockbackForce.y), ForceMode2D.Impulse);
+            Vector2 knockback = new Vector2(knockbackForce.x * knockbackDirection, knockbackForce.y);
+			rigidBody.AddForce(knockback, ForceMode2D.Impulse);
 			shouldCheckGroundedForKnockback = true;
         }
 	}
 
     private IEnumerator Die()
 	{
+        playerMovement.Stop();
         audioManager.PlayGameOver();
         dead = true;
         animator.SetBool("IsDead", true);
