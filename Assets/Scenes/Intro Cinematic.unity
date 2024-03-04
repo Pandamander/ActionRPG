@@ -965,8 +965,8 @@ MonoBehaviour:
     storyText:
     - One day, our legion was sent to the fringes of the empire.
     - As we were encamped, a dense black fog came upon us.
-  - image: {fileID: 21300000, guid: 19d7394245b3c4feeba397fb814bf7fd, type: 3}
-    animationClipName: Intro Illustration 02
+  - image: {fileID: 21300000, guid: 07336f4f351a45a46b6660c93340ec58, type: 3}
+    animationClipName: Intro Illustration 03
     storyText:
     - I was gripped by fear as confusion broke out amongst the ranks. The anguished
       cries of my comrades pierced the air.
@@ -1247,7 +1247,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.9995353
+      value: 0.9998623
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952797147, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_LocalPosition.x
