@@ -955,32 +955,53 @@ MonoBehaviour:
     storyText:
     - My name is Titus.<br>Every morning when I wake, I'm haunted by visions of what
       happened on that fateful day many years ago.
+    illustrationFadeIn: 1
   - image: {fileID: 21300000, guid: 19d7394245b3c4feeba397fb814bf7fd, type: 3}
     animationClipName: Intro Illustration 02
     storyText:
     - My father was a great general in the Roman army. He fought many battles and
       raised me in the ways of combat.
+    illustrationFadeIn: 1
   - image: {fileID: 21300000, guid: 07336f4f351a45a46b6660c93340ec58, type: 3}
     animationClipName: Intro Illustration 03
     storyText:
     - One day, our legion was sent to the fringes of the empire.
-    - As we were encamped, a dense black fog came upon us.
-  - image: {fileID: 21300000, guid: 07336f4f351a45a46b6660c93340ec58, type: 3}
-    animationClipName: Intro Illustration 03
+    illustrationFadeIn: 1
+  - image: {fileID: 21300000, guid: 72f9d71528fe97544b4782281a2c56c0, type: 3}
+    animationClipName: Intro Illustration 04
     storyText:
-    - I was gripped by fear as confusion broke out amongst the ranks. The anguished
+    - As we were encamped, a dense black fog came upon us.
+    - Confusion broke out amongst the ranks. I was gripped by fear as the anguished
       cries of my comrades pierced the air.
+    illustrationFadeIn: 1
+  - image: {fileID: 21300000, guid: 07336f4f351a45a46b6660c93340ec58, type: 3}
+    animationClipName: Intro Illustration 04
+    storyText:
     - My father...was among the dead.
+    illustrationFadeIn: 1
+  - image: {fileID: 21300000, guid: 07336f4f351a45a46b6660c93340ec58, type: 3}
+    animationClipName: Intro Illustration 04
+    storyText:
     - A sharp pain pierced my back. As I collapsed into the ground, the last thing
       I saw were the spectres of monstrous, otherworldly beasts.
-    - I opened my eyes in a bed I didn't know. I was rescued by a man who spoke to
-      me about terrors that exist beyond the natural order.
+    illustrationFadeIn: 1
+  - image: {fileID: 21300000, guid: 07336f4f351a45a46b6660c93340ec58, type: 3}
+    animationClipName: Intro Illustration 04
+    storyText:
+    - 'But death had not come for me yet. I opened my eyes in a bed I didn''t know. '
+    - I had been rescued by a man who spoke to me about terrors that exist beyond
+      the natural order.
     - On that day, I renounced my service to the empire and devoted my life to pursuing
       the evils that lurk in the shadows.
+    illustrationFadeIn: 1
+  - image: {fileID: 21300000, guid: 07336f4f351a45a46b6660c93340ec58, type: 3}
+    animationClipName: Intro Illustration 04
+    storyText:
     - I now set sail into the Mediterranean, hoping that my years of training will
       lead me to the truth...<br>and to vengeance for my father.
     - I draw near to an archipelago, where rumors of strange events have been occuring.
     - A storm is brewing...<br>Perhaps a sign pointing me in the right direction...
+    illustrationFadeIn: 1
   skipCutsceneRadialIndicator: {fileID: 363774613}
   skipKeyGraphicResting: {fileID: 1811552486}
   skipKeyGraphicPressed: {fileID: 185948330}
@@ -1243,11 +1264,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 1
+      value: 0.999539
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.9998623
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952797147, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_LocalPosition.x

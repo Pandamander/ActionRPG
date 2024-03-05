@@ -12,6 +12,7 @@ public class StorySection
     public Sprite image;
     public string animationClipName;
     public string[] storyText;
+    public bool illustrationFadeIn = true;
 
 }
 
@@ -121,7 +122,7 @@ public class StoryboardManagerBeta : MonoBehaviour
             yield return StartCoroutine(LoadStoryboardSection(i));
         }
 
-        yield return new WaitForSeconds(2.0f); // wait a couple seconds before going to the next scene
+        yield return new WaitForSeconds(3.0f); // wait a few seconds before going to the next scene
 
         // after all the sections are finished, load the intro boat scene
         SceneManager.LoadScene(nextScene);
@@ -134,22 +135,28 @@ public class StoryboardManagerBeta : MonoBehaviour
         {
             yield return StartCoroutine(SteppedImageFadeIn(0.5f));
         }
-        // if not the first image, then do a regular fade in
+        // if not the first image, then check to see if the story section calls for a fade in
         else {
-            StartCoroutine(ImageFadeIn(0.5f));
+            if (storySections[currentSection].illustrationFadeIn == true)
+            {
+                StartCoroutine(ImageFadeIn(0.5f));
+            } else
+            {
+                image.color = new Color(image.color.r, image.color.g, image.color.b, 1.0f);
+            }
         }
 
         textGUI.alpha = 1.0f;
 
-        // loop through the text in a section and do the typewriter effect on it
+        // loop through the text segments in a section and do the typewriter effect on it
         for (int i = 0; i < storySections[currentSection].storyText.Length; i++)
         {
-
+            // set the image
             if (storySections[currentSection].image != null)
             {
                 image.sprite = storySections[currentSection].image;
             }
-
+            // set the animation
             if (storySections[currentSection].animationClipName != null)
             {
                 imageAnimator.Play(storySections[currentSection].animationClipName);
@@ -163,6 +170,7 @@ public class StoryboardManagerBeta : MonoBehaviour
         if (currentSection == storySections.Count - 1)
         {
             StartCoroutine(SteppedImageFadeOut(0.5f));
+            StartCoroutine(SteppedSkipUIFadeOut(0.5f));
             yield return StartCoroutine(SteppedTextFadeOut(0.5f));
         }
         // otherwise just immediately set the image alpha to 0
@@ -236,6 +244,17 @@ public class StoryboardManagerBeta : MonoBehaviour
             yield return new WaitForSeconds(timeBetweenSteps);
         }
 
+        yield return null;
+    }
+
+    private IEnumerator SteppedSkipUIFadeOut(float timeBetweenSteps)
+    {
+        while (skipTextLabel.alpha > 0)
+        {
+            skipTextLabel.alpha = skipTextLabel.alpha - 0.25f;
+            skipKeyGraphicResting.color = new Color(skipKeyGraphicResting.color.r, skipKeyGraphicResting.color.g, skipKeyGraphicResting.color.b, skipKeyGraphicResting.color.a - 0.25f);
+            yield return new WaitForSeconds(timeBetweenSteps);
+        }
         yield return null;
     }
 
