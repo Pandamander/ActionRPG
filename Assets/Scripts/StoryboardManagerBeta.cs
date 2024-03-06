@@ -31,7 +31,7 @@ public class StoryboardManagerBeta : MonoBehaviour
     private int currentVisibleCharacterIndex;
     private float waitTimeBetweenLetters = 0.05f;
     private float punctuationDelay = 0.5f;
-    private float waitTimeAtEnd = 3.5f; // the time between the end of a section of text and the beginning of another
+    private float waitTimeAtEnd = 4.0f; // the time between the end of a section of text and the beginning of another
 
     // stuff related to the skip cutscene UI/UX
     [SerializeField] private Image skipCutsceneRadialIndicator;
@@ -47,6 +47,7 @@ public class StoryboardManagerBeta : MonoBehaviour
     private float radialSkipIndicatorTimerMax = 1.0f;
     private bool skipKeyPressed = false;
     private bool skippingCutscene = false;
+    private bool canSkipCutscene = true;
 
     void Start()
     {
@@ -69,7 +70,7 @@ public class StoryboardManagerBeta : MonoBehaviour
         // radial progress indicator by pressing and holding a key
 
         // skip key pressed
-        if (!skippingCutscene && Input.GetKeyDown(skipKey))
+        if (canSkipCutscene && !skippingCutscene && Input.GetKeyDown(skipKey))
         {
             skipTextLabel.color = skipTextLabelActiveColor;
             skipKeyPressed = true;
@@ -78,7 +79,7 @@ public class StoryboardManagerBeta : MonoBehaviour
         }
 
         // skip key released
-        if (!skippingCutscene && Input.GetKeyUp(skipKey))
+        if (canSkipCutscene && !skippingCutscene && Input.GetKeyUp(skipKey))
         {
             skipTextLabel.color = skipTextLabelInactiveColor;
             skipKeyPressed = false;
@@ -87,7 +88,7 @@ public class StoryboardManagerBeta : MonoBehaviour
         }
 
         // skipping in progress
-        if (!skippingCutscene && skipKeyPressed)
+        if (canSkipCutscene && !skippingCutscene && skipKeyPressed)
         {
 
             if (radialSkipIndicatorTimer >= radialSkipIndicatorTimerMax)
@@ -107,7 +108,7 @@ public class StoryboardManagerBeta : MonoBehaviour
         }
 
         // this reduces any existing radial fill on the skip progress bar when the skip key is released
-        else if (!skippingCutscene && !skipKeyPressed && skipCutsceneRadialIndicator.fillAmount > 0)
+        else if (canSkipCutscene && !skippingCutscene && !skipKeyPressed && skipCutsceneRadialIndicator.fillAmount > 0)
         {
             radialSkipIndicatorTimer -= Time.deltaTime;
             skipCutsceneRadialIndicator.fillAmount = radialSkipIndicatorTimer;
@@ -169,6 +170,7 @@ public class StoryboardManagerBeta : MonoBehaviour
         // if the last section, do a stepped fade out
         if (currentSection == storySections.Count - 1)
         {
+            canSkipCutscene = false; // disable ability to skip
             StartCoroutine(SteppedImageFadeOut(0.5f));
             StartCoroutine(SteppedSkipUIFadeOut(0.5f));
             yield return StartCoroutine(SteppedTextFadeOut(0.5f));

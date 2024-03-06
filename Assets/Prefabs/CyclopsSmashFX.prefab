@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2739118520237241256}
   - component: {fileID: 6944668033597463723}
   m_Layer: 0
-  m_Name: Sand
+  m_Name: CyclopsSmashFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 9
-  m_Sprite: {fileID: 21300000, guid: 7d7b94d5cca300f40b41f580f10e34be, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e8ebe226abbfed2498aac312e5cb38f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
