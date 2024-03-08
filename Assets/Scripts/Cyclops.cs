@@ -76,6 +76,11 @@ public class Cyclops : MonoBehaviour, IDamageable
         _collider.enabled = false;
     }
 
+    public void Roar()
+    {
+        _animator.SetTrigger("roar");
+    }
+
     private void ThrowBoulder()
     {
         shouldWalk = false;

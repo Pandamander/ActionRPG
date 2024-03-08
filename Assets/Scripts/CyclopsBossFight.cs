@@ -14,6 +14,8 @@ public class CyclopsBossFight : MonoBehaviour
     [SerializeField] private CyclopsBossStateMachine stateMachine;
     [SerializeField] private SubzoneHUD subzoneHUD;
     [SerializeField] private Transform playerTransform;
+    [SerializeField] private Cyclops cyclops;
+    [SerializeField] private CameraShake cameraShake;
     private BoxCollider2D _bossFightStartTrigger;
 
     private bool moveCam = false;
@@ -65,7 +67,6 @@ public class CyclopsBossFight : MonoBehaviour
             
             if (virtualCamera.transform.position.x >= virtualCameraBossFightTarget.position.x)
             {
-                subzoneHUD.FillBossHealthMeter();
                 moveCam = false;
                 StartCoroutine(StartFight());
             }
@@ -105,7 +106,12 @@ public class CyclopsBossFight : MonoBehaviour
 
     private IEnumerator StartFight()
     {
-        yield return new WaitForSeconds(2.1f);
+        yield return new WaitForSeconds(1f);
+        cameraShake.ShakeCamera(1f, 5f);
+        cyclops.Roar();
+        yield return new WaitForSeconds(1.0f);
+        subzoneHUD.FillBossHealthMeter();
+        yield return new WaitForSeconds(2.2f);
         playerNeedsUnfreeze = true;
         stateMachine.Run();
     }
