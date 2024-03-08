@@ -149,20 +149,20 @@ public class StoryboardManagerBeta : MonoBehaviour
 
         textGUI.alpha = 1.0f;
 
+        // set the image if it's specified
+        if (storySections[currentSection].image != null)
+        {
+            image.sprite = storySections[currentSection].image;
+        }
+        // start the animation if it's specified
+        if (storySections[currentSection].animationClipName != null)
+        {
+            imageAnimator.Play(storySections[currentSection].animationClipName);
+        }
+
         // loop through the text segments in a section and do the typewriter effect on it
         for (int i = 0; i < storySections[currentSection].storyText.Length; i++)
         {
-            // set the image
-            if (storySections[currentSection].image != null)
-            {
-                image.sprite = storySections[currentSection].image;
-            }
-            // set the animation
-            if (storySections[currentSection].animationClipName != null)
-            {
-                imageAnimator.Play(storySections[currentSection].animationClipName);
-            }
-
             textField.text = storySections[currentSection].storyText[i];
             yield return StartCoroutine(TypeWriterEffect());
         }
@@ -326,8 +326,6 @@ public class StoryboardManagerBeta : MonoBehaviour
 
         while (alpha < 1.0f)
         {
-            //print ("alpha is " + alpha);
-            //print("elapsed time is " + elapsedTime);
             alpha = Mathf.Lerp(0, 1.0f, elapsedTime / fadeDuration);
             skipCutsceneFadeBG.color = new Color(skipCutsceneFadeBG.color.r, skipCutsceneFadeBG.color.g, skipCutsceneFadeBG.color.b, alpha);
             elapsedTime += Time.deltaTime;

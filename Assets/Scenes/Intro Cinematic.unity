@@ -970,10 +970,10 @@ MonoBehaviour:
   - image: {fileID: 21300000, guid: 72f9d71528fe97544b4782281a2c56c0, type: 3}
     animationClipName: Intro Illustration 04
     storyText:
-    - As we were encamped, a dense black fog came upon us.
+    - As we were encamped, a dense fog came upon us.
     - Confusion broke out amongst the ranks. I was gripped by fear as the anguished
       cries of my comrades pierced the air.
-    illustrationFadeIn: 1
+    illustrationFadeIn: 0
   - image: {fileID: 21300000, guid: 07336f4f351a45a46b6660c93340ec58, type: 3}
     animationClipName: Intro Illustration 04
     storyText:
@@ -988,7 +988,7 @@ MonoBehaviour:
   - image: {fileID: 21300000, guid: 07336f4f351a45a46b6660c93340ec58, type: 3}
     animationClipName: Intro Illustration 04
     storyText:
-    - 'But death had not come for me yet. I opened my eyes in a bed I didn''t know. '
+    - But death had not come for me yet.
     - I had been rescued by a man who spoke to me about terrors that exist beyond
       the natural order.
     - On that day, I renounced my service to the empire and devoted my life to pursuing
