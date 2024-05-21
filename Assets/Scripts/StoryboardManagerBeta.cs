@@ -9,8 +9,8 @@ using Unity.VisualScripting;
 [System.Serializable]
 public class StorySection
 {
-    public Sprite image;
-    public string animationClipName;
+    //public Sprite image;
+    public Animator animator;
     public string[] storyText;
     public bool illustrationFadeIn = true;
 
@@ -21,13 +21,13 @@ public class StoryboardManagerBeta : MonoBehaviour
 
     public string nextScene = "";
     public GameObject textObject;
-    public GameObject imageObject;
+    //public GameObject animatorObject;
     public List<StorySection> storySections = new List<StorySection>(); // a list of storyboard sections - each section can include multiple text strings and an image
 
     private TMP_Text textField;
     private TextMeshProUGUI textGUI;
-    private Image image;
-    private Animator imageAnimator;
+    [SerializeField] private Image image;
+    //private Animator imageAnimator;
     private int currentVisibleCharacterIndex;
     private float waitTimeBetweenLetters = 0.05f;
     private float punctuationDelay = 0.5f;
@@ -55,8 +55,8 @@ public class StoryboardManagerBeta : MonoBehaviour
         textField.maxVisibleCharacters = 0;
         textGUI = textObject.GetComponent<TextMeshProUGUI>();
 
-        image = imageObject.GetComponent<Image>();
-        imageAnimator = imageObject.GetComponent<Animator>();
+        //image = animatorObject.GetComponent<Image>();
+        //imageAnimator = animatorObject.GetComponent<Animator>();
 
         skipTextLabelInactiveColor = skipTextLabel.color;
 
@@ -134,30 +134,31 @@ public class StoryboardManagerBeta : MonoBehaviour
         // if it's the first image, do a stepped fade in
         if (currentSection == 0)
         {
-            yield return StartCoroutine(SteppedImageFadeIn(0.5f));
+            yield return StartCoroutine(SteppedImageFadeOut(0.5f));
         }
         // if not the first image, then check to see if the story section calls for a fade in
         else {
             if (storySections[currentSection].illustrationFadeIn == true)
             {
-                StartCoroutine(ImageFadeIn(0.5f));
+                StartCoroutine(ImageFadeOut(0.5f));
             } else
             {
-                image.color = new Color(image.color.r, image.color.g, image.color.b, 1.0f);
+                image.color = new Color(image.color.r, image.color.g, image.color.b, 0);
             }
         }
 
         textGUI.alpha = 1.0f;
 
         // set the image if it's specified
-        if (storySections[currentSection].image != null)
-        {
-            image.sprite = storySections[currentSection].image;
-        }
+        //if (storySections[currentSection].image != null)
+        //{
+        //    image.sprite = storySections[currentSection].image;
+        //}
+
         // start the animation if it's specified
-        if (storySections[currentSection].animationClipName != null)
+        if (storySections[currentSection].animator != null)
         {
-            imageAnimator.Play(storySections[currentSection].animationClipName);
+            storySections[currentSection].animator.Play("Intro Illustration 01");
         }
 
         // loop through the text segments in a section and do the typewriter effect on it
@@ -171,13 +172,13 @@ public class StoryboardManagerBeta : MonoBehaviour
         if (currentSection == storySections.Count - 1)
         {
             canSkipCutscene = false; // disable ability to skip
-            StartCoroutine(SteppedImageFadeOut(0.5f));
+            StartCoroutine(SteppedImageFadeIn(0.5f));
             StartCoroutine(SteppedSkipUIFadeOut(0.5f));
             yield return StartCoroutine(SteppedTextFadeOut(0.5f));
         }
         // otherwise just immediately set the image alpha to 0
         else {
-            image.color = new Color(image.color.r, image.color.g, image.color.b, 0);
+            image.color = new Color(image.color.r, image.color.g, image.color.b, 1.0f);
         }
         
     }
