@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
+using System.ComponentModel;
 
 [System.Serializable]
 public class StorySection
@@ -13,6 +14,7 @@ public class StorySection
     public string animationClipName;
     public string[] storyText;
     public bool illustrationFadeIn = true;
+    public bool isParallaxAnimation = false;
 
 }
 
@@ -23,6 +25,7 @@ public class StoryboardManagerBeta : MonoBehaviour
     public GameObject textObject;
     public GameObject imageObject;
     public List<StorySection> storySections = new List<StorySection>(); // a list of storyboard sections - each section can include multiple text strings and an image
+    public Image[] parallaxContainers;
 
     private TMP_Text textField;
     private TextMeshProUGUI textGUI;
@@ -138,12 +141,32 @@ public class StoryboardManagerBeta : MonoBehaviour
         }
         // if not the first image, then check to see if the story section calls for a fade in
         else {
+            var isParallax = storySections[currentSection].isParallaxAnimation;
+
             if (storySections[currentSection].illustrationFadeIn == true)
             {
-                StartCoroutine(ImageFadeIn(0.5f));
+                if (isParallax)
+                {
+                    foreach (Image container in parallaxContainers)
+                    {
+                        StartCoroutine(ImageFadeIn(container, 0.5f));
+                    }
+                } else
+                {
+                    StartCoroutine(ImageFadeIn(image, 0.5f));
+                }
             } else
             {
-                image.color = new Color(image.color.r, image.color.g, image.color.b, 1.0f);
+                if (isParallax)
+                {
+                    foreach (Image container in parallaxContainers)
+                    {
+                        SetImageAlpha(container, 1.0f);
+                    }
+                } else
+                {
+                    SetImageAlpha(image, 1.0f);
+                }
             }
         }
 
@@ -177,7 +200,7 @@ public class StoryboardManagerBeta : MonoBehaviour
         }
         // otherwise just immediately set the image alpha to 0
         else {
-            image.color = new Color(image.color.r, image.color.g, image.color.b, 0);
+            SetImageAlpha(image, 0f);
         }
         
     }
@@ -197,19 +220,24 @@ public class StoryboardManagerBeta : MonoBehaviour
         yield return null;
     }
 
-    private IEnumerator ImageFadeIn(float duration)
+    private IEnumerator ImageFadeIn(Image imageToFade, float duration)
     {
         float elapsedTime = 0;
 
-        while (image.color.a < 1.0f)
+        while (imageToFade.color.a < 1.0f)
         {
             float newAlpha = Mathf.Lerp(0, 1.0f, elapsedTime / duration);
-            image.color = new Color(image.color.r, image.color.g, image.color.b, newAlpha);
+            imageToFade.color = new Color(imageToFade.color.r, imageToFade.color.g, imageToFade.color.b, newAlpha);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
         yield return null;
+    }
+
+    private void SetImageAlpha(Image imageToAdjust, float alpha)
+    {
+        imageToAdjust.color = new Color(imageToAdjust.color.r, imageToAdjust.color.g, imageToAdjust.color.b, alpha);
     }
 
     private IEnumerator TextFadeOut(float duration)

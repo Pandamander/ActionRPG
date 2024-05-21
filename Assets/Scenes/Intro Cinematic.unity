@@ -775,7 +775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1035,17 +1035,20 @@ MonoBehaviour:
     - My name is Titus.<br>Every morning when I wake, I'm haunted by visions of what
       happened on that fateful day many years ago.
     illustrationFadeIn: 1
-  - image: {fileID: 21300000, guid: 19d7394245b3c4feeba397fb814bf7fd, type: 3}
+    isParallaxAnimation: 0
+  - image: {fileID: 0}
     animationClipName: Intro Illustration 02
     storyText:
     - My father was a great general in the Roman army. He fought many battles and
       raised me in the ways of combat.
     illustrationFadeIn: 1
+    isParallaxAnimation: 1
   - image: {fileID: 21300000, guid: 07336f4f351a45a46b6660c93340ec58, type: 3}
     animationClipName: Intro Illustration 03
     storyText:
     - One day, our legion was sent to the fringes of the empire.
     illustrationFadeIn: 1
+    isParallaxAnimation: 0
   - image: {fileID: 21300000, guid: 72f9d71528fe97544b4782281a2c56c0, type: 3}
     animationClipName: Intro Illustration 04
     storyText:
@@ -1053,17 +1056,20 @@ MonoBehaviour:
     - Confusion broke out amongst the ranks. I was gripped by fear as the anguished
       cries of my comrades pierced the air.
     illustrationFadeIn: 0
+    isParallaxAnimation: 0
   - image: {fileID: 21300000, guid: 07336f4f351a45a46b6660c93340ec58, type: 3}
     animationClipName: Intro Illustration 04
     storyText:
     - My father...was among the dead.
     illustrationFadeIn: 1
+    isParallaxAnimation: 0
   - image: {fileID: 21300000, guid: 07336f4f351a45a46b6660c93340ec58, type: 3}
     animationClipName: Intro Illustration 04
     storyText:
     - A sharp pain pierced my back. As I collapsed into the ground, the last thing
       I saw were the spectres of monstrous, otherworldly beasts.
     illustrationFadeIn: 1
+    isParallaxAnimation: 0
   - image: {fileID: 21300000, guid: 07336f4f351a45a46b6660c93340ec58, type: 3}
     animationClipName: Intro Illustration 04
     storyText:
@@ -1073,6 +1079,7 @@ MonoBehaviour:
     - On that day, I renounced my service to the empire and devoted my life to pursuing
       the evils that lurk in the shadows.
     illustrationFadeIn: 1
+    isParallaxAnimation: 0
   - image: {fileID: 21300000, guid: 07336f4f351a45a46b6660c93340ec58, type: 3}
     animationClipName: Intro Illustration 04
     storyText:
@@ -1081,6 +1088,11 @@ MonoBehaviour:
     - I draw near to an archipelago, where rumors of strange events have been occuring.
     - A storm is brewing...<br>Perhaps a sign pointing me in the right direction...
     illustrationFadeIn: 1
+    isParallaxAnimation: 0
+  parallaxContainers:
+  - {fileID: 1773183681}
+  - {fileID: 1107380897}
+  - {fileID: 435234498}
   skipCutsceneRadialIndicator: {fileID: 363774613}
   skipKeyGraphicResting: {fileID: 1811552486}
   skipKeyGraphicPressed: {fileID: 185948330}
@@ -1274,7 +1286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1560,7 +1572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
