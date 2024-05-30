@@ -107,7 +107,7 @@ public class CyclopsBossFight : MonoBehaviour
     private IEnumerator StartFight()
     {
         yield return new WaitForSeconds(1f);
-        cameraShake.ShakeCamera(1f, 5f);
+        cameraShake.ShakeCamera(2f, 4f);
         cyclops.Roar();
         yield return new WaitForSeconds(1.0f);
         subzoneHUD.FillBossHealthMeter();
