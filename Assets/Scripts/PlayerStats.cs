@@ -19,7 +19,7 @@ public static class PlayerStats
     {
         if (!Initialized)
         {
-            Attack = 1;
+            Attack = 0;
             DefenseCapacity = 1;
             Defense = DefenseCapacity;
             HealthCapacity = 14;
@@ -62,10 +62,11 @@ public static class PlayerStats
         Debug.Log("PowerupDestroy: " + PowerupDestroy.Count);
     }
 
-    public static void PickUpWeapon(string weaponSOPath)
+    public static void PickUpWeapon(string weaponSOPath, int attack)
     {
         Debug.Log("PickUpWeapon: " + weaponSOPath);
         MeleeWeapon = weaponSOPath;
+        Attack = attack;
     }
 
     public static void ApplyDamage(int amount)

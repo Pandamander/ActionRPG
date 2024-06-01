@@ -1549,8 +1549,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba61b6b1e6b0e704fbf00b754f137439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealthMeter: {fileID: 0}
-  bossHealthMeter: {fileID: 0}
+  playerHealthMeter: {fileID: 5135127193670527968}
+  bossHealthMeter: {fileID: 1368323791435616716}
+  itemFrame: {fileID: 8428778211796875313}
 --- !u!1 &2100172161104411091
 GameObject:
   m_ObjectHideFlags: 0

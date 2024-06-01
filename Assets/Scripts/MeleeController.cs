@@ -44,7 +44,7 @@ public class MeleeController : MonoBehaviour
             MeleeWeapon weapon = WeaponScriptableObjectMap[PlayerStats.MeleeWeapon];
             if (weapon != null)
             {
-                currentMeleeWeapon = weapon;
+                SetMeleeWeapon(weapon);
             }
         }
     }
@@ -104,9 +104,15 @@ public class MeleeController : MonoBehaviour
         }
     }
 
-    public void SetMeleeWeapon(MeleeWeapon weapon)
+    public void PickUpMeleeWeapon(MeleeWeapon weapon)
     {
-        PlayerStats.PickUpWeapon(weapon.name);
+        PlayerStats.PickUpWeapon(weapon.name, weapon.attackDamage);
+        SetMeleeWeapon(weapon);
+    }
+
+    private void SetMeleeWeapon(MeleeWeapon weapon)
+    {
+        FindObjectOfType<SubzoneHUD>().SetItemFrameImage(weapon.itemFrameImage);
         currentMeleeWeapon = weapon;
     }
 

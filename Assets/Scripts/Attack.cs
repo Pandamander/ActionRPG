@@ -176,7 +176,7 @@ public class Attack : MonoBehaviour, IDamageable
             MeleeWeaponPickup weaponPickup = collision.gameObject.GetComponentInChildren<MeleeWeaponPickup>();
             if (weaponPickup != null)
             {
-                meleeWeaponController.SetMeleeWeapon(weaponPickup.weapon);
+                meleeWeaponController.PickUpMeleeWeapon(weaponPickup.weapon);
                 GameObject.Destroy(collision.gameObject);
             }
         }

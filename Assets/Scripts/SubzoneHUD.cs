@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class SubzoneHUD : MonoBehaviour
 {
     [SerializeField] private HUDHealthMeter playerHealthMeter;
     [SerializeField] private HUDHealthMeter bossHealthMeter;
+    [SerializeField] private Image itemFrame;
     private Fader _fader;
 
     private void Awake()
@@ -35,5 +37,10 @@ public class SubzoneHUD : MonoBehaviour
     public void ReduceBossHealthMeter(int amount)
     {
         bossHealthMeter.Decrement(amount);
+    }
+
+    public void SetItemFrameImage(Sprite image)
+    {
+        itemFrame.sprite = image;
     }
 }

@@ -10,4 +10,5 @@ public class MeleeWeapon : ScriptableObject
     public Vector2 attackBounds;
     public int attackDamage;
     public LayerMask layerMask;
+    public Sprite itemFrameImage;
 }
