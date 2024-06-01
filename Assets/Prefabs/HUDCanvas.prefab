@@ -1551,6 +1551,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealthMeter: {fileID: 5135127193670527968}
   bossHealthMeter: {fileID: 1368323791435616716}
+  attackValueText: {fileID: 527882589330772665}
+  defenseValueText: {fileID: 436339249967674035}
   itemFrame: {fileID: 8428778211796875313}
 --- !u!1 &2100172161104411091
 GameObject:

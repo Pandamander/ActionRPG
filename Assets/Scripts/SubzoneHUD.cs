@@ -8,6 +8,8 @@ public class SubzoneHUD : MonoBehaviour
 {
     [SerializeField] private HUDHealthMeter playerHealthMeter;
     [SerializeField] private HUDHealthMeter bossHealthMeter;
+    [SerializeField] private TMP_Text attackValueText;
+    [SerializeField] private TMP_Text defenseValueText;
     [SerializeField] private Image itemFrame;
     private Fader _fader;
 
@@ -18,6 +20,12 @@ public class SubzoneHUD : MonoBehaviour
     private void Start()
     {
         _fader.FadeOut();
+    }
+
+    private void Update()
+    {
+        attackValueText.text = PlayerStats.Attack.ToString();
+        defenseValueText.text = PlayerStats.Defense.ToString();
     }
     public void FillBossHealthMeter()
     {
