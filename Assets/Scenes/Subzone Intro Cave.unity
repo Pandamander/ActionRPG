@@ -2343,7 +2343,7 @@ Tilemap:
       - {fileID: 21300000, guid: 1d96496fef6cc45b9875808b9427742a, type: 3}
       - {fileID: 21300000, guid: dc0b692550f9b46cd82bc62a59c6f4b0, type: 3}
       - {fileID: 21300000, guid: 69d8f3986237c41a68c848bcea87477a, type: 3}
-      m_AnimationSpeed: 7
+      m_AnimationSpeed: 7.0000005
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -6, y: -2, z: 0}
@@ -2352,7 +2352,7 @@ Tilemap:
       - {fileID: 21300000, guid: 1d96496fef6cc45b9875808b9427742a, type: 3}
       - {fileID: 21300000, guid: dc0b692550f9b46cd82bc62a59c6f4b0, type: 3}
       - {fileID: 21300000, guid: 69d8f3986237c41a68c848bcea87477a, type: 3}
-      m_AnimationSpeed: 7.0000005
+      m_AnimationSpeed: 7
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 23, y: -1, z: 0}
@@ -2361,7 +2361,7 @@ Tilemap:
       - {fileID: 21300000, guid: 1d96496fef6cc45b9875808b9427742a, type: 3}
       - {fileID: 21300000, guid: dc0b692550f9b46cd82bc62a59c6f4b0, type: 3}
       - {fileID: 21300000, guid: 69d8f3986237c41a68c848bcea87477a, type: 3}
-      m_AnimationSpeed: 7
+      m_AnimationSpeed: 7.0000005
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 2, y: 0, z: 0}
@@ -38081,7 +38081,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.19843751
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
@@ -38089,11 +38089,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.26481482
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.26481482
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796965, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_UpdateMethod

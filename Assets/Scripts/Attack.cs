@@ -177,6 +177,7 @@ public class Attack : MonoBehaviour, IDamageable
             if (weaponPickup != null)
             {
                 meleeWeaponController.SetMeleeWeapon(weaponPickup.weapon);
+                GameObject.Destroy(collision.gameObject);
             }
         }
     }
