@@ -19,6 +19,7 @@ public class Cyclops : MonoBehaviour, IDamageable
     [SerializeField] private CameraShake cameraShake;
     [SerializeField] private SandWave sandWave;
     [SerializeField] private Transform swipeAttackPoint;
+    [SerializeField] private ParticleSystem[] deathParticles;
 
     private Animator _animator;
     private Rigidbody2D _rb;
@@ -201,6 +202,11 @@ public class Cyclops : MonoBehaviour, IDamageable
     {
         shouldWalk = false;
         _rb.velocity = Vector2.zero;
+        _animator.SetTrigger("death");
+        for (int i = 0; i < deathParticles.Length; i++)
+        {
+            deathParticles[i].Play();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

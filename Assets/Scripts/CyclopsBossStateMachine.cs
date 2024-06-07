@@ -39,8 +39,11 @@ public class CyclopsBossStateMachine : MonoBehaviour
             case BossState.Attacking:
                 if (cyclops.health == 0)
                 {
-                    cyclops.KneelForFinalBlow();
-                    bossState = BossState.Kneeling;
+                    if (startedDeathSequence) return;
+                    startedDeathSequence = true;
+                    StartCoroutine(CyclopsDie());
+                    //cyclops.KneelForFinalBlow();
+                    //bossState = BossState.Kneeling;
                     return;
                 }
 
@@ -85,8 +88,8 @@ public class CyclopsBossStateMachine : MonoBehaviour
 
     private IEnumerator CyclopsDie()
     {
-        cameraShake.ShakeCamera(3.5f, 5f);
-        audioManager.PlayExplosion();
+        //cameraShake.ShakeCamera(3.5f, 5f);
+        //audioManager.PlayExplosion();
         cyclops.Die();
         yield return new WaitForSeconds(3.5f);
         Destroy(cyclops.gameObject);
