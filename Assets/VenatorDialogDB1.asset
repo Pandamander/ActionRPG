@@ -1532,8 +1532,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: I suppose fate is guiding me now. I'd best figure out a way off this
-          island.
+        value: I suppose fate has brought me here. I'd best figure out a way off
+          this island.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -1556,7 +1556,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 755.8879
-        y: 535.4294
+        y: 461.82056
         width: 160
         height: 30
     - id: 3
@@ -1692,7 +1692,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: And my equipment and provisions are lost.
+        value: ...and my equipment and provisions are lost.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -1710,7 +1710,7 @@ MonoBehaviour:
       - originConversationID: 10
         originDialogueID: 5
         destinationConversationID: 10
-        destinationDialogueID: 6
+        destinationDialogueID: 2
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -1722,62 +1722,6 @@ MonoBehaviour:
         serializedVersion: 2
         x: 757.72394
         y: 372.83298
-        width: 160
-        height: 30
-    - id: 6
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Description
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Actor
-        value: 5
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Dialogue Text
-        value: On the bright side...I survived an encounter with a leviathan. Not
-          many could tell that tale.
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      conversationID: 10
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 10
-        originDialogueID: 6
-        destinationConversationID: 10
-        destinationDialogueID: 2
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 758.38586
-        y: 452.78702
         width: 160
         height: 30
     entryGroups: []
