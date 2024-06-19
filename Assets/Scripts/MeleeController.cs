@@ -99,7 +99,7 @@ public class MeleeController : MonoBehaviour
         {
             if (c.gameObject.TryGetComponent<IDamageable>(out var enemy))
             {
-                enemy.Damage(currentMeleeWeapon.attackDamage);
+                enemy.Damage(currentMeleeWeapon.attackDamage, Utilities.DamageDirection(gameObject, c.gameObject));
             }
         }
     }

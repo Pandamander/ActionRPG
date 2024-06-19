@@ -51,7 +51,7 @@ public class Boulder : MonoBehaviour
 
             if (collision.gameObject.TryGetComponent<IDamageable>(out var player))
             {
-                player.Damage(2);
+                player.Damage(2, Utilities.DamageDirection(gameObject, collision.gameObject));
             }
         }
     }

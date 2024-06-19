@@ -164,7 +164,7 @@ public class Cyclops : MonoBehaviour, IDamageable
         {
             if (c.gameObject.TryGetComponent<IDamageable>(out var enemy))
             {
-                enemy.Damage(2);
+                enemy.Damage(2, Utilities.DamageDirection(gameObject, c.gameObject));
             }
         }
     }
@@ -219,7 +219,7 @@ public class Cyclops : MonoBehaviour, IDamageable
         {
             if (collision.gameObject.TryGetComponent<IDamageable>(out var player))
             {
-                player.Damage(1);
+                player.Damage(1, Utilities.DamageDirection(gameObject, collision.gameObject));
             }
         }
     }
@@ -247,7 +247,7 @@ public class Cyclops : MonoBehaviour, IDamageable
     }
 
     // IDamageable
-    public void Damage(int damage)
+    public void Damage(int damage, float damageDirection)
     {
         audioManager.PlayAttackHit();
 

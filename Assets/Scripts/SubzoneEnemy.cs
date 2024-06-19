@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEditor.Rendering;
 using UnityEngine;
 
@@ -45,7 +46,7 @@ public class SubzoneEnemy : MonoBehaviour, IDamageable
         {
             if (collision.gameObject.TryGetComponent<IDamageable>(out var player))
             {
-                player.Damage(attackDamage);
+                player.Damage(attackDamage, Utilities.DamageDirection(gameObject, collision.gameObject));
             }
         }
     }
@@ -58,9 +59,8 @@ public class SubzoneEnemy : MonoBehaviour, IDamageable
     }
 
     // IDamageable
-    public void Damage(int damage)
+    public void Damage(int damage, float damageDirection)
     {
-        //cameraShake.ShakeCamera(0.15f, 1.5f); Elliott: disabled this as I don't think it's adding any value. Feel free to reenable!
         health -= damage;
         if (health < 0) return;
 
