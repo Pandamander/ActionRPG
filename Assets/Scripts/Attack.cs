@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using PixelCrushers.DialogueSystem;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -177,6 +178,11 @@ public class Attack : MonoBehaviour, IDamageable
             {
                 meleeWeaponController.PickUpMeleeWeapon(weaponPickup.weapon);
                 GameObject.Destroy(collision.gameObject);
+
+                // Show Gladius pickup dialogue
+                if (TryGetComponent(out DialogueSystemTrigger dialogueTrigger)) {
+                    dialogueTrigger.OnUse(transform);
+                }
             }
         }
     }
