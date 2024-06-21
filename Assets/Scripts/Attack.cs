@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using PixelCrushers.DialogueSystem;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -137,7 +138,7 @@ public class Attack : MonoBehaviour, IDamageable
     }
 
 	// IDamageable
-	public void Damage(int damage)
+	public void Damage(int damage, float damageDirection)
 	{
 		if (dead) { return; }
 
@@ -152,8 +153,7 @@ public class Attack : MonoBehaviour, IDamageable
 			playerMovement.StopForKnockback();
 			canMeleeAttack = false;
             animator.SetBool("IsHit", true);
-            float knockbackDirection = transform.localScale.x > 0f ? -1f : 1f;
-            Vector2 knockback = new Vector2(knockbackForce.x * knockbackDirection, knockbackForce.y);
+            Vector2 knockback = new Vector2(knockbackForce.x * damageDirection, knockbackForce.y);
 			rigidBody.AddForce(knockback, ForceMode2D.Impulse);
 			shouldCheckGroundedForKnockback = true;
         }
@@ -178,6 +178,11 @@ public class Attack : MonoBehaviour, IDamageable
             {
                 meleeWeaponController.PickUpMeleeWeapon(weaponPickup.weapon);
                 GameObject.Destroy(collision.gameObject);
+
+                // Show Gladius pickup dialogue
+                if (TryGetComponent(out DialogueSystemTrigger dialogueTrigger)) {
+                    dialogueTrigger.OnUse(transform);
+                }
             }
         }
     }
