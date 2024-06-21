@@ -88,12 +88,12 @@ public class CyclopsBossStateMachine : MonoBehaviour
 
     private IEnumerator CyclopsDie()
     {
-        //cameraShake.ShakeCamera(3.5f, 5f);
-        //audioManager.PlayExplosion();
+        //playerMovement.Stop();
         cyclops.Die();
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(10.0f);
         Destroy(cyclops.gameObject);
         bossState = BossState.Dead;
+        //playerMovement.AllowMovement();
     }
 
     private IEnumerator MoveToPosition(Rigidbody2D rb, Vector3 target)
