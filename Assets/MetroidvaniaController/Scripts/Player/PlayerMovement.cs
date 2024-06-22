@@ -119,17 +119,20 @@ public class PlayerMovement : MonoBehaviour
 		dash = false;
 	}
 
-	public void Stop(bool overrideAttack = false)
+	public void Stop(bool stopInFlightAnimations = true, bool overrideAttackCooldown = false)
 	{
-        stopOverrideAttack = overrideAttack;
+        stopOverrideAttack = overrideAttackCooldown;
         horizontalMove = 0f;
         canMove = false;
 		StopFixedUpdate = true;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         UnCrouch();
-        animator.SetBool("IsJumping", false);
-		animator.SetFloat("Speed", 0f);
-		animator.SetBool("IsAttacking", false);
+        animator.SetFloat("Speed", 0f);
+        if (stopInFlightAnimations)
+        {
+            animator.SetBool("IsJumping", false);
+            animator.SetBool("IsAttacking", false);
+        }
 	}
 
 	public void StopForAttack()

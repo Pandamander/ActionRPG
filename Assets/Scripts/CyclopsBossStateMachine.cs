@@ -78,7 +78,7 @@ public class CyclopsBossStateMachine : MonoBehaviour
 
     private IEnumerator CyclopsDie()
     {
-        playerMovement.Stop(overrideAttack: true);
+        playerMovement.Stop(stopInFlightAnimations: false, overrideAttackCooldown: true);
         cyclops.Die();
         yield return new WaitForSeconds(10.0f);
         Destroy(cyclops.gameObject);
