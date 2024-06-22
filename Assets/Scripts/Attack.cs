@@ -87,7 +87,7 @@ public class Attack : MonoBehaviour, IDamageable
 		yield return new WaitForSeconds(0.25f);
 		animator.SetBool("IsAttacking", false);
         canMeleeAttack = true;
-		playerMovement.AllowMovement();
+        playerMovement.AllowMovementAfterAttackOrKnockback();
     }
 
     private IEnumerator Invulnerability(int duration)
@@ -131,7 +131,7 @@ public class Attack : MonoBehaviour, IDamageable
 		{
             animator.SetBool("IsHit", false);
             isDamaged = false;
-            playerMovement.AllowMovement();
+            playerMovement.AllowMovementAfterAttackOrKnockback();
             canMeleeAttack = true;
             yield return StartCoroutine(Invulnerability(invulnerableDuration));
         }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CyclopsBossStateMachine : MonoBehaviour
 {
-    public enum BossState { NotStarted, Attacking, Kneeling, FinalBlow, Dead }
+    public enum BossState { NotStarted, Attacking, Dying, Dead }
 
     [SerializeField] private Cyclops cyclops;
     [SerializeField] private Rigidbody2D playerRb;
@@ -39,11 +39,7 @@ public class CyclopsBossStateMachine : MonoBehaviour
             case BossState.Attacking:
                 if (cyclops.health == 0)
                 {
-                    if (startedDeathSequence) return;
-                    startedDeathSequence = true;
-                    StartCoroutine(CyclopsDie());
-                    //cyclops.KneelForFinalBlow();
-                    //bossState = BossState.Kneeling;
+                    bossState = BossState.Dying;
                     return;
                 }
 
@@ -71,13 +67,7 @@ public class CyclopsBossStateMachine : MonoBehaviour
                 }
 
                 break;
-            case BossState.Kneeling:
-                if (cyclops.health == -1)
-                {
-                    bossState = BossState.FinalBlow;
-                }
-                break;
-            case BossState.FinalBlow:
+            case BossState.Dying:
                 if (startedDeathSequence) return;
                 startedDeathSequence = true;
                 audioManager.StopMusic();
@@ -88,12 +78,12 @@ public class CyclopsBossStateMachine : MonoBehaviour
 
     private IEnumerator CyclopsDie()
     {
-        //playerMovement.Stop();
+        playerMovement.Stop(overrideAttack: true);
         cyclops.Die();
         yield return new WaitForSeconds(10.0f);
         Destroy(cyclops.gameObject);
         bossState = BossState.Dead;
-        //playerMovement.AllowMovement();
+        playerMovement.AllowMovement();
     }
 
     private IEnumerator MoveToPosition(Rigidbody2D rb, Vector3 target)

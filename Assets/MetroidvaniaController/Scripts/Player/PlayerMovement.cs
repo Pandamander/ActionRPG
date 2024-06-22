@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
 	public bool grounded { get; private set; }
 	private bool StopFixedUpdate = false;
     private Attack attack;
+    private bool stopOverrideAttack = false;
 	public bool isAttacking
 	{
 		get
@@ -118,9 +119,10 @@ public class PlayerMovement : MonoBehaviour
 		dash = false;
 	}
 
-	public void Stop()
+	public void Stop(bool overrideAttack = false)
 	{
-		horizontalMove = 0f;
+        stopOverrideAttack = overrideAttack;
+        horizontalMove = 0f;
         canMove = false;
 		StopFixedUpdate = true;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
@@ -136,6 +138,12 @@ public class PlayerMovement : MonoBehaviour
         canMove = false;
         StopFixedUpdate = true;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+    }
+
+    public void AllowMovementAfterAttackOrKnockback()
+    {
+        if (stopOverrideAttack) return;
+        AllowMovement();
     }
 
     public void StopForKnockback()
@@ -157,7 +165,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void AllowMovement()
 	{
-		canMove = true;
+        stopOverrideAttack = false;
+        canMove = true;
         StopFixedUpdate = false;
     }
 

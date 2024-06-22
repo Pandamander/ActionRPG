@@ -188,15 +188,6 @@ public class Cyclops : MonoBehaviour, IDamageable
         }
     }
 
-    public void KneelForFinalBlow()
-    {
-        isKneeling = true;
-        shouldWalk = false;
-        _rb.velocity = Vector2.zero;
-        _animator.SetTrigger("kneel");
-        StartCoroutine(KneelFlash(1f));
-    }
-
     public void Die()
     {
         shouldWalk = false;
@@ -219,17 +210,6 @@ public class Cyclops : MonoBehaviour, IDamageable
         }
     }
 
-    private IEnumerator KneelFlash(float interval)
-    {
-        Color color = Color.red;
-        while (true)
-        {
-            _spriteRenderer.color = color;
-            yield return new WaitForSeconds(interval);
-            color = (color == Color.white) ? Color.red : Color.white;
-        }
-    }
-
     private IEnumerator TakeDamage()
     {
         _spriteRenderer.color = Color.red;
@@ -245,13 +225,13 @@ public class Cyclops : MonoBehaviour, IDamageable
     public void Damage(int damage, float damageDirection)
     {
         audioManager.PlayAttackHit();
-
-        if (isKneeling) {
-            health = -1;
-            return;
-        }
         subzoneHUD.ReduceBossHealthMeter(damage);
         health -= damage;
+        if (health < 0)
+        {
+            health = 0;
+        }
+
         if (health > 0)
         {
             StartCoroutine(TakeDamage());
