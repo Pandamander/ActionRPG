@@ -19,6 +19,7 @@ public class Cyclops : MonoBehaviour, IDamageable
     [SerializeField] private CameraShake cameraShake;
     [SerializeField] private SandWave sandWave;
     [SerializeField] private Transform swipeAttackPoint;
+    [SerializeField] private DamageFlash damageFlash;
 
     private Animator _animator;
     private Rigidbody2D _rb;
@@ -210,17 +211,6 @@ public class Cyclops : MonoBehaviour, IDamageable
         }
     }
 
-    private IEnumerator TakeDamage()
-    {
-        _spriteRenderer.color = Color.red;
-        yield return new WaitForSeconds(0.05f);
-        _spriteRenderer.color = Color.white;
-        yield return new WaitForSeconds(0.05f);
-        _spriteRenderer.color = Color.red;
-        yield return new WaitForSeconds(0.05f);
-        _spriteRenderer.color = Color.white;
-    }
-
     // IDamageable
     public void Damage(int damage, float damageDirection)
     {
@@ -234,7 +224,7 @@ public class Cyclops : MonoBehaviour, IDamageable
 
         if (health > 0)
         {
-            StartCoroutine(TakeDamage());
+            damageFlash.Flash();
         }
     }
 }
