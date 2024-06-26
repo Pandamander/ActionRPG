@@ -1532,8 +1532,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: I suppose fate has brought me here. I'd best figure out a way off
-          this island.
+        value: Fate has a cruel sense of humor sometimes.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -1547,7 +1546,13 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 10
+        originDialogueID: 2
+        destinationConversationID: 10
+        destinationDialogueID: 5
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -1556,7 +1561,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 755.8879
-        y: 461.82056
+        y: 383.72626
         width: 160
         height: 30
     - id: 3
@@ -1637,7 +1642,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: But my vessel is damaged beyond repair...
+        value: But my vessel is damaged beyond repair, and my provisions are lost.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -1655,7 +1660,7 @@ MonoBehaviour:
       - originConversationID: 10
         originDialogueID: 4
         destinationConversationID: 10
-        destinationDialogueID: 5
+        destinationDialogueID: 2
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -1684,7 +1689,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 1
+        value: 5
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -1692,7 +1697,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: ...and my equipment and provisions are lost.
+        value: Let's see what this place has in store for me...
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -1706,13 +1711,7 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 10
-        originDialogueID: 5
-        destinationConversationID: 10
-        destinationDialogueID: 2
-        isConnector: 0
-        priority: 2
+      outgoingLinks: []
       conditionsString: 
       userScript: 
       onExecute:
@@ -1720,13 +1719,13 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 758.93317
-        y: 371.62378
+        x: 759.4411
+        y: 484.65656
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 231.24936, y: 0}
-    canvasZoom: 0.8269986
+    canvasScrollPosition: {x: 0, y: 5.6066284}
+    canvasZoom: 0.62099695
   - id: 11
     fields:
     - title: Title
