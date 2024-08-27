@@ -1532,7 +1532,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Fate has a cruel sense of humor sometimes.
+        value: Fate has a cruel sense of humor sometimes...
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -1697,7 +1697,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Let's see what this place has in store for me...
+        value: Let's see what this place has in store for me.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -1719,8 +1719,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 759.4411
-        y: 484.65656
+        x: 756.22046
+        y: 483.04626
         width: 160
         height: 30
     entryGroups: []
