@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: Cliff Right A
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: 21300000, guid: ef0fc7f07e7fb4834a3923d3c65f31fd, type: 3}
+  - {fileID: 21300000, guid: fb52b2fd0e7f94b489cf91e52b991d93, type: 3}
+  - {fileID: 21300000, guid: b8f5074b9f0a649fe9d7de99533aa157, type: 3}
+  - {fileID: 21300000, guid: b8f5074b9f0a649fe9d7de99533aa157, type: 3}
+  - {fileID: 21300000, guid: fb52b2fd0e7f94b489cf91e52b991d93, type: 3}
+  m_MinSpeed: 5
+  m_MaxSpeed: 5
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 1

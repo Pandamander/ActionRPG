@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: Cliff Corner Outer Top Right
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: 21300000, guid: c17cefd53a0b24edb801d51a496ae51b, type: 3}
+  - {fileID: 21300000, guid: b7b10727df1eb4be3af3f2a10f24a6d1, type: 3}
+  - {fileID: 21300000, guid: d43bc62b5a3f744af96b0ad26eebcfdd, type: 3}
+  - {fileID: 21300000, guid: b7b10727df1eb4be3af3f2a10f24a6d1, type: 3}
+  m_MinSpeed: 5
+  m_MaxSpeed: 5
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 1
