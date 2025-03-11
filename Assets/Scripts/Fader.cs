@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Fader : MonoBehaviour
 {
     private Image image;
+    [SerializeField] private bool doSteppedFade = true;
 
     private void Awake()
     {
@@ -13,17 +14,64 @@ public class Fader : MonoBehaviour
         image.color = new Color(image.color.r, image.color.g, image.color.b, 1.0f);
     }
 
-    public void FadeOut(float step = 0.2f)
+    private void Start()
     {
-        StartCoroutine(DoFadeOut(step));
+        if (doSteppedFade)
+        {
+            SteppedFadeOut();
+        } else
+        {
+            SmoothFadeOut();
+        }
     }
 
-    public void FadeIn(float step = 0.2f)
+    public void SmoothFadeOut()
     {
-        StartCoroutine(DoFadeIn(step));
+        StartCoroutine(DoSmoothFadeOut(2.0f));
     }
 
-    public IEnumerator DoFadeOut(float step = 0.2f)
+    public void SmoothFadeIn()
+    {
+        StartCoroutine(DoSmoothFadeIn(2.0f));
+    }
+
+    public IEnumerator DoSmoothFadeOut(float duration)
+    {
+        float elapsedTime = 0;
+        while (image.color.a > 0)
+        {
+            float newAlpha = Mathf.Lerp(1.0f, 0, elapsedTime / duration);
+            image.color = new Color(image.color.r, image.color.g, image.color.b, newAlpha);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        yield return null;
+    }
+
+    public IEnumerator DoSmoothFadeIn(float duration)
+    {
+        float elapsedTime = 0;
+        while (image.color.a < 1.0f)
+        {
+            float newAlpha = Mathf.Lerp(0, 1.0f, elapsedTime / duration);
+            image.color = new Color(image.color.r, image.color.g, image.color.b, newAlpha);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        yield return null;
+    }
+
+    public void SteppedFadeOut(float step = 0.2f)
+    {
+        StartCoroutine(DoSteppedFadeOut(step));
+    }
+
+    public void SteppedFadeIn(float step = 0.2f)
+    {
+        StartCoroutine(DoSteppedFadeIn(step));
+    }
+
+    public IEnumerator DoSteppedFadeOut(float step = 0.2f)
     {
         while (image.color.a > 0)
         {
@@ -33,7 +81,7 @@ public class Fader : MonoBehaviour
         yield return null;
     }
 
-    public IEnumerator DoFadeIn(float step = 0.2f)
+    public IEnumerator DoSteppedFadeIn(float step = 0.2f)
     {
         while (image.color.a < 1f)
         {

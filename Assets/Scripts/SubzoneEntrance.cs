@@ -48,7 +48,7 @@ public class SubzoneEntrance : MonoBehaviour
     // contains effect for fading to black and call to load the next scene
     private IEnumerator DoSceneExit()
     {
-        yield return StartCoroutine(fader.DoFadeIn());
+        yield return StartCoroutine(fader.DoSteppedFadeIn());
 
         SceneManager.LoadScene(subzone);
 

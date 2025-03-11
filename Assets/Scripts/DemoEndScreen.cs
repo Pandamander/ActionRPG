@@ -20,6 +20,6 @@ public class DemoEndScreen : MonoBehaviour
 
     public void FadeIn()
     {
-        _fader.FadeIn(0.03f);
+        _fader.SteppedFadeIn(0.03f);
     }
 }

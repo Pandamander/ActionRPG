@@ -17,7 +17,7 @@ public class OverworldInitialization : MonoBehaviour
 
     private void Start()
     {
-        fader.FadeOut();
+        fader.SteppedFadeOut();
     }
 
     private void OverworldDestroy()

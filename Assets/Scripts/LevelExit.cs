@@ -54,7 +54,7 @@ public class LevelExit : MonoBehaviour
 
     private IEnumerator DoSceneExit()
     {
-        yield return StartCoroutine(fader.DoFadeIn());
+        yield return StartCoroutine(fader.DoSteppedFadeIn());
         
         SceneManager.LoadScene(levelToLoadOnExit);
 

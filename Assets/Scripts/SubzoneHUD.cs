@@ -11,15 +11,15 @@ public class SubzoneHUD : MonoBehaviour
     [SerializeField] private TMP_Text attackValueText;
     [SerializeField] private TMP_Text defenseValueText;
     [SerializeField] private Image itemFrame;
-    private Fader _fader;
+    //private Fader _fader;
 
     private void Awake()
     {
-        _fader = GetComponentInChildren<Fader>();
+        //_fader = GetComponentInChildren<Fader>();
     }
     private void Start()
     {
-        _fader.FadeOut();
+        //_fader.FadeOut();
     }
 
     private void Update()

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using PixelCrushers.DialogueSystem;
+using Cinemachine;
 
 public class IntroWreckedShipDialogue : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class IntroWreckedShipDialogue : MonoBehaviour
     [SerializeField] private DialogueSystemTrigger dialogueTrigger;
     private Animator animator;
     private PlayerMovement movement;
+
+    [SerializeField] private CinemachineVirtualCamera virtualCamera;
 
     private void Awake()
     {
@@ -29,6 +32,10 @@ public class IntroWreckedShipDialogue : MonoBehaviour
 
     private IEnumerator StartSequence()
     {
+        yield return StartCoroutine(DoInitialCameraPan());
+
+        TargetVirtualCameraOnPlayer();
+
         yield return StartCoroutine(GetUpToCrochIdle());
 
         yield return new WaitForSeconds(1f);
@@ -37,7 +44,7 @@ public class IntroWreckedShipDialogue : MonoBehaviour
     }
     private IEnumerator GetUpToCrochIdle()
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(3);
         animator.SetBool("IsCollapsed", false);
         animator.SetBool("IsGettingUp", true);
         yield return new WaitForSeconds(2.0f);
@@ -50,4 +57,36 @@ public class IntroWreckedShipDialogue : MonoBehaviour
         animator.SetBool("IsStandingUp", true);
         movement.AllowMovement();
     }
+
+    // used for targeting the virtual camera
+    private void TargetVirtualCameraOnPlayer()
+    {
+        virtualCamera.PreviousStateIsValid = false;
+        virtualCamera.Follow = Player.transform;
+    }
+
+    private IEnumerator DoInitialCameraPan()
+    {
+        float duration = 12.0f;
+        float elapsedTime = 0;
+        float cameraStartingXPosition = virtualCamera.transform.position.x;
+
+        while (virtualCamera.transform.position.x < Player.transform.position.x)
+        {
+            float newCameraXPosition = Mathf.Lerp(cameraStartingXPosition, Player.transform.position.x, SineEaseOut(elapsedTime / duration));
+            virtualCamera.transform.position = new Vector3(newCameraXPosition, virtualCamera.transform.position.y, virtualCamera.transform.position.z);
+            elapsedTime += Time.deltaTime;
+
+            yield return null;
+        }
+        yield return null;
+    }
+
+    // based on Robert Penner's easing functions,
+    // takes the current lerp time value and interpolates it to a quartic ease out curve
+    private float SineEaseOut(float t)
+    {
+        return Mathf.Sin((t * Mathf.PI) / 2);
+    }
+
 }
