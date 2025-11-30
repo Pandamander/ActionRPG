@@ -46,6 +46,7 @@ public class TitleScreenUI : MonoBehaviour
 
         // Add functions to the menu actions list
         menuActions.Add(() => StartCoroutine(StartGame()));
+        menuActions.Add(() => print("Controls"));
         menuActions.Add(() => GameManager.sharedInstance.QuitGame());
     }
 
@@ -62,11 +63,11 @@ public class TitleScreenUI : MonoBehaviour
 
             StartCoroutine(DelayAxisInputDown());
 
-            currentMenuItemIndex--;
-            // if it goes below the first menu item, then start at the top
-            if (currentMenuItemIndex < 0)
+            currentMenuItemIndex++;
+            // if it goes past the last menu item, then start back at the beginning
+            if (currentMenuItemIndex > (menuActions.Count - 1))
             {
-                currentMenuItemIndex = menuActions.Count - 1;
+                currentMenuItemIndex = 0;
             }
 
             // move cursor to the next menu item
@@ -86,11 +87,11 @@ public class TitleScreenUI : MonoBehaviour
 
             StartCoroutine(DelayAxisInputUp());
 
-            currentMenuItemIndex++;
-            // if it goes past the last menu item, then start back at the beginning
-            if (currentMenuItemIndex > (menuActions.Count - 1))
+            currentMenuItemIndex--;
+            // if it goes below the first menu item, then start at the top
+            if (currentMenuItemIndex < 0)
             {
-                currentMenuItemIndex = 0;
+                currentMenuItemIndex = menuActions.Count - 1;
             }
 
             // move cursor to the next menu item
