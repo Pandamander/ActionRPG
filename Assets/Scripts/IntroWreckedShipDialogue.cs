@@ -77,6 +77,11 @@ public class IntroWreckedShipDialogue : MonoBehaviour
             virtualCamera.transform.position = new Vector3(newCameraXPosition, virtualCamera.transform.position.y, virtualCamera.transform.position.z);
             elapsedTime += Time.deltaTime;
 
+            // clamp the camera to the player position if it gets super close
+            if (Mathf.Abs(Player.transform.position.x - virtualCamera.transform.position.x) <= 0.05f) {
+                virtualCamera.transform.position = new Vector3(Player.transform.position.x, virtualCamera.transform.position.y, virtualCamera.transform.position.z);
+            }
+
             yield return null;
         }
         yield return null;

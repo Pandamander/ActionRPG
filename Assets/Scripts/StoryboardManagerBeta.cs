@@ -194,7 +194,17 @@ public class StoryboardManagerBeta : MonoBehaviour
         if (currentSection == storySections.Count - 1)
         {
             canSkipCutscene = false; // disable ability to skip
-            StartCoroutine(SteppedImageFadeOut(0.5f));
+
+            var isParallax = storySections[currentSection].isParallaxAnimation;
+            if (isParallax)
+            {
+                image.color = new Color(image.color.r, image.color.g, image.color.b, 0);
+                StartCoroutine(SteppedParallaxSectionsFadeOut(0.5f));
+            } else
+            {
+                StartCoroutine(SteppedImageFadeOut(image, 0.5f));
+            }
+
             StartCoroutine(SteppedSkipUIFadeOut(0.5f));
             yield return StartCoroutine(SteppedTextFadeOut(0.5f));
         }
@@ -205,7 +215,7 @@ public class StoryboardManagerBeta : MonoBehaviour
         
     }
 
-    private IEnumerator ImageFadeOut(float duration)
+    private IEnumerator ImageFadeOut(Image image, float duration)
     {
         float elapsedTime = 0;
 
@@ -223,6 +233,7 @@ public class StoryboardManagerBeta : MonoBehaviour
     private IEnumerator ImageFadeIn(Image imageToFade, float duration)
     {
         float elapsedTime = 0;
+        imageToFade.color = new Color(imageToFade.color.r, imageToFade.color.g, imageToFade.color.b, 0);
 
         while (imageToFade.color.a < 1.0f)
         {
@@ -266,7 +277,7 @@ public class StoryboardManagerBeta : MonoBehaviour
         yield return null;
     }
 
-    private IEnumerator SteppedImageFadeOut(float timeBetweenSteps)
+    private IEnumerator SteppedImageFadeOut(Image image, float timeBetweenSteps)
     {
         while (image.color.a > 0)
         {
@@ -274,6 +285,16 @@ public class StoryboardManagerBeta : MonoBehaviour
             yield return new WaitForSeconds(timeBetweenSteps);
         }
 
+        yield return null;
+    }
+
+    private IEnumerator SteppedParallaxSectionsFadeOut(float timeBetweenSteps)
+    {
+        foreach (Image container in parallaxContainers)
+        {
+            StartCoroutine(SteppedImageFadeOut(container, 0.5f));
+            yield return null;
+        }
         yield return null;
     }
 
