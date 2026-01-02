@@ -209,7 +209,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: subzone_hero_run
+  m_Name: subzone_hero_run_armored
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -226,7 +226,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 5ac09e4daa03dfa4f9749115dadcda3b, type: 2}
+  m_Motion: {fileID: 7400000, guid: 419c46de25c3147cb88311d5f3159f08, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -289,7 +289,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: subzone_hero_attack
+  m_Name: subzone_hero_attack_armored
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -304,7 +304,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 0875d70a64e4eb942a7c68fa53ac6291, type: 2}
+  m_Motion: {fileID: 7400000, guid: 72669f1ee98d54d3fa07bf90d9c25c5d, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -342,7 +342,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: subzone_hero_death
+  m_Name: subzone_hero_death_armored
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -355,7 +355,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: eb547903edd1f411294608187bf96fd6, type: 2}
+  m_Motion: {fileID: 7400000, guid: 1d8540454ca1c4bc1bfb8c4cf550896f, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -417,7 +417,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: subzone_hero_controller
+  m_Name: subzone_hero_controller_armored
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Speed
@@ -506,7 +506,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: subzone_hero_crouch
+  m_Name: subzone_hero_crouch_armored
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -521,7 +521,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: cc6fdfaf5a15b8e489eac3aec0aca0a7, type: 2}
+  m_Motion: {fileID: 7400000, guid: 2260ad9743c054d148537e68d465d177, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -559,7 +559,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: subzone_hero_idle
+  m_Name: subzone_hero_idle_armored
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -578,7 +578,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 8479da602007e9e48b19efee26dc62ac, type: 2}
+  m_Motion: {fileID: 7400000, guid: a94e801bfcbc0457e916992f85fe825e, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -691,7 +691,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: subzone_hero_crouch_attack
+  m_Name: subzone_hero_crouch_attack_armored
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -705,7 +705,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 1c8f9afda25d821408bb7cbaaecad15a, type: 2}
+  m_Motion: {fileID: 7400000, guid: 949d2ee2e472c470992853d671f659f0, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -822,16 +822,16 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 760204469319806719}
-    m_Position: {x: 30, y: 190, z: 0}
+    m_Position: {x: 0, y: 190, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4770344849956255963}
-    m_Position: {x: -90, y: 280, z: 0}
+    m_Position: {x: -340, y: 280, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6423937599258699210}
     m_Position: {x: 360, y: 400, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2776684887294007077}
-    m_Position: {x: -170, y: 540, z: 0}
+    m_Position: {x: -210, y: 620, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5626184835245542495}
     m_Position: {x: 50, y: 410, z: 0}
@@ -870,7 +870,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: subzone_hero_hit
+  m_Name: subzone_hero_hit_armored
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -885,7 +885,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 1bb5321f4c7fe74429603148184aba65, type: 2}
+  m_Motion: {fileID: 7400000, guid: 06c61534615844f5db5e6c052619c2b7, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -898,7 +898,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: subzone_hero_collapsed
+  m_Name: subzone_hero_collapsed_armored
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -912,7 +912,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 08e4a3166d4b6bd479af25e1aed5f6a1, type: 2}
+  m_Motion: {fileID: 7400000, guid: 031e27ee141374e999e4311fd8b36fe4, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -925,7 +925,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: subzone_hero_jump
+  m_Name: subzone_hero_jump_armored
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -941,7 +941,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 6ccc2024ed906604886df082b4039474, type: 2}
+  m_Motion: {fileID: 7400000, guid: 9ba73630a63d94393924a5ef95db860b, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -979,7 +979,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: subzone_hero_crouch_idle
+  m_Name: subzone_hero_crouch_idle_armored
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -993,7 +993,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: e07c9096adcdb624eac98326bff4841f, type: 2}
+  m_Motion: {fileID: 7400000, guid: b16462dc03aad45fd9a8211d3f51dd40, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

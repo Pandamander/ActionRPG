@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Fader : MonoBehaviour
 {
     private Image image;
-    [SerializeField] private bool doSteppedFade = true;
+    public bool doSteppedFade = true;
 
     private void Awake()
     {

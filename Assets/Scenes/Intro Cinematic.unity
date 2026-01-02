@@ -1075,8 +1075,7 @@ MonoBehaviour:
   - image: {fileID: 0}
     animationClipName: Intro Illustration 03
     storyText:
-    - After many battles, my legion suffered a terrible defeat.
-    - I am all that remains.
+    - After many battles, my legion suffered a terrible defeat. I am all that remains.
     - Now, I return home to my wife and child with what little I have left. I care
       only to see them again.
     illustrationFadeIn: 1
@@ -1084,10 +1083,10 @@ MonoBehaviour:
   - image: {fileID: 21300000, guid: 62f709e2d28f146729f340e437e757bc, type: 3}
     animationClipName: Intro Illustration 04
     storyText:
-    - The journey back is treacherous. I draw near to an archipelago, where an approaching
-      storm bodes an ill omen.
-    - And if the stories are true, I fear I may encounter the dark spectres of the
-      ancient world in these distant, uncharted places...
+    - The journey back is treacherous. Even now, the sea rages as I draw near to
+      an archipelago. The approaching storm bodes an ill omen.
+    - And if the stories are true, I fear I may encounter the darker remnants of
+      the ancient world in these distant, uncharted places...
     illustrationFadeIn: 1
     isParallaxAnimation: 1
   parallaxContainers:

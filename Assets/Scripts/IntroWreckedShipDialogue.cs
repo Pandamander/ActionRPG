@@ -12,11 +12,18 @@ public class IntroWreckedShipDialogue : MonoBehaviour
     private PlayerMovement movement;
 
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
+    [SerializeField] private Fader fader;
 
     private void Awake()
     {
         movement = Player.GetComponent<PlayerMovement>();
         animator = Player.GetComponent<Animator>();
+
+        if (OverworldSubzoneContainer.HasShownWreckedShipIntro)
+        {
+            TargetVirtualCameraOnPlayer();
+            fader.doSteppedFade = true;
+        }
     }
 
     void Start()
