@@ -84,7 +84,7 @@ public class Attack : MonoBehaviour, IDamageable
 
 	IEnumerator MeleeAttackCooldown()
 	{
-		yield return new WaitForSeconds(0.25f);
+		yield return new WaitForSeconds(0.5f);
 		animator.SetBool("IsAttacking", false);
         canMeleeAttack = true;
         playerMovement.AllowMovementAfterAttackOrKnockback();
