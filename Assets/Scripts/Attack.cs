@@ -1,6 +1,7 @@
 ﻿using PixelCrushers.DialogueSystem;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Http;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -39,6 +40,9 @@ public class Attack : MonoBehaviour, IDamageable
     private const int PLAYER_COLLISION_LAYER = 1;
     private const int ENEMY_COLLISION_LAYER = 9;
 
+    private float attackAnimationDuration = 0;
+    private float crouchAttackAnimationDuration = 0;
+
     private void Awake()
 	{
 		rigidBody = GetComponent<Rigidbody2D>();
@@ -47,7 +51,24 @@ public class Attack : MonoBehaviour, IDamageable
         controller = gameObject.GetComponent<CharacterController2D>();
 
         Physics2D.IgnoreLayerCollision(PLAYER_COLLISION_LAYER, ENEMY_COLLISION_LAYER, false);
-	}
+
+        // Cache attack animation clip lengths for the current animation controller
+        AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
+        foreach (AnimationClip clip in clips)
+        {
+            if (clip == null) continue;
+            if (clip.name.Contains("attack"))
+            {
+                if (clip.name.Contains("crouch"))
+                {
+                    crouchAttackAnimationDuration = clip.length;
+                } else
+                {
+                    attackAnimationDuration = clip.length;
+                }
+            }
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -84,8 +105,10 @@ public class Attack : MonoBehaviour, IDamageable
 
 	IEnumerator MeleeAttackCooldown()
 	{
-		yield return new WaitForSeconds(0.5f);
-		animator.SetBool("IsAttacking", false);
+        yield return new WaitForSeconds(
+            playerMovement.isCrouching ? crouchAttackAnimationDuration : attackAnimationDuration
+        );
+        animator.SetBool("IsAttacking", false);
         canMeleeAttack = true;
         playerMovement.AllowMovementAfterAttackOrKnockback();
     }
