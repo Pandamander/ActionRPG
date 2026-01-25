@@ -30,4 +30,18 @@ public class IntroShipMovement : MonoBehaviour
 
         transform.position = new Vector3(transform.position.x + (Time.deltaTime * speed), newY, transform.position.z); // finally, this line sets the ship's position and moves it to the right
     }
+
+    public IEnumerator SlowDownShip(float duration)
+    {
+        float elapsedTime = 0;
+        float originalSpeedValue = speed;
+        while (speed > 0)
+        {
+            float newSpeed = Mathf.Lerp(originalSpeedValue, 0.0f, elapsedTime / duration);
+            speed = newSpeed;
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        yield return null;
+    }
 }
