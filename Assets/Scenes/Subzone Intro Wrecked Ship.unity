@@ -7641,7 +7641,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &688178933
 Animator:
   serializedVersion: 5
@@ -30174,7 +30174,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 470456349107416013, guid: d7ef947b56703b3428009724724c06a6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 470456349107416013, guid: d7ef947b56703b3428009724724c06a6, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -30250,7 +30250,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1902536247727176740, guid: d7ef947b56703b3428009724724c06a6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 1902536247727176740, guid: d7ef947b56703b3428009724724c06a6, type: 3}
       propertyPath: m_AnchoredPosition.y

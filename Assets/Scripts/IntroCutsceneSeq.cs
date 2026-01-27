@@ -7,6 +7,7 @@ public class IntroCutsceneSeq : MonoBehaviour
 
     public CameraShake camShake;
     public ParticleSystem mastBreakParticles;
+    public ParticleSystem shipParticles;
     public IntroShipMovement shipMovement;
 
     // Start is called before the first frame update
@@ -28,7 +29,7 @@ public class IntroCutsceneSeq : MonoBehaviour
 
     public void DoSerpentBiteCameraShake()
     {
-        camShake.ShakeCamera(.5f, 1.5f);
+        camShake.ShakeCamera(.5f, 1.7f);
     }
 
     public void PlayMastBreakParticles()
@@ -39,5 +40,8 @@ public class IntroCutsceneSeq : MonoBehaviour
     public void SlowDownShip()
     {
         StartCoroutine(shipMovement.SlowDownShip(6.0f));
+        // should also stop particles here
+        shipParticles.GetComponent<IntroShipMovement>().speed = 0;
+        shipParticles.Stop();
     }
 }
