@@ -9,11 +9,27 @@ public class IntroCutsceneSeq : MonoBehaviour
     public ParticleSystem mastBreakParticles;
     public ParticleSystem shipParticles;
     public IntroShipMovement shipMovement;
+    public Animator seaSerpentAnimator;
+
+    private bool hasSerpentAppeared = false;
 
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(DoIntroCutsceneSeq());
+    }
+
+    void Update()
+    {
+        // when the ship comes to a complete stop, do another camera shake and play the serpeant appearance animation
+        if(shipMovement.speed == 0)
+        {
+            if (!hasSerpentAppeared) {
+                camShake.ShakeCamera(3.0f, 2f);
+                hasSerpentAppeared = true;
+                seaSerpentAnimator.Play("seaserpent_appearance");
+            }
+        }
     }
 
     private IEnumerator DoIntroCutsceneSeq()
@@ -40,7 +56,7 @@ public class IntroCutsceneSeq : MonoBehaviour
     public void SlowDownShip()
     {
         StartCoroutine(shipMovement.SlowDownShip(6.0f));
-        // should also stop particles here
+        // also stop water particles here
         shipParticles.GetComponent<IntroShipMovement>().speed = 0;
         shipParticles.Stop();
     }
