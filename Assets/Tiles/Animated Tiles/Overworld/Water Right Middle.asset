@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
-  m_Name: Waterfall Bottom
+  m_Name: Water Right Middle
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
-  - {fileID: 21300000, guid: 3d8e794f1322f434c9d81d504d91e69f, type: 3}
-  - {fileID: 21300000, guid: 7c4ab25c27e07e742bfe60b0946fce49, type: 3}
-  - {fileID: 21300000, guid: 1ad1448d8d81aca42a0d1d8514f9f2a4, type: 3}
-  m_MinSpeed: 7
-  m_MaxSpeed: 7
+  - {fileID: 21300000, guid: a5d27b182804c4d25a4cfd6291bf0b33, type: 3}
+  - {fileID: 21300000, guid: 240f3f827dd764fc496985c47af9cd38, type: 3}
+  - {fileID: 21300000, guid: bbcfdd1a931734f0791f3300a313f693, type: 3}
+  - {fileID: 21300000, guid: 240f3f827dd764fc496985c47af9cd38, type: 3}
+  m_MinSpeed: 5
+  m_MaxSpeed: 5
   m_AnimationStartTime: 0
   m_AnimationStartFrame: 0
   m_TileColliderType: 1

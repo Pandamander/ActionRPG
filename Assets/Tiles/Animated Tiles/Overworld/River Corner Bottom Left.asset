@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
-  m_Name: Waterfall Bottom
+  m_Name: River Corner Bottom Left
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
-  - {fileID: 21300000, guid: 3d8e794f1322f434c9d81d504d91e69f, type: 3}
-  - {fileID: 21300000, guid: 7c4ab25c27e07e742bfe60b0946fce49, type: 3}
-  - {fileID: 21300000, guid: 1ad1448d8d81aca42a0d1d8514f9f2a4, type: 3}
-  m_MinSpeed: 7
-  m_MaxSpeed: 7
+  - {fileID: 21300000, guid: a06ae955a67e04788acc70a9039a0a9a, type: 3}
+  - {fileID: 21300000, guid: 2c3f9c0f499c84301967cbc6dbbed7d0, type: 3}
+  - {fileID: 21300000, guid: 8dd88118fc1d94f859f461c5834d908a, type: 3}
+  - {fileID: 21300000, guid: 2c3f9c0f499c84301967cbc6dbbed7d0, type: 3}
+  m_MinSpeed: 5
+  m_MaxSpeed: 5
   m_AnimationStartTime: 0
   m_AnimationStartFrame: 0
   m_TileColliderType: 1
