@@ -193,6 +193,38 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("IsAttacking", false);
     }
 
+    public IEnumerator AutoWalk(float duration, OverworldSubzoneContainer.PlayerDirection direction)
+    {
+        print("auto walking");
+        FreezeWalking();
+        SetDirection(direction);
+
+        float elapsedTime = 0;
+        float percentageComplete = 0;
+
+        // if moving left
+        if (direction == OverworldSubzoneContainer.PlayerDirection.Left)
+        {
+            horizontalMove = -1 * runSpeed;
+        }
+        // if moving right
+        else if (direction == OverworldSubzoneContainer.PlayerDirection.Right)
+        {
+            horizontalMove = runSpeed;
+        }
+
+        while (elapsedTime < duration)
+        {
+            percentageComplete = elapsedTime / duration;
+            controller.Move(horizontalMove, false, false);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        AllowMovement();
+        yield return null;
+    }
+
 	public void SetDirection(OverworldSubzoneContainer.PlayerDirection direction)
 	{
         switch (direction)
