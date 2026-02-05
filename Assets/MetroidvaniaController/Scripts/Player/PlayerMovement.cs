@@ -35,6 +35,10 @@ public class PlayerMovement : MonoBehaviour
     }
 	public bool isCrouching = false;
 
+    // Auto Walk
+    private bool isAutowalking = false;
+    private float autowalk;
+
     //bool dashAxis = false;
 
     private void Awake()
@@ -113,7 +117,13 @@ public class PlayerMovement : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		if (StopFixedUpdate) { return; } 
+		if (StopFixedUpdate) { return; }
+        if (isAutowalking)
+        {
+            controller.Move(autowalk * Time.fixedDeltaTime, false, false);
+            return;
+        }
+
         controller.Move(horizontalMove * Time.fixedDeltaTime, jump, dash);
 		jump = false;
 		dash = false;
@@ -195,32 +205,30 @@ public class PlayerMovement : MonoBehaviour
 
     public IEnumerator AutoWalk(float duration, OverworldSubzoneContainer.PlayerDirection direction)
     {
-        print("auto walking");
+        // Trigger animator
         FreezeWalking();
-        SetDirection(direction);
+
+        // Calculate move
+        autowalk = direction switch
+        {
+            OverworldSubzoneContainer.PlayerDirection.Left => -1 * runSpeed,
+            OverworldSubzoneContainer.PlayerDirection.Right => runSpeed,
+            _ => runSpeed,
+        };
+
+        // Start walking
+        isAutowalking = true;
 
         float elapsedTime = 0;
-        float percentageComplete = 0;
-
-        // if moving left
-        if (direction == OverworldSubzoneContainer.PlayerDirection.Left)
-        {
-            horizontalMove = -1 * runSpeed;
-        }
-        // if moving right
-        else if (direction == OverworldSubzoneContainer.PlayerDirection.Right)
-        {
-            horizontalMove = runSpeed;
-        }
-
         while (elapsedTime < duration)
         {
-            percentageComplete = elapsedTime / duration;
-            controller.Move(horizontalMove, false, false);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
+        // Stop Auto Walk
+        isAutowalking = false;
+        autowalk = 0f;
         AllowMovement();
         yield return null;
     }
