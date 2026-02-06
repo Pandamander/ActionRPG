@@ -209,11 +209,12 @@ public class PlayerMovement : MonoBehaviour
         FreezeWalking();
 
         // Calculate move
+        float autowalkSpeed = runSpeed / 1.5f;
         autowalk = direction switch
         {
-            OverworldSubzoneContainer.PlayerDirection.Left => -1 * runSpeed/1.5f,
-            OverworldSubzoneContainer.PlayerDirection.Right => runSpeed/1.5f,
-            _ => runSpeed/1.5f,
+            OverworldSubzoneContainer.PlayerDirection.Left => -1 * autowalkSpeed,
+            OverworldSubzoneContainer.PlayerDirection.Right => autowalkSpeed,
+            _ => autowalkSpeed,
         };
 
         // Start walking
