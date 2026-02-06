@@ -211,20 +211,15 @@ public class PlayerMovement : MonoBehaviour
         // Calculate move
         autowalk = direction switch
         {
-            OverworldSubzoneContainer.PlayerDirection.Left => -1 * runSpeed,
-            OverworldSubzoneContainer.PlayerDirection.Right => runSpeed,
-            _ => runSpeed,
+            OverworldSubzoneContainer.PlayerDirection.Left => -1 * runSpeed/1.5f,
+            OverworldSubzoneContainer.PlayerDirection.Right => runSpeed/1.5f,
+            _ => runSpeed/1.5f,
         };
 
         // Start walking
         isAutowalking = true;
 
-        float elapsedTime = 0;
-        while (elapsedTime < duration)
-        {
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
+        yield return new WaitForSeconds(duration);
 
         // Stop Auto Walk
         isAutowalking = false;

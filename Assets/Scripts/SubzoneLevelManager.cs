@@ -28,7 +28,7 @@ public class SubzoneLevelManager : MonoBehaviour
             movement.SetDirection(OverworldSubzoneContainer.SubzoneLevelStartDirection);
         }
 
-        StartCoroutine(movement.AutoWalk(1.5f, OverworldSubzoneContainer.SubzoneLevelStartDirection));
+        StartCoroutine(movement.AutoWalk(0.8f, OverworldSubzoneContainer.SubzoneLevelStartDirection));
     }
 
     // Update is called once per frame
