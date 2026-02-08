@@ -6448,7 +6448,7 @@ Tilemap:
       - {fileID: 21300000, guid: ebe1324dbee453f4e88a01c46b747436, type: 3}
       - {fileID: 21300000, guid: b2057644a715196418df357d75657777, type: 3}
       - {fileID: 21300000, guid: 4f4bbdc1099721741b8cac0da1549574, type: 3}
-      m_AnimationSpeed: 6
+      m_AnimationSpeed: 6.0000005
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 13, y: -1, z: 0}
@@ -6457,7 +6457,7 @@ Tilemap:
       - {fileID: 21300000, guid: ebe1324dbee453f4e88a01c46b747436, type: 3}
       - {fileID: 21300000, guid: b2057644a715196418df357d75657777, type: 3}
       - {fileID: 21300000, guid: 4f4bbdc1099721741b8cac0da1549574, type: 3}
-      m_AnimationSpeed: 6.0000005
+      m_AnimationSpeed: 6
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 17, y: -1, z: 0}
@@ -6475,7 +6475,7 @@ Tilemap:
       - {fileID: 21300000, guid: ebe1324dbee453f4e88a01c46b747436, type: 3}
       - {fileID: 21300000, guid: b2057644a715196418df357d75657777, type: 3}
       - {fileID: 21300000, guid: 4f4bbdc1099721741b8cac0da1549574, type: 3}
-      m_AnimationSpeed: 6.0000005
+      m_AnimationSpeed: 6
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 24, y: -1, z: 0}
@@ -55406,7 +55406,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2560223189649536867, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
       propertyPath: direction
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2560223189649536867, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
       propertyPath: faderObject
@@ -57072,11 +57072,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.99996334
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 1
+      value: 0.99999994
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952797147, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_LocalPosition.x
