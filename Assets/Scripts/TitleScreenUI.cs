@@ -19,6 +19,10 @@ public class TitleScreenUI : MonoBehaviour
     [SerializeField] public float delay = 5f;
 
     [SerializeField] GameObject faderObject;
+    [SerializeField] private Image controlsScreen;
+    [SerializeField] private TextMeshProUGUI backKeyTextLabel;
+    [SerializeField] private Image backKeyGraphic;
+
     private Image image;
     private bool isAdvancing = false;
 
@@ -31,9 +35,19 @@ public class TitleScreenUI : MonoBehaviour
     private bool acceptingAxisInputUp = true;
     private bool acceptingAxisInputDown = true;
 
+    private enum ScreenState
+    {
+        Title,
+        Controls
+    }
+    private ScreenState screenState;
+
+    [SerializeField] private KeyCode backKey = KeyCode.E;
+
 
     void Start()
     {
+        screenState = ScreenState.Title;
 
         if (faderObject != null)
         {
@@ -46,76 +60,112 @@ public class TitleScreenUI : MonoBehaviour
 
         // Add functions to the menu actions list
         menuActions.Add(() => StartCoroutine(StartGame()));
-        menuActions.Add(() => print("Controls"));
+        menuActions.Add(() => ShowControlsScreen());
         menuActions.Add(() => GameManager.sharedInstance.QuitGame());
     }
 
     void Update()
     {
 
-        float inputVertical = Input.GetAxisRaw("Vertical") + Input.GetAxisRaw("DPadY");
-
-        // axis input down
-        if (inputVertical < 0 && acceptingAxisInputDown == true)
+        switch (screenState)
         {
-            acceptingAxisInputDown = false;
-            acceptingAxisInputUp = true; // should immediately be able to move up after pressing down
+            case ScreenState.Title:
 
-            StartCoroutine(DelayAxisInputDown());
+                float inputVertical = Input.GetAxisRaw("Vertical") + Input.GetAxisRaw("DPadY");
 
-            currentMenuItemIndex++;
-            // if it goes past the last menu item, then start back at the beginning
-            if (currentMenuItemIndex > (menuActions.Count - 1))
-            {
-                currentMenuItemIndex = 0;
-            }
+                // axis input down
+                if (inputVertical < 0 && acceptingAxisInputDown == true)
+                {
+                    acceptingAxisInputDown = false;
+                    acceptingAxisInputUp = true; // should immediately be able to move up after pressing down
 
-            // move cursor to the next menu item
-            menuCursor.transform.position = new Vector3(menuCursorPositions[currentMenuItemIndex].transform.position.x, menuCursorPositions[currentMenuItemIndex].transform.position.y, menuCursorPositions[currentMenuItemIndex].transform.position.z);
-            menuCursor.gameObject.GetComponent<Animator>().Play("Menu Cursor", -1, 0f);
+                    StartCoroutine(DelayAxisInputDown());
 
-            // update all menu item text colors
-            UpdateMenuItemsTextColors();
+                    currentMenuItemIndex++;
+                    // if it goes past the last menu item, then start back at the beginning
+                    if (currentMenuItemIndex > (menuActions.Count - 1))
+                    {
+                        currentMenuItemIndex = 0;
+                    }
+
+                    // move cursor to the next menu item
+                    menuCursor.transform.position = new Vector3(menuCursorPositions[currentMenuItemIndex].transform.position.x, menuCursorPositions[currentMenuItemIndex].transform.position.y, menuCursorPositions[currentMenuItemIndex].transform.position.z);
+                    menuCursor.gameObject.GetComponent<Animator>().Play("Menu Cursor", -1, 0f);
+
+                    // update all menu item text colors
+                    UpdateMenuItemsTextColors();
+
+                }
+
+                // axis input up
+                else if (inputVertical > 0 && acceptingAxisInputUp == true)
+                {
+                    acceptingAxisInputUp = false;
+                    acceptingAxisInputDown = true;
+
+                    StartCoroutine(DelayAxisInputUp());
+
+                    currentMenuItemIndex--;
+                    // if it goes below the first menu item, then start at the top
+                    if (currentMenuItemIndex < 0)
+                    {
+                        currentMenuItemIndex = menuActions.Count - 1;
+                    }
+
+                    // move cursor to the next menu item
+                    menuCursor.transform.position = new Vector3(menuCursorPositions[currentMenuItemIndex].transform.position.x, menuCursorPositions[currentMenuItemIndex].transform.position.y, menuCursorPositions[currentMenuItemIndex].transform.position.z);
+                    menuCursor.gameObject.GetComponent<Animator>().Play("Menu Cursor", -1, 0f);
+
+                    // update all menu item text colors
+                    UpdateMenuItemsTextColors();
+                }
+
+                // confirm button
+                if (!isAdvancing && Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
+                {
+                    //do menu action based on currently selected menu item
+                    menuActions[currentMenuItemIndex]();
+                }
+
+                // reset rate limit when releasing a direction
+                if (inputVertical == 0)
+                {
+                    acceptingAxisInputDown = true;
+                    acceptingAxisInputUp = true;
+                }
+
+                break;
+
+            case ScreenState.Controls:
+                if (Input.GetButtonDown("Fire1") || Input.GetKeyDown(backKey))
+                {
+                    // hide controls screen
+                    HideControlsScreen();
+                }
+                break;
+
 
         }
+        
 
-        // axis input up
-        else if (inputVertical > 0 && acceptingAxisInputUp == true)
-        {
-            acceptingAxisInputUp = false;
-            acceptingAxisInputDown = true;
+    }
 
-            StartCoroutine(DelayAxisInputUp());
+    private void ShowControlsScreen()
+    {
+        controlsScreen.color = new Color(controlsScreen.color.r, controlsScreen.color.g, controlsScreen.color.b, 1.0f);
+        backKeyTextLabel.color = new Color(backKeyTextLabel.color.r, backKeyTextLabel.color.g, backKeyTextLabel.color.b, 1.0f);
+        backKeyGraphic.color = new Color(backKeyGraphic.color.r, backKeyGraphic.color.g, backKeyGraphic.color.b, 1.0f);
 
-            currentMenuItemIndex--;
-            // if it goes below the first menu item, then start at the top
-            if (currentMenuItemIndex < 0)
-            {
-                currentMenuItemIndex = menuActions.Count - 1;
-            }
+        screenState = ScreenState.Controls;
+    }
 
-            // move cursor to the next menu item
-            menuCursor.transform.position = new Vector3(menuCursorPositions[currentMenuItemIndex].transform.position.x, menuCursorPositions[currentMenuItemIndex].transform.position.y, menuCursorPositions[currentMenuItemIndex].transform.position.z);
-            menuCursor.gameObject.GetComponent<Animator>().Play("Menu Cursor", -1, 0f);
+    private void HideControlsScreen()
+    {
+        controlsScreen.color = new Color(controlsScreen.color.r, controlsScreen.color.g, controlsScreen.color.b, 0);
+        backKeyTextLabel.color = new Color(backKeyTextLabel.color.r, backKeyTextLabel.color.g, backKeyTextLabel.color.b, 0);
+        backKeyGraphic.color = new Color(backKeyGraphic.color.r, backKeyGraphic.color.g, backKeyGraphic.color.b, 0);
 
-            // update all menu item text colors
-            UpdateMenuItemsTextColors();
-        }
-
-        // confirm button
-        if (!isAdvancing && Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
-        {
-            //do menu action based on currently selected menu item
-            menuActions[currentMenuItemIndex]();
-        }
-
-        // reset rate limit when releasing a direction
-        if (inputVertical == 0)
-        {
-            acceptingAxisInputDown = true;
-            acceptingAxisInputUp = true;
-        }
-
+        screenState = ScreenState.Title;
     }
 
     private void UpdateMenuItemsTextColors()

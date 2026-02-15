@@ -1532,7 +1532,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Fate has a cruel sense of humor sometimes...
+        value: Now my vessel is damaged beyond repair, and all of my provisions lost.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -1550,7 +1550,7 @@ MonoBehaviour:
       - originConversationID: 10
         originDialogueID: 2
         destinationConversationID: 10
-        destinationDialogueID: 5
+        destinationDialogueID: 6
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -1560,8 +1560,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 755.8879
-        y: 383.72626
+        x: 755.8885
+        y: 374.0645
         width: 160
         height: 30
     - id: 3
@@ -1642,7 +1642,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: But my vessel is damaged beyond repair, and my provisions are lost.
+        value: I'm lucky to have survived that encounter. What kind of horrible creature
+          was that?
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -1697,7 +1698,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Let's see what this place has in store for me.
+        value: I must see my family again. Julia, Marcus...please wait just a little
+          longer. I will find a way back to you.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -1719,13 +1721,68 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 756.22046
-        y: 483.04626
+        x: 756.2204
+        y: 544.2381
+        width: 160
+        height: 30
+    - id: 6
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 5
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: But the Fates have not cut my thread yet...
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 10
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 10
+        originDialogueID: 6
+        destinationConversationID: 10
+        destinationDialogueID: 5
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 756.22064
+        y: 460.50128
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 5.6066284}
-    canvasZoom: 0.62099695
+    canvasScrollPosition: {x: 0, y: 38.429474}
+    canvasZoom: 0.5984984
   - id: 11
     fields:
     - title: Title
