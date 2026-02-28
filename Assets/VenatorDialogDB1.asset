@@ -1532,7 +1532,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Now my vessel is damaged beyond repair, and all of my provisions lost.
+        value: Now my vessel is damaged beyond repair, and all of my provisions lost....
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -1616,7 +1616,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 754.78735
-        y: 117.063
+        y: 115.392166
         width: 160
         height: 30
     - id: 4
@@ -1642,8 +1642,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: I'm lucky to have survived that encounter. What kind of horrible creature
-          was that?
+        value: I'm lucky to have survived an encounter with a leviathan.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -1698,8 +1697,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: I must see my family again. Julia, Marcus...please wait just a little
-          longer. I will find a way back to you.
+        value: Julia, Marcus...please wait just a little longer. I will find a way
+          back to you.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -1722,7 +1721,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 756.2204
-        y: 544.2381
+        y: 540.8965
         width: 160
         height: 30
     - id: 6
@@ -1748,7 +1747,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: But the Fates have not cut my thread yet...
+        value: But I must see my family again.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -1776,8 +1775,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 756.22064
-        y: 460.50128
+        x: 758.0129
+        y: 454.37396
         width: 160
         height: 30
     entryGroups: []
@@ -2188,13 +2187,7 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 12
-        originDialogueID: 2
-        destinationConversationID: 12
-        destinationDialogueID: 3
-        isConnector: 0
-        priority: 2
+      outgoingLinks: []
       conditionsString: 
       userScript: 
       onExecute:
@@ -2206,58 +2199,9 @@ MonoBehaviour:
         y: 180
         width: 160
         height: 30
-    - id: 3
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Description
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Actor
-        value: 5
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Dialogue Text
-        value: Perhaps I'll investigate later.
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      conversationID: 12
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 19
-        y: 241
-        width: 160
-        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 30.000061, y: 18.571365}
-    canvasZoom: 0.7000005
+    canvasScrollPosition: {x: 0.4755469, y: 0}
+    canvasZoom: 0.62999904
   - id: 13
     fields:
     - title: Title
