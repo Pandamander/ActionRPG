@@ -2299,6 +2299,79 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &508472286
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2289422057756728732, guid: e5191f31d7de945d8ad6311642caf240, type: 3}
+      propertyPath: m_Name
+      value: Spider
+      objectReference: {fileID: 0}
+    - target: {fileID: 2289422057756728735, guid: e5191f31d7de945d8ad6311642caf240, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1820489316}
+    - target: {fileID: 2289422057756728735, guid: e5191f31d7de945d8ad6311642caf240, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 897890703}
+    - target: {fileID: 2289422057756728735, guid: e5191f31d7de945d8ad6311642caf240, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1089494029}
+    - target: {fileID: 2289422057756728805, guid: e5191f31d7de945d8ad6311642caf240, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2289422057756728805, guid: e5191f31d7de945d8ad6311642caf240, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 16.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2289422057756728805, guid: e5191f31d7de945d8ad6311642caf240, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2289422057756728805, guid: e5191f31d7de945d8ad6311642caf240, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2289422057756728805, guid: e5191f31d7de945d8ad6311642caf240, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2289422057756728805, guid: e5191f31d7de945d8ad6311642caf240, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2289422057756728805, guid: e5191f31d7de945d8ad6311642caf240, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2289422057756728805, guid: e5191f31d7de945d8ad6311642caf240, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2289422057756728805, guid: e5191f31d7de945d8ad6311642caf240, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2289422057756728805, guid: e5191f31d7de945d8ad6311642caf240, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2289422057756728805, guid: e5191f31d7de945d8ad6311642caf240, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2675186626975083678, guid: e5191f31d7de945d8ad6311642caf240, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e5191f31d7de945d8ad6311642caf240, type: 3}
 --- !u!213 &740612120
 Sprite:
   m_ObjectHideFlags: 0
@@ -17870,6 +17943,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &897890703 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4064209768059073766, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
+  m_PrefabInstance: {fileID: 2128745815}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29134996dca4a408ea8c143bf8d1cac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &906225232 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8588429179352728456, guid: d7ef947b56703b3428009724724c06a6, type: 3}
@@ -38497,11 +38581,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.99996334
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796964, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 1
+      value: 0.99999994
       objectReference: {fileID: 0}
     - target: {fileID: 4064209767952796965, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
       propertyPath: m_UpdateMethod
@@ -38687,3 +38771,76 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ae232e7bec4c844595e0ee927019eed, type: 3}
+--- !u!1001 &2289422058207046561
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2289422057756728732, guid: e5191f31d7de945d8ad6311642caf240, type: 3}
+      propertyPath: m_Name
+      value: Spider
+      objectReference: {fileID: 0}
+    - target: {fileID: 2289422057756728735, guid: e5191f31d7de945d8ad6311642caf240, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1820489316}
+    - target: {fileID: 2289422057756728735, guid: e5191f31d7de945d8ad6311642caf240, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 897890703}
+    - target: {fileID: 2289422057756728735, guid: e5191f31d7de945d8ad6311642caf240, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1089494029}
+    - target: {fileID: 2289422057756728805, guid: e5191f31d7de945d8ad6311642caf240, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2289422057756728805, guid: e5191f31d7de945d8ad6311642caf240, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2289422057756728805, guid: e5191f31d7de945d8ad6311642caf240, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2289422057756728805, guid: e5191f31d7de945d8ad6311642caf240, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2289422057756728805, guid: e5191f31d7de945d8ad6311642caf240, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2289422057756728805, guid: e5191f31d7de945d8ad6311642caf240, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2289422057756728805, guid: e5191f31d7de945d8ad6311642caf240, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2289422057756728805, guid: e5191f31d7de945d8ad6311642caf240, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2289422057756728805, guid: e5191f31d7de945d8ad6311642caf240, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2289422057756728805, guid: e5191f31d7de945d8ad6311642caf240, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2289422057756728805, guid: e5191f31d7de945d8ad6311642caf240, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2675186626975083678, guid: e5191f31d7de945d8ad6311642caf240, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e5191f31d7de945d8ad6311642caf240, type: 3}
