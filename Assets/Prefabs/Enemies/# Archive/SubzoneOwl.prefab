@@ -143,13 +143,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05c9a6b84d8936c42b9411d3b1cf8a9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 6
   attackDamage: 1
   health: 1
   audioManager: {fileID: 0}
   cameraShake: {fileID: 0}
   player: {fileID: 0}
   _boxCollider: {fileID: 6051015354650089038}
+  swoopOvershoot: 1.5
+  windUpHeight: 0.8
+  windUpDuration: 0.4
 --- !u!70 &826103316729408980
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
