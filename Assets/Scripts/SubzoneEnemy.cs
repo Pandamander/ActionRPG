@@ -61,13 +61,15 @@ public class SubzoneEnemy : MonoBehaviour, IDamageable
     // IDamageable
     public void Damage(int damage, float damageDirection)
     {
+        if (health <= 0) return;
+
         health -= damage;
-        if (health < 0) return;
 
         audioManager.PlayAttackHit();
 
-        if (health == 0)
+        if (health <= 0)
         {
+            health = 0;
             _isDying = true;
             _animator.SetBool("IsDead", true);
             rigidBody.velocity = Vector2.zero;

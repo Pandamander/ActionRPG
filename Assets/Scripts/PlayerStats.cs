@@ -8,6 +8,7 @@ public static class PlayerStats
     public static int Health { get; private set; }
     public static int HealthCapacity { get; private set; }
     public static string MeleeWeapon { get; private set; }
+    public static string SecondaryWeapon { get; private set; }
 
     public static List<string> PowerupDestroy { get; private set; }
 
@@ -28,6 +29,7 @@ public static class PlayerStats
             PowerupDestroy = new List<string>();
             OverworldDestroyList = new List<string>();
             MeleeWeapon = "GladiusSword";
+            SecondaryWeapon = null;
         }
     }
 
@@ -67,6 +69,12 @@ public static class PlayerStats
         Debug.Log("PickUpWeapon: " + weaponSOPath);
         MeleeWeapon = weaponSOPath;
         Attack = attack;
+    }
+
+    public static void PickUpSecondaryWeapon(string weaponName)
+    {
+        Debug.Log("PickUpSecondaryWeapon: " + weaponName);
+        SecondaryWeapon = weaponName;
     }
 
     public static void ApplyDamage(int amount)

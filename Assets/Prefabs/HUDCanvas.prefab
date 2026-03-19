@@ -1631,6 +1631,7 @@ MonoBehaviour:
   attackValueText: {fileID: 527882589330772665}
   defenseValueText: {fileID: 436339249967674035}
   itemFrame: {fileID: 51822397175098329}
+  secondaryItemFrame: {fileID: 0}
 --- !u!1 &2100172161104411091
 GameObject:
   m_ObjectHideFlags: 0
@@ -6094,6 +6095,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd4ea892844b8461faa37d96064d7cd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doSteppedFade: 1
 --- !u!1 &8661434365659184952
 GameObject:
   m_ObjectHideFlags: 0

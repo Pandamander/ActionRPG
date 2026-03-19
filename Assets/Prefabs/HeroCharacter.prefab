@@ -1,5 +1,51 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &95522528854687265
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2404716070777543081}
+  - component: {fileID: 6508009788999806916}
+  m_Layer: 1
+  m_Name: Secondary
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2404716070777543081
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95522528854687265}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 449917999560785454}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6508009788999806916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95522528854687265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da301d539c4a34ba7b367c2ad29338fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapons:
+  - {fileID: 11400000, guid: cf53c3036300a4c0288a41fd91864b3a, type: 2}
 --- !u!1 &444172796820223396
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,6 +90,7 @@ Transform:
   - {fileID: 441369034065316046}
   - {fileID: 450029528408781168}
   - {fileID: 3591534936725891120}
+  - {fileID: 2404716070777543081}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -116,7 +163,7 @@ MonoBehaviour:
   dmgValue: 4
   invulnerableDuration: 10
   meleeWeaponController: {fileID: 8982125354599466200}
-  rangedWeaponController: {fileID: 0}
+  secondaryWeaponController: {fileID: 6508009788999806916}
   attackCheck: {fileID: 441747885288404200}
   animator: {fileID: 538770066651341512}
   canMeleeAttack: 1

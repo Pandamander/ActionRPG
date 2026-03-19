@@ -1,4 +1,4 @@
-﻿using PixelCrushers.DialogueSystem;
+using PixelCrushers.DialogueSystem;
 using System.Collections;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -10,7 +10,7 @@ public class Attack : MonoBehaviour, IDamageable
 	public float dmgValue = 4f;
 	public int invulnerableDuration = 10;
 	public MeleeController meleeWeaponController;
-	public GameObject rangedWeaponController;
+	public SecondaryWeaponController secondaryWeaponController;
 
 	public Transform attackCheck;
 	private Rigidbody2D rigidBody;
@@ -96,11 +96,36 @@ public class Attack : MonoBehaviour, IDamageable
 			StartCoroutine(MeleeAttackCooldown());
 		}
 
+		// Handle secondary weapon attack
+		if (secondaryWeaponController.HasWeapon && playerMovement.canMove && Input.GetButtonDown("Fire2") && canMeleeAttack)
+		{
+			if (playerMovement.grounded)
+			{
+				playerMovement.StopForAttack();
+			} else
+			{
+				playerMovement.StopAirControlForJumpAttack();
+			}
+			canMeleeAttack = false;
+
+			Vector2 direction = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
+			secondaryWeaponController.Attack(direction);
+
+			StartCoroutine(SecondaryAttackCooldown());
+		}
+
 		// Handle knockback landing
 		if (shouldCheckGroundedForKnockback && animator.GetBool("IsHit"))
 		{
 			CheckGroundedForKnockback();
         }
+	}
+
+	IEnumerator SecondaryAttackCooldown()
+	{
+		yield return new WaitForSeconds(0.3f);
+		canMeleeAttack = true;
+		playerMovement.AllowMovementAfterAttackOrKnockback();
 	}
 
 	IEnumerator MeleeAttackCooldown()
@@ -207,6 +232,13 @@ public class Attack : MonoBehaviour, IDamageable
                     dialogueTrigger.OnUse(transform);
                 }
             }
+        }
+
+        SecondaryWeaponPickup secondaryPickup = collision.gameObject.GetComponentInChildren<SecondaryWeaponPickup>();
+        if (secondaryPickup != null)
+        {
+            secondaryWeaponController.PickUpWeapon(secondaryPickup.weapon);
+            GameObject.Destroy(collision.gameObject);
         }
     }
 }
