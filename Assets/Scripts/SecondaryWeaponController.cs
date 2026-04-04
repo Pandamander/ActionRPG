@@ -22,7 +22,7 @@ public class SecondaryWeaponController : MonoBehaviour
         InitializeWeaponMap();
         LoadLastObtainedWeapon();
 
-        SetWeapon(weapons[0]);
+        SetWeapon(weapons[1]);
     }
 
     private void Update()

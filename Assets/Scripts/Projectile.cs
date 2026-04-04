@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float spinSpeed = 720f;
     [SerializeField] private bool alignToVelocity = false;
     [SerializeField] private float damageCooldown = 0.5f;
+    [SerializeField] private bool destroyOnHit = false;
 
     private int _damage;
     private Rigidbody2D _rigidBody;
@@ -57,7 +58,15 @@ public class Projectile : MonoBehaviour
         if (collision.TryGetComponent<IDamageable>(out var target))
         {
             target.Damage(_damage, Utilities.DamageDirection(gameObject, collision.gameObject));
-            _damageCooldownTimer = damageCooldown;
+
+            if (destroyOnHit)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                _damageCooldownTimer = damageCooldown;
+            }
         }
     }
 }
