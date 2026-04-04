@@ -11,7 +11,7 @@ public class SubzoneHUD : MonoBehaviour
     [SerializeField] private TMP_Text attackValueText;
     [SerializeField] private TMP_Text defenseValueText;
     [SerializeField] private Image itemFrame;
-    [SerializeField] private Image secondaryItemFrame;
+    //[SerializeField] private Image secondaryItemFrame;
     //private Fader _fader;
 
     private void Awake()
@@ -53,8 +53,8 @@ public class SubzoneHUD : MonoBehaviour
         itemFrame.sprite = image;
     }
 
-    public void SetSecondaryItemFrameImage(Sprite image)
-    {
-        secondaryItemFrame.sprite = image;
-    }
+    //public void SetSecondaryItemFrameImage(Sprite image)
+    //{
+    //    secondaryItemFrame.sprite = image;
+    //}
 }
