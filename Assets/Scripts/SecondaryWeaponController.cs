@@ -52,18 +52,12 @@ public class SecondaryWeaponController : MonoBehaviour
 
     private void InitializeWeaponMap()
     {
-        _weaponMap = new Dictionary<string, SecondaryWeapon>()
+        _weaponMap = new Dictionary<string, SecondaryWeapon>();
+        foreach (SecondaryWeapon weapon in weapons)
         {
-            { "ThrowingAxe", weapons[0] },
-        };
-        
-        
-        //foreach (SecondaryWeapon weapon in weapons)
-        //{
-        //    _weaponMap[weapon.name] = weapon;
+            _weaponMap[weapon.name] = weapon;
+        }
 
-        //}
-        
     }
 
     private void LoadLastObtainedWeapon()

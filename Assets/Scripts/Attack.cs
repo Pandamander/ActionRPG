@@ -107,6 +107,7 @@ public class Attack : MonoBehaviour, IDamageable
 				playerMovement.StopAirControlForJumpAttack();
 			}
 			canMeleeAttack = false;
+			animator.SetBool(secondaryWeaponController.currentWeapon.attackAnimationTrigger, true);
 
 			Vector2 direction = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
 			secondaryWeaponController.Attack(direction);
@@ -123,7 +124,8 @@ public class Attack : MonoBehaviour, IDamageable
 
 	IEnumerator SecondaryAttackCooldown()
 	{
-		yield return new WaitForSeconds(0.3f);
+		yield return new WaitForSeconds(secondaryWeaponController.currentWeapon.attackAnimationDuration);
+		animator.SetBool(secondaryWeaponController.currentWeapon.attackAnimationTrigger, false);
 		canMeleeAttack = true;
 		playerMovement.AllowMovementAfterAttackOrKnockback();
 	}

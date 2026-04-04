@@ -9,15 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1c9b65bdfa4542d49a031c32f0bd98b, type: 3}
-  m_Name: ThrowingAxe
+  m_Script: {fileID: 11500000, guid: d088d1803588f4965b95cf1cd5826631, type: 3}
+  m_Name: Plumbata
   m_EditorClassIdentifier: 
-  itemFrameImage: {fileID: 21300000, guid: 97da3a2a6150644a3bad79057ff4fd94, type: 3}
+  itemFrameImage: {fileID: 21300000, guid: 47214d9b982ae4020abd852f56d4c5a6, type: 3}
   cooldown: 0.5
   attackAnimationDuration: 0.5
   attackAnimationTrigger: IsThrowing
-  projectilePrefab: {fileID: 8844091647254525655, guid: 64b17a100f0bb4e7699a64cc253b8d2b, type: 3}
-  throwSpeed: 14
-  launchAngle: 75
-  damage: 2
-  spawnOffset: {x: 0.25, y: 0.5}
+  projectilePrefab: {fileID: 8844091647254525655, guid: a75125ea3d7d94409b9f75e1ff4a6e2d, type: 3}
+  throwSpeed: 17
+  launchAngle: 7
+  damage: 1
+  spawnOffset: {x: 0.25, y: 0.25}
