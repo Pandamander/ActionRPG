@@ -42,6 +42,7 @@ public class Attack : MonoBehaviour, IDamageable
 
     private float attackAnimationDuration = 0;
     private float crouchAttackAnimationDuration = 0;
+    private int lastDialogueEndFrame = -1;
 
     private void Awake()
 	{
@@ -79,7 +80,7 @@ public class Attack : MonoBehaviour, IDamageable
 		meleeWeaponController.isCrouching = playerMovement.isCrouching;
 
 		// Handle melee attack
-		if (meleeWeaponController.HasWeapon && playerMovement.canMove && Input.GetButtonDown("Fire1") && canMeleeAttack)
+		if (meleeWeaponController.HasWeapon && playerMovement.canMove && Input.GetButtonDown("Fire1") && canMeleeAttack && Time.frameCount > lastDialogueEndFrame)
 		{
 			if (playerMovement.grounded)
 			{
@@ -97,7 +98,7 @@ public class Attack : MonoBehaviour, IDamageable
 		}
 
 		// Handle secondary weapon attack
-		if (secondaryWeaponController.HasWeapon && secondaryWeaponController.CanAttack && playerMovement.canMove && Input.GetButtonDown("Fire2") && canMeleeAttack)
+		if (secondaryWeaponController.HasWeapon && secondaryWeaponController.CanAttack && playerMovement.canMove && Input.GetButtonDown("Fire2") && canMeleeAttack && Time.frameCount > lastDialogueEndFrame)
 		{
 			if (playerMovement.grounded)
 			{
@@ -218,6 +219,11 @@ public class Attack : MonoBehaviour, IDamageable
 		yield return new WaitForSeconds(4);
         GameManager.sharedInstance.ShowGameOver(SceneManager.GetActiveScene().name);
 	}
+
+    void OnConversationEnd(Transform actor)
+    {
+        lastDialogueEndFrame = Time.frameCount;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
