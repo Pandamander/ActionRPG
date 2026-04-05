@@ -7,5 +7,5 @@ public abstract class SecondaryWeapon : ScriptableObject
     public float attackAnimationDuration = 0.3f;
     public string attackAnimationTrigger;
 
-    public abstract void Execute(Transform player, Vector2 direction);
+    public abstract void Execute(Transform player, Vector2 direction, bool isCrouching);
 }

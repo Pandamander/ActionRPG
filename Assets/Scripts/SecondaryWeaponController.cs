@@ -13,6 +13,7 @@ public class SecondaryWeaponController : MonoBehaviour
             return currentWeapon != null;
         }
     }
+    public bool CanAttack => _cooldownTimer <= 0f;
 
     private Dictionary<string, SecondaryWeapon> _weaponMap;
     private float _cooldownTimer;
@@ -22,7 +23,7 @@ public class SecondaryWeaponController : MonoBehaviour
         InitializeWeaponMap();
         LoadLastObtainedWeapon();
 
-        SetWeapon(weapons[1]);
+        SetWeapon(weapons[0]);
     }
 
     private void Update()
@@ -31,10 +32,10 @@ public class SecondaryWeaponController : MonoBehaviour
             _cooldownTimer -= Time.deltaTime;
     }
 
-    public void Attack(Vector2 direction)
+    public void Attack(Vector2 direction, bool isCrouching)
     {
         if (!HasWeapon || _cooldownTimer > 0f) return;
-        currentWeapon.Execute(transform, direction);
+        currentWeapon.Execute(transform, direction, isCrouching);
         _cooldownTimer = currentWeapon.cooldown;
     }
 

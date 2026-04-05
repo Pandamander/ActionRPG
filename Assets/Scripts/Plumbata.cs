@@ -8,10 +8,12 @@ public class Plumbata : SecondaryWeapon
     public float launchAngle = 7f;
     public int damage = 1;
     public Vector2 spawnOffset = new Vector2(0.5f, 0f);
+    public float crouchYOffset = -0.5f;
 
-    public override void Execute(Transform player, Vector2 direction)
+    public override void Execute(Transform player, Vector2 direction, bool isCrouching)
     {
-        Vector2 spawnPos = (Vector2)player.position + new Vector2(spawnOffset.x * direction.x, spawnOffset.y);
+        float yOffset = spawnOffset.y + (isCrouching ? crouchYOffset : 0f);
+        Vector2 spawnPos = (Vector2)player.position + new Vector2(spawnOffset.x * direction.x, yOffset);
         GameObject projectile = Instantiate(projectilePrefab, spawnPos, Quaternion.identity);
 
         float radians = launchAngle * Mathf.Deg2Rad;

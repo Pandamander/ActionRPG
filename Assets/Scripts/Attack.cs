@@ -97,7 +97,7 @@ public class Attack : MonoBehaviour, IDamageable
 		}
 
 		// Handle secondary weapon attack
-		if (secondaryWeaponController.HasWeapon && playerMovement.canMove && Input.GetButtonDown("Fire2") && canMeleeAttack)
+		if (secondaryWeaponController.HasWeapon && secondaryWeaponController.CanAttack && playerMovement.canMove && Input.GetButtonDown("Fire2") && canMeleeAttack)
 		{
 			if (playerMovement.grounded)
 			{
@@ -110,7 +110,7 @@ public class Attack : MonoBehaviour, IDamageable
 			animator.SetBool(secondaryWeaponController.currentWeapon.attackAnimationTrigger, true);
 
 			Vector2 direction = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
-			secondaryWeaponController.Attack(direction);
+			secondaryWeaponController.Attack(direction, playerMovement.isCrouching);
 
 			StartCoroutine(SecondaryAttackCooldown());
 		}

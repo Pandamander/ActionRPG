@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemFrameImage: {fileID: 21300000, guid: 47214d9b982ae4020abd852f56d4c5a6, type: 3}
   cooldown: 0.5
-  attackAnimationDuration: 0.5
+  attackAnimationDuration: 0.4
   attackAnimationTrigger: IsThrowing
   projectilePrefab: {fileID: 8844091647254525655, guid: a75125ea3d7d94409b9f75e1ff4a6e2d, type: 3}
   throwSpeed: 17
-  launchAngle: 7
+  launchAngle: 6
   damage: 1
   spawnOffset: {x: 0.25, y: 0.25}
+  crouchYOffset: -0.4
