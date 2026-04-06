@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1c9b65bdfa4542d49a031c32f0bd98b, type: 3}
   m_Name: ThrowingAxe
   m_EditorClassIdentifier: 
-  itemFrameImage: {fileID: 21300000, guid: 97da3a2a6150644a3bad79057ff4fd94, type: 3}
+  itemFrameImage: {fileID: 21300000, guid: dffdfd3481ef14e30bbbf065325f0608, type: 3}
   cooldown: 0.5
   attackAnimationDuration: 0.4
   attackAnimationTrigger: IsThrowing

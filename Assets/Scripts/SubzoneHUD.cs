@@ -11,19 +11,24 @@ public class SubzoneHUD : MonoBehaviour
     [SerializeField] private TMP_Text attackValueText;
     [SerializeField] private TMP_Text defenseValueText;
     [SerializeField] private Image itemFrame;
-    //[SerializeField] private Image secondaryItemFrame;
-    //private Fader _fader;
+    [SerializeField] private Image secondaryItemFrame;
 
-    private void Awake()
-    {
-        //_fader = GetComponentInChildren<Fader>();
-    }
     private void Start()
     {
-        //_fader.FadeOut();
+        UpdateStatTexts();
+
+        attackValueText.ForceMeshUpdate();
+        defenseValueText.ForceMeshUpdate();
+        LayoutRebuilder.ForceRebuildLayoutImmediate(attackValueText.transform.parent as RectTransform);
+        LayoutRebuilder.ForceRebuildLayoutImmediate(defenseValueText.transform.parent as RectTransform);
     }
 
     private void Update()
+    {
+        UpdateStatTexts();
+    }
+
+    private void UpdateStatTexts()
     {
         attackValueText.text = PlayerStats.Attack.ToString();
         defenseValueText.text = PlayerStats.Defense.ToString();
@@ -53,8 +58,8 @@ public class SubzoneHUD : MonoBehaviour
         itemFrame.sprite = image;
     }
 
-    //public void SetSecondaryItemFrameImage(Sprite image)
-    //{
-    //    secondaryItemFrame.sprite = image;
-    //}
+    public void SetSecondaryItemFrameImage(Sprite image)
+    {
+        secondaryItemFrame.sprite = image;
+    }
 }

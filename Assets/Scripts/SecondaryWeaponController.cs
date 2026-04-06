@@ -48,7 +48,7 @@ public class SecondaryWeaponController : MonoBehaviour
     private void SetWeapon(SecondaryWeapon weapon)
     {
         currentWeapon = weapon;
-        //FindObjectOfType<SubzoneHUD>().SetSecondaryItemFrameImage(weapon.itemFrameImage);
+        FindObjectOfType<SubzoneHUD>().SetSecondaryItemFrameImage(weapon.itemFrameImage);
     }
 
     private void InitializeWeaponMap()

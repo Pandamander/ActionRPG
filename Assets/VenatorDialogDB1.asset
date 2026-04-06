@@ -1532,7 +1532,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Now my vessel is damaged beyond repair, and all of my provisions lost....
+        value: It looks like my vessel is damaged beyond repair, and all of my provisions
+          lost.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -1642,7 +1643,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: I'm lucky to have survived an encounter with a leviathan.
+        value: I'm lucky to have survived that encounter...
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -1747,7 +1748,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: But I must see my family again.
+        value: But I will find a way home.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -1780,7 +1781,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 38.429474}
+    canvasScrollPosition: {x: 0, y: 0}
     canvasZoom: 0.5984984
   - id: 11
     fields:
