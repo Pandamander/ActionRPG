@@ -17,19 +17,27 @@ public class SecondaryWeaponController : MonoBehaviour
 
     private Dictionary<string, SecondaryWeapon> _weaponMap;
     private float _cooldownTimer;
+    private int _currentWeaponIndex;
 
     private void Awake()
     {
         InitializeWeaponMap();
         LoadLastObtainedWeapon();
 
-        SetWeapon(weapons[0]);
+        _currentWeaponIndex = 0;
+        SetWeapon(weapons[_currentWeaponIndex]);
     }
 
     private void Update()
     {
         if (_cooldownTimer > 0f)
             _cooldownTimer -= Time.deltaTime;
+
+        if (Input.GetKeyDown(KeyCode.T) && weapons.Count > 0)
+        {
+            _currentWeaponIndex = (_currentWeaponIndex + 1) % weapons.Count;
+            SetWeapon(weapons[_currentWeaponIndex]);
+        }
     }
 
     public void Attack(Vector2 direction, bool isCrouching)

@@ -12,6 +12,7 @@ public class Projectile : MonoBehaviour
     private int _damage;
     private Rigidbody2D _rigidBody;
     private SpriteRenderer _spriteRenderer;
+    private ParticleSystemRenderer _particleRenderer;
     private float _spinDirection;
     private float _damageCooldownTimer;
 
@@ -20,12 +21,18 @@ public class Projectile : MonoBehaviour
         _damage = damage;
         _rigidBody = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _particleRenderer = GetComponentInChildren<ParticleSystemRenderer>();
         _rigidBody.velocity = velocity;
         _spinDirection = velocity.x < 0f ? 1f : -1f;
 
         if (!alignToVelocity && velocity.x < 0f)
         {
             transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
+        }
+
+        if (alignToVelocity && _particleRenderer != null && velocity.x < 0f)
+        {
+            _particleRenderer.flip = new Vector3(1f, 0f, 0f);
         }
 
         Destroy(gameObject, timeToLive);
