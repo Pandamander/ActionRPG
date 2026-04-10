@@ -67,6 +67,12 @@ public class CharacterController2D : MonoBehaviour
 			OnLandEvent = new UnityEvent();
 	}
 
+	bool ShouldCountColliderForGround(Collider2D col)
+	{
+		float lowestPoint = Mathf.Min(m_GroundCheck.position.y, capsuleCollider.bounds.min.y);
+		return OneWayPlatformGrounding.ColliderCountsAsGround(col, lowestPoint);
+	}
+
 	private void FixedUpdate()
 	{
 		bool wasGrounded = m_Grounded;
@@ -77,13 +83,16 @@ public class CharacterController2D : MonoBehaviour
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
 		for (int i = 0; i < colliders.Length; i++)
 		{
-			if (colliders[i].gameObject != gameObject)
-				m_Grounded = true;
-				if (!wasGrounded )
-				{
-					OnLandEvent.Invoke();
-				}
+			if (colliders[i].gameObject == gameObject)
+				continue;
+			if (!ShouldCountColliderForGround(colliders[i]))
+				continue;
+			m_Grounded = true;
+			break;
 		}
+
+		if (m_Grounded && !wasGrounded)
+			OnLandEvent.Invoke();
 
 		if (!m_Grounded)
 		{
@@ -119,7 +128,7 @@ public class CharacterController2D : MonoBehaviour
 			m_WhatIsGround
 		);
 
-		if (slopeHitFont)
+		if (slopeHitFont && ShouldCountColliderForGround(slopeHitFont.collider))
 		{
             slopeSideAngle = Vector2.Angle(slopeHitFont.normal, Vector2.up);
 
@@ -131,7 +140,7 @@ public class CharacterController2D : MonoBehaviour
 				isOnSlope = false;
 			}
             Debug.DrawRay(slopeHitFont.point, slopeHitFont.normal, Color.cyan);
-        } else if (slopeHitBack)
+        } else if (slopeHitBack && ShouldCountColliderForGround(slopeHitBack.collider))
 		{
             slopeSideAngle = Vector2.Angle(slopeHitBack.normal, Vector2.up);
 
@@ -143,7 +152,7 @@ public class CharacterController2D : MonoBehaviour
             {
                 isOnSlope = false;
             }
-            Debug.DrawRay(slopeHitFont.point, slopeHitBack.normal, Color.green);
+            Debug.DrawRay(slopeHitBack.point, slopeHitBack.normal, Color.green);
         } else
 		{
 			slopeSideAngle = 0.0f;
@@ -160,7 +169,7 @@ public class CharacterController2D : MonoBehaviour
 			m_WhatIsGround
 		);
 
-		if (hit)
+		if (hit && ShouldCountColliderForGround(hit.collider))
 		{
 			slopeNormalPerpendicular = Vector2.Perpendicular(hit.normal).normalized;
 
