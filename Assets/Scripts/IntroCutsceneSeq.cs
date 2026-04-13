@@ -9,7 +9,6 @@ public class IntroCutsceneSeq : MonoBehaviour
     public ParticleSystem mastBreakParticles;
     public ParticleSystem shipParticles;
     public IntroShipMovement shipMovement;
-    public Animator seaSerpentAnimator;
 
     private bool hasSerpentAppeared = false;
 
@@ -27,7 +26,7 @@ public class IntroCutsceneSeq : MonoBehaviour
             if (!hasSerpentAppeared) {
                 camShake.ShakeCamera(3.0f, 2f);
                 hasSerpentAppeared = true;
-                seaSerpentAnimator.Play("seaserpent_appearance");
+                // TODO: Elliott make serpent boss appear and start boss fight
             }
         }
     }

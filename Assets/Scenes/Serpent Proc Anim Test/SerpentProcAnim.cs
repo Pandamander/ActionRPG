@@ -26,8 +26,8 @@ public class SerpentProcAnim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = Vector2.MoveTowards(transform.position, cursorPos, moveSpeed * Time.deltaTime);
+        // Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        // transform.position = Vector2.MoveTowards(transform.position, cursorPos, moveSpeed * Time.deltaTime);
 
         segmentPos[0] = targetDir.position;
         bodySegments[0].transform.position = segmentPos[0];
