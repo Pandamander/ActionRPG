@@ -41,6 +41,8 @@ public class SeaSerpentBossMotor : MonoBehaviour
         movingToTarget = false;
         idleTime = 0f;
         basePosition = transform.position;
+        Debug.Log(basePosition);
+        Debug.Log(this);
     }
 
     public void StopIdle()

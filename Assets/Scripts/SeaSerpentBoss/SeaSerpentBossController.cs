@@ -14,9 +14,11 @@ public class SeaSerpentBossController : MonoBehaviour
     [SerializeField] private Transform rightAnchor;
 
     [Header("Timing")]
-    [SerializeField] private float idleDuration = 2f;
+    [SerializeField] private float idleDuration = 10f;
 
     private ISeaSerpentBossState currentState;
+
+    private bool isRunning = false;
 
     public SeaSerpentBossMotor Motor => motor;
     public SeaSerpentBossAttackController Attacks => attacks;
@@ -49,16 +51,22 @@ public class SeaSerpentBossController : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        ChangeState(new SeaSerpentBossIdleState(this));
-    }
-
     private void Update()
     {
+        if (!isRunning) return;
+
         motor.Tick();
         attacks.Tick();
         currentState?.Tick();
+    }
+
+    public void StartBoss()
+    {
+        if (isRunning) return;
+
+        isRunning = true;
+
+        ChangeState(new SeaSerpentBossIdleState(this));
     }
 
     public void ChangeState(ISeaSerpentBossState newState)
@@ -192,12 +200,6 @@ public class SeaSerpentBossDeadState : ISeaSerpentBossState
     {
         boss.Motor.StopIdle();
         Debug.Log("Boss: Dead");
-
-        // Later:
-        // play death animation
-        // disable hurtbox
-        // notify encounter controller
-        // drop reward, end fight, etc.
     }
 
     public void Tick()
