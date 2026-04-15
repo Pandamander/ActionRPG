@@ -10,7 +10,7 @@ public class IntroCutsceneSeq : MonoBehaviour
     public ParticleSystem shipParticles;
     public IntroShipMovement shipMovement;
     public Animator seaSerpentBossAnimator;
-    public SeaSerpentBossController bossController;
+    public SeaSerpentBossFightDirector bossDirector;
 
     private bool hasSerpentAppeared = false;
 
@@ -26,11 +26,9 @@ public class IntroCutsceneSeq : MonoBehaviour
         if(shipMovement.speed == 0)
         {
             if (!hasSerpentAppeared) {
-                // camShake.ShakeCamera(3.0f, 2f);
                 hasSerpentAppeared = true;
-                // TODO: Elliott make serpent boss appear and start boss fight
-                seaSerpentBossAnimator.SetTrigger("Appear");
-                StartCoroutine(StartBossFight());
+                camShake.ShakeCamera(3.0f, 2f);
+                bossDirector.StartFight();
             }
         }
     }
@@ -44,15 +42,6 @@ public class IntroCutsceneSeq : MonoBehaviour
 
         yield return null;
 
-    }
-
-    private IEnumerator StartBossFight()
-    {
-        yield return new WaitForSeconds(5.0f);
-
-        bossController.StartBoss();
-
-        yield return null;
     }
 
     public void DoSerpentBiteCameraShake()
