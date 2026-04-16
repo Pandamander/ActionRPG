@@ -9,7 +9,6 @@ public class IntroCutsceneSeq : MonoBehaviour
     public ParticleSystem mastBreakParticles;
     public ParticleSystem shipParticles;
     public IntroShipMovement shipMovement;
-    public Animator seaSerpentBossAnimator;
     public SeaSerpentBossFightDirector bossDirector;
 
     private bool hasSerpentAppeared = false;

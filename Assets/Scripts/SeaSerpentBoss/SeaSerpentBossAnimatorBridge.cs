@@ -6,13 +6,10 @@ public class SeaSerpentBossAnimatorBridge : MonoBehaviour
 {
     [SerializeField] private Animator animator;
 
-    private static readonly int BiteHash = Animator.StringToHash("Bite");
-
     private bool biteFinished;
 
     public void PlayBite()
     {
-        Debug.Log("PlayBite");
         biteFinished = false;
         animator.SetTrigger("Bite");
     }
@@ -25,6 +22,12 @@ public class SeaSerpentBossAnimatorBridge : MonoBehaviour
     public void OnBiteAnimationFinished()
     {
         Debug.Log("OnBiteAnimationFinished");
+        StartCoroutine(Complete());
+    }
+
+    private IEnumerator Complete()
+    {
+        yield return new WaitForSeconds(0.5f);
         biteFinished = true;
     }
 }

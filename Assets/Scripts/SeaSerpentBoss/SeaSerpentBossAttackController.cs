@@ -49,6 +49,8 @@ public class SeaSerpentBossAttackController : MonoBehaviour
             yield return null;
         }
 
+        yield return new WaitForSeconds(1.0f);
+
         boss.AnimatorBridge.PlayBite();
 
         while (!boss.AnimatorBridge.IsBiteFinished())
@@ -63,25 +65,23 @@ public class SeaSerpentBossAttackController : MonoBehaviour
 
     private Vector3 GetBitePosition()
     {
-        //Transform player = GameObject.FindGameObjectWithTag("Player")?.transform;
+        Transform player = GameObject.FindGameObjectWithTag("Player")?.transform;
 
-        //if (player == null)
-        //{
-        //    return boss.transform.position;
-        //}
+        if (player == null)
+        {
+            return boss.transform.position;
+        }
 
-        //Vector3 playerPos = player.position;
+        Vector3 playerPos = player.position;
 
         //float offset = playerPos.x < boss.transform.position.x
         //    ? -biteRangeOffsetX
         //    : biteRangeOffsetX;
 
-        //return new Vector3(
-        //    playerPos.x - offset,
-        //    boss.transform.position.y,
-        //    boss.transform.position.z
-        //);
-
-        return boss.transform.position;
+        return new Vector3(
+            playerPos.x,
+            boss.transform.position.y,
+            boss.transform.position.z
+        );
     }
 }

@@ -15,7 +15,7 @@ public class SeaSerpentBossController : MonoBehaviour
     [SerializeField] private Transform rightAnchor;
 
     [Header("Timing")]
-    [SerializeField] private float idleDuration = 10f;
+    [SerializeField] private float idleDuration = 2.0f;
 
     private ISeaSerpentBossState currentState;
 
@@ -134,6 +134,9 @@ public class SeaSerpentBossMoveState : ISeaSerpentBossState
     private readonly SeaSerpentBossController boss;
     private readonly Vector3 target;
 
+    private float delayTimer = 0.5f;
+    private bool hasArrived;
+
     public SeaSerpentBossMoveState(SeaSerpentBossController boss, Vector3 target)
     {
         this.boss = boss;
@@ -143,12 +146,27 @@ public class SeaSerpentBossMoveState : ISeaSerpentBossState
     public void Enter()
     {
         boss.Motor.MoveTo(target);
+        delayTimer = 0.5f;
+        hasArrived = false;
+
         Debug.Log("Boss: Move");
     }
 
     public void Tick()
     {
-        if (boss.Motor.IsAtTarget())
+        if (!hasArrived)
+        {
+            if (boss.Motor.IsAtTarget())
+            {
+                hasArrived = true;
+            } else
+            {
+                return;
+            }
+        }
+
+        delayTimer -= Time.deltaTime;
+        if (delayTimer <= 0f)
         {
             boss.ChangeState(new SeaSerpentBossAttackState(boss));
         }
