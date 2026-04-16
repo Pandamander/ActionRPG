@@ -35,7 +35,7 @@ public class SeaSerpentBossController : MonoBehaviour
         if (motor == null) motor = GetComponent<SeaSerpentBossMotor>();
         if (attacks == null) attacks = GetComponent<SeaSerpentBossAttackController>();
         if (health == null) health = GetComponent<SeaSerpentBossHealth>();
-        if (animatorBridge == null) animatorBridge = GetComponent<SeaSerpentBossAnimatorBridge>();
+        if (animatorBridge == null) animatorBridge = GetComponentInChildren<SeaSerpentBossAnimatorBridge>();
     }
 
     private void OnEnable()
