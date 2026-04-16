@@ -8,6 +8,7 @@ public class SeaSerpentBossController : MonoBehaviour
     [SerializeField] private SeaSerpentBossMotor motor;
     [SerializeField] private SeaSerpentBossAttackController attacks;
     [SerializeField] private SeaSerpentBossHealth health;
+    [SerializeField] private SeaSerpentBossAnimatorBridge animatorBridge;
 
     [Header("Arena Anchors")]
     [SerializeField] private Transform leftAnchor;
@@ -23,6 +24,7 @@ public class SeaSerpentBossController : MonoBehaviour
     public SeaSerpentBossMotor Motor => motor;
     public SeaSerpentBossAttackController Attacks => attacks;
     public SeaSerpentBossHealth Health => health;
+    public SeaSerpentBossAnimatorBridge AnimatorBridge => animatorBridge;
 
     public Transform LeftAnchor => leftAnchor;
     public Transform RightAnchor => rightAnchor;
@@ -33,6 +35,7 @@ public class SeaSerpentBossController : MonoBehaviour
         if (motor == null) motor = GetComponent<SeaSerpentBossMotor>();
         if (attacks == null) attacks = GetComponent<SeaSerpentBossAttackController>();
         if (health == null) health = GetComponent<SeaSerpentBossHealth>();
+        if (animatorBridge == null) animatorBridge = GetComponent<SeaSerpentBossAnimatorBridge>();
     }
 
     private void OnEnable()
@@ -56,7 +59,6 @@ public class SeaSerpentBossController : MonoBehaviour
         if (!isRunning) return;
 
         motor.Tick();
-        attacks.Tick();
         currentState?.Tick();
     }
 
@@ -160,6 +162,7 @@ public class SeaSerpentBossMoveState : ISeaSerpentBossState
 public class SeaSerpentBossAttackState : ISeaSerpentBossState
 {
     private readonly SeaSerpentBossController boss;
+    private bool finished;
 
     public SeaSerpentBossAttackState(SeaSerpentBossController boss)
     {
@@ -168,15 +171,14 @@ public class SeaSerpentBossAttackState : ISeaSerpentBossState
 
     public void Enter()
     {
-        string attackName = Random.value < 0.5f ? "AttackA" : "AttackB";
-        boss.Attacks.StartAttack(attackName);
-
-        Debug.Log("Boss: Attack");
+        finished = false;
+        boss.Attacks.StartBiteAttack(OnAttackComplete);
+        Debug.Log("Boss: Bite Attack");
     }
 
     public void Tick()
     {
-        if (boss.Attacks.IsAttackFinished())
+        if (finished)
         {
             boss.ChangeState(new SeaSerpentBossIdleState(boss));
         }
@@ -184,6 +186,12 @@ public class SeaSerpentBossAttackState : ISeaSerpentBossState
 
     public void Exit()
     {
+        boss.Attacks.CancelAttack();
+    }
+
+    private void OnAttackComplete()
+    {
+        finished = true;
     }
 }
 
