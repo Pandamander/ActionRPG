@@ -228,7 +228,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 2
-    functionName: OnBiteAnimationFinished
+    functionName: OnBiteEnd
     data: 
     objectReferenceParameter: {fileID: 11500000, guid: 2c18937be30b6904fa075f528483c6af, type: 3}
     floatParameter: 0
