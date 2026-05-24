@@ -13,19 +13,19 @@ public class SecondaryWeaponController : MonoBehaviour
             return currentWeapon != null;
         }
     }
-    public bool CanAttack => _cooldownTimer <= 0f;
+    public bool CanAttack => _cooldownTimer <= 0f && HasAmmo;
+    public bool HasAmmo => HasWeapon && PlayerStats.GetSecondaryWeaponAmmo(currentWeapon.name) > 0;
+    public int CurrentAmmo => HasWeapon ? PlayerStats.GetSecondaryWeaponAmmo(currentWeapon.name) : 0;
 
     private Dictionary<string, SecondaryWeapon> _weaponMap;
     private float _cooldownTimer;
-    private int _currentWeaponIndex;
+    private int _currentWeaponIndex = -1;
 
     private void Awake()
     {
+        PlayerStats.Initialize();
         InitializeWeaponMap();
-        LoadLastObtainedWeapon();
-
-        _currentWeaponIndex = 0;
-        SetWeapon(weapons[_currentWeaponIndex]);
+        LoadLastEquippedSecondaryWeapon();
     }
 
     private void Update()
@@ -35,27 +35,30 @@ public class SecondaryWeaponController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.T) && weapons.Count > 0)
         {
-            _currentWeaponIndex = (_currentWeaponIndex + 1) % weapons.Count;
-            SetWeapon(weapons[_currentWeaponIndex]);
+            EquipNextAvailableWeapon();
         }
     }
 
     public void Attack(Vector2 direction, bool isCrouching)
     {
-        if (!HasWeapon || _cooldownTimer > 0f) return;
+        if (!HasWeapon || _cooldownTimer > 0f || !HasAmmo) return;
         currentWeapon.Execute(transform, direction, isCrouching);
+        PlayerStats.ConsumeSecondaryWeaponAmmo(currentWeapon.name);
         _cooldownTimer = currentWeapon.cooldown;
     }
 
-    public void PickUpWeapon(SecondaryWeapon weapon)
+    public void AcquireSecondaryWeapon(SecondaryWeapon weapon)
     {
-        PlayerStats.PickUpSecondaryWeapon(weapon.name);
-        SetWeapon(weapon);
+        PlayerStats.AcquireSecondaryWeapon(weapon.name);
+        PlayerStats.InitializeSecondaryWeaponAmmo(weapon.name, weapon.maxAmmo);
+        EquipWeapon(weapon);
     }
 
-    private void SetWeapon(SecondaryWeapon weapon)
+    private void EquipWeapon(SecondaryWeapon weapon)
     {
         currentWeapon = weapon;
+        PlayerStats.EquipSecondaryWeapon(weapon.name);
+        _currentWeaponIndex = PlayerStats.SecondaryWeapons.IndexOf(weapon.name);
         FindObjectOfType<SubzoneHUD>().SetSecondaryItemFrameImage(weapon.itemFrameImage);
     }
 
@@ -65,15 +68,27 @@ public class SecondaryWeaponController : MonoBehaviour
         foreach (SecondaryWeapon weapon in weapons)
         {
             _weaponMap[weapon.name] = weapon;
+            PlayerStats.InitializeSecondaryWeaponAmmo(weapon.name, weapon.maxAmmo);
         }
-
     }
 
-    private void LoadLastObtainedWeapon()
+    private void LoadLastEquippedSecondaryWeapon()
     {
         if (PlayerStats.SecondaryWeapon != null && _weaponMap.ContainsKey(PlayerStats.SecondaryWeapon))
         {
-            SetWeapon(_weaponMap[PlayerStats.SecondaryWeapon]);
+            EquipWeapon(_weaponMap[PlayerStats.SecondaryWeapon]);
+        }
+    }
+
+    private void EquipNextAvailableWeapon()
+    {
+        if (PlayerStats.SecondaryWeapons.Count <= 0) return;
+
+        _currentWeaponIndex = (_currentWeaponIndex + 1) % PlayerStats.SecondaryWeapons.Count;
+        string weaponName = PlayerStats.SecondaryWeapons[_currentWeaponIndex];
+        if (_weaponMap.ContainsKey(weaponName))
+        {
+            EquipWeapon(_weaponMap[weaponName]);
         }
     }
 }

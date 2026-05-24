@@ -245,7 +245,7 @@ public class Attack : MonoBehaviour, IDamageable
         SecondaryWeaponPickup secondaryPickup = collision.gameObject.GetComponentInChildren<SecondaryWeaponPickup>();
         if (secondaryPickup != null)
         {
-            secondaryWeaponController.PickUpWeapon(secondaryPickup.weapon);
+            secondaryWeaponController.AcquireSecondaryWeapon(secondaryPickup.weapon);
             GameObject.Destroy(collision.gameObject);
         }
     }

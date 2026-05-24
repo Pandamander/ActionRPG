@@ -10,17 +10,23 @@ public class SubzoneHUD : MonoBehaviour
     [SerializeField] private HUDHealthMeter bossHealthMeter;
     [SerializeField] private TMP_Text attackValueText;
     [SerializeField] private TMP_Text defenseValueText;
+    [SerializeField] private TMP_Text ammoValueText;
     [SerializeField] private Image itemFrame;
     [SerializeField] private Image secondaryItemFrame;
 
+    private SecondaryWeaponController _secondaryWeaponController;
+
     private void Start()
     {
+        _secondaryWeaponController = FindObjectOfType<SecondaryWeaponController>();
         UpdateStatTexts();
 
         attackValueText.ForceMeshUpdate();
         defenseValueText.ForceMeshUpdate();
+        ammoValueText.ForceMeshUpdate();
         LayoutRebuilder.ForceRebuildLayoutImmediate(attackValueText.transform.parent as RectTransform);
         LayoutRebuilder.ForceRebuildLayoutImmediate(defenseValueText.transform.parent as RectTransform);
+        LayoutRebuilder.ForceRebuildLayoutImmediate(ammoValueText.transform.parent as RectTransform);
     }
 
     private void Update()
@@ -32,6 +38,17 @@ public class SubzoneHUD : MonoBehaviour
     {
         attackValueText.text = PlayerStats.Attack.ToString();
         defenseValueText.text = PlayerStats.Defense.ToString();
+        ammoValueText.text = GetSecondaryWeaponAmmoText();
+    }
+
+    private string GetSecondaryWeaponAmmoText()
+    {
+        if (_secondaryWeaponController == null || !_secondaryWeaponController.HasWeapon)
+        {
+            return "-";
+        }
+
+        return _secondaryWeaponController.CurrentAmmo.ToString();
     }
     public void FillBossHealthMeter()
     {
