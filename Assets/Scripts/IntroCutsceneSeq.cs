@@ -9,7 +9,7 @@ public class IntroCutsceneSeq : MonoBehaviour
     public ParticleSystem mastBreakParticles;
     public ParticleSystem shipParticles;
     public IntroShipMovement shipMovement;
-    public Animator seaSerpentAnimator;
+    public SeaSerpentBossFightDirector bossDirector;
 
     private bool hasSerpentAppeared = false;
 
@@ -25,9 +25,9 @@ public class IntroCutsceneSeq : MonoBehaviour
         if(shipMovement.speed == 0)
         {
             if (!hasSerpentAppeared) {
-                camShake.ShakeCamera(3.0f, 2f);
                 hasSerpentAppeared = true;
-                seaSerpentAnimator.Play("seaserpent_appearance");
+                camShake.ShakeCamera(3.0f, 2f);
+                bossDirector.StartFight();
             }
         }
     }
