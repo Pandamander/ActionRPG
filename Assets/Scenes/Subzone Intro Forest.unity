@@ -10685,6 +10685,10 @@ PrefabInstance:
       propertyPath: audioManager
       value: 
       objectReference: {fileID: 1089494029}
+    - target: {fileID: 3772674003615199812, guid: 6f0df7119221642f79cab591ff6f76db, type: 3}
+      propertyPath: patrolFlipTime
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6894392897223805041, guid: 6f0df7119221642f79cab591ff6f76db, type: 3}
       propertyPath: m_Name
       value: Beetle (1)
@@ -40772,6 +40776,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3772674003615199812, guid: 6f0df7119221642f79cab591ff6f76db, type: 3}
+      propertyPath: moveSpeed
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 3772674003615199812, guid: 6f0df7119221642f79cab591ff6f76db, type: 3}
       propertyPath: cameraShake
       value: 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SubzoneSnake : SubzoneEnemy
+public class SubzoneBeetle : SubzoneEnemy
 {
     public float patrolFlipTime;
     // Update is called once per frame

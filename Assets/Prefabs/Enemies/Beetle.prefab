@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6894392897223805051}
   - component: {fileID: 4321509041557302624}
   - component: {fileID: 3772674003615199812}
+  - component: {fileID: 909260888257512828}
   m_Layer: 9
   m_Name: Beetle
   m_TagString: SubzoneEnemy
@@ -57,7 +58,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: f36777f262d529447a22a5411d6953ba, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -182,12 +183,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 6894392897223805041}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caf282a9d09d48e47b00db83032e1ce3, type: 3}
+  m_Script: {fileID: 11500000, guid: 1723dd70474734e84889c6e30b0c764a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 35
+  moveSpeed: 30
   attackDamage: 1
-  health: 1
+  health: 2
   audioManager: {fileID: 0}
   cameraShake: {fileID: 0}
   patrolFlipTime: 3
+--- !u!114 &909260888257512828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6894392897223805041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea593064310720a4295250cf023ccc89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _flashColor: {r: 0.69803923, g: 0, b: 0, a: 0}
+  _flashTime: 0.1
+  _flashAlpha: 1
+  _flashCount: 1

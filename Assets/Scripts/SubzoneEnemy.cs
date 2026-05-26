@@ -6,6 +6,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(DamageFlash))]
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(CapsuleCollider2D))]
 public class SubzoneEnemy : MonoBehaviour, IDamageable
@@ -17,6 +18,7 @@ public class SubzoneEnemy : MonoBehaviour, IDamageable
     protected float patrolTime;
     protected Rigidbody2D rigidBody;
     protected SpriteRenderer spriteRenderer;
+    protected DamageFlash damageFlash;
     protected Animator _animator;
     protected bool _isDying = false;
     [SerializeField] protected CameraShake cameraShake;
@@ -25,6 +27,7 @@ public class SubzoneEnemy : MonoBehaviour, IDamageable
     {
         rigidBody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        damageFlash = GetComponent<DamageFlash>();
         _animator = GetComponent<Animator>();
     }
 
@@ -49,13 +52,6 @@ public class SubzoneEnemy : MonoBehaviour, IDamageable
                 player.Damage(attackDamage, Utilities.DamageDirection(gameObject, collision.gameObject));
             }
         }
-    }
-
-    private IEnumerator TakeDamage()
-    {
-        spriteRenderer.color = Color.red;
-        yield return new WaitForSeconds(0.1f);
-        spriteRenderer.color = Color.white;
     }
 
     // IDamageable
@@ -83,7 +79,8 @@ public class SubzoneEnemy : MonoBehaviour, IDamageable
             }
             return;
         }
-        StartCoroutine(TakeDamage());
+
+        damageFlash.Flash();
     }
 
     public void EnemyDeathAnimationComplete()
