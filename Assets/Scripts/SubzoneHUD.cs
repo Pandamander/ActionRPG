@@ -13,6 +13,8 @@ public class SubzoneHUD : MonoBehaviour
     [SerializeField] private TMP_Text ammoValueText;
     [SerializeField] private Image itemFrame;
     [SerializeField] private Image secondaryItemFrame;
+    [SerializeField] private Color ammoNormalColor = Color.white;
+    [SerializeField] private Color ammoEmptyColor = new Color(0.5f, 0.5f, 0.5f, 1f);
 
     private SecondaryWeaponController _secondaryWeaponController;
 
@@ -38,17 +40,24 @@ public class SubzoneHUD : MonoBehaviour
     {
         attackValueText.text = PlayerStats.Attack.ToString();
         defenseValueText.text = PlayerStats.Defense.ToString();
-        ammoValueText.text = GetSecondaryWeaponAmmoText();
+
+        string ammoText = GetSecondaryWeaponAmmoText();
+        ammoValueText.text = ammoText;
+
+        bool isEmpty = _secondaryWeaponController == null
+            || !_secondaryWeaponController.HasWeapon
+            || _secondaryWeaponController.CurrentAmmo <= 0;
+        ammoValueText.color = isEmpty ? ammoEmptyColor : ammoNormalColor;
     }
 
     private string GetSecondaryWeaponAmmoText()
     {
         if (_secondaryWeaponController == null || !_secondaryWeaponController.HasWeapon)
         {
-            return "-";
+            return "00";
         }
 
-        return _secondaryWeaponController.CurrentAmmo.ToString();
+        return _secondaryWeaponController.CurrentAmmo.ToString("D2");
     }
     public void FillBossHealthMeter()
     {
