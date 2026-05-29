@@ -32,10 +32,10 @@ public class TopDownMovement : MonoBehaviour
                 animator.SetFloat("vertical", -1);
                 break;
             case OverworldSubzoneContainer.PlayerDirection.Left:
-                animator.SetFloat("horizontal", 1);
+                animator.SetFloat("horizontal", -1);
                 break;
             case OverworldSubzoneContainer.PlayerDirection.Right:
-                animator.SetFloat("horizontal", -1);
+                animator.SetFloat("horizontal", 1);
                 break;
         }
     }
