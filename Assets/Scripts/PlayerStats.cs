@@ -33,9 +33,10 @@ public static class PlayerStats
             OverworldDestroyList = new List<string>();
             MeleeWeapon = "GladiusSword";
             SecondaryWeapons = new List<string>();
-            SecondaryWeapons.Add("ThrowingAxe");
-            SecondaryWeapons.Add("Plumbata");
-            SecondaryWeapon = "ThrowingAxe";
+            //SecondaryWeapons.Add("ThrowingAxe");
+            //SecondaryWeapons.Add("Plumbata");
+            //SecondaryWeapon = "ThrowingAxe";
+            SecondaryWeapon = null;
             SecondaryWeaponAmmo = new Dictionary<string, int>();
         }
     }

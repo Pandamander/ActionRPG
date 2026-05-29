@@ -227,26 +227,41 @@ public class Attack : MonoBehaviour, IDamageable
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name == "GladiusItem")
-        {
-            MeleeWeaponPickup weaponPickup = collision.gameObject.GetComponentInChildren<MeleeWeaponPickup>();
-            if (weaponPickup != null)
-            {
-                meleeWeaponController.PickUpMeleeWeapon(weaponPickup.weapon);
-                GameObject.Destroy(collision.gameObject);
+        TryPickupMeleeWeapon(collision);
+        TryPickupSecondaryWeapon(collision);
+    }
 
-                // Show Gladius pickup dialogue
-                if (TryGetComponent(out DialogueSystemTrigger dialogueTrigger)) {
-                    dialogueTrigger.OnUse(transform);
-                }
-            }
+    private void TryPickupMeleeWeapon(Collider2D collision)
+    {
+        MeleeWeaponPickup weaponPickup = collision.GetComponentInChildren<MeleeWeaponPickup>();
+        if (weaponPickup == null) return;
+
+        meleeWeaponController.PickUpMeleeWeapon(weaponPickup.weapon);
+        RunPickupDialogueIfPresent(collision);
+        Destroy(collision.gameObject);
+    }
+
+    private void TryPickupSecondaryWeapon(Collider2D collision)
+    {
+        SecondaryWeaponPickup secondaryPickup = collision.GetComponentInChildren<SecondaryWeaponPickup>();
+        if (secondaryPickup == null) return;
+
+        secondaryWeaponController.AcquireSecondaryWeapon(secondaryPickup.weapon);
+        RunPickupDialogueIfPresent(collision);
+        Destroy(collision.gameObject);
+    }
+
+    private void RunPickupDialogueIfPresent(Collider2D collision)
+    {
+        DialogueSystemTrigger dialogueTrigger = collision.GetComponent<DialogueSystemTrigger>();
+        if (dialogueTrigger == null)
+        {
+            dialogueTrigger = collision.GetComponentInParent<DialogueSystemTrigger>();
         }
 
-        SecondaryWeaponPickup secondaryPickup = collision.gameObject.GetComponentInChildren<SecondaryWeaponPickup>();
-        if (secondaryPickup != null)
-        {
-            secondaryWeaponController.AcquireSecondaryWeapon(secondaryPickup.weapon);
-            GameObject.Destroy(collision.gameObject);
-        }
+        if (dialogueTrigger == null) return;
+
+        dialogueTrigger.conversationConversant = transform;
+        dialogueTrigger.OnUse(transform);
     }
 }

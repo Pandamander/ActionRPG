@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 503038301293175121}
   - component: {fileID: 503038301293175120}
   - component: {fileID: 3891532161996908468}
-  - component: {fileID: 6695091289641371238}
+  - component: {fileID: 9170683880494933385}
   m_Layer: 0
-  m_Name: GladiusItem
+  m_Name: PlumbataItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 20
-  m_Sprite: {fileID: 21300000, guid: 7293eaf239e5c40659d1deac66a89093, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 47214d9b982ae4020abd852f56d4c5a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4894,7 +4894,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 1}
   m_EdgeRadius: 0
---- !u!114 &6695091289641371238
+--- !u!114 &9170683880494933385
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4942,7 +4942,7 @@ MonoBehaviour:
   allowBarksDuringConversations: 0
   skipBarkIfNoValidEntries: 0
   cacheBarkLines: 0
-  conversation: Primary Weapon Pickup - Gladius
+  conversation: Secondary Weapon Pickup - Plumbata
   conversationConversant: {fileID: 0}
   conversationActor: {fileID: 0}
   startConversationEntryID: -1
@@ -4976,9 +4976,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4663082124938017315}
-  - component: {fileID: 7671777323883010245}
+  - component: {fileID: 3231201779496608028}
   m_Layer: 0
-  m_Name: MeleeWeaponPickup
+  m_Name: SecondaryWeaponPickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4999,7 +4999,7 @@ Transform:
   m_Father: {fileID: 503038301293175127}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7671777323883010245
+--- !u!114 &3231201779496608028
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5008,7 +5008,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3236574096989047460}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ef93ab9309ec14419a09b63934095af, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a636eb1b22e145bb8ce5ed1e659b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 11400000, guid: 736183553da42ce4c912eef09fefb92f, type: 2}
+  weapon: {fileID: 11400000, guid: 27cde59cb3f0b4102b8c7d115d345b8b, type: 2}
