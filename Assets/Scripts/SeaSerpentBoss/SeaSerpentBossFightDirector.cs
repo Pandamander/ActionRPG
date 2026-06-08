@@ -15,7 +15,7 @@ public class SeaSerpentBossFightDirector : MonoBehaviour
 
     [Header("Optional Timing")]
     [SerializeField] private float delayBeforeStart = 0.5f;
-    [SerializeField] private float delayAfterLanding = 1.5f;
+    [SerializeField] private float delayAfterLanding = 2.5f;
 
     private bool hasStarted;
 
