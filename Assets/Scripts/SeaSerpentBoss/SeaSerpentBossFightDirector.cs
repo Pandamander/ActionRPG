@@ -6,6 +6,7 @@ public class SeaSerpentBossFightDirector : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private SeaSerpentBossController boss;
+    [SerializeField] private HUDHealthMeter bossHealthBarUI;
 
     [Header("Intro Movement")]
     [SerializeField] private Transform bossStartPosition;
@@ -14,7 +15,7 @@ public class SeaSerpentBossFightDirector : MonoBehaviour
 
     [Header("Optional Timing")]
     [SerializeField] private float delayBeforeStart = 0.5f;
-    [SerializeField] private float delayAfterLanding = 0.5f;
+    [SerializeField] private float delayAfterLanding = 1.5f;
 
     private bool hasStarted;
 
@@ -34,6 +35,8 @@ public class SeaSerpentBossFightDirector : MonoBehaviour
         yield return MoveBossToStart();
 
         boss.Motor.SetBasePosition(boss.transform.position);
+
+        bossHealthBarUI.FillMeter();
 
         if (delayAfterLanding > 0f)
             yield return new WaitForSeconds(delayAfterLanding);
