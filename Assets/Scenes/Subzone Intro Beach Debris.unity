@@ -1642,6 +1642,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlumbataItem
       objectReference: {fileID: 0}
+    - target: {fileID: 503038301293175123, guid: 95ef8cd38d655466f891d878582dc6b7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 503038301293175127, guid: 95ef8cd38d655466f891d878582dc6b7, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -1802,8 +1806,8 @@ Tilemap:
   - first: {x: -6, y: -4, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 112
-      m_TileSpriteIndex: 112
+      m_TileIndex: 113
+      m_TileSpriteIndex: 113
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1843,7 +1847,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 110
-      m_TileSpriteIndex: 110
+      m_TileSpriteIndex: 112
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -4875,10 +4879,10 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: ab60d9e5a137d9e4d9df5070a127f264, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 9876edc996d481241b5bfe4404d968a7, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 0acd5c41c82ebdb4d8dbdb5ceb11f506, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 7e43742cd068fec4585e705e3f3bd537, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 2
+    m_Data: {fileID: 11400000, guid: 6d9db983ae899ec4e98325aaac3ed496, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 633339b13ffc90e49b661785ed841742, type: 2}
   - m_RefCount: 1
@@ -5168,14 +5172,14 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 2
     m_Data: {fileID: 1911122409, guid: b35ff61fd56bde747a82b55d8778b2c7, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 1296728146, guid: b35ff61fd56bde747a82b55d8778b2c7, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: -1536645325, guid: b35ff61fd56bde747a82b55d8778b2c7, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 1339251388, guid: b35ff61fd56bde747a82b55d8778b2c7, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -91414213, guid: b35ff61fd56bde747a82b55d8778b2c7, type: 3}
+    m_Data: {fileID: 1296728146, guid: b35ff61fd56bde747a82b55d8778b2c7, type: 3}
+  - m_RefCount: 2
+    m_Data: {fileID: 2136199996, guid: b35ff61fd56bde747a82b55d8778b2c7, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 618932774, guid: b35ff61fd56bde747a82b55d8778b2c7, type: 3}
   - m_RefCount: 1
@@ -10451,6 +10455,79 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28c6a7d1be5b94a08b734368fec3cd9d, type: 3}
+--- !u!1001 &550928280
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 100001, guid: 9f2e8d4c7b1a4e3f8c6d5a4b3c2d1e0f, type: 3}
+      propertyPath: m_Name
+      value: TreasureChest
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9f2e8d4c7b1a4e3f8c6d5a4b3c2d1e0f, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9f2e8d4c7b1a4e3f8c6d5a4b3c2d1e0f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9f2e8d4c7b1a4e3f8c6d5a4b3c2d1e0f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.508
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9f2e8d4c7b1a4e3f8c6d5a4b3c2d1e0f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9f2e8d4c7b1a4e3f8c6d5a4b3c2d1e0f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9f2e8d4c7b1a4e3f8c6d5a4b3c2d1e0f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9f2e8d4c7b1a4e3f8c6d5a4b3c2d1e0f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9f2e8d4c7b1a4e3f8c6d5a4b3c2d1e0f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9f2e8d4c7b1a4e3f8c6d5a4b3c2d1e0f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9f2e8d4c7b1a4e3f8c6d5a4b3c2d1e0f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9f2e8d4c7b1a4e3f8c6d5a4b3c2d1e0f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100005, guid: 9f2e8d4c7b1a4e3f8c6d5a4b3c2d1e0f, type: 3}
+      propertyPath: conversation
+      value: Secondary Weapon Pickup - Plumbata
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 9f2e8d4c7b1a4e3f8c6d5a4b3c2d1e0f, type: 3}
+      propertyPath: itemType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 9f2e8d4c7b1a4e3f8c6d5a4b3c2d1e0f, type: 3}
+      propertyPath: uniqueId
+      value: chest_plumbata
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 9f2e8d4c7b1a4e3f8c6d5a4b3c2d1e0f, type: 3}
+      propertyPath: secondaryWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 27cde59cb3f0b4102b8c7d115d345b8b, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9f2e8d4c7b1a4e3f8c6d5a4b3c2d1e0f, type: 3}
 --- !u!1 &850942749
 GameObject:
   m_ObjectHideFlags: 0
@@ -34914,7 +34991,7 @@ Tilemap:
       - {fileID: 21300000, guid: eb6816fa4e4b62b4391dc4be5aea9390, type: 3}
       - {fileID: 21300000, guid: eb6816fa4e4b62b4391dc4be5aea9390, type: 3}
       - {fileID: 21300000, guid: eb6816fa4e4b62b4391dc4be5aea9390, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -43, y: -3, z: 0}
@@ -35028,7 +35105,7 @@ Tilemap:
       - {fileID: 21300000, guid: eb6816fa4e4b62b4391dc4be5aea9390, type: 3}
       - {fileID: 21300000, guid: eb6816fa4e4b62b4391dc4be5aea9390, type: 3}
       - {fileID: 21300000, guid: eb6816fa4e4b62b4391dc4be5aea9390, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 6, y: -3, z: 0}
@@ -35047,7 +35124,7 @@ Tilemap:
       - {fileID: 21300000, guid: eb6816fa4e4b62b4391dc4be5aea9390, type: 3}
       - {fileID: 21300000, guid: eb6816fa4e4b62b4391dc4be5aea9390, type: 3}
       - {fileID: 21300000, guid: eb6816fa4e4b62b4391dc4be5aea9390, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 16, y: -3, z: 0}

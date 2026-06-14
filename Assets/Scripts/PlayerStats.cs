@@ -15,6 +15,8 @@ public static class PlayerStats
 
     public static List<string> PowerupDestroy { get; private set; }
 
+    public static List<string> OpenedTreasureChests { get; private set; }
+
     public static List<string> OverworldDestroyList { get; private set; }
 
     private static bool Initialized;
@@ -30,6 +32,7 @@ public static class PlayerStats
             Health = HealthCapacity;
             Initialized = true;
             PowerupDestroy = new List<string>();
+            OpenedTreasureChests = new List<string>();
             OverworldDestroyList = new List<string>();
             MeleeWeapon = "GladiusSword";
             SecondaryWeapons = new List<string>();
@@ -70,6 +73,23 @@ public static class PlayerStats
         PowerupDestroy.Add(tag);
         Debug.Log("ADDED TAG: " + tag);
         Debug.Log("PowerupDestroy: " + PowerupDestroy.Count);
+    }
+
+    public static bool IsTreasureChestOpened(string uniqueId)
+    {
+        Initialize();
+        return !string.IsNullOrEmpty(uniqueId) && OpenedTreasureChests.Contains(uniqueId);
+    }
+
+    public static void OpenTreasureChest(string uniqueId)
+    {
+        Initialize();
+        if (string.IsNullOrEmpty(uniqueId) || OpenedTreasureChests.Contains(uniqueId))
+        {
+            return;
+        }
+
+        OpenedTreasureChests.Add(uniqueId);
     }
 
     public static void PickUpWeapon(string weaponSOPath, int attack)
