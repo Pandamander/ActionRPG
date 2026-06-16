@@ -10510,6 +10510,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 100003, guid: 9f2e8d4c7b1a4e3f8c6d5a4b3c2d1e0f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f2e0f6d982dc44fec84358776fee5810, type: 3}
     - target: {fileID: 100005, guid: 9f2e8d4c7b1a4e3f8c6d5a4b3c2d1e0f, type: 3}
       propertyPath: conversation
       value: Secondary Weapon Pickup - Plumbata
@@ -10522,6 +10526,14 @@ PrefabInstance:
       propertyPath: uniqueId
       value: chest_plumbata
       objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 9f2e8d4c7b1a4e3f8c6d5a4b3c2d1e0f, type: 3}
+      propertyPath: openSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b47cab00de05c4e07a327fbdfd31b853, type: 3}
+    - target: {fileID: 100006, guid: 9f2e8d4c7b1a4e3f8c6d5a4b3c2d1e0f, type: 3}
+      propertyPath: closedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f2e0f6d982dc44fec84358776fee5810, type: 3}
     - target: {fileID: 100006, guid: 9f2e8d4c7b1a4e3f8c6d5a4b3c2d1e0f, type: 3}
       propertyPath: secondaryWeapon
       value: 
@@ -34991,7 +35003,7 @@ Tilemap:
       - {fileID: 21300000, guid: eb6816fa4e4b62b4391dc4be5aea9390, type: 3}
       - {fileID: 21300000, guid: eb6816fa4e4b62b4391dc4be5aea9390, type: 3}
       - {fileID: 21300000, guid: eb6816fa4e4b62b4391dc4be5aea9390, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -43, y: -3, z: 0}
@@ -35105,7 +35117,7 @@ Tilemap:
       - {fileID: 21300000, guid: eb6816fa4e4b62b4391dc4be5aea9390, type: 3}
       - {fileID: 21300000, guid: eb6816fa4e4b62b4391dc4be5aea9390, type: 3}
       - {fileID: 21300000, guid: eb6816fa4e4b62b4391dc4be5aea9390, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 6, y: -3, z: 0}
@@ -35124,7 +35136,7 @@ Tilemap:
       - {fileID: 21300000, guid: eb6816fa4e4b62b4391dc4be5aea9390, type: 3}
       - {fileID: 21300000, guid: eb6816fa4e4b62b4391dc4be5aea9390, type: 3}
       - {fileID: 21300000, guid: eb6816fa4e4b62b4391dc4be5aea9390, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 16, y: -3, z: 0}
