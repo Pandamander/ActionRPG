@@ -61,7 +61,8 @@ public class SubzoneEnemy : MonoBehaviour, IDamageable
 
         health -= damage;
 
-        audioManager.PlayAttackHit();
+        if (audioManager != null)
+            audioManager.PlayAttackHit();
 
         if (health <= 0)
         {
