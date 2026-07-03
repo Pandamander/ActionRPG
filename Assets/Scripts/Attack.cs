@@ -261,7 +261,7 @@ public class Attack : MonoBehaviour, IDamageable
 
         if (dialogueTrigger == null) return;
 
-        dialogueTrigger.conversationConversant = transform;
+        dialogueTrigger.conversationConversant = dialogueTrigger.transform;
         dialogueTrigger.OnUse(transform);
     }
 }

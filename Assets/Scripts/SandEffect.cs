@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CrabSandEffect : MonoBehaviour
+public class SandEffect : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
     [SerializeField] private string _clipName = "sand_burst";

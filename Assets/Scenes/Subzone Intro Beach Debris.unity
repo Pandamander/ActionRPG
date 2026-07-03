@@ -10377,6 +10377,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3150186619803494571, guid: 28c6a7d1be5b94a08b734368fec3cd9d, type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3250947733976302415, guid: 28c6a7d1be5b94a08b734368fec3cd9d, type: 3}
       propertyPath: displaySettings.dialogueUI
       value: 
@@ -34379,6 +34383,10 @@ PrefabInstance:
     - target: {fileID: 8200000000000000021, guid: aab873747f8f41e8ac6b125921db21a9, type: 3}
       propertyPath: m_Size.x
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200000000000000031, guid: aab873747f8f41e8ac6b125921db21a9, type: 3}
+      propertyPath: initialSpawnDelay
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8200000000000000311, guid: aab873747f8f41e8ac6b125921db21a9, type: 3}
       propertyPath: m_LocalScale.x

@@ -143,7 +143,7 @@ public class TreasureChest : MonoBehaviour
     {
         if (dialogueTrigger == null) return;
 
-        dialogueTrigger.conversationConversant = player;
+        dialogueTrigger.conversationConversant = dialogueTrigger.transform;
         dialogueTrigger.OnUse(player);
     }
 

@@ -84,7 +84,8 @@ MonoBehaviour:
   groundMaskHeight: 10
   groundMaskHorizontalPadding: 1
   maxActiveCrabs: 2
-  spawnInterval: 3
+  initialSpawnDelay: 3
+  respawnDelay: 3
   spawnStagger: 1.5
   loopSpawns: 1
 --- !u!1 &8200000000000000101

@@ -5,14 +5,15 @@ using UnityEngine;
 public class CrabSpawnZone : MonoBehaviour
 {
     [SerializeField] private SubzoneCrab crabPrefab;
-    [SerializeField] private CrabSandEffect sandEffectPrefab;
+    [SerializeField] private SandEffect sandEffectPrefab;
     [SerializeField] private float sandEffectYOffset = 0.5f;
     [SerializeField] private BoxCollider2D boundsCollider;
     [SerializeField] private Transform surfacePoint;
     [SerializeField] private Transform undergroundPoint;
     [SerializeField] private SpriteMask groundMask;
     [SerializeField] private int maxActiveCrabs = 2;
-    [SerializeField] private float spawnInterval = 3f;
+    [SerializeField] private float initialSpawnDelay = 3f;
+    [SerializeField] private float respawnDelay = 3f;
     [SerializeField] private float spawnStagger = 1.5f;
     [SerializeField] private bool loopSpawns = true;
     [SerializeField] private SubzoneAudioManager audioManager;
@@ -49,7 +50,7 @@ public class CrabSpawnZone : MonoBehaviour
 
     private void Start()
     {
-        RequestSpawns(maxActiveCrabs);
+        ScheduleSpawns(maxActiveCrabs, initialSpawnDelay);
     }
 
     private void Update()
@@ -122,15 +123,15 @@ public class CrabSpawnZone : MonoBehaviour
             return;
 
         if (loopSpawns)
-            RequestSpawns(1);
+            ScheduleSpawns(1, respawnDelay);
     }
 
-    private void RequestSpawns(int count)
+    private void ScheduleSpawns(int count, float baseDelay)
     {
         for (int i = 0; i < count; i++)
         {
             int queueIndex = _spawnTimes.Count;
-            _spawnTimes.Enqueue(Time.time + spawnInterval + queueIndex * spawnStagger);
+            _spawnTimes.Enqueue(Time.time + baseDelay + queueIndex * spawnStagger);
         }
     }
 
