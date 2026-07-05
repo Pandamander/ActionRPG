@@ -34388,6 +34388,14 @@ PrefabInstance:
       propertyPath: initialSpawnDelay
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8200000000000000031, guid: aab873747f8f41e8ac6b125921db21a9, type: 3}
+      propertyPath: sandEffectYOffset
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200000000000000111, guid: aab873747f8f41e8ac6b125921db21a9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.65
+      objectReference: {fileID: 0}
     - target: {fileID: 8200000000000000311, guid: aab873747f8f41e8ac6b125921db21a9, type: 3}
       propertyPath: m_LocalScale.x
       value: 14
