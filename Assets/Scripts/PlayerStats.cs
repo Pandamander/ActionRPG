@@ -10,6 +10,9 @@ public static class PlayerStats
     public static string MeleeWeapon { get; private set; }
     public static string SecondaryWeapon { get; private set; }
     public static List<string> SecondaryWeapons { get; private set; }
+    public static int Ore { get; private set; }
+    public static bool HasCraftingHammer { get; private set; }
+    public static int CraftingHammerLevel { get; private set; }
 
     private static Dictionary<string, int> SecondaryWeaponAmmo;
 
@@ -41,7 +44,40 @@ public static class PlayerStats
             //SecondaryWeapon = "ThrowingAxe";
             SecondaryWeapon = null;
             SecondaryWeaponAmmo = new Dictionary<string, int>();
+            Ore = 99;
+            HasCraftingHammer = false;
+            CraftingHammerLevel = 1;
         }
+    }
+
+    public static void AcquireCraftingHammer()
+    {
+        Initialize();
+        HasCraftingHammer = true;
+        Debug.Log("AcquireCraftingHammer");
+    }
+
+    public static bool SpendOre(int amount)
+    {
+        Initialize();
+        if (amount <= 0 || Ore < amount)
+        {
+            return false;
+        }
+
+        Ore -= amount;
+        return true;
+    }
+
+    public static void AddOre(int amount)
+    {
+        Initialize();
+        if (amount <= 0)
+        {
+            return;
+        }
+
+        Ore += amount;
     }
 
     public static void BossDefeated(string tag)
@@ -142,6 +178,22 @@ public static class PlayerStats
         }
 
         SecondaryWeaponAmmo[weaponName] = Mathf.Max(0, SecondaryWeaponAmmo[weaponName] - 1);
+    }
+
+    public static void AddSecondaryWeaponAmmo(string weaponName, int amount, int maxAmmo)
+    {
+        Initialize();
+        if (SecondaryWeaponAmmo == null)
+        {
+            SecondaryWeaponAmmo = new Dictionary<string, int>();
+        }
+
+        if (!SecondaryWeaponAmmo.ContainsKey(weaponName))
+        {
+            SecondaryWeaponAmmo[weaponName] = 0;
+        }
+
+        SecondaryWeaponAmmo[weaponName] = Mathf.Min(maxAmmo, SecondaryWeaponAmmo[weaponName] + amount);
     }
 
     public static void ApplyDamage(int amount)

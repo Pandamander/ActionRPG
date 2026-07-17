@@ -11,6 +11,7 @@ public class SubzoneHUD : MonoBehaviour
     [SerializeField] private TMP_Text attackValueText;
     [SerializeField] private TMP_Text defenseValueText;
     [SerializeField] private TMP_Text ammoValueText;
+    [SerializeField] private TMP_Text oreValueText;
     [SerializeField] private Image itemFrame;
     [SerializeField] private Image secondaryItemFrame;
     [SerializeField] private Color ammoNormalColor = Color.white;
@@ -26,9 +27,17 @@ public class SubzoneHUD : MonoBehaviour
         attackValueText.ForceMeshUpdate();
         defenseValueText.ForceMeshUpdate();
         ammoValueText.ForceMeshUpdate();
+        if (oreValueText != null)
+        {
+            oreValueText.ForceMeshUpdate();
+        }
         LayoutRebuilder.ForceRebuildLayoutImmediate(attackValueText.transform.parent as RectTransform);
         LayoutRebuilder.ForceRebuildLayoutImmediate(defenseValueText.transform.parent as RectTransform);
         LayoutRebuilder.ForceRebuildLayoutImmediate(ammoValueText.transform.parent as RectTransform);
+        if (oreValueText != null)
+        {
+            LayoutRebuilder.ForceRebuildLayoutImmediate(oreValueText.transform.parent as RectTransform);
+        }
     }
 
     private void Update()
@@ -48,6 +57,11 @@ public class SubzoneHUD : MonoBehaviour
             || !_secondaryWeaponController.HasWeapon
             || _secondaryWeaponController.CurrentAmmo <= 0;
         ammoValueText.color = isEmpty ? ammoEmptyColor : ammoNormalColor;
+
+        if (oreValueText != null)
+        {
+            oreValueText.text = PlayerStats.Ore.ToString("D2");
+        }
     }
 
     private string GetSecondaryWeaponAmmoText()

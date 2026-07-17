@@ -31,9 +31,10 @@ public class TitleScreenUI : MonoBehaviour
     private int currentMenuItemIndex = 0;
 
     private float axisInputDelayDuration = 0.5f; // add a delay of .5 seconds between switching menu items when holding a direction
-    private float elapsedTimeSinceAxisInput = 0;
     private bool acceptingAxisInputUp = true;
     private bool acceptingAxisInputDown = true;
+    private Coroutine delayDownCoroutine;
+    private Coroutine delayUpCoroutine;
 
     private enum ScreenState
     {
@@ -79,7 +80,11 @@ public class TitleScreenUI : MonoBehaviour
                     acceptingAxisInputDown = false;
                     acceptingAxisInputUp = true; // should immediately be able to move up after pressing down
 
-                    StartCoroutine(DelayAxisInputDown());
+                    if (delayDownCoroutine != null)
+                    {
+                        StopCoroutine(delayDownCoroutine);
+                    }
+                    delayDownCoroutine = StartCoroutine(DelayAxisInputDown());
 
                     currentMenuItemIndex++;
                     // if it goes past the last menu item, then start back at the beginning
@@ -103,7 +108,11 @@ public class TitleScreenUI : MonoBehaviour
                     acceptingAxisInputUp = false;
                     acceptingAxisInputDown = true;
 
-                    StartCoroutine(DelayAxisInputUp());
+                    if (delayUpCoroutine != null)
+                    {
+                        StopCoroutine(delayUpCoroutine);
+                    }
+                    delayUpCoroutine = StartCoroutine(DelayAxisInputUp());
 
                     currentMenuItemIndex--;
                     // if it goes below the first menu item, then start at the top
@@ -185,34 +194,30 @@ public class TitleScreenUI : MonoBehaviour
 
     private IEnumerator DelayAxisInputDown()
     {
+        float elapsedTime = 0f;
 
-        elapsedTimeSinceAxisInput = 0;
-
-        while (elapsedTimeSinceAxisInput < axisInputDelayDuration)
+        while (elapsedTime < axisInputDelayDuration)
         {
-            elapsedTimeSinceAxisInput += Time.deltaTime;
+            elapsedTime += Time.deltaTime;
             yield return null;
         }
 
         acceptingAxisInputDown = true;
-
-        yield return null;
+        delayDownCoroutine = null;
     }
 
     private IEnumerator DelayAxisInputUp()
     {
+        float elapsedTime = 0f;
 
-        elapsedTimeSinceAxisInput = 0;
-
-        while (elapsedTimeSinceAxisInput < axisInputDelayDuration)
+        while (elapsedTime < axisInputDelayDuration)
         {
-            elapsedTimeSinceAxisInput += Time.deltaTime;
+            elapsedTime += Time.deltaTime;
             yield return null;
         }
 
         acceptingAxisInputUp = true;
-
-        yield return null;
+        delayUpCoroutine = null;
     }
 
     // based on Robert Penner's easing functions,

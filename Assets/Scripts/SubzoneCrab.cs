@@ -8,7 +8,8 @@ public class SubzoneCrab : SubzoneEnemy
     [SerializeField] private float moveDuration = 1.5f;
     [SerializeField] private float appearDuration = 0.4f;
     [SerializeField] private float disappearDuration = 0.35f;
-    [SerializeField] private float hideDuration = 1.5f;
+    [SerializeField] private float minHideDuration = 1f;
+    [SerializeField] private float maxHideDuration = 2f;
 
     private CrabState _state = CrabState.Hiding;
     private CrabSpawnZone _zone;
@@ -33,6 +34,14 @@ public class SubzoneCrab : SubzoneEnemy
         rigidBody.bodyType = RigidbodyType2D.Kinematic;
         rigidBody.gravityScale = 0f;
     }
+
+#if UNITY_EDITOR
+    private void OnValidate()
+    {
+        if (minHideDuration > maxHideDuration)
+            (minHideDuration, maxHideDuration) = (maxHideDuration, minHideDuration);
+    }
+#endif
 
     public void Initialize(CrabSpawnZone zone, CrabEmergePlacement placement, SubzoneAudioManager audioManager)
     {
@@ -101,7 +110,7 @@ public class SubzoneCrab : SubzoneEnemy
     private void EnterHiding()
     {
         _state = CrabState.Hiding;
-        _phaseTimer = hideDuration;
+        _phaseTimer = Random.Range(minHideDuration, maxHideDuration);
         transform.position = new Vector3(transform.position.x, _undergroundY, transform.position.z);
         SetColliderEnabled(false);
         SetSpriteVisible(false);

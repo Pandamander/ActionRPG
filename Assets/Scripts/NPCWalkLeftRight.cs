@@ -27,6 +27,7 @@ public class NPCWalkLeftRight : MonoBehaviour
     {
         // Only stop the NPC being conversed with
         if (DialogueManager.IsConversationActive == true &&
+            DialogueManager.currentConversant != null &&
             DialogueManager.currentConversant.gameObject.CompareTag(gameObject.tag))
         {
             walking = false;

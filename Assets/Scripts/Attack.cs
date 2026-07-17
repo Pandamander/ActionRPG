@@ -80,7 +80,7 @@ public class Attack : MonoBehaviour, IDamageable
 		meleeWeaponController.isCrouching = playerMovement.isCrouching;
 
 		// Handle melee attack
-		if (meleeWeaponController.HasWeapon && playerMovement.canMove && Input.GetButtonDown("Fire1") && canMeleeAttack && Time.frameCount > lastDialogueEndFrame)
+		if (meleeWeaponController.HasWeapon && playerMovement.canMove && !CraftingUIController.IsOpen && Input.GetButtonDown("Fire1") && canMeleeAttack && Time.frameCount > lastDialogueEndFrame && Time.frameCount > CraftingUIController.LastClosedFrame)
 		{
 			if (playerMovement.grounded)
 			{
@@ -98,7 +98,7 @@ public class Attack : MonoBehaviour, IDamageable
 		}
 
 		// Handle secondary weapon attack
-		if (secondaryWeaponController.HasWeapon && secondaryWeaponController.CanAttack && playerMovement.canMove && Input.GetButtonDown("Fire2") && canMeleeAttack && Time.frameCount > lastDialogueEndFrame)
+		if (secondaryWeaponController.HasWeapon && secondaryWeaponController.CanAttack && playerMovement.canMove && !CraftingUIController.IsOpen && Input.GetButtonDown("Fire2") && canMeleeAttack && Time.frameCount > lastDialogueEndFrame && Time.frameCount > CraftingUIController.LastClosedFrame)
 		{
 			if (playerMovement.grounded)
 			{
@@ -229,6 +229,7 @@ public class Attack : MonoBehaviour, IDamageable
     {
         TryPickupMeleeWeapon(collision);
         TryPickupSecondaryWeapon(collision);
+        TryPickupCraftingHammer(collision);
     }
 
     private void TryPickupMeleeWeapon(Collider2D collision)
@@ -247,6 +248,16 @@ public class Attack : MonoBehaviour, IDamageable
         if (secondaryPickup == null) return;
 
         secondaryWeaponController.AcquireSecondaryWeapon(secondaryPickup.weapon);
+        RunPickupDialogueIfPresent(collision);
+        Destroy(collision.gameObject);
+    }
+
+    private void TryPickupCraftingHammer(Collider2D collision)
+    {
+        CraftingHammerPickup hammerPickup = collision.GetComponentInChildren<CraftingHammerPickup>();
+        if (hammerPickup == null) return;
+
+        PlayerStats.AcquireCraftingHammer();
         RunPickupDialogueIfPresent(collision);
         Destroy(collision.gameObject);
     }
