@@ -9,6 +9,7 @@ public class CraftingUIRecipeRow : MonoBehaviour
     [SerializeField] private TMP_Text titleText;
     [SerializeField] private TMP_Text costText;
     [SerializeField] private Image oreIconImage;
+    [SerializeField] private Image lockIconImage;
     [SerializeField] private GameObject costGroup;
     [SerializeField] private Sprite unselectedBackgroundSprite;
     [SerializeField] private Sprite selectedBackgroundSprite;
@@ -17,7 +18,6 @@ public class CraftingUIRecipeRow : MonoBehaviour
     [SerializeField] private Color unavailableColor = new Color(0.5f, 0.5f, 0.5f, 1f);
 
     public RectTransform RectTransform => transform as RectTransform;
-    public TMP_Text TitleText => titleText;
 
     public void BindRecipe(CraftingRecipe recipe)
     {
@@ -29,26 +29,6 @@ public class CraftingUIRecipeRow : MonoBehaviour
 
         titleText.text = recipe.displayName;
         RefreshState(recipe, false);
-    }
-
-    public void SetDoneRow(bool isSelected)
-    {
-        if (costGroup != null)
-        {
-            costGroup.SetActive(false);
-        }
-
-        if (costText != null)
-        {
-            costText.gameObject.SetActive(false);
-        }
-
-        if (iconImage != null)
-        {
-            iconImage.enabled = false;
-        }
-
-        SetBackgroundSelected(isSelected);
     }
 
     public void RefreshState(CraftingRecipe recipe, bool isSelected)
@@ -63,16 +43,16 @@ public class CraftingUIRecipeRow : MonoBehaviour
         if (!recipe.MeetsRequirements())
         {
             costGroup.SetActive(true);
-            oreIconImage.enabled = false;
-            costText.gameObject.SetActive(true);
-            costText.text = recipe.unavailableLabel;
-            costText.color = unavailableColor;
+            oreIconImage.gameObject.SetActive(false);
+            costText.gameObject.SetActive(false);
+            lockIconImage.gameObject.SetActive(true);
             return;
         }
 
         costGroup.SetActive(true);
-        oreIconImage.enabled = true;
+        oreIconImage.gameObject.SetActive(true);
         costText.gameObject.SetActive(true);
+        lockIconImage.gameObject.SetActive(false);
         costText.text = $"x {recipe.oreCost:D2}";
 
         if (recipe.IsAtMaxAmmo())

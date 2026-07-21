@@ -14,9 +14,7 @@ public class CraftingUIController : MonoBehaviour
     [SerializeField] private TMP_Text hammerLevelText;
     [SerializeField] private Transform recipeListContainer;
     [SerializeField] private CraftingUIRecipeRow recipeRowPrefab;
-    [SerializeField] private CraftingUIRecipeRow doneRow;
-    [SerializeField] private Color doneNormalColor = Color.white;
-    [SerializeField] private Color doneSelectedColor = Color.yellow;
+    [SerializeField] private CraftingUIDoneButton doneButton;
 
     private readonly List<CraftingUIRecipeRow> recipeRows = new List<CraftingUIRecipeRow>();
     private readonly List<CraftingRecipe> activeRecipes = new List<CraftingRecipe>();
@@ -178,12 +176,7 @@ public class CraftingUIController : MonoBehaviour
             recipeRows[i].RefreshState(activeRecipes[i], i == selectedIndex);
         }
 
-        bool doneSelected = IsDoneSelected();
-        doneRow.SetDoneRow(doneSelected);
-        if (doneRow.TitleText != null)
-        {
-            doneRow.TitleText.color = doneSelected ? doneSelectedColor : doneNormalColor;
-        }
+        doneButton.SetSelected(IsDoneSelected());
     }
 
     private bool IsDoneSelected()

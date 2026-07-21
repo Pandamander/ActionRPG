@@ -22,6 +22,18 @@ public class SubzoneHUD : MonoBehaviour
     private void Start()
     {
         _secondaryWeaponController = FindObjectOfType<SecondaryWeaponController>();
+
+        MeleeController meleeController = FindObjectOfType<MeleeController>();
+        if (meleeController == null || !meleeController.HasWeapon)
+        {
+            SetItemFrameImage(null);
+        }
+
+        if (_secondaryWeaponController == null || !_secondaryWeaponController.HasWeapon)
+        {
+            SetSecondaryItemFrameImage(null);
+        }
+
         UpdateStatTexts();
 
         attackValueText.ForceMeshUpdate();
@@ -96,10 +108,12 @@ public class SubzoneHUD : MonoBehaviour
     public void SetItemFrameImage(Sprite image)
     {
         itemFrame.sprite = image;
+        itemFrame.color = image != null ? Color.white : Color.clear;
     }
 
     public void SetSecondaryItemFrameImage(Sprite image)
     {
         secondaryItemFrame.sprite = image;
+        secondaryItemFrame.color = image != null ? Color.white : Color.clear;
     }
 }
