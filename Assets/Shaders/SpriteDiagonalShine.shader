@@ -59,6 +59,7 @@ Shader "ActionRPG/Sprite Diagonal Shine"
 
             CBUFFER_START(UnityPerMaterial)
                 float4 _MainTex_ST;
+                float4 _MainTex_TexelSize;
                 half4 _Color;
                 half4 _RendererColor;
                 half4 _ShineColor;
@@ -88,14 +89,22 @@ Shader "ActionRPG/Sprite Diagonal Shine"
                 float sweepProgress = saturate(elapsed / max(_ShineDuration, 0.001));
                 half sweepActive = 1.0h - step(_ShineDuration, elapsed);
 
+                // Snap the UV to the texel grid so the shine band's diagonal
+                // edge staircases along the art's pixels instead of cutting a
+                // smooth sub-pixel line through them.
+                float2 texelUV = (floor(input.uv * _MainTex_TexelSize.zw) + 0.5)
+                    * _MainTex_TexelSize.xy;
+
                 // uv.x + uv.y produces a bottom-left to top-right diagonal.
-                float diagonalPosition = input.uv.x + input.uv.y;
+                float diagonalPosition = texelUV.x + texelUV.y;
                 float sweepCenter = lerp(-_ShineWidth, 2.0 + _ShineWidth, sweepProgress);
-                half shineBand = 1.0h - smoothstep(
-                    0.0h,
-                    _ShineWidth,
-                    abs(diagonalPosition - sweepCenter)
-                );
+
+                // Linear falloff toward the band edges. Because the diagonal
+                // position is texel-snapped, each art pixel gets one discrete
+                // brightness level, so the shine fades out without blending
+                // inside any pixel and the edges stay crisp.
+                half shineBand = saturate(
+                    1.0 - abs(diagonalPosition - sweepCenter) / _ShineWidth);
 
                 half shineAmount = shineBand * sweepActive * _ShineIntensity * _ShineColor.a;
                 sprite.rgb += _ShineColor.rgb * shineAmount;

@@ -39,13 +39,13 @@ Material:
     m_Ints: []
     m_Floats:
     - _EnableExternalAlpha: 0
-    - _ShineDuration: 0.9
-    - _ShineIntensity: 0.5
-    - _ShineInterval: 2.5
-    - _ShineWidth: 0.2
+    - _ShineDuration: 0.6
+    - _ShineIntensity: 0.7
+    - _ShineInterval: 3
+    - _ShineWidth: 0.5
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - _ShineColor: {r: 1, g: 1, b: 1, a: 1}
+    - _ShineColor: {r: 1, g: 0.9916214, b: 0.7122642, a: 1}
   m_BuildTextureStacks: []

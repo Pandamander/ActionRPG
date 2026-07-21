@@ -131,6 +131,8 @@ public class TreasureChest : MonoBehaviour
             spriteRenderer.sprite = openSprite;
         }
 
+        spriteRenderer.material = new Material(Shader.Find("Sprites/Default"));
+
         tooltipSpriteRenderer.color = new Color(
             tooltipSpriteRenderer.color.r,
             tooltipSpriteRenderer.color.g,

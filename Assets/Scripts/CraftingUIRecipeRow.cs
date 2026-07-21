@@ -53,7 +53,7 @@ public class CraftingUIRecipeRow : MonoBehaviour
         oreIconImage.gameObject.SetActive(true);
         costText.gameObject.SetActive(true);
         lockIconImage.gameObject.SetActive(false);
-        costText.text = $"x {recipe.oreCost:D2}";
+        costText.text = $"{recipe.oreCost:D2}";
 
         if (recipe.IsAtMaxAmmo())
         {
