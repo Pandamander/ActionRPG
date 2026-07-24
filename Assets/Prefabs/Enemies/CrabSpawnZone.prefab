@@ -76,7 +76,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crabPrefab: {fileID: 8100000000000000071, guid: acbe9f89dd3f449cad5d25778aeed86e, type: 3}
   sandEffectPrefab: {fileID: 8300000000000000041, guid: 10b598a6e2e44953927976d620cc0904, type: 3}
-  sandEffectYOffset: 0.5
+  sandBurrowEffectPrefab: {fileID: 6638034920049220481, guid: 7e7c23529e7f34888847e6761a4c5561, type: 3}
+  sandBurstEffectYOffset: 0.5
+  sandBurrowEffectYOffset: 0.5
   boundsCollider: {fileID: 8200000000000000021}
   surfacePoint: {fileID: 8200000000000000111}
   undergroundPoint: {fileID: 8200000000000000211}
@@ -84,6 +86,7 @@ MonoBehaviour:
   groundMaskHeight: 10
   groundMaskHorizontalPadding: 1
   maxActiveCrabs: 2
+  minSpawnSpacing: 2
   initialSpawnDelay: 3
   respawnDelay: 3
   spawnStagger: 1.5

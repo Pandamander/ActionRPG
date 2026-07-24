@@ -1,17 +1,22 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class CrabSpawnZone : MonoBehaviour
 {
     [SerializeField] private SubzoneCrab crabPrefab;
     [SerializeField] private SandEffect sandEffectPrefab;
-    [SerializeField] private float sandEffectYOffset = 0.5f;
+    [SerializeField] private GameObject sandBurrowEffectPrefab;
+    [FormerlySerializedAs("sandEffectYOffset")]
+    [SerializeField] private float sandBurstEffectYOffset = 0.5f;
+    [SerializeField] private float sandBurrowEffectYOffset = 0.5f;
     [SerializeField] private BoxCollider2D boundsCollider;
     [SerializeField] private Transform surfacePoint;
     [SerializeField] private Transform undergroundPoint;
     [SerializeField] private SpriteMask groundMask;
     [SerializeField] private int maxActiveCrabs = 2;
+    [SerializeField] private float minSpawnSpacing = 2f;
     [SerializeField] private float initialSpawnDelay = 3f;
     [SerializeField] private float respawnDelay = 3f;
     [SerializeField] private float spawnStagger = 1.5f;
@@ -66,7 +71,7 @@ public class CrabSpawnZone : MonoBehaviour
         }
     }
 
-    public CrabEmergePlacement RequestEmergePlacement(SubzoneCrab _)
+    public CrabEmergePlacement RequestEmergePlacement(SubzoneCrab requestingCrab)
     {
         Bounds bounds = boundsCollider.bounds;
         float minX = bounds.min.x;
@@ -74,26 +79,74 @@ public class CrabSpawnZone : MonoBehaviour
         float width = maxX - minX;
         float thirdWidth = width / 3f;
 
-        int zone = Random.Range(0, 3);
-        float spawnX;
-        float moveDirection;
+        const int maxAttempts = 16;
+        float bestSpawnX = 0f;
+        float bestMoveDirection = 1f;
+        float bestClearance = -1f;
 
-        switch (zone)
+        for (int attempt = 0; attempt < maxAttempts; attempt++)
         {
-            case 0:
-                spawnX = Random.Range(minX, minX + thirdWidth);
-                moveDirection = 1f;
-                break;
-            case 1:
-                spawnX = Random.Range(minX + thirdWidth, maxX - thirdWidth);
-                moveDirection = Random.value < 0.5f ? -1f : 1f;
-                break;
-            default:
-                spawnX = Random.Range(maxX - thirdWidth, maxX);
-                moveDirection = -1f;
-                break;
+            int zone = Random.Range(0, 3);
+            float spawnX;
+            float moveDirection;
+
+            switch (zone)
+            {
+                case 0:
+                    spawnX = Random.Range(minX, minX + thirdWidth);
+                    moveDirection = 1f;
+                    break;
+                case 1:
+                    spawnX = Random.Range(minX + thirdWidth, maxX - thirdWidth);
+                    moveDirection = Random.value < 0.5f ? -1f : 1f;
+                    break;
+                default:
+                    spawnX = Random.Range(maxX - thirdWidth, maxX);
+                    moveDirection = -1f;
+                    break;
+            }
+
+            float clearance = GetSpawnClearance(spawnX, requestingCrab);
+            if (clearance >= minSpawnSpacing)
+            {
+                return BuildPlacement(spawnX, moveDirection, minX, maxX);
+            }
+
+            if (clearance > bestClearance)
+            {
+                bestClearance = clearance;
+                bestSpawnX = spawnX;
+                bestMoveDirection = moveDirection;
+            }
         }
 
+        return BuildPlacement(bestSpawnX, bestMoveDirection, minX, maxX);
+    }
+
+    private float GetSpawnClearance(float spawnX, SubzoneCrab requestingCrab)
+    {
+        float nearestDistance = float.MaxValue;
+
+        for (int i = 0; i < _activeCrabs.Count; i++)
+        {
+            SubzoneCrab crab = _activeCrabs[i];
+            if (crab == null || crab == requestingCrab)
+                continue;
+
+            if (crab.State != SubzoneCrab.CrabState.Telegraphing &&
+                crab.State != SubzoneCrab.CrabState.Appearing)
+                continue;
+
+            float distance = Mathf.Abs(crab.transform.position.x - spawnX);
+            if (distance < nearestDistance)
+                nearestDistance = distance;
+        }
+
+        return nearestDistance;
+    }
+
+    private CrabEmergePlacement BuildPlacement(float spawnX, float moveDirection, float minX, float maxX)
+    {
         return new CrabEmergePlacement
         {
             SpawnX = spawnX,
@@ -110,8 +163,17 @@ public class CrabSpawnZone : MonoBehaviour
         if (sandEffectPrefab == null || surfacePoint == null)
             return;
 
-        Vector3 position = new Vector3(emergeX, surfacePoint.position.y + sandEffectYOffset, transform.position.z);
+        Vector3 position = new Vector3(emergeX, surfacePoint.position.y + sandBurstEffectYOffset, transform.position.z);
         Instantiate(sandEffectPrefab, position, Quaternion.identity);
+    }
+
+    public GameObject SpawnSandBurrowEffect(float emergeX)
+    {
+        if (sandBurrowEffectPrefab == null || surfacePoint == null)
+            return null;
+
+        Vector3 position = new Vector3(emergeX, surfacePoint.position.y + sandBurrowEffectYOffset, transform.position.z);
+        return Instantiate(sandBurrowEffectPrefab, position, Quaternion.identity);
     }
 
     public void NotifyCrabRemoved(SubzoneCrab crab)

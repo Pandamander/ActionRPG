@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SubzoneCrab : SubzoneEnemy
 {
-    public enum CrabState { Hiding, Appearing, Moving, Disappearing }
+    public enum CrabState { Hiding, Telegraphing, Appearing, Moving, Disappearing }
 
     [SerializeField] private float walkSpeed = 3f;
     [SerializeField] private float moveDuration = 1.5f;
@@ -10,10 +10,12 @@ public class SubzoneCrab : SubzoneEnemy
     [SerializeField] private float disappearDuration = 0.35f;
     [SerializeField] private float minHideDuration = 1f;
     [SerializeField] private float maxHideDuration = 2f;
+    [SerializeField] private float burrowWarningDuration = 1.5f;
 
     private CrabState _state = CrabState.Hiding;
     private CrabSpawnZone _zone;
     private BoxCollider2D _hitCollider;
+    private GameObject _burrowEffect;
     private float _moveDirection = 1f;
     private float _minX;
     private float _maxX;
@@ -63,6 +65,12 @@ public class SubzoneCrab : SubzoneEnemy
             case CrabState.Hiding:
                 _phaseTimer -= Time.deltaTime;
                 if (_phaseTimer <= 0f)
+                    BeginTelegraph();
+                break;
+
+            case CrabState.Telegraphing:
+                _phaseTimer -= Time.deltaTime;
+                if (_phaseTimer <= 0f)
                     BeginAppear();
                 break;
 
@@ -88,6 +96,8 @@ public class SubzoneCrab : SubzoneEnemy
 
     private void OnDestroy()
     {
+        DestroyBurrowEffect();
+
         if (_zone == null || _removedFromZone)
             return;
 
@@ -117,10 +127,19 @@ public class SubzoneCrab : SubzoneEnemy
         _animator.SetBool("IsWalking", false);
     }
 
-    private void BeginAppear()
+    private void BeginTelegraph()
     {
         CrabEmergePlacement placement = _zone.RequestEmergePlacement(this);
         ApplyPlacement(placement);
+
+        _state = CrabState.Telegraphing;
+        _phaseTimer = burrowWarningDuration;
+        _burrowEffect = _zone.SpawnSandBurrowEffect(transform.position.x);
+    }
+
+    private void BeginAppear()
+    {
+        DestroyBurrowEffect();
 
         _state = CrabState.Appearing;
         _moveStartPosition = transform.position;
@@ -170,6 +189,15 @@ public class SubzoneCrab : SubzoneEnemy
         _phaseTimer += Time.deltaTime;
         float t = Mathf.Clamp01(_phaseTimer / _phaseDuration);
         transform.position = Vector2.Lerp(_moveStartPosition, _moveEndPosition, QuarticEaseOut(t));
+    }
+
+    private void DestroyBurrowEffect()
+    {
+        if (_burrowEffect == null)
+            return;
+
+        Destroy(_burrowEffect);
+        _burrowEffect = null;
     }
 
     private void SetFacing(float direction)

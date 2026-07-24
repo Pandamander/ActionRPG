@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a61e057b40d682e4085f29d1c3922058, type: 3}
   m_Name: GladiusSword
   m_EditorClassIdentifier: 
-  attackPoint: {x: 1.186, y: 0.12}
+  attackPoint: {x: 1, y: 0.06}
   crouchAttackPoint: {x: 0.9683, y: -0.3742}
-  attackBounds: {x: 0.88, y: 0.12}
+  attackBounds: {x: 0.9, y: 0.12}
   attackDamage: 2
   layerMask:
     serializedVersion: 2
