@@ -97,9 +97,16 @@ public class MeleeController : MonoBehaviour
 
         foreach (Collider2D c in hitEnemies)
         {
+            float damageDirection = Utilities.DamageDirection(gameObject, c.gameObject);
+
             if (c.gameObject.TryGetComponent<IDamageable>(out var enemy))
             {
-                enemy.Damage(currentMeleeWeapon.attackDamage, Utilities.DamageDirection(gameObject, c.gameObject));
+                enemy.Damage(currentMeleeWeapon.attackDamage, damageDirection);
+            }
+
+            if (c.gameObject.TryGetComponent<IMeleeDamageable>(out var meleeTarget))
+            {
+                meleeTarget.DamageFromMelee(damageDirection);
             }
         }
     }

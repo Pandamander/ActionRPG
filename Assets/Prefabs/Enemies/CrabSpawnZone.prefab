@@ -77,20 +77,23 @@ MonoBehaviour:
   crabPrefab: {fileID: 8100000000000000071, guid: acbe9f89dd3f449cad5d25778aeed86e, type: 3}
   sandEffectPrefab: {fileID: 8300000000000000041, guid: 10b598a6e2e44953927976d620cc0904, type: 3}
   sandBurrowEffectPrefab: {fileID: 6638034920049220481, guid: 7e7c23529e7f34888847e6761a4c5561, type: 3}
+  sandBallPrefab: {fileID: 8400000000000000051, guid: 9f2b6c8e4a1d47b0a5e3c7d9f0b1a2e4, type: 3}
   sandBurstEffectYOffset: 0.5
   sandBurrowEffectYOffset: 0.5
+  sandBallYOffset: -0.25
+  sandBallHorizontalSpeed: 3
+  sandBallUpwardSpeed: 6
   boundsCollider: {fileID: 8200000000000000021}
   surfacePoint: {fileID: 8200000000000000111}
   undergroundPoint: {fileID: 8200000000000000211}
   groundMask: {fileID: 8200000000000000321}
-  groundMaskHeight: 10
-  groundMaskHorizontalPadding: 1
   maxActiveCrabs: 2
   minSpawnSpacing: 2
   initialSpawnDelay: 3
   respawnDelay: 3
   spawnStagger: 1.5
   loopSpawns: 1
+  audioManager: {fileID: 0}
 --- !u!1 &8200000000000000101
 GameObject:
   m_ObjectHideFlags: 0

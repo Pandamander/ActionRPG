@@ -1249,62 +1249,6 @@ MonoBehaviour:
       - originConversationID: 9
         originDialogueID: 0
         destinationConversationID: 9
-        destinationDialogueID: 1
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 20
-        y: 35.445145
-        width: 160
-        height: 30
-    - id: 1
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Description
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Actor
-        value: 6
-        type: 0
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 6
-        type: 0
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Dialogue Text
-        value: I've lived on this island all my life. My family was originally from
-          Crete.
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      conversationID: 9
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 9
-        originDialogueID: 1
-        destinationConversationID: 9
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
@@ -1316,7 +1260,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 20
-        y: 102
+        y: 34.191223
         width: 160
         height: 30
     - id: 2
@@ -1372,7 +1316,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 20.890076
-        y: 167.35114
+        y: 110.92488
         width: 160
         height: 30
     - id: 4
@@ -1428,7 +1372,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 20.890076
-        y: 231.74814
+        y: 175.32188
         width: 160
         height: 30
     - id: 5
@@ -1477,7 +1421,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 20.890076
-        y: 296.97955
+        y: 240.5534
         width: 160
         height: 30
     entryGroups: []
@@ -2765,7 +2709,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: You must have the proper tool in order to craft.
+        value: You must have the proper tool in order to craft items.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence

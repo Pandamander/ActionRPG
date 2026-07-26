@@ -151,6 +151,7 @@ public class SubzoneCrab : SubzoneEnemy
         SetColliderEnabled(true);
         _animator.SetBool("IsWalking", false);
         _zone.SpawnSandEffect(transform.position.x);
+        _zone.SpawnSandBalls(transform.position.x);
     }
 
     private void BeginMoving()

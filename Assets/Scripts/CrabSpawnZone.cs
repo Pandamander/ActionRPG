@@ -8,9 +8,13 @@ public class CrabSpawnZone : MonoBehaviour
     [SerializeField] private SubzoneCrab crabPrefab;
     [SerializeField] private SandEffect sandEffectPrefab;
     [SerializeField] private GameObject sandBurrowEffectPrefab;
+    [SerializeField] private SandBall sandBallPrefab;
     [FormerlySerializedAs("sandEffectYOffset")]
     [SerializeField] private float sandBurstEffectYOffset = 0.5f;
     [SerializeField] private float sandBurrowEffectYOffset = 0.5f;
+    [SerializeField] private float sandBallYOffset = -0.25f;
+    [SerializeField] private float sandBallHorizontalSpeed = 2.5f;
+    [SerializeField] private float sandBallUpwardSpeed = 4f;
     [SerializeField] private BoxCollider2D boundsCollider;
     [SerializeField] private Transform surfacePoint;
     [SerializeField] private Transform undergroundPoint;
@@ -174,6 +178,22 @@ public class CrabSpawnZone : MonoBehaviour
 
         Vector3 position = new Vector3(emergeX, surfacePoint.position.y + sandBurrowEffectYOffset, transform.position.z);
         return Instantiate(sandBurrowEffectPrefab, position, Quaternion.identity);
+    }
+
+    public void SpawnSandBalls(float emergeX)
+    {
+        if (sandBallPrefab == null || surfacePoint == null)
+            return;
+
+        Vector3 position = new Vector3(emergeX, surfacePoint.position.y + sandBallYOffset, transform.position.z);
+        SpawnSandBall(position, new Vector2(-sandBallHorizontalSpeed, sandBallUpwardSpeed));
+        SpawnSandBall(position, new Vector2(sandBallHorizontalSpeed, sandBallUpwardSpeed));
+    }
+
+    private void SpawnSandBall(Vector3 position, Vector2 velocity)
+    {
+        SandBall sandBall = Instantiate(sandBallPrefab, position, Quaternion.identity);
+        sandBall.Initialize(velocity);
     }
 
     public void NotifyCrabRemoved(SubzoneCrab crab)
