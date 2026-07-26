@@ -6,6 +6,8 @@ public class OrePickup : MonoBehaviour
 {
     [SerializeField] private int oreAmount = 2;
     [SerializeField] private GameObject pickupFxPrefab;
+    [SerializeField] private FloatingPickupText pickupTextPrefab;
+    [SerializeField] private float popupHeadOffset = 1.2f;
 
     private bool collected;
 
@@ -41,6 +43,7 @@ public class OrePickup : MonoBehaviour
         collected = true;
         PlayerStats.AddOre(oreAmount);
         SpawnPickupFx();
+        SpawnPickupPopup(other.transform);
         Destroy(gameObject);
     }
 
@@ -52,5 +55,16 @@ public class OrePickup : MonoBehaviour
         }
 
         Instantiate(pickupFxPrefab, transform.position, Quaternion.identity);
+    }
+
+    private void SpawnPickupPopup(Transform player)
+    {
+        if (pickupTextPrefab == null || player == null)
+        {
+            return;
+        }
+
+        Vector3 spawnPosition = player.position + Vector3.up * popupHeadOffset;
+        FloatingPickupText.Show(pickupTextPrefab, spawnPosition, oreAmount);
     }
 }
