@@ -178,6 +178,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5452648171985224799, guid: 4b76e31e018f4e999ae3e2b411e2958f, type: 3}
+      propertyPath: luaCode
+      value: Variable["hasCraftingHammer"] = true
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b76e31e018f4e999ae3e2b411e2958f, type: 3}
 --- !u!1001 &232430643
@@ -16444,7 +16448,7 @@ Tilemap:
       - {fileID: 21300000, guid: ebe1324dbee453f4e88a01c46b747436, type: 3}
       - {fileID: 21300000, guid: b2057644a715196418df357d75657777, type: 3}
       - {fileID: 21300000, guid: 4f4bbdc1099721741b8cac0da1549574, type: 3}
-      m_AnimationSpeed: 6.0000005
+      m_AnimationSpeed: 6
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -3, y: -1, z: 0}

@@ -46196,6 +46196,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100005, guid: 9f2e8d4c7b1a4e3f8c6d5a4b3c2d1e0f, type: 3}
+      propertyPath: luaCode
+      value: Variable["hasGladius"] = true
+      objectReference: {fileID: 0}
+    - target: {fileID: 100005, guid: 9f2e8d4c7b1a4e3f8c6d5a4b3c2d1e0f, type: 3}
       propertyPath: conversation
       value: Primary Weapon Pickup - Gladius
       objectReference: {fileID: 0}
