@@ -186,8 +186,10 @@ public class CrabSpawnZone : MonoBehaviour
             return;
 
         Vector3 position = new Vector3(emergeX, surfacePoint.position.y + sandBallYOffset, transform.position.z);
-        SpawnSandBall(position, new Vector2(-sandBallHorizontalSpeed, sandBallUpwardSpeed));
-        SpawnSandBall(position, new Vector2(sandBallHorizontalSpeed, sandBallUpwardSpeed));
+        SpawnSandBall(position - new Vector3(.25f, 0, 0), new Vector2(-sandBallHorizontalSpeed, sandBallUpwardSpeed));
+        SpawnSandBall(position, new Vector2((-sandBallHorizontalSpeed * .8f), sandBallUpwardSpeed * .9f));
+        SpawnSandBall(position + new Vector3(.25f, 0, 0), new Vector2(sandBallHorizontalSpeed, sandBallUpwardSpeed));
+        SpawnSandBall(position , new Vector2(sandBallHorizontalSpeed *.8f, sandBallUpwardSpeed * .9f));
     }
 
     private void SpawnSandBall(Vector3 position, Vector2 velocity)
