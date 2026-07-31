@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: PlumbataAmmo_x05
   m_EditorClassIdentifier: 
   displayName: x 05
+  lockedDisplayName: Unavailable
   icon: {fileID: 21300000, guid: 47214d9b982ae4020abd852f56d4c5a6, type: 3}
+  lockedIcon: {fileID: 21300000, guid: f523035753e1f4f53bc34d1b2f70d966, type: 3}
   hammerLevelRequired: 1
   oreCost: 10
   unavailableLabel: '-'

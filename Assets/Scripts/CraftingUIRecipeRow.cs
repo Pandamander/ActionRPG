@@ -21,13 +21,6 @@ public class CraftingUIRecipeRow : MonoBehaviour
 
     public void BindRecipe(CraftingRecipe recipe)
     {
-        iconImage.enabled = recipe.icon != null;
-        if (recipe.icon != null)
-        {
-            iconImage.sprite = recipe.icon;
-        }
-
-        titleText.text = recipe.displayName;
         RefreshState(recipe, false);
     }
 
@@ -42,6 +35,11 @@ public class CraftingUIRecipeRow : MonoBehaviour
 
         if (!recipe.MeetsRequirements())
         {
+            titleText.text = !string.IsNullOrEmpty(recipe.lockedDisplayName)
+                ? recipe.lockedDisplayName
+                : recipe.displayName;
+            titleText.color = unavailableColor;
+            SetItemIcon(recipe.lockedIcon != null ? recipe.lockedIcon : recipe.icon);
             costGroup.SetActive(true);
             oreIconImage.gameObject.SetActive(false);
             costText.gameObject.SetActive(false);
@@ -49,6 +47,9 @@ public class CraftingUIRecipeRow : MonoBehaviour
             return;
         }
 
+        titleText.text = recipe.displayName;
+        titleText.color = Color.white;
+        SetItemIcon(recipe.icon);
         costGroup.SetActive(true);
         oreIconImage.gameObject.SetActive(true);
         costText.gameObject.SetActive(true);
@@ -62,6 +63,15 @@ public class CraftingUIRecipeRow : MonoBehaviour
         else
         {
             costText.color = recipe.CanAfford() ? normalCostColor : insufficientCostColor;
+        }
+    }
+
+    private void SetItemIcon(Sprite sprite)
+    {
+        iconImage.enabled = sprite != null;
+        if (sprite != null)
+        {
+            iconImage.sprite = sprite;
         }
     }
 

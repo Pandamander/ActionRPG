@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbc8da85f0ff46a0b1b7195107dffd65, type: 3}
-  m_Name: PlumbataAmmo_x01
+  m_Name: DolabraAmmo_x01
   m_EditorClassIdentifier: 
   displayName: x 01
   lockedDisplayName: ???
-  icon: {fileID: 21300000, guid: 47214d9b982ae4020abd852f56d4c5a6, type: 3}
-  lockedIcon: {fileID: 21300000, guid: f523035753e1f4f53bc34d1b2f70d966, type: 3}
+  icon: {fileID: 21300000, guid: baf4b1376768443789564b08592e3fea, type: 3}
+  lockedIcon: {fileID: 21300000, guid: 58e1acded6e58460cbb28953820e5779, type: 3}
   hammerLevelRequired: 1
   oreCost: 2
   unavailableLabel: '-'
   requirements:
   - type: 0
-    secondaryWeapon: {fileID: 11400000, guid: 27cde59cb3f0b4102b8c7d115d345b8b, type: 2}
+    secondaryWeapon: {fileID: 11400000, guid: cf53c3036300a4c0288a41fd91864b3a, type: 2}
   effectType: 0
-  targetSecondaryWeapon: {fileID: 11400000, guid: 27cde59cb3f0b4102b8c7d115d345b8b, type: 2}
+  targetSecondaryWeapon: {fileID: 11400000, guid: cf53c3036300a4c0288a41fd91864b3a, type: 2}
   ammoAmount: 1

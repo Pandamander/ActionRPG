@@ -29,6 +29,22 @@ public class CyclopsBossFight : MonoBehaviour
         DisableColliders();
         _bossFightStartTrigger = GetComponent<BoxCollider2D>();
         originalVirtualCameraFollow = virtualCamera.Follow;
+
+        PlayerStats.Initialize();
+        if (PlayerStats.IsCyclopsDefeated)
+        {
+            ApplyDefeatedState();
+        }
+    }
+
+    private void ApplyDefeatedState()
+    {
+        _bossFightStartTrigger.enabled = false;
+        DisableColliders();
+        if (cyclops != null)
+        {
+            cyclops.gameObject.SetActive(false);
+        }
     }
 
     private void DisableColliders()
@@ -79,7 +95,6 @@ public class CyclopsBossFight : MonoBehaviour
                 reset = true;
                 subzoneHUD.FillPlayerHealthMeter();
                 DisableColliders();
-                PlayerStats.BossDefeated("OverworldCyclops");
                 moveCamBackToPlayer = true;
                 playerMovement.StopForDialogue();
             }

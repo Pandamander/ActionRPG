@@ -23,7 +23,9 @@ public enum CraftEffectType
 public class CraftingRecipe : ScriptableObject
 {
     public string displayName;
+    public string lockedDisplayName;
     public Sprite icon;
+    public Sprite lockedIcon;
     public int hammerLevelRequired = 1;
     public int oreCost;
     public string unavailableLabel = "UNAVAILABLE";

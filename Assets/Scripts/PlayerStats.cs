@@ -13,6 +13,7 @@ public static class PlayerStats
     public static int Ore { get; private set; }
     public static bool HasCraftingHammer { get; private set; }
     public static int CraftingHammerLevel { get; private set; }
+    public static bool IsCyclopsDefeated { get; private set; }
 
     private static Dictionary<string, int> SecondaryWeaponAmmo;
 
@@ -47,6 +48,7 @@ public static class PlayerStats
             Ore = 99;
             HasCraftingHammer = false;
             CraftingHammerLevel = 1;
+            IsCyclopsDefeated = false;
         }
     }
 
@@ -80,9 +82,21 @@ public static class PlayerStats
         Ore += amount;
     }
 
-    public static void BossDefeated(string tag)
+    public static void MarkForOverworldDestroy(string id)
     {
-        OverworldDestroyList.Add(tag);
+        Initialize();
+        if (string.IsNullOrEmpty(id) || OverworldDestroyList.Contains(id))
+        {
+            return;
+        }
+
+        OverworldDestroyList.Add(id);
+    }
+
+    public static void DefeatCyclops()
+    {
+        Initialize();
+        IsCyclopsDefeated = true;
     }
 
     public static void UpgradetAttack(string tag)

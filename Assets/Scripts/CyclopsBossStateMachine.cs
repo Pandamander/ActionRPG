@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using PixelCrushers.DialogueSystem;
 using UnityEngine;
 
 public class CyclopsBossStateMachine : MonoBehaviour
@@ -78,6 +79,8 @@ public class CyclopsBossStateMachine : MonoBehaviour
 
     private IEnumerator CyclopsDie()
     {
+        PlayerStats.DefeatCyclops();
+        DialogueLua.SetVariable("isCyclopsDefeated", true);
         playerMovement.Stop(stopInFlightAnimations: false, overrideAttackCooldown: true);
         cyclops.Die();
         yield return new WaitForSeconds(10.0f);
