@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5407700121939208524}
   - component: {fileID: 5407700121939208525}
   - component: {fileID: 5407700121939208526}
+  - component: {fileID: 478207374720402890}
   m_Layer: 0
   m_Name: CraftingBench
   m_TagString: Untagged
@@ -201,6 +202,20 @@ MonoBehaviour:
   useBarkTitlePicker: 1
   useQuestNamePicker: 1
   selectedDatabase: {fileID: 11400000, guid: 50062277953854be19adda13fcdfdc09, type: 2}
+--- !u!114 &478207374720402890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5407700121939208522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 205c6d4e7606f8d40b5d2763ea70a42d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priority: 0
+  ui: {fileID: 101180, guid: f4d0b15b1009647f8b7c1c06338d93d0, type: 3}
 --- !u!1 &5407700121939208528
 GameObject:
   m_ObjectHideFlags: 0

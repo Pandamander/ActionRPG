@@ -861,7 +861,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 18.188385
-        y: 2.8116455
+        y: 1.8044357
         width: 160
         height: 30
     - id: 1
@@ -1433,7 +1433,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: A cyclops you say?!
+        value: A cyclops?!
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -1462,62 +1462,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 676.6399
-        y: 76.99636
-        width: 160
-        height: 30
-    - id: 13
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Description
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Actor
-        value: 4
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Dialogue Text
-        value: Thank you for defeating the beast.
-        type: 0
-        typeString: CustomFieldType_Text
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: CustomFieldType_Text
-      conversationID: 8
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 8
-        originDialogueID: 13
-        destinationConversationID: 8
-        destinationDialogueID: 14
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 678.45154
-        y: 233.88278
+        y: 78.00356
         width: 160
         height: 30
     - id: 14
@@ -1531,11 +1476,11 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Actor
-        value: 1
+        value: 4
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 4
+        value: 1
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -1543,8 +1488,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: I'm saddened to hear of the lives it claimed, but we are forever in
-          your debt.
+        value: You have saved our village. We are forever in your debt.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -1572,8 +1516,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 680.2632
-        y: 303.87305
+        x: 678.55194
+        y: 313.5473
         width: 160
         height: 30
     - id: 15
@@ -1599,7 +1543,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: A creature from older, darker times...how did it get here?
+        value: What was a terrible creature like that doing here?
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -1617,7 +1561,7 @@ MonoBehaviour:
       - originConversationID: 8
         originDialogueID: 15
         destinationConversationID: 8
-        destinationDialogueID: 13
+        destinationDialogueID: 17
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -1627,8 +1571,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 678.45135
-        y: 152.35925
+        x: 678.29694
+        y: 157.595
         width: 160
         height: 30
     - id: 16
@@ -1676,13 +1620,68 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 680.2632
-        y: 378.80023
+        x: 680.4929
+        y: 398.1148
+        width: 160
+        height: 30
+    - id: 17
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 4
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: 'I fear there may be darker forces at work among these islands... '
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 8
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 8
+        originDialogueID: 17
+        destinationConversationID: 8
+        destinationDialogueID: 14
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 678.29694
+        y: 233.58493
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 29.394928}
-    canvasZoom: 0.4466139
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.79741734
   - id: 9
     fields:
     - title: Title
