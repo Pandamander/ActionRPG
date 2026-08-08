@@ -6,10 +6,14 @@ using UnityEngine.Tilemaps;
 
 public class MeleeController : MonoBehaviour
 {
+    public const string UnarmedWeaponName = "Fists";
+
     public enum PlayerDirection { Left, Right };
     public MeleeWeapon currentMeleeWeapon { get; private set; }
     [SerializeField] private SubzoneAudioManager audioManager;
     [SerializeField] private List<MeleeWeapon> weapons;
+    [SerializeField] private MeleeWeapon forceEquipOnStart;
+    [SerializeField] private bool stripMeleeOnStart;
     private Dictionary<string, MeleeWeapon> WeaponScriptableObjectMap;
     public PlayerDirection playerDirection;
     public bool isCrouching = false;
@@ -22,6 +26,20 @@ public class MeleeController : MonoBehaviour
     }
     private Vector2 attackOriginPoint;
     private Vector2 attackSize;
+
+    private MeleeWeapon UnarmedWeapon
+    {
+        get
+        {
+            if (WeaponScriptableObjectMap != null
+                && WeaponScriptableObjectMap.TryGetValue(UnarmedWeaponName, out MeleeWeapon fists)
+                && fists != null)
+            {
+                return fists;
+            }
+            return null;
+        }
+    }
 
     private void Awake()
     {
@@ -37,24 +55,43 @@ public class MeleeController : MonoBehaviour
         attackSize = currentMeleeWeapon.attackBounds;
     }
 
+    private void Start()
+    {
+        if (stripMeleeOnStart)
+        {
+            // Unequip real weapons → persist Fists as unarmed primary
+            EquipUnarmed();
+            return;
+        }
+
+        if (forceEquipOnStart != null)
+        {
+            PickUpMeleeWeapon(forceEquipOnStart);
+        }
+    }
+
     private void LoadLastObtainedWeapon()
     {
-        if (PlayerStats.MeleeWeapon != null)
+        if (PlayerStats.MeleeWeapon != null
+            && WeaponScriptableObjectMap.TryGetValue(PlayerStats.MeleeWeapon, out MeleeWeapon weapon)
+            && weapon != null)
         {
-            MeleeWeapon weapon = WeaponScriptableObjectMap[PlayerStats.MeleeWeapon];
-            if (weapon != null)
-            {
-                SetMeleeWeapon(weapon);
-            }
+            SetMeleeWeapon(weapon);
+            return;
         }
+
+        // No valid equipped primary (or first run) — fall back to Fists and persist
+        EquipUnarmed();
     }
 
     private void InitializeWeaponMap()
     {
-        WeaponScriptableObjectMap = new Dictionary<string, MeleeWeapon>()
+        WeaponScriptableObjectMap = new Dictionary<string, MeleeWeapon>();
+        foreach (MeleeWeapon weapon in weapons)
         {
-            { "GladiusSword", weapons[0] },
-        };
+            if (weapon == null) continue;
+            WeaponScriptableObjectMap[weapon.name] = weapon;
+        }
     }
 
     private void Update()
@@ -104,7 +141,8 @@ public class MeleeController : MonoBehaviour
                 enemy.Damage(currentMeleeWeapon.attackDamage, damageDirection);
             }
 
-            if (c.gameObject.TryGetComponent<IMeleeDamageable>(out var meleeTarget))
+            if (currentMeleeWeapon.canBreakProps
+                && c.gameObject.TryGetComponent<IMeleeDamageable>(out var meleeTarget))
             {
                 meleeTarget.DamageFromMelee(damageDirection);
             }
@@ -113,14 +151,48 @@ public class MeleeController : MonoBehaviour
 
     public void PickUpMeleeWeapon(MeleeWeapon weapon)
     {
+        if (weapon == null) return;
         PlayerStats.PickUpWeapon(weapon.name, weapon.attackDamage);
         SetMeleeWeapon(weapon);
     }
 
+    /// <summary>
+    /// Unequips the current primary and equips Fists, persisting that choice across scenes.
+    /// </summary>
+    public void ClearMeleeWeapon()
+    {
+        EquipUnarmed();
+    }
+
+    private void EquipUnarmed()
+    {
+        MeleeWeapon fists = UnarmedWeapon;
+        if (fists == null)
+        {
+            Debug.LogWarning("MeleeController: Fists weapon is not registered on the weapons list.");
+            PlayerStats.ClearMeleeWeapon();
+            currentMeleeWeapon = null;
+            attackSize = Vector2.zero;
+            SubzoneHUD hud = FindObjectOfType<SubzoneHUD>();
+            if (hud != null)
+            {
+                hud.SetItemFrameImage(null);
+            }
+            return;
+        }
+
+        PickUpMeleeWeapon(fists);
+    }
+
     private void SetMeleeWeapon(MeleeWeapon weapon)
     {
-        FindObjectOfType<SubzoneHUD>().SetItemFrameImage(weapon.itemFrameImage);
+        SubzoneHUD hud = FindObjectOfType<SubzoneHUD>();
+        if (hud != null)
+        {
+            hud.SetItemFrameImage(weapon.itemFrameImage);
+        }
         currentMeleeWeapon = weapon;
+        attackSize = weapon.attackBounds;
     }
 
     private void DebugDrawBox(Vector2 point, Vector2 size)

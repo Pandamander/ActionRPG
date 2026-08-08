@@ -29,7 +29,6 @@ public class SubzoneSpider : SubzoneEnemy
     {
         base.Awake();
         _originPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        health = 1;
         InitializeSilkThread();
     }
 

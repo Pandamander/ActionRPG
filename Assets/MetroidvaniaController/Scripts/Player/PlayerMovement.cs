@@ -141,7 +141,7 @@ public class PlayerMovement : MonoBehaviour
         if (stopInFlightAnimations)
         {
             animator.SetBool("IsJumping", false);
-            animator.SetBool("IsAttacking", false);
+            attack.ClearAttackAnimation();
         }
 	}
 
@@ -167,7 +167,7 @@ public class PlayerMovement : MonoBehaviour
 		UnCrouch();
         animator.SetBool("IsJumping", false);
         animator.SetFloat("Speed", 0f);
-        animator.SetBool("IsAttacking", false);
+        attack.ClearAttackAnimation();
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 
@@ -190,7 +190,7 @@ public class PlayerMovement : MonoBehaviour
         UnCrouch();
         animator.SetBool("IsJumping", false);
 		animator.SetFloat("Speed", 0f);
-		animator.SetBool("IsAttacking", false);
+		attack.ClearAttackAnimation();
 	}
 
 	public void FreezeWalking()
@@ -200,7 +200,7 @@ public class PlayerMovement : MonoBehaviour
         UnCrouch();
         animator.SetBool("IsJumping", false);
         animator.SetFloat("Speed", 1f);
-        animator.SetBool("IsAttacking", false);
+        attack.ClearAttackAnimation();
     }
 
     public IEnumerator AutoWalk(float duration, OverworldSubzoneContainer.PlayerDirection direction)

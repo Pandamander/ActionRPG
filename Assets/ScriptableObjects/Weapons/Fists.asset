@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a61e057b40d682e4085f29d1c3922058, type: 3}
-  m_Name: GladiusSword
+  m_Name: Fists
   m_EditorClassIdentifier: 
-  attackPoint: {x: 1.3, y: 0.3}
-  crouchAttackPoint: {x: 1.3, y: -0.4}
-  attackBounds: {x: 1.2, y: 0.5}
-  attackDamage: 2
+  attackPoint: {x: 1.0315, y: 0.3739}
+  crouchAttackPoint: {x: 1.035, y: -0.379}
+  attackBounds: {x: 0.4412692, y: 0.3782791}
+  attackDamage: 1
   layerMask:
     serializedVersion: 2
     m_Bits: 512
-  itemFrameImage: {fileID: 21300000, guid: 7293eaf239e5c40659d1deac66a89093, type: 3}
-  attackAnimationDuration: 0.36
-  crouchAttackAnimationDuration: 0.36
-  attackAnimationTrigger: IsAttackingGladius
-  canBreakProps: 1
+  itemFrameImage: {fileID: 21300000, guid: a557b580c37384655a6c7b3a8273ee3e, type: 3}
+  attackAnimationDuration: 0.3
+  crouchAttackAnimationDuration: 0.3
+  attackAnimationTrigger: IsAttackingFists
+  canBreakProps: 0

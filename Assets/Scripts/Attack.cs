@@ -40,8 +40,7 @@ public class Attack : MonoBehaviour, IDamageable
     private const int PLAYER_COLLISION_LAYER = 1;
     private const int ENEMY_COLLISION_LAYER = 9;
 
-    private float attackAnimationDuration = 0;
-    private float crouchAttackAnimationDuration = 0;
+    private string activeAttackTrigger;
     private int lastDialogueEndFrame = -1;
 
     private void Awake()
@@ -52,24 +51,20 @@ public class Attack : MonoBehaviour, IDamageable
         controller = gameObject.GetComponent<CharacterController2D>();
 
         Physics2D.IgnoreLayerCollision(PLAYER_COLLISION_LAYER, ENEMY_COLLISION_LAYER, false);
-
-        // Cache attack animation clip lengths for the current animation controller
-        AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
-        foreach (AnimationClip clip in clips)
-        {
-            if (clip == null) continue;
-            if (clip.name.Contains("attack"))
-            {
-                if (clip.name.Contains("crouch"))
-                {
-                    crouchAttackAnimationDuration = clip.length;
-                } else
-                {
-                    attackAnimationDuration = clip.length;
-                }
-            }
-        }
     }
+
+	private void BeginAttackAnim(string trigger)
+	{
+		activeAttackTrigger = trigger;
+		animator.SetBool(trigger, true);
+	}
+
+	public void ClearAttackAnimation()
+	{
+		if (string.IsNullOrEmpty(activeAttackTrigger)) return;
+		animator.SetBool(activeAttackTrigger, false);
+		activeAttackTrigger = null;
+	}
 
     // Update is called once per frame
     void Update()
@@ -90,7 +85,7 @@ public class Attack : MonoBehaviour, IDamageable
 				playerMovement.StopAirControlForJumpAttack();
 			}
             canMeleeAttack = false;
-			animator.SetBool("IsAttacking", true);
+			BeginAttackAnim(meleeWeaponController.currentMeleeWeapon.attackAnimationTrigger);
 
             meleeWeaponController.Attack();
 
@@ -108,7 +103,7 @@ public class Attack : MonoBehaviour, IDamageable
 				playerMovement.StopAirControlForJumpAttack();
 			}
 			canMeleeAttack = false;
-			animator.SetBool(secondaryWeaponController.currentWeapon.attackAnimationTrigger, true);
+			BeginAttackAnim(secondaryWeaponController.currentWeapon.attackAnimationTrigger);
 
 			Vector2 direction = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
 			secondaryWeaponController.Attack(direction, playerMovement.isCrouching);
@@ -126,17 +121,18 @@ public class Attack : MonoBehaviour, IDamageable
 	IEnumerator SecondaryAttackCooldown()
 	{
 		yield return new WaitForSeconds(secondaryWeaponController.currentWeapon.attackAnimationDuration);
-		animator.SetBool(secondaryWeaponController.currentWeapon.attackAnimationTrigger, false);
+		ClearAttackAnimation();
 		canMeleeAttack = true;
 		playerMovement.AllowMovementAfterAttackOrKnockback();
 	}
 
 	IEnumerator MeleeAttackCooldown()
 	{
+		MeleeWeapon weapon = meleeWeaponController.currentMeleeWeapon;
         yield return new WaitForSeconds(
-            playerMovement.isCrouching ? crouchAttackAnimationDuration : attackAnimationDuration
+            playerMovement.isCrouching ? weapon.crouchAttackAnimationDuration : weapon.attackAnimationDuration
         );
-        animator.SetBool("IsAttacking", false);
+        ClearAttackAnimation();
         canMeleeAttack = true;
         playerMovement.AllowMovementAfterAttackOrKnockback();
     }

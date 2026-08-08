@@ -24,7 +24,11 @@ public class SubzoneHUD : MonoBehaviour
         _secondaryWeaponController = FindObjectOfType<SecondaryWeaponController>();
 
         MeleeController meleeController = FindObjectOfType<MeleeController>();
-        if (meleeController == null || !meleeController.HasWeapon)
+        if (meleeController != null && meleeController.HasWeapon)
+        {
+            SetItemFrameImage(meleeController.currentMeleeWeapon.itemFrameImage);
+        }
+        else
         {
             SetItemFrameImage(null);
         }

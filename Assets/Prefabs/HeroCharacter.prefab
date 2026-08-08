@@ -10294,5 +10294,9 @@ MonoBehaviour:
   audioManager: {fileID: 0}
   weapons:
   - {fileID: 11400000, guid: 736183553da42ce4c912eef09fefb92f, type: 2}
+  - {fileID: 11400000, guid: 4c8e9a1b2d3f4051a6b7c8d9e0f1a2b3, type: 2}
+  - {fileID: 11400000, guid: c7d8e9f0a1b24354c6d7e8f9a0b1c2d3, type: 2}
+  forceEquipOnStart: {fileID: 0}
+  stripMeleeOnStart: 0
   playerDirection: 0
   isCrouching: 0

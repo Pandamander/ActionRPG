@@ -38,7 +38,9 @@ public static class PlayerStats
             PowerupDestroy = new List<string>();
             OpenedTreasureChests = new List<string>();
             OverworldDestroyList = new List<string>();
-            MeleeWeapon = "GladiusSword";
+            // Default unarmed primary — persists across scenes until a real weapon is picked up
+            MeleeWeapon = MeleeController.UnarmedWeaponName;
+            Attack = 1;
             SecondaryWeapons = new List<string>();
             //SecondaryWeapons.Add("ThrowingAxe");
             //SecondaryWeapons.Add("Plumbata");
@@ -147,6 +149,14 @@ public static class PlayerStats
         Debug.Log("PickUpWeapon: " + weaponSOPath);
         MeleeWeapon = weaponSOPath;
         Attack = attack;
+    }
+
+    public static void ClearMeleeWeapon()
+    {
+        Initialize();
+        // Persist unarmed primary (Fists) rather than a null equip state
+        MeleeWeapon = MeleeController.UnarmedWeaponName;
+        Attack = 1;
     }
 
     public static void AcquireSecondaryWeapon(string weaponName)

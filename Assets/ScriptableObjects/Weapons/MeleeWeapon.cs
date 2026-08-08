@@ -11,4 +11,8 @@ public class MeleeWeapon : ScriptableObject
     public int attackDamage;
     public LayerMask layerMask;
     public Sprite itemFrameImage;
+    public float attackAnimationDuration = 0.36f;
+    public float crouchAttackAnimationDuration = 0.36f;
+    public string attackAnimationTrigger = "IsAttacking";
+    public bool canBreakProps = true;
 }
