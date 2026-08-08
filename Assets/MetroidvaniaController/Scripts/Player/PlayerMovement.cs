@@ -149,7 +149,6 @@ public class PlayerMovement : MonoBehaviour
 	{
         horizontalMove = 0f;
         canMove = false;
-        StopFixedUpdate = true;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 
