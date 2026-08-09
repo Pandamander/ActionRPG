@@ -12,6 +12,7 @@ public class SubzoneHUD : MonoBehaviour
     [SerializeField] private TMP_Text defenseValueText;
     [SerializeField] private TMP_Text ammoValueText;
     [SerializeField] private TMP_Text oreValueText;
+    [SerializeField] private TMP_Text denariusValueText;
     [SerializeField] private Image itemFrame;
     [SerializeField] private Image secondaryItemFrame;
     [SerializeField] private Color ammoNormalColor = Color.white;
@@ -47,12 +48,20 @@ public class SubzoneHUD : MonoBehaviour
         {
             oreValueText.ForceMeshUpdate();
         }
+        if (denariusValueText != null)
+        {
+            denariusValueText.ForceMeshUpdate();
+        }
         LayoutRebuilder.ForceRebuildLayoutImmediate(attackValueText.transform.parent as RectTransform);
         LayoutRebuilder.ForceRebuildLayoutImmediate(defenseValueText.transform.parent as RectTransform);
         LayoutRebuilder.ForceRebuildLayoutImmediate(ammoValueText.transform.parent as RectTransform);
         if (oreValueText != null)
         {
             LayoutRebuilder.ForceRebuildLayoutImmediate(oreValueText.transform.parent as RectTransform);
+        }
+        if (denariusValueText != null)
+        {
+            LayoutRebuilder.ForceRebuildLayoutImmediate(denariusValueText.transform.parent as RectTransform);
         }
     }
 
@@ -77,6 +86,11 @@ public class SubzoneHUD : MonoBehaviour
         if (oreValueText != null)
         {
             oreValueText.text = PlayerStats.Ore.ToString("D2");
+        }
+
+        if (denariusValueText != null)
+        {
+            denariusValueText.text = PlayerStats.Denarius.ToString("D2");
         }
     }
 

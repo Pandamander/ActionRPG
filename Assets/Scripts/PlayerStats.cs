@@ -11,6 +11,7 @@ public static class PlayerStats
     public static string SecondaryWeapon { get; private set; }
     public static List<string> SecondaryWeapons { get; private set; }
     public static int Ore { get; private set; }
+    public static int Denarius { get; private set; }
     public static bool HasCraftingHammer { get; private set; }
     public static int CraftingHammerLevel { get; private set; }
     public static bool IsCyclopsDefeated { get; private set; }
@@ -47,7 +48,7 @@ public static class PlayerStats
             //SecondaryWeapon = "ThrowingAxe";
             SecondaryWeapon = null;
             SecondaryWeaponAmmo = new Dictionary<string, int>();
-            Ore = 99;
+            //Ore = 99;
             HasCraftingHammer = false;
             CraftingHammerLevel = 1;
             IsCyclopsDefeated = false;
@@ -82,6 +83,17 @@ public static class PlayerStats
         }
 
         Ore += amount;
+    }
+
+    public static void AddDenarius(int amount)
+    {
+        Initialize();
+        if (amount <= 0)
+        {
+            return;
+        }
+
+        Denarius += amount;
     }
 
     public static void MarkForOverworldDestroy(string id)

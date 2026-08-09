@@ -8,5 +8,9 @@ public abstract class SecondaryWeapon : ScriptableObject
     public string attackAnimationTrigger;
     public int maxAmmo = 10;
 
+    public bool canDamageEnemies = true;
+    public bool canMineOre = false;
+    public bool canBreakBreakables = false;
+
     public abstract void Execute(Transform player, Vector2 direction, bool isCrouching);
 }

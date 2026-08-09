@@ -121,7 +121,7 @@ public class MeleeController : MonoBehaviour
             attackOriginPoint,
             attackSize,
             transform.eulerAngles.z,
-            currentMeleeWeapon.layerMask
+            currentMeleeWeapon.GetAttackLayerMask()
         );
 
         // If we don't hit anything, play swipe sound
@@ -136,15 +136,31 @@ public class MeleeController : MonoBehaviour
         {
             float damageDirection = Utilities.DamageDirection(gameObject, c.gameObject);
 
-            if (c.gameObject.TryGetComponent<IDamageable>(out var enemy))
+            if (currentMeleeWeapon.canDamageEnemies)
             {
-                enemy.Damage(currentMeleeWeapon.attackDamage, damageDirection);
+                IDamageable enemy = c.GetComponentInParent<IDamageable>();
+                if (enemy != null)
+                {
+                    enemy.Damage(currentMeleeWeapon.attackDamage, damageDirection);
+                }
             }
 
-            if (currentMeleeWeapon.canBreakProps
-                && c.gameObject.TryGetComponent<IMeleeDamageable>(out var meleeTarget))
+            if (currentMeleeWeapon.canMineOre)
             {
-                meleeTarget.DamageFromMelee(damageDirection);
+                IMineable mineable = c.GetComponentInParent<IMineable>();
+                if (mineable != null)
+                {
+                    mineable.Mine(damageDirection);
+                }
+            }
+
+            if (currentMeleeWeapon.canBreakBreakables)
+            {
+                IBreakable breakable = c.GetComponentInParent<IBreakable>();
+                if (breakable != null)
+                {
+                    breakable.Hit(damageDirection);
+                }
             }
         }
     }

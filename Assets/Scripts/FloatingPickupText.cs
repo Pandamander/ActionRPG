@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -17,8 +18,11 @@ public class FloatingPickupText : MonoBehaviour
     [SerializeField] private Color outlineColor = Color.black;
     [SerializeField] [Range(0f, 1f)] private float outlineWidth = 0.2f;
 
-    private static FloatingPickupText activeInstance;
+    // One active popup per source prefab so currencies can stack independently.
+    private static readonly Dictionary<FloatingPickupText, FloatingPickupText> activeByPrefab =
+        new Dictionary<FloatingPickupText, FloatingPickupText>();
 
+    private FloatingPickupText sourcePrefab;
     private TextMeshPro textMesh;
     private int displayedAmount;
     private bool isFading;
@@ -30,19 +34,26 @@ public class FloatingPickupText : MonoBehaviour
             return;
         }
 
-        if (activeInstance != null && !activeInstance.isFading)
+        if (activeByPrefab.TryGetValue(prefab, out FloatingPickupText activeInstance)
+            && activeInstance != null
+            && !activeInstance.isFading)
         {
             activeInstance.AddAmount(amount);
             return;
         }
 
         FloatingPickupText instance = Instantiate(prefab, worldPosition, Quaternion.identity);
+        instance.sourcePrefab = prefab;
         instance.Play(amount);
     }
 
     public void Play(int amount)
     {
-        activeInstance = this;
+        if (sourcePrefab != null)
+        {
+            activeByPrefab[sourcePrefab] = this;
+        }
+
         displayedAmount = amount;
         isFading = false;
 
@@ -70,9 +81,11 @@ public class FloatingPickupText : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (activeInstance == this)
+        if (sourcePrefab != null
+            && activeByPrefab.TryGetValue(sourcePrefab, out FloatingPickupText activeInstance)
+            && activeInstance == this)
         {
-            activeInstance = null;
+            activeByPrefab.Remove(sourcePrefab);
         }
     }
 

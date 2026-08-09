@@ -15,10 +15,21 @@ public class Projectile : MonoBehaviour
     private ParticleSystemRenderer _particleRenderer;
     private float _spinDirection;
     private float _damageCooldownTimer;
+    private bool _canDamageEnemies = true;
+    private bool _canMineOre;
+    private bool _canBreakBreakables;
 
-    public void Initialize(int damage, Vector2 velocity)
+    public void Initialize(
+        int damage,
+        Vector2 velocity,
+        bool canDamageEnemies = true,
+        bool canMineOre = false,
+        bool canBreakBreakables = false)
     {
         _damage = damage;
+        _canDamageEnemies = canDamageEnemies;
+        _canMineOre = canMineOre;
+        _canBreakBreakables = canBreakBreakables;
         _rigidBody = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _particleRenderer = GetComponentInChildren<ParticleSystemRenderer>();
@@ -62,18 +73,48 @@ public class Projectile : MonoBehaviour
     {
         if (_damageCooldownTimer > 0f) return;
 
-        if (collision.TryGetComponent<IDamageable>(out var target))
-        {
-            target.Damage(_damage, Utilities.DamageDirection(gameObject, collision.gameObject));
+        float damageDirection = Utilities.DamageDirection(gameObject, collision.gameObject);
+        bool hitSomething = false;
 
-            if (destroyOnHit)
+        if (_canDamageEnemies)
+        {
+            IDamageable target = collision.GetComponentInParent<IDamageable>();
+            if (target != null)
             {
-                Destroy(gameObject);
+                target.Damage(_damage, damageDirection);
+                hitSomething = true;
             }
-            else
+        }
+
+        if (_canMineOre)
+        {
+            IMineable mineable = collision.GetComponentInParent<IMineable>();
+            if (mineable != null)
             {
-                _damageCooldownTimer = damageCooldown;
+                mineable.Mine(damageDirection);
+                hitSomething = true;
             }
+        }
+
+        if (_canBreakBreakables)
+        {
+            IBreakable breakable = collision.GetComponentInParent<IBreakable>();
+            if (breakable != null)
+            {
+                breakable.Hit(damageDirection);
+                hitSomething = true;
+            }
+        }
+
+        if (!hitSomething) return;
+
+        if (destroyOnHit)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            _damageCooldownTimer = damageCooldown;
         }
     }
 }

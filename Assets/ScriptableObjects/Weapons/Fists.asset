@@ -16,11 +16,10 @@ MonoBehaviour:
   crouchAttackPoint: {x: 1.035, y: -0.379}
   attackBounds: {x: 0.4412692, y: 0.3782791}
   attackDamage: 1
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 512
   itemFrameImage: {fileID: 21300000, guid: a557b580c37384655a6c7b3a8273ee3e, type: 3}
   attackAnimationDuration: 0.3
   crouchAttackAnimationDuration: 0.3
   attackAnimationTrigger: IsAttackingFists
-  canBreakProps: 0
+  canDamageEnemies: 1
+  canMineOre: 0
+  canBreakBreakables: 0

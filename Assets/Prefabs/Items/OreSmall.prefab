@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2479749591902288655}
   - component: {fileID: 2479749591902288656}
   - component: {fileID: 2479749591902288657}
+  - component: {fileID: 283667220719969208}
   m_Layer: 11
   m_Name: OreSmall
   m_TagString: Untagged
@@ -141,6 +142,23 @@ MonoBehaviour:
   pickupFxPrefab: {fileID: 5046121099261434267, guid: 312a4e06bada248efa73b9f233f1b5e2, type: 3}
   pickupTextPrefab: {fileID: 900003, guid: 44d9f5e9b6bf44dca28a956c4e162504, type: 3}
   popupHeadOffset: 1.2
+--- !u!114 &283667220719969208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2479749591902288640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 829e707bc5a2f44b8a4e726d153edf82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shineColor: {r: 1, g: 1, b: 1, a: 1}
+  _shineIntensity: 0.8
+  _shineWidth: 0.5
+  _shineInterval: 1.5
+  _shineDuration: 0.5
 --- !u!1 &2479749591902288658
 GameObject:
   m_ObjectHideFlags: 0

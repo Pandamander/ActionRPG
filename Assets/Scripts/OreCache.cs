@@ -2,7 +2,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Collider2D))]
-public class OreCache : MonoBehaviour, IMeleeDamageable
+public class OreCache : MonoBehaviour, IMineable
 {
     [System.Serializable]
     public struct OreTypeWeights
@@ -66,7 +66,7 @@ public class OreCache : MonoBehaviour, IMeleeDamageable
         ApplyStageSprite();
     }
 
-    public void DamageFromMelee(float damageDirection)
+    public void Mine(float damageDirection)
     {
         if (isDestroyed || Time.time < invulnerableUntil)
         {

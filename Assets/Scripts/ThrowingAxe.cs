@@ -22,6 +22,12 @@ public class ThrowingAxe : SecondaryWeapon
             Mathf.Sin(radians) * throwSpeed
         );
 
-        projectile.GetComponent<Projectile>().Initialize(damage, velocity);
+        projectile.GetComponent<Projectile>().Initialize(
+            damage,
+            velocity,
+            canDamageEnemies,
+            canMineOre,
+            canBreakBreakables
+        );
     }
 }

@@ -17,6 +17,9 @@ MonoBehaviour:
   attackAnimationDuration: 0.4
   attackAnimationTrigger: IsThrowing
   maxAmmo: 10
+  canDamageEnemies: 1
+  canMineOre: 0
+  canBreakBreakables: 1
   projectilePrefab: {fileID: 8844091647254525655, guid: a75125ea3d7d94409b9f75e1ff4a6e2d, type: 3}
   throwSpeed: 17
   launchAngle: 6

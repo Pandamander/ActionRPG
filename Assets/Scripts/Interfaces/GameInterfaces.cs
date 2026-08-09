@@ -7,7 +7,12 @@ public interface IDamageable
     void Damage(int damage, float damageDirection);
 }
 
-public interface IMeleeDamageable
+public interface IMineable
 {
-    void DamageFromMelee(float damageDirection);
+    void Mine(float damageDirection);
+}
+
+public interface IBreakable
+{
+    void Hit(float damageDirection);
 }
