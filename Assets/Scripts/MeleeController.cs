@@ -15,8 +15,8 @@ public class MeleeController : MonoBehaviour
     [SerializeField] private MeleeWeapon forceEquipOnStart;
     [SerializeField] private bool stripMeleeOnStart;
     private Dictionary<string, MeleeWeapon> WeaponScriptableObjectMap;
-    public PlayerDirection playerDirection;
-    public bool isCrouching = false;
+    [HideInInspector] public PlayerDirection playerDirection;
+    [HideInInspector] public bool isCrouching = false;
     public bool HasWeapon
     {
         get

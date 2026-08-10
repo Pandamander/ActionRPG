@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 900004}
   - component: {fileID: 900005}
   m_Layer: 13
-  m_Name: Pot
+  m_Name: Pot Hanging
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 7
-  m_Sprite: {fileID: 21300000, guid: ab22a28dbe045446f9cb2e413e1f0485, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7ccb327127ede4045bfeefbf12928212, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -129,8 +129,10 @@ MonoBehaviour:
   stageSprites: []
   dropEntries:
   - prefab: {fileID: 4640233090514889435, guid: 39bed6c3235cc42e3b3e66298dc9378b, type: 3}
-    chance: 0.5
-  useHitDirectionForDrops: 0
+    chance: 1
+  - prefab: {fileID: 4640233090514889435, guid: 39bed6c3235cc42e3b3e66298dc9378b, type: 3}
+    chance: 1
+  useHitDirectionForDrops: 1
   destroyedFXObject: {fileID: 920001, guid: 970251851149497f8c2fa89b0aed42de, type: 3}
   blocksPlayer: 1
   bodyCollider: {fileID: 900104}
