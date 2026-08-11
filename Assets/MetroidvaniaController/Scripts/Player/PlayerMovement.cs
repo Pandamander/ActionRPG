@@ -155,6 +155,8 @@ public class PlayerMovement : MonoBehaviour
     public void AllowMovementAfterAttackOrKnockback()
     {
         if (stopOverrideAttack) return;
+		// Attack cooldown must not re-enable Move() during knockback (damps the arc).
+		if (isDamaged) return;
         AllowMovement();
     }
 

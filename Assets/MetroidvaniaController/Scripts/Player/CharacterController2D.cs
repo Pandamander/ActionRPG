@@ -185,7 +185,12 @@ public class CharacterController2D : MonoBehaviour
             Debug.DrawRay(hit.point, hit.normal, Color.yellow);
             Debug.DrawRay(hit.point, slopeNormalPerpendicular, Color.blue);
 
-			if (isOnSlope && horizMovement == 0f)
+			// Max friction while idle on slopes would cancel knockback if applied during hit stun.
+			if (playerMovement.isDamaged)
+			{
+				capsuleCollider.sharedMaterial = noFriction;
+			}
+			else if (isOnSlope && horizMovement == 0f)
 			{
 				 capsuleCollider.sharedMaterial = maxFriction;
 			} else
@@ -194,6 +199,12 @@ public class CharacterController2D : MonoBehaviour
 			}
         }
     }
+
+	/// <summary>Force slippery material so knockback impulse isn't eaten by slope friction.</summary>
+	public void SetNoFrictionForKnockback()
+	{
+		capsuleCollider.sharedMaterial = noFriction;
+	}
 
     public void Move(float move, bool jump, bool dash)
 	{

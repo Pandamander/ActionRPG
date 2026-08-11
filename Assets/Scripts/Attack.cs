@@ -27,7 +27,12 @@ public class Attack : MonoBehaviour, IDamageable
 			return !canMeleeAttack;
 		}
 	}
+
+	/// <summary>True while in hit reaction / knockback arc (control locked).</summary>
 	public bool isDamaged { get; private set; }
+
+	/// <summary>True from hit until i-frames fully expire (blocks all damage sources).</summary>
+	public bool isInvulnerable { get; private set; }
 
     [SerializeField] private SubzoneHUD subzoneHUD;
 
@@ -42,6 +47,8 @@ public class Attack : MonoBehaviour, IDamageable
 
     private string activeAttackTrigger;
     private int lastDialogueEndFrame = -1;
+	private Coroutine invulnerabilityCoroutine;
+	private Coroutine resumeControlCoroutine;
 
     private void Awake()
 	{
@@ -123,7 +130,11 @@ public class Attack : MonoBehaviour, IDamageable
 		yield return new WaitForSeconds(secondaryWeaponController.currentWeapon.attackAnimationDuration);
 		ClearAttackAnimation();
 		canMeleeAttack = true;
-		playerMovement.AllowMovementAfterAttackOrKnockback();
+		// Do not restore control mid-knockback; that damps / cancels the knockback arc.
+		if (!isDamaged)
+		{
+			playerMovement.AllowMovementAfterAttackOrKnockback();
+		}
 	}
 
 	IEnumerator MeleeAttackCooldown()
@@ -134,10 +145,45 @@ public class Attack : MonoBehaviour, IDamageable
         );
         ClearAttackAnimation();
         canMeleeAttack = true;
-        playerMovement.AllowMovementAfterAttackOrKnockback();
+		if (!isDamaged)
+		{
+			playerMovement.AllowMovementAfterAttackOrKnockback();
+		}
     }
 
-    private IEnumerator Invulnerability(int duration)
+	private void StopHitCoroutines()
+	{
+		if (invulnerabilityCoroutine != null)
+		{
+			StopCoroutine(invulnerabilityCoroutine);
+			invulnerabilityCoroutine = null;
+		}
+		if (resumeControlCoroutine != null)
+		{
+			StopCoroutine(resumeControlCoroutine);
+			resumeControlCoroutine = null;
+		}
+	}
+
+	private void BeginInvulnerability()
+	{
+		isInvulnerable = true;
+		Physics2D.IgnoreLayerCollision(PLAYER_COLLISION_LAYER, ENEMY_COLLISION_LAYER, true);
+	}
+
+	private void EndInvulnerability()
+	{
+		isInvulnerable = false;
+		spriteRenderer.color = Color.white;
+		Physics2D.IgnoreLayerCollision(PLAYER_COLLISION_LAYER, ENEMY_COLLISION_LAYER, false);
+		invulnerabilityCoroutine = null;
+	}
+
+	/// <summary>
+	/// Ground blink phase after landing. Invulnerability already began on hit (#1);
+	/// this only handles the visual and ends i-frames when blink finishes.
+	/// </summary>
+    private IEnumerator InvulnerabilityBlink(int duration)
     {
         Color color = Color.clear;
 		int durationCounter = 0;
@@ -148,8 +194,7 @@ public class Attack : MonoBehaviour, IDamageable
             color = (color == Color.clear) ? Color.white : Color.clear;
 			durationCounter++;
         }
-        spriteRenderer.color = Color.white;
-        Physics2D.IgnoreLayerCollision(PLAYER_COLLISION_LAYER, ENEMY_COLLISION_LAYER, false);
+		EndInvulnerability();
     }
 
 	private void CheckGroundedForKnockback()
@@ -164,7 +209,11 @@ public class Attack : MonoBehaviour, IDamageable
             {
                 shouldCheckGroundedForKnockback = false;
                 playerWasKnockedBack = false;
-                StartCoroutine(ResumeControlAfterKnockback());
+				if (resumeControlCoroutine != null)
+				{
+					StopCoroutine(resumeControlCoroutine);
+				}
+                resumeControlCoroutine = StartCoroutine(ResumeControlAfterKnockback());
             }
         }
     }
@@ -180,8 +229,18 @@ public class Attack : MonoBehaviour, IDamageable
             isDamaged = false;
             playerMovement.AllowMovementAfterAttackOrKnockback();
             canMeleeAttack = true;
-            yield return StartCoroutine(Invulnerability(invulnerableDuration));
+
+			// Full-opacity hit sprite ends; blink until remaining i-frames finish.
+			// isInvulnerable stays true so sand balls / non-Enemy layers cannot damage during blink.
+			if (invulnerabilityCoroutine != null)
+			{
+				StopCoroutine(invulnerabilityCoroutine);
+			}
+			// Ensure sprite is white before blink starts (hit phase was full opacity).
+			spriteRenderer.color = Color.white;
+            invulnerabilityCoroutine = StartCoroutine(InvulnerabilityBlink(invulnerableDuration));
         }
+		resumeControlCoroutine = null;
     }
 
 	// IDamageable
@@ -189,21 +248,33 @@ public class Attack : MonoBehaviour, IDamageable
 	{
 		if (dead) { return; }
 
-		if (!isDamaged)
-		{
-            isDamaged = true;
-			Physics2D.IgnoreLayerCollision(PLAYER_COLLISION_LAYER, ENEMY_COLLISION_LAYER, true);
-            subzoneHUD.ReducePlayerHealthMeter(damage);
-            audioManager.PlayDamage();
-            PlayerStats.ApplyDamage(damage);
+		// Unified invuln gate for all sources (enemy contact, sand balls, boulders, etc.)
+		if (isInvulnerable) { return; }
 
-			playerMovement.StopForKnockback();
-			canMeleeAttack = false;
-            animator.SetBool("IsHit", true);
-            Vector2 knockback = new Vector2(knockbackForce.x * damageDirection, knockbackForce.y);
-			rigidBody.AddForce(knockback, ForceMode2D.Impulse);
-			shouldCheckGroundedForKnockback = true;
-        }
+		// Fresh hit reaction: stop any leftover hit/i-frame coroutines before starting again.
+		StopHitCoroutines();
+
+		isDamaged = true;
+		BeginInvulnerability();
+
+		subzoneHUD.ReducePlayerHealthMeter(damage);
+		audioManager.PlayDamage();
+		PlayerStats.ApplyDamage(damage);
+
+		playerMovement.StopForKnockback();
+		// Lock physics to no-friction so slope max-friction cannot cancel the knock arc.
+		controller.SetNoFrictionForKnockback();
+		canMeleeAttack = false;
+		animator.SetBool("IsHit", true);
+		// Full opacity during air hit reaction (blink starts only after land).
+		spriteRenderer.color = Color.white;
+
+		// Set velocity directly for a consistent arc (mass-independent Impulse equivalent for our setup).
+		rigidBody.velocity = new Vector2(knockbackForce.x * damageDirection, knockbackForce.y);
+
+		shouldCheckGroundedForKnockback = true;
+		// If already airborne, count as in-arc so first land restores control.
+		playerWasKnockedBack = !playerMovement.grounded;
 	}
 
     private IEnumerator Die()
@@ -211,6 +282,9 @@ public class Attack : MonoBehaviour, IDamageable
         playerMovement.Stop();
         audioManager.PlayGameOver();
         dead = true;
+		isInvulnerable = true;
+		isDamaged = false;
+		shouldCheckGroundedForKnockback = false;
         animator.SetBool("IsDead", true);
 		yield return new WaitForSeconds(4);
         GameManager.sharedInstance.ShowGameOver(SceneManager.GetActiveScene().name);
