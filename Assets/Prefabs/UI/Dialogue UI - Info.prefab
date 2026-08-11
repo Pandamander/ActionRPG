@@ -617,6 +617,7 @@ GameObject:
   - component: {fileID: 11424752}
   - component: {fileID: 11466480}
   - component: {fileID: 1592391130286266209}
+  - component: {fileID: 8844221100112233445}
   m_Layer: 5
   m_Name: NPC Subtitle Panel
   m_TagString: Untagged
@@ -708,7 +709,7 @@ Animator:
   m_GameObject: {fileID: 114678}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 62b8011547f389344ba48f87b2ada51c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1851f3f4acd774b1890a9814793f138f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 2
   m_ApplyRootMotion: 0
@@ -761,8 +762,8 @@ MonoBehaviour:
   focusCheckFrequency: 0.2
   refreshSelectablesFrequency: 0
   selectPreviousOnDisable: 1
-  showAnimationTrigger: Show
-  hideAnimationTrigger: Hide
+  showAnimationTrigger: 
+  hideAnimationTrigger: 
   startState: 0
   waitForShowAnimationToSetOpen: 0
   m_deactivateOnHidden: 1
@@ -788,7 +789,7 @@ MonoBehaviour:
   addSpeakerNameFormat: '{0}: {1}'
   accumulateText: 0
   maxLines: 100
-  delayTypewriterUntilOpen: 0
+  delayTypewriterUntilOpen: 1
   continueButton: {fileID: 11451356}
   blockInputDuration: 0
   visibility: 1
@@ -825,6 +826,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
+--- !u!114 &8844221100112233445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7e4c2a91f3d4e6a8b0c1d2e3f4a5b6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finalSizeDeltaX: -224
+  startSizeDeltaX: -434
+  showTriggerName: Show
+  settleFrames: 1
 --- !u!1 &114694
 GameObject:
   m_ObjectHideFlags: 0
@@ -1106,7 +1123,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 131212}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 62b8011547f389344ba48f87b2ada51c, type: 2}
   m_CullingMode: 0
@@ -1135,8 +1152,8 @@ MonoBehaviour:
   focusCheckFrequency: 0.2
   refreshSelectablesFrequency: 0
   selectPreviousOnDisable: 1
-  showAnimationTrigger: Show
-  hideAnimationTrigger: Hide
+  showAnimationTrigger: 
+  hideAnimationTrigger: 
   startState: 2
   waitForShowAnimationToSetOpen: 0
   m_deactivateOnHidden: 1
@@ -1331,7 +1348,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: (NPC Subtitle)
+  m_Text: 
 --- !u!114 &11473704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1514,9 +1531,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 136800}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 62b8011547f389344ba48f87b2ada51c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1851f3f4acd774b1890a9814793f138f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 2
   m_ApplyRootMotion: 1
@@ -1544,7 +1561,7 @@ MonoBehaviour:
   refreshSelectablesFrequency: 0
   selectPreviousOnDisable: 0
   showAnimationTrigger: Show
-  hideAnimationTrigger: Hide
+  hideAnimationTrigger: 
   startState: 0
   waitForShowAnimationToSetOpen: 0
   m_deactivateOnHidden: 1
@@ -2715,7 +2732,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 165426}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 62b8011547f389344ba48f87b2ada51c, type: 2}
   m_CullingMode: 0
@@ -2782,8 +2799,8 @@ MonoBehaviour:
   focusCheckFrequency: 0.2
   refreshSelectablesFrequency: 1
   selectPreviousOnDisable: 1
-  showAnimationTrigger: Show
-  hideAnimationTrigger: Hide
+  showAnimationTrigger: 
+  hideAnimationTrigger: 
   startState: 2
   waitForShowAnimationToSetOpen: 0
   m_deactivateOnHidden: 1
@@ -3654,7 +3671,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 193956}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 62b8011547f389344ba48f87b2ada51c, type: 2}
   m_CullingMode: 0
@@ -3683,8 +3700,8 @@ MonoBehaviour:
   focusCheckFrequency: 0.2
   refreshSelectablesFrequency: 0.5
   selectPreviousOnDisable: 1
-  showAnimationTrigger: Show
-  hideAnimationTrigger: Hide
+  showAnimationTrigger: 
+  hideAnimationTrigger: 
   startState: 0
   waitForShowAnimationToSetOpen: 0
   m_deactivateOnHidden: 1
@@ -4663,6 +4680,7 @@ GameObject:
   - component: {fileID: 5013072805719477142}
   - component: {fileID: 2477660102635713429}
   - component: {fileID: 1353735572109437459}
+  - component: {fileID: 8849243646830971015}
   m_Layer: 5
   m_Name: PC Subtitle Panel
   m_TagString: Untagged
@@ -4754,7 +4772,7 @@ Animator:
   m_GameObject: {fileID: 6543567751341519513}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 62b8011547f389344ba48f87b2ada51c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1851f3f4acd774b1890a9814793f138f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 2
   m_ApplyRootMotion: 0
@@ -4808,7 +4826,7 @@ MonoBehaviour:
   refreshSelectablesFrequency: 0
   selectPreviousOnDisable: 1
   showAnimationTrigger: Show
-  hideAnimationTrigger: Hide
+  hideAnimationTrigger: 
   startState: 0
   waitForShowAnimationToSetOpen: 0
   m_deactivateOnHidden: 1
@@ -4834,7 +4852,7 @@ MonoBehaviour:
   addSpeakerNameFormat: '{0}: {1}'
   accumulateText: 0
   maxLines: 100
-  delayTypewriterUntilOpen: 0
+  delayTypewriterUntilOpen: 1
   continueButton: {fileID: 3045131711693464616}
   blockInputDuration: 0
   visibility: 1
@@ -4871,6 +4889,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
+--- !u!114 &8849243646830971015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6543567751341519513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7e4c2a91f3d4e6a8b0c1d2e3f4a5b6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finalSizeDeltaX: -224
+  startSizeDeltaX: -434
+  showTriggerName: Show
+  settleFrames: 1
 --- !u!1 &7269414545923239632
 GameObject:
   m_ObjectHideFlags: 0
@@ -5119,7 +5153,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: (NPC Subtitle)
+  m_Text: 
 --- !u!114 &8750161468806487474
 MonoBehaviour:
   m_ObjectHideFlags: 0

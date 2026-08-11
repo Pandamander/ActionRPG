@@ -707,7 +707,7 @@ Animator:
   m_GameObject: {fileID: 114678}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 62b8011547f389344ba48f87b2ada51c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 83f30cb67569b4577950fc68adc3de7b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 2
   m_ApplyRootMotion: 0
@@ -761,9 +761,9 @@ MonoBehaviour:
   refreshSelectablesFrequency: 0
   selectPreviousOnDisable: 1
   showAnimationTrigger: Show
-  hideAnimationTrigger: Hide
+  hideAnimationTrigger: 
   startState: 0
-  waitForShowAnimationToSetOpen: 0
+  waitForShowAnimationToSetOpen: 1
   m_deactivateOnHidden: 1
   onOpen:
     m_PersistentCalls:
@@ -787,7 +787,7 @@ MonoBehaviour:
   addSpeakerNameFormat: '{0}: {1}'
   accumulateText: 0
   maxLines: 100
-  delayTypewriterUntilOpen: 0
+  delayTypewriterUntilOpen: 1
   continueButton: {fileID: 11451356}
   blockInputDuration: 0
   visibility: 1
@@ -796,7 +796,7 @@ MonoBehaviour:
   onlyShowNPCPortraits: 0
   useAnimatedPortraits: 0
   usePortraitNativeSize: 0
-  waitForOpen: 0
+  waitForOpen: 1
   waitForClose: 0
   clearTextOnClose: 1
   clearTextOnConversationStart: 0
@@ -1091,7 +1091,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 131212}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 62b8011547f389344ba48f87b2ada51c, type: 2}
   m_CullingMode: 0
@@ -1120,8 +1120,8 @@ MonoBehaviour:
   focusCheckFrequency: 0.2
   refreshSelectablesFrequency: 0
   selectPreviousOnDisable: 1
-  showAnimationTrigger: Show
-  hideAnimationTrigger: Hide
+  showAnimationTrigger: 
+  hideAnimationTrigger: 
   startState: 2
   waitForShowAnimationToSetOpen: 0
   m_deactivateOnHidden: 1
@@ -1499,9 +1499,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 136800}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 62b8011547f389344ba48f87b2ada51c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 83f30cb67569b4577950fc68adc3de7b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 2
   m_ApplyRootMotion: 1
@@ -1529,7 +1529,7 @@ MonoBehaviour:
   refreshSelectablesFrequency: 0
   selectPreviousOnDisable: 0
   showAnimationTrigger: Show
-  hideAnimationTrigger: Hide
+  hideAnimationTrigger: 
   startState: 0
   waitForShowAnimationToSetOpen: 0
   m_deactivateOnHidden: 1
@@ -2700,7 +2700,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 165426}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 62b8011547f389344ba48f87b2ada51c, type: 2}
   m_CullingMode: 0
@@ -2767,8 +2767,8 @@ MonoBehaviour:
   focusCheckFrequency: 0.2
   refreshSelectablesFrequency: 1
   selectPreviousOnDisable: 1
-  showAnimationTrigger: Show
-  hideAnimationTrigger: Hide
+  showAnimationTrigger: 
+  hideAnimationTrigger: 
   startState: 2
   waitForShowAnimationToSetOpen: 0
   m_deactivateOnHidden: 1
@@ -3639,7 +3639,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 193956}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 62b8011547f389344ba48f87b2ada51c, type: 2}
   m_CullingMode: 0
@@ -3668,8 +3668,8 @@ MonoBehaviour:
   focusCheckFrequency: 0.2
   refreshSelectablesFrequency: 0.5
   selectPreviousOnDisable: 1
-  showAnimationTrigger: Show
-  hideAnimationTrigger: Hide
+  showAnimationTrigger: 
+  hideAnimationTrigger: 
   startState: 0
   waitForShowAnimationToSetOpen: 0
   m_deactivateOnHidden: 1
@@ -4738,7 +4738,7 @@ Animator:
   m_GameObject: {fileID: 6543567751341519513}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 62b8011547f389344ba48f87b2ada51c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 83f30cb67569b4577950fc68adc3de7b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 2
   m_ApplyRootMotion: 0
@@ -4792,9 +4792,9 @@ MonoBehaviour:
   refreshSelectablesFrequency: 0
   selectPreviousOnDisable: 1
   showAnimationTrigger: Show
-  hideAnimationTrigger: Hide
+  hideAnimationTrigger: 
   startState: 0
-  waitForShowAnimationToSetOpen: 0
+  waitForShowAnimationToSetOpen: 1
   m_deactivateOnHidden: 1
   onOpen:
     m_PersistentCalls:
@@ -4818,7 +4818,7 @@ MonoBehaviour:
   addSpeakerNameFormat: '{0}: {1}'
   accumulateText: 0
   maxLines: 100
-  delayTypewriterUntilOpen: 0
+  delayTypewriterUntilOpen: 1
   continueButton: {fileID: 3045131711693464616}
   blockInputDuration: 0
   visibility: 1
@@ -4827,7 +4827,7 @@ MonoBehaviour:
   onlyShowNPCPortraits: 0
   useAnimatedPortraits: 0
   usePortraitNativeSize: 0
-  waitForOpen: 0
+  waitForOpen: 1
   waitForClose: 0
   clearTextOnClose: 1
   clearTextOnConversationStart: 0

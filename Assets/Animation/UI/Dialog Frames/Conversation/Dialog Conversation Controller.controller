@@ -81,7 +81,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Canvas Group Animator Controller
+  m_Name: Dialog Conversation Controller
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Show
@@ -337,7 +337,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 94bb12c058e7749b093bb525b39b1d61, type: 2}
+  m_Motion: {fileID: 7400000, guid: 26b9ff14f098f4247a4857154f0a8264, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -460,7 +460,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 110200000}
-    m_Position: {x: 150, y: -110, z: 0}
+    m_Position: {x: 140, y: -100, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110281693}
     m_Position: {x: -110, y: 80, z: 0}

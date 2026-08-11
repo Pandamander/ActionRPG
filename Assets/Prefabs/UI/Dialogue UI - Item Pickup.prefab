@@ -613,6 +613,7 @@ GameObject:
   - component: {fileID: 11424752}
   - component: {fileID: 11466480}
   - component: {fileID: 4111925367052471826}
+  - component: {fileID: 5910146808746173891}
   m_Layer: 5
   m_Name: Item Pickup Panel
   m_TagString: Untagged
@@ -703,7 +704,7 @@ Animator:
   m_GameObject: {fileID: 114678}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 62b8011547f389344ba48f87b2ada51c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1531b11bdaff04f318855a924d8365e1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 2
   m_ApplyRootMotion: 0
@@ -757,9 +758,9 @@ MonoBehaviour:
   refreshSelectablesFrequency: 0
   selectPreviousOnDisable: 1
   showAnimationTrigger: Show
-  hideAnimationTrigger: Hide
+  hideAnimationTrigger: 
   startState: 0
-  waitForShowAnimationToSetOpen: 0
+  waitForShowAnimationToSetOpen: 1
   m_deactivateOnHidden: 1
   onOpen:
     m_PersistentCalls:
@@ -820,6 +821,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
+--- !u!114 &5910146808746173891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7e4c2a91f3d4e6a8b0c1d2e3f4a5b6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finalSizeDeltaX: -171
+  startSizeDeltaX: -400
+  showTriggerName: Show
+  settleFrames: 1
 --- !u!1 &114694
 GameObject:
   m_ObjectHideFlags: 0
@@ -1101,7 +1118,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 131212}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 62b8011547f389344ba48f87b2ada51c, type: 2}
   m_CullingMode: 0
@@ -1130,8 +1147,8 @@ MonoBehaviour:
   focusCheckFrequency: 0.2
   refreshSelectablesFrequency: 0
   selectPreviousOnDisable: 1
-  showAnimationTrigger: Show
-  hideAnimationTrigger: Hide
+  showAnimationTrigger: 
+  hideAnimationTrigger: 
   startState: 2
   waitForShowAnimationToSetOpen: 0
   m_deactivateOnHidden: 1
@@ -1488,9 +1505,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 136800}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 62b8011547f389344ba48f87b2ada51c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1531b11bdaff04f318855a924d8365e1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 2
   m_ApplyRootMotion: 1
@@ -1518,7 +1535,7 @@ MonoBehaviour:
   refreshSelectablesFrequency: 0
   selectPreviousOnDisable: 0
   showAnimationTrigger: Show
-  hideAnimationTrigger: Hide
+  hideAnimationTrigger: 
   startState: 0
   waitForShowAnimationToSetOpen: 0
   m_deactivateOnHidden: 1
@@ -2592,7 +2609,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 165426}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 62b8011547f389344ba48f87b2ada51c, type: 2}
   m_CullingMode: 0
@@ -2659,8 +2676,8 @@ MonoBehaviour:
   focusCheckFrequency: 0.2
   refreshSelectablesFrequency: 1
   selectPreviousOnDisable: 1
-  showAnimationTrigger: Show
-  hideAnimationTrigger: Hide
+  showAnimationTrigger: 
+  hideAnimationTrigger: 
   startState: 2
   waitForShowAnimationToSetOpen: 0
   m_deactivateOnHidden: 1
@@ -3531,7 +3548,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 193956}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 62b8011547f389344ba48f87b2ada51c, type: 2}
   m_CullingMode: 0
@@ -3560,8 +3577,8 @@ MonoBehaviour:
   focusCheckFrequency: 0.2
   refreshSelectablesFrequency: 0.5
   selectPreviousOnDisable: 1
-  showAnimationTrigger: Show
-  hideAnimationTrigger: Hide
+  showAnimationTrigger: 
+  hideAnimationTrigger: 
   startState: 0
   waitForShowAnimationToSetOpen: 0
   m_deactivateOnHidden: 1
@@ -4849,7 +4866,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6543567751341519513}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 62b8011547f389344ba48f87b2ada51c, type: 2}
   m_CullingMode: 0
@@ -4904,8 +4921,8 @@ MonoBehaviour:
   focusCheckFrequency: 0.2
   refreshSelectablesFrequency: 0
   selectPreviousOnDisable: 1
-  showAnimationTrigger: Show
-  hideAnimationTrigger: Hide
+  showAnimationTrigger: 
+  hideAnimationTrigger: 
   startState: 0
   waitForShowAnimationToSetOpen: 0
   m_deactivateOnHidden: 1
