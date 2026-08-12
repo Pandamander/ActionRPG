@@ -314,6 +314,7 @@ GameObject:
   - component: {fileID: 11461066}
   - component: {fileID: 11423052}
   - component: {fileID: 11451262}
+  - component: {fileID: 8820011000000000001}
   m_Layer: 5
   m_Name: Continue Button
   m_TagString: Untagged
@@ -480,6 +481,21 @@ MonoBehaviour:
   skipIfBeingClickedBySubmit: 1
   simulateButtonClick: 1
   simulateButtonDownDuration: 0.1
+--- !u!114 &8820011000000000001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99852176b2424976b6e1aff0520ff01a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typewriterEffect: {fileID: 0}
+  continueAnimator: {fileID: 0}
+  canvasGroup: {fileID: 0}
 --- !u!1 &109788
 GameObject:
   m_ObjectHideFlags: 0
@@ -758,7 +774,7 @@ MonoBehaviour:
   refreshSelectablesFrequency: 0
   selectPreviousOnDisable: 1
   showAnimationTrigger: Show
-  hideAnimationTrigger: 
+  hideAnimationTrigger: Hide
   startState: 0
   waitForShowAnimationToSetOpen: 1
   m_deactivateOnHidden: 1
@@ -1535,7 +1551,7 @@ MonoBehaviour:
   refreshSelectablesFrequency: 0
   selectPreviousOnDisable: 0
   showAnimationTrigger: Show
-  hideAnimationTrigger: 
+  hideAnimationTrigger: Hide
   startState: 0
   waitForShowAnimationToSetOpen: 0
   m_deactivateOnHidden: 1
@@ -2997,6 +3013,7 @@ GameObject:
   - component: {fileID: 11417816}
   - component: {fileID: 4304725477867359893}
   - component: {fileID: 5089015319250745290}
+  - component: {fileID: 8820011000000000002}
   m_Layer: 5
   m_Name: Continue Button
   m_TagString: Untagged
@@ -3221,6 +3238,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8820011000000000002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99852176b2424976b6e1aff0520ff01a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typewriterEffect: {fileID: 0}
+  continueAnimator: {fileID: 0}
+  canvasGroup: {fileID: 0}
 --- !u!1 &182688
 GameObject:
   m_ObjectHideFlags: 0
@@ -4311,6 +4343,7 @@ GameObject:
   - component: {fileID: 3801956051083502759}
   - component: {fileID: 1756138685416486807}
   - component: {fileID: 6262464418981242835}
+  - component: {fileID: 8820011000000000003}
   m_Layer: 5
   m_Name: Continue Button
   m_TagString: Untagged
@@ -4535,6 +4568,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8820011000000000003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4838984844779514132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99852176b2424976b6e1aff0520ff01a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typewriterEffect: {fileID: 0}
+  continueAnimator: {fileID: 0}
+  canvasGroup: {fileID: 0}
 --- !u!1 &4944164101958275216
 GameObject:
   m_ObjectHideFlags: 0
