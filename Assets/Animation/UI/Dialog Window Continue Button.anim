@@ -6,8 +6,8 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Dialog Window Continue Icon
-  serializedVersion: 6
+  m_Name: Dialog Window Continue Button
+  serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
   m_UseHighQualityCurve: 1
@@ -18,17 +18,19 @@ AnimationClip:
   m_ScaleCurves: []
   m_FloatCurves: []
   m_PPtrCurves:
-  - curve:
+  - serializedVersion: 2
+    curve:
     - time: 0
-      value: {fileID: -2040932655, guid: 188e36bbf22354724ab0214663f9e409, type: 3}
+      value: {fileID: 21300000, guid: f1eef2a3a88714ecabb99dc43de87a73, type: 3}
     - time: 0.3
-      value: {fileID: 1094713599, guid: 188e36bbf22354724ab0214663f9e409, type: 3}
+      value: {fileID: 21300000, guid: 9fcdecbf833a848dca1842c4b199904e, type: 3}
     - time: 0.6
-      value: {fileID: -2040932655, guid: 188e36bbf22354724ab0214663f9e409, type: 3}
+      value: {fileID: 21300000, guid: f1eef2a3a88714ecabb99dc43de87a73, type: 3}
     attribute: m_Sprite
     path: 
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+    flags: 2
   m_SampleRate: 10
   m_WrapMode: 0
   m_Bounds:
@@ -43,10 +45,12 @@ AnimationClip:
       typeID: 114
       customType: 0
       isPPtrCurve: 1
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -2040932655, guid: 188e36bbf22354724ab0214663f9e409, type: 3}
-    - {fileID: 1094713599, guid: 188e36bbf22354724ab0214663f9e409, type: 3}
-    - {fileID: -2040932655, guid: 188e36bbf22354724ab0214663f9e409, type: 3}
+    - {fileID: 21300000, guid: f1eef2a3a88714ecabb99dc43de87a73, type: 3}
+    - {fileID: 21300000, guid: 9fcdecbf833a848dca1842c4b199904e, type: 3}
+    - {fileID: 21300000, guid: f1eef2a3a88714ecabb99dc43de87a73, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
