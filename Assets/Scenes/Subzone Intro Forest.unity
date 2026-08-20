@@ -768,7 +768,7 @@ PrefabInstance:
       value: Subzone Intro Forest
       objectReference: {fileID: 0}
     - target: {fileID: 2560223189649536867, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
-      propertyPath: direction
+      propertyPath: overworldDirectionOverride
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2560223189649536867, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
@@ -43352,7 +43352,7 @@ PrefabInstance:
       value: Subzone Intro Forest
       objectReference: {fileID: 0}
     - target: {fileID: 2560223189649536867, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
-      propertyPath: direction
+      propertyPath: overworldDirectionOverride
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2560223189649536867, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}

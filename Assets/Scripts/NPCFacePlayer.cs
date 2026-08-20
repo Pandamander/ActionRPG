@@ -22,10 +22,10 @@ public class NPCFacePlayer : MonoBehaviour
     {
         if(playerTransform.position.x <= transform.position.x - flipThreshold)
         {
-            spriteRenderer.flipX = true;
+            spriteRenderer.flipX = false;
         } else if (playerTransform.position.x >= transform.position.x + flipThreshold)
         {
-            spriteRenderer.flipX = false;
+            spriteRenderer.flipX = true;
         }
     }
 }

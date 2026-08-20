@@ -71,3 +71,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cac74d4b250ed3047b6293288d05110d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transitionType: 0
+  doorTooltipPrefab: {fileID: 6172839405162738491, guid: 7c4e2a91f8b64d3e9a5c1d0e6b8f2473, type: 3}

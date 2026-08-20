@@ -204,6 +204,18 @@ public class PlayerMovement : MonoBehaviour
         attack.ClearAttackAnimation();
     }
 
+    public void BeginEnteringDoor()
+    {
+        canMove = false;
+        horizontalMove = 0f;
+        UnCrouch();
+        animator.SetBool("IsJumping", false);
+        animator.SetFloat("Speed", 0f);
+        attack.ClearAttackAnimation();
+        animator.SetBool("IsEnteringDoor", true);
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+    }
+
     public IEnumerator AutoWalk(float duration, OverworldSubzoneContainer.PlayerDirection direction)
     {
         // Trigger animator
