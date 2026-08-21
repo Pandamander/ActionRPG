@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
 	private bool StopFixedUpdate = false;
     private Attack attack;
     private bool stopOverrideAttack = false;
+    private SpriteRenderer spriteRenderer;
 	public bool isAttacking
 	{
 		get
@@ -44,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         attack = GetComponent<Attack>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -214,6 +216,32 @@ public class PlayerMovement : MonoBehaviour
         attack.ClearAttackAnimation();
         animator.SetBool("IsEnteringDoor", true);
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+    }
+
+    // Called by an animation event on the enter-door clips.
+    public void BeginDoorSpriteFade(float duration)
+    {
+        if (spriteRenderer == null || duration <= 0f) return;
+
+        StartCoroutine(FadeSpriteOut(duration));
+    }
+
+    private IEnumerator FadeSpriteOut(float duration)
+    {
+        float elapsedTime = 0f;
+        Color color = spriteRenderer.color;
+        float startingAlpha = color.a;
+
+        while (elapsedTime < duration)
+        {
+            color.a = Mathf.Lerp(startingAlpha, 0f, elapsedTime / duration);
+            spriteRenderer.color = color;
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        color.a = 0f;
+        spriteRenderer.color = color;
     }
 
     public IEnumerator AutoWalk(float duration, OverworldSubzoneContainer.PlayerDirection direction)

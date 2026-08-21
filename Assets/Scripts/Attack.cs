@@ -163,6 +163,7 @@ public class Attack : MonoBehaviour, IDamageable
 			StopCoroutine(resumeControlCoroutine);
 			resumeControlCoroutine = null;
 		}
+		spriteRenderer.color = Color.white;
 	}
 
 	private void BeginInvulnerability()
