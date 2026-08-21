@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2560223189649536894
+--- !u!1 &5934639682217287741
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,41 +8,60 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2560223189649536864}
-  - component: {fileID: 2560223189649536865}
-  - component: {fileID: 2560223189649536867}
+  - component: {fileID: 6461655806681249535}
+  - component: {fileID: 4100380398179343190}
+  - component: {fileID: 8011650754904993405}
   m_Layer: 1
-  m_Name: LevelExit
+  m_Name: LevelExitDoor
   m_TagString: LevelExit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2560223189649536864
+--- !u!4 &6461655806681249535
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2560223189649536894}
+  m_GameObject: {fileID: 5934639682217287741}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -64.8, y: 0, z: 0}
+  m_LocalPosition: {x: -8.5, y: -3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &2560223189649536865
+--- !u!61 &4100380398179343190
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2560223189649536894}
+  m_GameObject: {fileID: 5934639682217287741}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -57,20 +76,29 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 36}
+  m_Size: {x: 0.5, y: 2}
   m_EdgeRadius: 0
---- !u!114 &2560223189649536867
+--- !u!114 &8011650754904993405
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2560223189649536894}
+  m_GameObject: {fileID: 5934639682217287741}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cac74d4b250ed3047b6293288d05110d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionType: 0
+  levelExitOverworldPositionOverride: {x: 0, y: 0, z: 0}
+  usePositionOverride: 0
+  subzoneLevelStartPositionOverride: {x: 1, y: -3, z: 0}
+  useSubzoneLevelStartPositionOverride: 1
+  subzoneLevelStartDirectionOverride: 3
+  subzone: Enter Current Subzone Here
+  levelToLoadOnExit: Enter Destination Subzone Here
+  overworldDirectionOverride: 3
+  transitionType: 1
+  fader: {fileID: 0}
   doorTooltipPrefab: {fileID: 6172839405162738491, guid: 7c4e2a91f8b64d3e9a5c1d0e6b8f2473, type: 3}
-  doorEnterDuration: 0.5
+  doorEnterDuration: 0.15

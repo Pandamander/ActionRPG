@@ -3394,7 +3394,7 @@ Tilemap:
       - {fileID: 21300000, guid: 19ef9101715b74b1d90f56ecfa3b6f8e, type: 3}
       - {fileID: 21300000, guid: 63aef86efb79841c99390853a970cd35, type: 3}
       - {fileID: 21300000, guid: ba309561263c04a5190199cddae78303, type: 3}
-      m_AnimationSpeed: 6
+      m_AnimationSpeed: 6.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -4, y: -3, z: 0}
@@ -3460,111 +3460,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1001 &1534252106
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2560223189649536864, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -8.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2560223189649536864, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2560223189649536864, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2560223189649536864, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2560223189649536864, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2560223189649536864, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2560223189649536864, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2560223189649536864, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2560223189649536864, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2560223189649536864, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2560223189649536865, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
-      propertyPath: m_Size.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2560223189649536865, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
-      propertyPath: m_Size.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2560223189649536867, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
-      propertyPath: fader
-      value: 
-      objectReference: {fileID: 948488624}
-    - target: {fileID: 2560223189649536867, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
-      propertyPath: subzone
-      value: Subzone Intro Town Shop
-      objectReference: {fileID: 0}
-    - target: {fileID: 2560223189649536867, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
-      propertyPath: overworldDirectionOverride
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2560223189649536867, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
-      propertyPath: transitionType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2560223189649536867, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
-      propertyPath: doorEnterDuration
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2560223189649536867, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
-      propertyPath: levelToLoadOnExit
-      value: Subzone Intro Town
-      objectReference: {fileID: 0}
-    - target: {fileID: 2560223189649536867, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
-      propertyPath: subzoneLevelStartDirectionOverride
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2560223189649536867, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
-      propertyPath: subzoneLevelStartPositionOverride.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2560223189649536867, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
-      propertyPath: subzoneLevelStartPositionOverride.y
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2560223189649536867, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
-      propertyPath: useSubzoneLevelStartPositionOverride
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2560223189649536894, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
-      propertyPath: m_Name
-      value: Door
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2f43821810fb40149964cfca4d5b35fe, type: 3}
 --- !u!1 &1614656216 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4064209768786870756, guid: 8d297122649c14cb29795d9027920cc9, type: 3}
@@ -17484,6 +17379,75 @@ MonoBehaviour:
   m_MaximumFOV: 60
   m_MinimumOrthoSize: 1
   m_MaximumOrthoSize: 5000
+--- !u!1001 &5282732649656891546
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5934639682217287741, guid: a16147f4cc48b4e71aae5c1c6046de2f, type: 3}
+      propertyPath: m_Name
+      value: LevelExitDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 6461655806681249535, guid: a16147f4cc48b4e71aae5c1c6046de2f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6461655806681249535, guid: a16147f4cc48b4e71aae5c1c6046de2f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6461655806681249535, guid: a16147f4cc48b4e71aae5c1c6046de2f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6461655806681249535, guid: a16147f4cc48b4e71aae5c1c6046de2f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6461655806681249535, guid: a16147f4cc48b4e71aae5c1c6046de2f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6461655806681249535, guid: a16147f4cc48b4e71aae5c1c6046de2f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6461655806681249535, guid: a16147f4cc48b4e71aae5c1c6046de2f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6461655806681249535, guid: a16147f4cc48b4e71aae5c1c6046de2f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6461655806681249535, guid: a16147f4cc48b4e71aae5c1c6046de2f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6461655806681249535, guid: a16147f4cc48b4e71aae5c1c6046de2f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8011650754904993405, guid: a16147f4cc48b4e71aae5c1c6046de2f, type: 3}
+      propertyPath: fader
+      value: 
+      objectReference: {fileID: 948488624}
+    - target: {fileID: 8011650754904993405, guid: a16147f4cc48b4e71aae5c1c6046de2f, type: 3}
+      propertyPath: subzone
+      value: Subzone Intro Town Shop
+      objectReference: {fileID: 0}
+    - target: {fileID: 8011650754904993405, guid: a16147f4cc48b4e71aae5c1c6046de2f, type: 3}
+      propertyPath: levelToLoadOnExit
+      value: Subzone Intro Town
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a16147f4cc48b4e71aae5c1c6046de2f, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -17496,5 +17460,5 @@ SceneRoots:
   - {fileID: 1077032759}
   - {fileID: 1685832177}
   - {fileID: 911193242}
-  - {fileID: 1534252106}
+  - {fileID: 5282732649656891546}
   - {fileID: 529949688}

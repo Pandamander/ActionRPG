@@ -29,6 +29,7 @@ public class LevelExit : MonoBehaviour
 
     [SerializeField] private Fader fader;
     [SerializeField] private GameObject doorTooltipPrefab;
+    [SerializeField] private float doorEnterDuration = 0.5f;
 
     private SpriteRenderer tooltipSpriteRenderer;
     private Transform playerInRange;
@@ -145,6 +146,11 @@ public class LevelExit : MonoBehaviour
 
     private IEnumerator DoSceneExit()
     {
+        if (transitionType == LevelExitTransition.Door)
+        {
+            yield return new WaitForSeconds(doorEnterDuration);
+        }
+
         yield return StartCoroutine(fader.DoSteppedFadeIn());
 
         SceneManager.LoadScene(levelToLoadOnExit);
